@@ -1,4 +1,4 @@
-# thesis
+# Thesis
 My Thesis
 
 ## Building
