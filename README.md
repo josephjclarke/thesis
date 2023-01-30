@@ -1,4 +1,24 @@
 # thesis
-My Thesis!
+My Thesis
 
-I'd better start writing!
+## Building
+Build with 
+
+```
+make
+```
+
+Use 
+
+```
+make clean
+```
+
+to remove the nonessential files generated during build.
+
+Use 
+```
+make deepclean
+``` 
+
+to get rid the output pdf as well.
