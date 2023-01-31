@@ -9,3 +9,6 @@ deepclean:
 		latexmk -C
 clean:
 		latexmk -c
+
+check:
+		lacheck thesis.tex

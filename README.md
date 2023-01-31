@@ -22,3 +22,10 @@ make deepclean
 ``` 
 
 to get rid the output pdf as well.
+
+## Linting
+Using 
+```
+make check
+```
+will check with lacheck
