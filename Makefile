@@ -1,14 +1,15 @@
-.DUMMY: thesis.pdf all clean
+.PHONY: thesis.pdf all clean
 
 all: thesis.pdf
 
 thesis.pdf: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
-		latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $<
+	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $<
 
 deepclean:
-		latexmk -C
+	latexmk -C
+
 clean:
-		latexmk -c
+	latexmk -c
 
 check:
-		lacheck thesis.tex
+	lacheck thesis.tex
