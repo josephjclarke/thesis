@@ -19,6 +19,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 % science
 \usepackage{siunitx}
@@ -39,4 +40,9 @@
 \DeclareSIUnit\year{yr}
 
 % Custom Settings
-\renewcommand{\showlabelfont}{\ttfamily\tiny} 
+\renewcommand{\showlabelfont}{\ttfamily\tiny}
+
+% Mathematical Environments
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]

@@ -1,2 +1,115 @@
 \chapter{Variational Calculus}
-An appendix on variational calculus. 
+\label{appendix:variational_calculus}
+
+In this appendix, we give a brief summary of some of the results involving the \emph{functional} or \emph{variational} derivative.
+There are no original results in this appendix and it draws chiefly on \cite{Lancaster2014}. Both for reasons of clarity and because we are not
+working rigorously we will adopt the physicist's notation.
+
+\section{Functionals}
+A function is a map between numbers. For example the function $f\colon \mathbb{R} \rightarrow \mathbb{R}$
+\begin{equation}
+  \label{eq:example_function}
+  f(x) = x^2
+\end{equation}
+assossiates the input number $2$ to the output number $4$.
+
+However \emph{functionals} assossiate functions to numbers. They are ubiquitous in mathematics and physics. For example
+the definite integral
+\begin{equation}
+  \label{eq:example_functional_definite_integral}
+  I[f] = \int_{-\infty}^{\infty} f(x) \, \mathrm{d}x
+\end{equation}
+is a functional of $f$. It assossiates the function $e^{-x^2}$ to the number $\sqrt{\pi}$.
+So too is the evalutation functional
+\begin{equation}
+  \label{eq:example_functional_evaluation}
+  E_y[f] = f(y).
+\end{equation}
+Most famous of all is the \emph{action} of a system
+\begin{equation}
+  \label{eq:example_functional_action}
+  S[q] = \int_0^t L(q(t'),\dot{q}(t'),t')\,\mathrm{d}t'.
+\end{equation}
+
+\section{Derivatives}
+The definition of a derivative is well known:
+\begin{definition}[Derivative of a Function]
+  \label{definition:derivative}
+  Let $f\colon \mathbb{R} \rightarrow \mathbb{R}$ be a function. Then the derivative of $f$ is
+  \begin{equation}
+    \label{eq:definition_of_derivative}
+    \dv{f}{x} = \lim_{\epsilon\rightarrow 0} \frac{f(x + \epsilon) - f(x)}{\epsilon}
+  \end{equation}
+  if the limit exists.
+\end{definition}
+In other words, the derivative measures how much a function changes when its input changes `a little bit'.
+
+Similarly, we can ask what happens to a functional when its input is changed `a little bit'. We can therefore
+definine the functional derivitive (also known as a variational derivative) as follows.
+\begin{definition}[Functional Derivative]
+  \label{definition:functional_derivative}
+  Let $J$ be a functional of $f$ which is in turn a function of $x \in \mathbb{R}$. Then the functional derivative is
+  \begin{equation}
+    \label{eq:definition_of_functional_derivative}
+    \fdv{J}{f(x)} = \lim_{\epsilon\rightarrow 0} \frac{J[f(x') + \epsilon \delta(x - x')] - J[f(x')]}{\epsilon}
+  \end{equation}
+  if the limit exists. Here, $\delta(x)$ is the Dirac Delta function.
+\end{definition}
+
+As an example, consider the functional derivative of \cref{eq:example_functional_definite_integral}. From \cref{definition:functional_derivative}
+we have
+\begin{equation*}
+  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_{-\infty}^{\infty} f(x') + \epsilon \delta\left(x-x'\right)\,\mathrm{d}x' 
+      - \int_{-\infty}^{\infty} f(x')\,\mathrm{d}x'\right),
+\end{equation*}
+which can be simplified to give
+\begin{equation*}
+  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0}\frac{1}{\epsilon}\int_{-\infty}^{\infty} \epsilon \delta(x-x')\,\mathrm{d}x' = 1.
+\end{equation*}
+
+\section{Useful Results}
+We now prove two chain rule type results for functional derivatives.
+\begin{theorem}
+  \label{theorem:chain_rules}
+  Let $f,g\colon\mathbb{R}\rightarrow\mathbb{R}$ be suitable functions. Then
+  \begin{equation}
+    \label{eq:chain_rule_functionals}
+    \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y = g'\left(f\left(x\right)\right)
+  \end{equation}
+  and
+  \begin{equation}
+    \label{eq:chain_rule_derivatives_functional}
+    \fdv{f(x)} \int_a^b g\left(f'\left(y\right)\right)\,\mathrm{d}y = -\dv{x}\left(\dv{g\left(f'\left(x\right)\right)}{f'}\right)
+  \end{equation}
+  where conventional derivatives have been denoted with primes.
+\end{theorem}
+\begin{proof}
+  Beginning with the first claim using \cref{definition:functional_derivative}:
+  \begin{align*}
+    \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(f(y) + \epsilon \delta\left(y-x\right)\right)\,\mathrm{d}y
+                                                                     - \int_a^b g\left(f\left(y\right)\right)\mathrm{d}y \right)\\
+    &=  \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(f(y)\right) + \epsilon \delta\left(y-x\right)g'\left(f\left(y\right)\right)\,\mathrm{d}y
+                                                                     - \int_a^b g\left(f\left(y\right)\right)\mathrm{d}y + \mathcal{O}\left(\epsilon^2\right)\right)
+  \end{align*}
+  where the function $g$ has been Taylor expanded to first order. So taking the limit gives
+  \begin{align*}
+    \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y &= \int_a^b \delta(y - x) g'(f(y))\,\mathrm{d}y \\
+                                                                   &= g'(f(x))                                                              
+  \end{align*}
+  assuming $a \leq y \leq b$.
+  We proceed similarly for the second claim:
+  \begin{align*}
+    \fdv{f(x)} \int_a^b g\left(f'\left(y\right)\right)\,\mathrm{d}y &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g\left(\pdv{y}\left(f(y) + \epsilon \delta (y-x)\right)\right)\, \mathrm{d}y- \int_a^b g \left( f' \left( y \right) \right)\mathrm{d}y\right)       \\
+                                                                    &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g(f'(y)) + \epsilon \delta' (y-x)\dv{g(f'(y))}{f'}\, \mathrm{d}y- \int_a^b g(f'(y))\mathrm{d}y+\mathcal{O}\left(\epsilon^2\right)\right) \\
+                                                                    &= \int_a^b \delta' (y-x)\dv{g(f'(y))}{f'}\, \mathrm{d}y \\
+    &= - \dv{x} \dv{g(f'(x))}{f'}
+  \end{align*}
+  after integrating by parts.
+\end{proof}
+
+An important special case of \cref{theorem:chain_rules} is
+\begin{equation}
+  \label{eq:derivative_of_squared_derivative}
+  \fdv{f(x)}\int_a^b \left(\pdv{f}{y}\right)^2\,\mathrm{d}y = - 2 \pdv[2]{f}{x}.
+\end{equation}
+Note the minus sign.
