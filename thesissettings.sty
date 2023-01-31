@@ -12,7 +12,7 @@
 \usepackage{microtype}
 
 % bibliography
-\usepackage[backend=biber]{biblatex}
+\usepackage[backend=biber,style=draft]{biblatex}
 \addbibresource{bibliography/bibliography.bib}
 
 % AMS
@@ -22,6 +22,8 @@
 
 % science
 \usepackage{siunitx}
+\usepackage{physics}
+
 
 % figures
 \usepackage{graphicx}
@@ -29,8 +31,12 @@
 
 % load at the end
 \usepackage{hyperref}
-\usepackage{showlabels}
+\usepackage[left]{showlabels}
+\usepackage{cleveref}
 
 % Custom Units
 \DeclareSIUnit\carbon{C}
 \DeclareSIUnit\year{yr}
+
+% Custom Settings
+\renewcommand{\showlabelfont}{\ttfamily\tiny} 

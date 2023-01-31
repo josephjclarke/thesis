@@ -1,3 +1,40 @@
 \chapter{Spatial Early Warning Indicators}
 \graphicspath{{spatial_ews/figs/}}
-Why not look at\cite{jame76}.
+
+\section{Fast and Slow Tipping Elements}
+An open question in the theory of Early Warning Signals is how to make use of them when the control parameter
+changes quickly relative to the timescale of the system\cite{VanderBolt2021}\todo{I should read this paper properly}.
+To be more formal about this, consider the system
+\begin{equation}
+  \label{eq:system_with_a_timescale}
+  \dv{y}{t} = \frac{f(y,rt)}{T}
+\end{equation}
+where $y$ is the system state, $T$ is a characteristic timescale of the system and $r$ is the rate the system is linearly forced
+at. Suppose further than there is a tipping point at time $t = t^*$ (i.e. when the forcing reaches a magnitude of $rt^*$). By considering
+the ratio of the system to forcing timscale we can define a parameter $\epsilon = rT$ and introduce a rescaling of time $t=Ts$
+so that \cref{eq:system_with_a_timescale} becomes
+\begin{equation}
+  \label{eq:system_with_a_timescale_rescaled}
+  \dv{y}{s} = f(y,\epsilon s).
+\end{equation}
+
+There is an important limit to be considered here. Suppose $r$ is very small --- in other words the system is forced very slowly --- so that we
+can take $\epsilon\rightarrow 0$ in such a way that $\epsilon s \rightarrow \mu$ where $\mu$ is a constant. We can now view this as a bifurcation
+problem and can then apply all the usual tools to detect approaching tipping points\cite{scheffer2009}.
+
+This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence tipping point assossiated to the system
+this limit applies to (whether because it is slowly forced or rapidly responding) is known as a \emph{fast tipping point}.
+
+Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good Early Warning Signals
+using the temporal variance and autocorrelation\cite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
+Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\cite{Osborn2021}, a rate unprecidented in
+a long time\todo{find a good citation for this}. Many important tipping elements have timescales of centuries or longer\todo{cite timescales}.
+This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of technqiues that enable
+larger values of $\epsilon$ to be probed.
+
+Part of the problem with these slow tipping elements is that the forcing changes appreciably over the window used to calculate early warning signals.
+To get around this we might try to make `instantaneous' measurements of its variance and autocorrelation. One way to do this would be to calculate these
+statistics over space instead of over time.
+
+\section{Prior Work}
+\todo{What is known about spatial EWS already?}
