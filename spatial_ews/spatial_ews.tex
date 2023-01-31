@@ -39,7 +39,7 @@ statistics over space instead of over time.
 \section{Prior Work}
 \todo{What is known about spatial EWS already?}
 
-\section{The system}
+\section{The System}
 In order to investigate spatial early warning signals we will investigate a specific system. We will choose this system
 to be generic enough that broader conclusions can be drawn. We will make the system as simple as possible to make it more
 likely to give understandable results.
@@ -83,3 +83,47 @@ With this we can rewrite \cref{eq:spatial_system_y} as
     \pdv{y}{t} = -\fdv{\mathscr{E}}{y(x)}  + \sigma\zeta, 
 \end{equation}
 which is a Time Dependent Ginzburg Landau equation\todo{cite this --- phase transitions book?}.
+
+\section{Statistics}
+We will compare the autocorrelation and variance of \cref{eq:spatial_system} calculated over space and over time. We will now
+make precise what that means.
+
+\subsection{Spatial Statistics}
+
+We will definte the average of a quantity calculated from \cref{eq:spatial_system}, $A(t) = A(y(x,t),x)$ in the obvious way
+\begin{equation}
+  \label{eq:definition_of_average}
+  \langle A \rangle = \frac{1}{L}\int_0^L A(y(x,t),x) \,\mathrm{d}x.
+\end{equation}
+We can now define the spatial variance of $y$ at time $t$ as
+\begin{equation}
+  \label{eq:spatial_variance}
+  \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle.
+\end{equation}
+We will define the autocorrelation over space as
+\begin{equation}
+  \label{eq:spatial_autocorrelation}
+  \alpha_s(t) = \frac{\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle }{\sigma_s(t)^2}.
+\end{equation}
+The quantity $\Delta t$ is the lag of the autocorrelation. However \cref{eq:spatial_system} will ultimately be solved numerically and
+in everything that follows we will set $\Delta t$ to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
+
+\subsection{Temporal Statistics}
+\todo{Statistics over time}
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}[h]{llll}
+    \toprule
+    Quantity        & Domain & Symbol        & Definition \\
+    \midrule
+    Variance        & Space  & $\sigma_s^2$  & $\langle y^2 \rangle - \langle y \rangle$ \\
+                    & Time   & $\sigma_t^2$  & $\overline{z^2} - \overline{z}^2$ \\
+    Autocorrelation & Space  & $\alpha_s$    & $\left(\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle \right)/\sigma_s(t)^2$ \\
+                    & Time   & $\alpha_t$    &  $\overline{z(t)z(t+\Delta t)}/\sigma_t^2$ \\
+    \bottomrule
+  \end{tabular}
+  \caption[Definition of spatial and temporal early warning signals]{The definition of the early warning indicators, over space and over time}
+  \label{tab:ews_space_time_definition}
+\end{table}
