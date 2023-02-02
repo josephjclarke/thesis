@@ -1,8 +1,8 @@
 \ProvidesPackage{thesissettings}
 
 % format helpers
-\usepackage{todonotes}
-
+\usepackage[obeyDraft]{todonotes}
+\usepackage{ifdraft}
 
 % encoding
 \usepackage[utf8]{inputenc}
@@ -12,7 +12,7 @@
 \usepackage{microtype}
 
 % bibliography
-\usepackage[backend=biber,style=draft]{biblatex}
+\ifdraft{\usepackage[backend=biber,style=draft]{biblatex}}{\usepackage[backend=biber]{biblatex}}
 \addbibresource{bibliography/bibliography.bib}
 
 % Maths
@@ -36,7 +36,7 @@
 
 % load at the end
 \usepackage{hyperref}
-\usepackage[left]{showlabels}
+\ifdraft{\usepackage[left]{showlabels}}{}
 \usepackage{cleveref}
 
 % Custom Units
@@ -44,9 +44,17 @@
 \DeclareSIUnit\year{yr}
 
 % Custom Settings
-\renewcommand{\showlabelfont}{\ttfamily\tiny}
+\ifdraft{\renewcommand{\showlabelfont}{\ttfamily\tiny}}{}
 
 % Mathematical Environments
 \newtheorem{theorem}{Theorem}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+
+% Hyperlink colours
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+  citecolor=blue
+  }

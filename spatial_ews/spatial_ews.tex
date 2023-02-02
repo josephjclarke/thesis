@@ -147,7 +147,21 @@ and
 
 \section{Numerical Results}
 \subsection{Numerical Method}
+To solve \cref{eq:spatial_system}, we discretise the domain into $N = 100$ grid
+points and 
+calculate the diffusive term with finite differences. We integrate forward in time by 
+using an implicit Euler method, where we solve the resulting nonlinear equation using 
+MINPACK's hybrd method. To avoid excessively long integrations when $\epsilon$ is small,
+we set the timestep $\delta t = 0.001/\epsilon$ and integrate until $t=1/\epsilon$. We
+calculate all early warning signals from $\epsilon t=0$ until $\epsilon t=2/3$, which is the 
+time of the tipping point. When working over time, we choose our window size to 
+contain 500 data points (i.e. half the time series),
+so that the window length is $\tau_w = 1/(2\epsilon)$. We perform a quadratic detrend in these windows.
+To stand a chance of getting good early warning
+signals in time we require that $\epsilon < 1/\tau_w$, which is always satisfied.
+Systems are initialised in equilibrium and spun up for 1000 time steps.
 \subsection{Two Limits}
+Before fully exploring the effect of $\epsilon$ and $D$ on early warning signals, we will look at two important limits.    
 \subsubsection{Uncoupled Limit}
 \subsubsection{Slowly Forced Limit}
 \subsection{Exploring the $\epsilon$ and $D$ parameter space}
