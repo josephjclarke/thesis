@@ -17,4 +17,4 @@ clean:
 	latexmk -c
 
 check:
-	lacheck thesis.tex
+	lacheck main.tex
