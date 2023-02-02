@@ -2,10 +2,15 @@
 My Thesis
 
 ## Building
-Build with 
+Build in draft mode with 
 
 ```
 make
+```
+
+Build in final mode with
+```
+make final
 ```
 
 Use 

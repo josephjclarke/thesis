@@ -7,8 +7,8 @@ final: thesis.pdf
 draftthesis.pdf: draftthesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
 	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $<
 
-thesis.pdf:      finalthesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
-	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -user-make -job-name=thesis $<
+thesis.pdf: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
+	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $<
 
 deepclean:
 	latexmk -C

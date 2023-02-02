@@ -1,26 +1,3 @@
-\usepackage{thesissettings}
-
-\includeonly{spatial_ews/spatial_ews,bibliography/bibliography,spatial_ews/variational_calculus}
-
-\begin{document}
-\listoftodos{}
-\frontmatter{}
-\todo[inline]{Have a seperate .tex for draft and final and in makefile?}
-\include{titlepage}
-\include{contents}
-\include{acknowledgements}
-\include{preface}
-
-
-\mainmatter{}
-\include{introduction/introduction}
-\include{spatial_ews/spatial_ews}
-\include{conclusions/conclusions}
-
-
-\appendix
-\include{spatial_ews/variational_calculus}
-
-\backmatter{}
-\include{bibliography/bibliography.tex}
-\end{document}
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[a4paper,oneside]{book}
+\input{main.tex}
