@@ -136,9 +136,12 @@ and
     Quantity        & Domain & Symbol        & Definition \\
     \midrule
     Variance        & Space  & $\sigma_s^2$  & $\langle y^2 \rangle - \langle y \rangle$ \\
+    \rule{0pt}{4ex}    
                     & Time   & $\sigma_t^2$  & $\overline{z^2} - \overline{z}^2$ \\
-    Autocorrelation & Space  & $\alpha_s$    & $\left(\left\langle y\left(t,x\right)y\left(t+\Delta t,x\right)\right\rangle - \left\langle y\left(t,x\right)^2 \right\rangle \right)/\sigma_s(t)^2$ \\
-                    & Time   & $\alpha_t$    &  $\overline{z(t)z(t+\Delta t)}/\sigma_t^2$ \\
+    \rule{0pt}{4ex}    
+    Autocorrelation & Space  & $\alpha_s$    & $\frac{\left\langle y\left(t,x\right)y\left(t+\Delta t,x\right)\right\rangle - \left\langle y\left(t,x\right)^2 \right\rangle}{\sigma_s(t)^2}$ \\
+    \rule{0pt}{4ex}    
+                    & Time   & $\alpha_t$    &  $\frac{\overline{z(t)z(t+\Delta t)}}{\sigma_t^2}$ \\
     \bottomrule
   \end{tabular}
   \caption[Definition of spatial and temporal early warning signals]{The definition of the early warning indicators, over space and over time}
