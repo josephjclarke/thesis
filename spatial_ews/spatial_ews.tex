@@ -58,7 +58,7 @@ pattern formation in ecosystems.}
 
 We will introduce noise into the system and assume the control parameter changes linearly with time. All of these considerations motivates studying
 \begin{subequations}
-  \label{eq:spatial_system}
+\label{eq:spatial_system}
   \begin{align}
     \pdv{y}{t} &= y - \frac{1}{3}y^3 - \mu + D\pdv[2]{y}{x} + \sigma\zeta \label{eq:spatial_system_y} \\
     \dv{\mu}{t}&= \epsilon \label{eq:spatial_system_mu}
@@ -86,7 +86,7 @@ which is a Time Dependent Ginzburg Landau equation\todo{cite this --- phase tran
 
 \section{Statistics}
 We will compare the autocorrelation and variance of \cref{eq:spatial_system} calculated over space and over time. We will now
-make precise what that means.
+make precise what that means. For a summary see \cref{tab:ews_space_time_definition}.
 
 \subsection{Spatial Statistics}
 
@@ -109,9 +109,26 @@ The quantity $\Delta t$ is the lag of the autocorrelation. However \cref{eq:spat
 in everything that follows we will set $\Delta t$ to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
 
 \subsection{Temporal Statistics}
-\todo{Statistics over time}
+When working over time, we will convert the spatiotemporal data to temporal data by first averaging in space to get $\left\langle y \right\rangle$.
+To calculate the early warning indicators over time, we must define averaging in time. Consider the quantity $B(t)$. We will
+define the temporal average as
+\begin{equation}
+  \label{eq:definition_of_temporal_average}
+  \overline{B} = \frac{1}{T}\int_0^TB(t)\,\mathrm{d}t
+\end{equation}
+where the average is taken over some suitable window of length $T$.
 
-
+When computing early warning indicators, we must first `detrend' the timeseries. We denote the detrended time series of $\langle y \rangle$ as $z$.
+The the variance and autocorrelation, defined over a window of length $\tau_w$ are
+\begin{equation}
+  \label{eq:temporal_variance}
+  \sigma_t^2 = \overline{z^2} - \overline{z}^2 
+\end{equation}
+and
+\begin{equation}
+  \label{eq:temporal_autocorrelation}
+  \alpha_t = \frac{\overline{z(t)z(t+\Delta t)}}{\sigma_t^2}.
+\end{equation}
 \begin{table}[h]
   \centering
   \begin{tabular}[h]{llll}
@@ -120,7 +137,7 @@ in everything that follows we will set $\Delta t$ to the timestep, so that $\alp
     \midrule
     Variance        & Space  & $\sigma_s^2$  & $\langle y^2 \rangle - \langle y \rangle$ \\
                     & Time   & $\sigma_t^2$  & $\overline{z^2} - \overline{z}^2$ \\
-    Autocorrelation & Space  & $\alpha_s$    & $\left(\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle \right)/\sigma_s(t)^2$ \\
+    Autocorrelation & Space  & $\alpha_s$    & $\left(\left\langle y\left(t,x\right)y\left(t+\Delta t,x\right)\right\rangle - \left\langle y\left(t,x\right)^2 \right\rangle \right)/\sigma_s(t)^2$ \\
                     & Time   & $\alpha_t$    &  $\overline{z(t)z(t+\Delta t)}/\sigma_t^2$ \\
     \bottomrule
   \end{tabular}
