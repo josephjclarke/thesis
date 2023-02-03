@@ -154,7 +154,7 @@ To solve \cref{eq:spatial_system}, we discretise the domain into $N = 100$ grid
 points and 
 calculate the diffusive term with finite differences. We integrate forward in time by 
 using an implicit Euler method, where we solve the resulting nonlinear equation using 
-MINPACK's hybrd method. To avoid excessively long integrations when $\epsilon$ is small,
+MINPACK's HYBRD method accessed through SciPy\cite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
 we set the timestep $\delta t = 0.001/\epsilon$ and integrate until $t=1/\epsilon$. We
 calculate all early warning signals from $\epsilon t=0$ until $\epsilon t=2/3$, which is the 
 time of the tipping point. When working over time, we choose our window size to 
