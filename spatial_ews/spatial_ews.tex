@@ -170,7 +170,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{uncoupled_variance}
-  \caption{Early warning signals when $D = 0$. The left column shows the slow forcing case and the right column shows the fast forcing.
+  \caption[Early warning signals in the uncoupled limit]{Early warning signals when $D = 0$. The left column shows the slow forcing case and the right column shows the fast forcing.
     The top row shows the individual trajectories with the mean trajectory shown in green. The black curves are the quasistatic equilibria.
     In the second row the we plot $\sigma_s^2$ in black and $\sigma_t^2$ in red. In the bottom row we calculate $\sigma_t^2$ from the individual
     $y_k$ values rather than the mean and calculate the kendall $\tau$ value for each and plot a histogram of the results. The mean $\tau$ values
@@ -189,7 +189,18 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     we do not see a coherent warning of the upcoming transition. However there is a very clear rise in $\sigma_s^2$ before the bifurcation, demonstrating that spatial early warning
     signals are superior in this case.
 
-\subsubsection{Slowly Forced Limit}
+    \subsubsection{Slowly Forced Limit}
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth,keepaspectratio]{coupled_variance}
+      \caption[Early Warning Signals in the slowly forced limit]{Early warning signals when $\epsilon = 0.01$. The left column shows 
+                the weakly coupled case, the right shows what happens in the strongly coupled (large $D$) case. 
+                The top row shows the quasi-static equilibria (black) the individual
+                trajectories of the grid boxes (grey) and the domain average (green).
+			      The variance is plotted in the second row, calculated over space 
+                (black) and over time (red). The bottom row shows a histogram of the kendall $\tau$ values calculated over time for each $y_k$.}
+              \label{fig:coupled_variance}
+    \end{figure}
 \subsection{Exploring the $\epsilon$ and $D$ parameter space}
 \subsubsection{Scaling Arguments}
 \section{Discussion}
