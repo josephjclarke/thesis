@@ -1,5 +1,5 @@
 \chapter{Spatial Early Warning Signals}
-\graphicspath{{spatial_ews/figs/}}
+\graphicspath{{spatial_ews/figs}}
 
 \section{Fast and Slow Tipping Elements}
 An open question in the theory of Early Warning Signals is how to make use of them when the control parameter
@@ -152,7 +152,7 @@ and
 \subsection{Numerical Method}
 To solve \cref{eq:spatial_system}, we discretise the domain into $N = 100$ grid
 points and 
-calculate the diffusive term with finite differences. We integrate forward in time by 
+calculate the diffusive term with finite differences. We denote the value of $y$ at the $k$th gridpoint by $y_k$. We integrate forward in time by 
 using an implicit Euler method, where we solve the resulting nonlinear equation using 
 MINPACK's HYBRD method accessed through SciPy\cite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
 we set the timestep $\delta t = 0.001/\epsilon$ and integrate until $t=1/\epsilon$. We
@@ -166,6 +166,29 @@ Systems are initialised in equilibrium and spun up for 1000 time steps.
 \subsection{Two Limits}
 Before fully exploring the effect of $\epsilon$ and $D$ on early warning signals, we will look at two important limits.    
 \subsubsection{Uncoupled Limit}
+We will  begin by examining the case when $D = 0$, for large and small values of $\epsilon$. Consider \cref{fig:uncoupled_timeseries}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{uncoupled_variance}
+  \caption{Early warning signals when $D = 0$. The left column shows the slow forcing case and the right column shows the fast forcing.
+    The top row shows the individual trajectories with the mean trajectory shown in green. The black curves are the quasistatic equilibria.
+    In the second row the we plot $\sigma_s^2$ in black and $\sigma_t^2$ in red. In the bottom row we calculate $\sigma_t^2$ from the individual
+    $y_k$ values rather than the mean and calculate the kendall $\tau$ value for each and plot a histogram of the results. The mean $\tau$ values
+                are 0.6 and 0.04 for the slow and fast case respectively.}
+  \label{fig:uncoupled_timeseries}
+\end{figure}
+ The left column shows the small $\epsilon$ case. This is the case
+    where we expect temporal early warning signals to work well. For this value of $\epsilon$ the system
+    transitions to its new state near the time of the bifurcation and its variance calculated over
+    space or calculated over time both clearly increase near the bifurcation point. Furthermore
+    calculating the statistics for each the individual grid points shows that most grid points 
+    experience a rise in variance over time as well.
+
+    For the larger $\epsilon$ case the results are different. The system has not yet transitioned to
+    its new state even by the end of the simulation. We do not see a clear rise in $\sigma_t^2$ near the bifurcation point. Furthermore looking at the individual grid points
+    we do not see a coherent warning of the upcoming transition. However there is a very clear rise in $\sigma_s^2$ before the bifurcation, demonstrating that spatial early warning
+    signals are superior in this case.
+
 \subsubsection{Slowly Forced Limit}
 \subsection{Exploring the $\epsilon$ and $D$ parameter space}
 \subsubsection{Scaling Arguments}
