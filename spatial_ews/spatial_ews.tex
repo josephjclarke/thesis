@@ -208,8 +208,20 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     \subsection{Exploring the $\epsilon$ and $D$ parameter space}
     Now that we have examined the two limits, it will be worthwhile to more explore the parameter space more fully.
     We will investigate points in the parameter plane defined by $(\epsilon,D) \in [10^{-2},10^1] \times [10^{-7},10^{7}]$.
-    We sample 100 points\todo{did I?} in each direction, geometrically spaced, giving $10^4$ total points. The output is in
-    \cref{fig:parameter_plane}.
+    We sample 100 points\todo{did I?} in each direction, geometrically spaced, giving $10^4$ total points.
+
+    We can determine if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
+    A positive value implies an increasing trend\cite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
+    experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
+    (SNR) defined as the ratio of the mean to the standard deviation is larger than 1, then we cannot reliably expect and early warning.
+
+    We calculate this signal-to-noise ratio in \cref{fig:parameter_plane} for temporal and spatial early warning statistics. We see that only for
+    certain regions of the parameter plane do we get an early warning of the upcoming tipping point. We note that there is a complementarity between spatial
+    and temporal early warning signals. We see that for rapidly forced systems we get good early warning signals in space as long the
+    the coupling in space is not too strong. Conversely, for strongly coupled systems we get 
+    a good early warning in time as long the forcing is slow enough. We observe the strongly
+    coupled and rapidly forced region does not give good early warning signals with either method.
+
     \begin{figure}[h]
       \centering
       \includegraphics[width=\textwidth,keepaspectratio]{parameter_plane}
@@ -218,6 +230,8 @@ We will  begin by examining the case when $D = 0$, for large and small values of
         $\epsilon(1+\frac{4\pi^2}{L^2} D) = 1$.}
       \label{fig:parameter_plane}
     \end{figure}
-\subsubsection{Scaling Arguments}
+    \subsubsection{Scaling Arguments}
+
+    In this section we will explain why the early warning signals only work in certain regions of \cref{fig:parameter_plane}.
 \section{Discussion}
 \section{Conclusion}
