@@ -11,7 +11,7 @@ To be more formal about this, consider the system
 \end{equation}
 where $y$ is the system state, $T$ is a characteristic timescale of the system and $r$ is the rate the system is linearly forced
 at. Suppose further than there is a tipping point at time $t = t^*$ (i.e.\ when the forcing reaches a magnitude of $rt^*$). By considering
-the ratio of the system to forcing timscale we can define a parameter $\epsilon = rT$ and introduce a rescaling of time $t=Ts$
+the ratio of the system to forcing timescale we can define a parameter $\epsilon = rT$ and introduce a rescaling of time $t=Ts$
 so that \cref{eq:system_with_a_timescale} becomes
 \begin{equation}
   \label{eq:system_with_a_timescale_rescaled}
@@ -22,18 +22,18 @@ There is an important limit to be considered here. Suppose $r$ is very small ---
 can take $\epsilon\rightarrow 0$ in such a way that $\epsilon s \rightarrow \mu$ where $\mu$ is a constant. We can now view this as a bifurcation
 problem and can then apply all the usual tools to detect approaching tipping points\cite{scheffer2009}.
 
-This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence tipping point assossiated to the system
+This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence tipping point associated to the system
 this limit applies to (whether because it is slowly forced or rapidly responding) is known as a \emph{fast tipping point}.
 
 Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good Early Warning Signals
 using the temporal variance and autocorrelation\cite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
-Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\cite{Osborn2021}, a rate unprecidented in
+Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\cite{Osborn2021}, a rate unprecedented in
 a long time\todo{find a good citation for this}. Many important tipping elements have timescales of centuries or longer\todo{cite timescales}.
-This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of technqiues that enable
+This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of techniques that enable
 larger values of $\epsilon$ to be probed.
 
 Part of the problem with these slow tipping elements is that the forcing changes appreciably over the window used to calculate early warning signals.
-To get around this we might try to make `instantaneous' measurements of its variance and autocorrelation. One way to do this would be to calculate these
+To get around this we might try to make `instantaneous measurements of its variance and autocorrelation. One way to do this would be to calculate these
 statistics over space instead of over time.
 
 \section{Prior Work}
@@ -52,8 +52,7 @@ involve the lowest order terms which give a saddle node, namely $\dot{y} = y - y
 We need to take into account the spatial nature of the problem. Again to keep things simple, we will restrict attention to a 1 dimensional
 periodic domain. To couple in space we use the well studied diffusive coupling which acts to smooth out the value of $y$.\todo{This can be
   better justified. Furthermore, something like: such a form has found numerous uses
-in simple models for ecological and earth system applications: energy bal-
-ance models for global temperature, models of the movement of species and
+in simple models for ecological and earth system applications: energy balance models for global temperature, models of the movement of species and
 pattern formation in ecosystems.}
 
 We will introduce noise into the system and assume the control parameter changes linearly with time. All of these considerations motivates studying
@@ -90,7 +89,7 @@ make precise what that means. For a summary see \cref{tab:ews_space_time_definit
 
 \subsection{Spatial Statistics}
 
-We will definte the average of a quantity calculated from \cref{eq:spatial_system}, $A(t) = A(y(x,t),x)$ in the obvious way
+We will define the average of a quantity calculated from \cref{eq:spatial_system}, $A(t) = A(y(x,t),x)$ in the obvious way
 \begin{equation}
   \label{eq:definition_of_average}
   \langle A \rangle = \frac{1}{L}\int_0^L A(y(x,t),x) \,\mathrm{d}x.
@@ -109,7 +108,7 @@ The quantity $\Delta t$ is the lag of the autocorrelation. However \cref{eq:spat
 in everything that follows we will set $\Delta t$ to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
 
 \subsection{Temporal Statistics}
-When working over time, we will convert the spatiotemporal data to temporal data by first averaging in space to get $\left\langle y \right\rangle$.
+When working over time, we will convert the spatio-temporal data to temporal data by first averaging in space to get $\left\langle y \right\rangle$.
 To calculate the early warning indicators over time, we must define averaging in time. Consider the quantity $B(t)$. We will
 define the temporal average as
 \begin{equation}
@@ -118,7 +117,7 @@ define the temporal average as
 \end{equation}
 where the average is taken over some suitable window of length $T$.
 
-When computing early warning indicators, we must first `detrend' the timeseries. We denote the detrended time series of $\langle y \rangle$ as $z$.
+When computing early warning indicators, we must first `detrend' the time series. We denote the detrended time series of $\langle y \rangle$ as $z$.
 The the variance and autocorrelation, defined over a window of length $\tau_w$ are
 \begin{equation}
   \label{eq:temporal_variance}
@@ -171,9 +170,9 @@ We will  begin by examining the case when $D = 0$, for large and small values of
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{uncoupled_variance}
   \caption[Early warning signals in the uncoupled limit]{Early warning signals when $D = 0$. The left column shows the slow forcing case and the right column shows the fast forcing.
-    The top row shows the individual trajectories with the mean trajectory shown in green. The black curves are the quasistatic equilibria.
+    The top row shows the individual trajectories with the mean trajectory shown in green. The black curves are the quasi-static equilibria.
     In the second row the we plot $\sigma_s^2$ in black and $\sigma_t^2$ in red. In the bottom row we calculate $\sigma_t^2$ from the individual
-    $y_k$ values rather than the mean and calculate the kendall $\tau$ value for each and plot a histogram of the results. The mean $\tau$ values
+    $y_k$ values rather than the mean and calculate the Kendall $\tau$ value for each and plot a histogram of the results. The mean $\tau$ values
                 are 0.6 and 0.04 for the slow and fast case respectively.}
   \label{fig:uncoupled_timeseries}
 \end{figure}
@@ -202,7 +201,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
                 The top row shows the quasi-static equilibria (black) the individual
                 trajectories of the grid boxes (grey) and the domain average (green).
 			      The variance is plotted in the second row, calculated over space 
-                (black) and over time (red). The bottom row shows a histogram of the kendall $\tau$ values calculated over time for each $y_k$.}
+                (black) and over time (red). The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
               \label{fig:coupled_timeseries}
     \end{figure}
     \subsection{Exploring the $\epsilon$ and $D$ parameter space}
@@ -262,7 +261,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
   we expect good temporal early warning signals when $\epsilon^{1/3} \ll 1$.
 
   \subsection{Spatial Early Warning Signals}
-  Analysising the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
+  Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
   model\cite{goldenfeld1992}, where
   $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
 
@@ -301,13 +300,28 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     \begin{figure}
       \centering
       \includegraphics[width=\textwidth,keepaspectratio]{idealised_plot}
-      \caption[A schematic showing the complemenarity of spatial and temporal early warning signals]{Figure 4: A schematic illustrating the complementarity of early warning signals in space and time.
+      \caption[A schematic showing the complementarity of spatial and temporal early warning signals]{Figure 4: A schematic illustrating the complementarity of early warning signals in space and time.
         The lines are drawn according to the scalings given in \cref{sec:scaling_arguments}}
         \label{fig:idealised_plot}
     \end{figure}
 
     However, there are some issues when looking at early warning signals over space. We have only 
     considered one functional form of coupling, but others are possible. Secondly, we have made
-    assumptions that space is homogenous, but if $D$ is itself a function of $x$ then this could
+    assumptions that space is homogeneous, but if $D$ is itself a function of $x$ then this could
     introduce problems.
 \section{Conclusion}
+
+Temporal early warning signals for tipping points are challenging, not least because we are often interested in rapidly forced systems. In this chapter
+We have advanced the hypothesis that spatial early warning signals may be useful in these more rapidly forced systems.
+We have found that spatial early warning signals can be used for more rapidly forced systems, as \cref{fig:uncoupled_timeseries,fig:parameter_plane}
+illustrate.
+
+We have found that their usefulness decreases as the spatial interactions increase\todo{Can we estimate these parameters for real systems?}.
+In particular we see a dichotomy between temporal early warning signals (which work well in strongly spatially coupled and slowly temporally forced systems)
+and spatial early warning signals (which work well in weakly spatially coupled and strongly temporally forced systems).
+
+We note that there is still an inaccessible parameter region --- systems forced strongly in time and strongly coupled in space. There are also further limitations
+to our approach.  We have only considered one functional form of coupling, but others are possible. Secondly, we have made
+assumptions that space is homogeneous, but if $D$ is itself a function of $x$ then this could introduce problems.
+
+Overall we feel that spatial early warning signals, used in conjunction with temporal ones, can provide a useful tool to detect upcoming tipping points.
