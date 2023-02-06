@@ -270,12 +270,13 @@ We will  begin by examining the case when $D = 0$, for large and small values of
   $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
 
   This theory gives the correlation length as $\xi = \sqrt{D}$. In order to get good statistics, we need to be sampling over a region
-  large compared to $\xi$. Hence we only expect to get good early warnings when $D \ll L^2$.
+  large compared to $\xi$. Hence we only expect to get good early warnings when $D \ll L^2$, where $L$ is the size of the domain.
 
-      Furthermore, the spatial dimension introduces extra timescales into the system, associated with
-    fluctuations of a particular spatial scale. These fluctuations relax towards 
-    equilibrium on a timescale $\tau$. Performing a
-    Fourier decomposition on the fluctuations reveals that the inverse relaxation time
+    Furthermore, the spatial dimension introduces extra timescales into the system, associated with
+    fluctuations of a particular spatial scale. Upon linearising \cref{eq:spatial_system_y} and Fourier decomposing, we find
+    $\pdv*{z_k}{t} = -z_k/\tau_k + \sigma\eta_k$ where $z_k$ refers to the Fourier mode of the fluctuation $z$ associated with wavenumber $k$ and 
+    these fluctuations relax towards 
+    equilibrium on a timescale $\tau_k$. The inverse relaxation time
     for modes with wavenumber $k$ is $\tau_k^{-1} = 1 + Dk^2$. It is these fluctuations that will ultimately
     give us early warning signals, so they cannot be too short lived. Hence requiring that 
     $\tau_k \gg \epsilon$\todo{(do I buy this?)}
