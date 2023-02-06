@@ -49,11 +49,11 @@ variable $y$. In one dimension there is only one generic type of bifurcation\cit
 near a saddle node bifurcation, all systems show qualitatively similar behaviour\cite{guckenheimer2013} so the dynamics of $y$ should
 involve the lowest order terms which give a saddle node, namely $\dot{y} = y - y^3/3 - \mu$, where $\mu$ is a control parameter.
 
-We need to take into account the spatial nature of the problem. Again to keep things simple, we will restrict attention to a 1 dimensional
-periodic domain. To couple in space we use the well studied diffusive coupling which acts to smooth out the value of $y$.\todo{This can be
-  better justified. Furthermore, something like: such a form has found numerous uses
-in simple models for ecological and earth system applications: energy balance models for global temperature, models of the movement of species and
-pattern formation in ecosystems.}
+We need to take into account the spatial nature of the problem. We will restrict attention to a 1 dimensional
+periodic domain. To couple in space we use the well studied diffusive coupling which acts to smooth out the value of $y$.
+Such a form has found numerous uses in climate and ecological models.
+For example, it has been used in energy balance models for the global temperature\cite{Ghil1976}, ecosystem pattern formation\cite{Gowda2014}
+and in continuum models of the compost bomb\cite{Clarke2021}.
 
 We will introduce noise into the system and assume the control parameter changes linearly with time. All of these considerations motivates studying
 \begin{subequations}
@@ -63,7 +63,7 @@ We will introduce noise into the system and assume the control parameter changes
     \dv{\mu}{t}&= \epsilon \label{eq:spatial_system_mu}
   \end{align}
 \end{subequations}
-where $\zeta$ is a white noise with mean $\langle \zeta(x,t) \rangle = 0$ and covariance $\langle \zeta(x,t)\zeta(x',t')\rangle = \delta(x-x')\delta(t-t')$\todo{check this}.
+where $\zeta$ is a white noise with mean $\langle \zeta(x,t) \rangle = 0$ and covariance $\langle \zeta(x,t)\zeta(x',t')\rangle = \delta(x-x')\delta(t-t')$.
 It therefore follows that $\sigma$ is the magnitude of the noise.
 
 We set the size of the domain to be $L$. The variable $\mu$ linearly increases between $\mu = 0$ and $\mu = 1$ and so the system will undergo a saddle node
@@ -76,7 +76,11 @@ To do this we introduce the `energy'
   \mathscr{E} = \int_0^L -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + \frac{1}{2}D\left(\pdv{y}{x}\right)^2\,\mathrm{d}{x}.
 \end{equation}
 
-With this we can rewrite \cref{eq:spatial_system_y} as
+This gives further justification for using a diffusive coupling in the following sense. The lowest order term that one could include in $\mathscr{E}$ involving
+$y$ and its derivatives that is isotropic in space and invariant under $y \rightarrow -y$ is the derivative term in \cref{eq:spatial_system_energy}. In that sense a diffusive term is the simplest
+and, if spatial gradients are not too strong, the most relevant form of spatial coupling.
+
+Armed with $\mathscr{E}$ we can rewrite \cref{eq:spatial_system_y} as
 \begin{equation}
   \label{eq:spatial_system_y_variational}
     \pdv{y}{t} = -\fdv{\mathscr{E}}{y(x)}  + \sigma\zeta, 
@@ -305,10 +309,6 @@ We will  begin by examining the case when $D = 0$, for large and small values of
         \label{fig:idealised_plot}
     \end{figure}
 
-    However, there are some issues when looking at early warning signals over space. We have only 
-    considered one functional form of coupling, but others are possible. Secondly, we have made
-    assumptions that space is homogeneous, but if $D$ is itself a function of $x$ then this could
-    introduce problems.
 \section{Conclusion}
 
 Temporal early warning signals for tipping points are challenging, not least because we are often interested in rapidly forced systems. In this chapter
