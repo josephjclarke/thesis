@@ -22,22 +22,22 @@ There is an important limit to be considered here. Suppose $r$ is very small ---
 can take $\epsilon\rightarrow 0$ in such a way that $\epsilon s \rightarrow \mu$ where $\mu$ is a constant. We can now view this as a bifurcation
 problem and can then apply all the usual tools to detect approaching tipping points\cite{scheffer2009}.
 
-This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence tipping point associated to the system
+This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence the tipping point associated to the system
 this limit applies to (whether because it is slowly forced or rapidly responding) is known as a \emph{fast tipping point}.
 
-Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good Early Warning Signals
+Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good early warning signals
 using the temporal variance and autocorrelation\cite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
 Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\cite{Osborn2021}, a rate unprecedented in at least
-the last 2000 years\cite{AR6}. Many important tipping elements have timescales of centuries or longer.
+the last 2000 years\cite{AR6}. Many important tipping elements have timescales of centuries or longer\cite{Lenton2008}.
 This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of techniques that enable
 larger values of $\epsilon$ to be probed.
 
 Part of the problem with these slow tipping elements is that the forcing changes appreciably over the window used to calculate early warning signals.
-To get around this we might try to make `instantaneous measurements of its variance and autocorrelation. One way to do this would be to calculate these
+To get around this we might try to make `instantaneous' measurements of its variance and autocorrelation. One way to do this would be to calculate these
 statistics over space instead of over time.
 
 Spatial early warning signals have been studied before. \cite{Donangelo2010} compared spatial and temporal early warning signals, finding that the spatial variance
-can give a better early warnign than the temporal variance. Another study, \cite{Kefi2014}, found rising memory, variability and changes to patchiness were all
+can give a better early warning than the temporal variance. Another study\cite{Kefi2014} found rising memory, variability and changes to patchiness were all
 spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems\cite{Carpenter2010,Dakos2011,Guttal2009}.
 Spatial early warning signals have even been applied to observational data\cite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
 the earth system have all involved temporal rather than spatial indicators\cite{Boulton2022,Boers2021,Boers2021a}.\todo{I should read these studies\ldots}
@@ -58,7 +58,7 @@ Such a form has found numerous uses in climate and ecological models.
 For example, it has been used in energy balance models for the global temperature\cite{Ghil1976}, ecosystem pattern formation\cite{Gowda2014}
 and in continuum models of the compost bomb\cite{Clarke2021}.
 
-We will introduce noise into the system and assume the control parameter changes linearly with time. All of these considerations motivates studying
+We will introduce noise into the system and assume the control parameter changes linearly with time. These considerations combine to motivate studying
 \begin{subequations}
 \label{eq:spatial_system}
   \begin{align}
@@ -66,7 +66,7 @@ We will introduce noise into the system and assume the control parameter changes
     \dv{\mu}{t}&= \epsilon \label{eq:spatial_system_mu}
   \end{align}
 \end{subequations}
-where $\zeta$ is a white noise with mean $\left\langle \zeta\left(x,t\right) \right\rangle = 0$ and covariance $\left\langle \zeta\left(x,t\right)\zeta(x',t')\right\rangle = \delta(x-x')\delta(t-t')$.
+where $\zeta$ is a white noise with mean $\E \left[\zeta\left(x,t\right)\right] = 0$ and covariance $\E \left[\zeta\left(x,t\right)\zeta(x',t')\right] = \delta(x-x')\delta(t-t')$.
 It therefore follows that $\sigma$ is the magnitude of the noise.
 
 We set the size of the domain to be $L$. The variable $\mu$ linearly increases between $\mu = 0$ and $\mu = 1$ and so the system will undergo a saddle node
@@ -104,7 +104,7 @@ We will define the average of a quantity calculated from \cref{eq:spatial_system
 We can now define the spatial variance of $y$ at time $t$ as
 \begin{equation}
   \label{eq:spatial_variance}
-  \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle.
+  \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle^2.
 \end{equation}
 We will define the autocorrelation over space as
 \begin{equation}
@@ -120,9 +120,9 @@ To calculate the early warning indicators over time, we must define averaging in
 define the temporal average as
 \begin{equation}
   \label{eq:definition_of_temporal_average}
-  \overline{B} = \frac{1}{T}\int_0^TB(t)\,\mathrm{d}t
+  \overline{B} = \frac{1}{T_w}\int_0^{T_w}B(t)\,\mathrm{d}t
 \end{equation}
-where the average is taken over some suitable window of length $T$.
+where the average is taken over some suitable window of length $T_w$.
 
 When computing early warning indicators, we must first `detrend' the time series. We denote the detrended time series of $\langle y \rangle$ as $z$.
 The the variance and autocorrelation, defined over a window of length $\tau_w$ are
@@ -219,7 +219,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     We can determine if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
     A positive value implies an increasing trend\cite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
     experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
-    (SNR) defined as the ratio of the mean to the standard deviation is larger than 1, then we cannot reliably expect and early warning.
+    (SNR), defined as the ratio of the mean to the standard deviation, is smaller than 1 we cannot reliably expect and early warning.
 
     We calculate this signal-to-noise ratio in \cref{fig:parameter_plane} for temporal and spatial early warning statistics. We see that only for
     certain regions of the parameter plane do we get an early warning of the upcoming tipping point. We note that there is a complementarity between spatial
@@ -289,7 +289,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
 
     \subsection{Comparison With Numerical Experiments}
     \Cref{fig:parameter_plane} implies the critical $\epsilon$ above which temporal early warning signals fail is $\epsilon_c \approx 0.04$.
-    Performing the computing $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with our theory that which requires that
+    Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with our theory that which requires that
     $\epsilon^{1/3} \ll 1$. We also plot the lines $D = L^2$ and $\epsilon\left(1 + 4\pi^2 D/L^2\right) = 1$ onto \cref{fig:parameter_plane}.
     These lines bound the region where spatial early warning signals work and so these results are compatible with our theory.
     \section{Discussion}
@@ -316,7 +316,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
 \section{Conclusion}
 
 Temporal early warning signals for tipping points are challenging, not least because we are often interested in rapidly forced systems. In this chapter
-We have advanced the hypothesis that spatial early warning signals may be useful in these more rapidly forced systems.
+we have advanced the hypothesis that spatial early warning signals may be useful in these more rapidly forced systems.
 We have found that spatial early warning signals can be used for more rapidly forced systems, as \cref{fig:uncoupled_timeseries,fig:parameter_plane}
 illustrate.
 
