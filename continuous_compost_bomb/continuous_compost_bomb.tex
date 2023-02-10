@@ -73,7 +73,7 @@ $T_{\mathrm{ref}}$. The rate of reaction also increases in proportion to the ava
 The $Q_{10}$ form implies an exponential dependence of the specific respiration rate on temperature:  $r(T_s)=r_0 \exp\left(\alpha\left(T_s-T_{\mathrm{ref}}\right)\right)$, where
 $\alpha = \ln Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
 $\Pi$ (\si{\kilo\gram\carbon\per\square\meter\per\second}) and decreased by heterotrophic respiration. Introducing the parameters $A$ (\si{\joule\per\kilo\gram\carbon}), the specific heat
-of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\degreeCelsius}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\degreeCelsius})
+of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\kelvin}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\kelvin})
 the soil-to-atmosphere heat transfer coefficient we have the LC10 model
 \begin{subequations}
 
@@ -98,8 +98,8 @@ where $\Pi_c = \lambda /\alpha A$. This equilibrium value is obtained by setting
 We investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction, which extends from the
 surface at $z = 0$ down to $z = -\infty$. We assume soil carbon falls exponentially with depth, over a characteristic distance of $H$.
 We model soil temperature as a reaction-diffusion system, in which heat is generated
-by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\degreeCelsius})\cite{Best2005},
-it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\degreeCelsius}) and contains a total amount $C_s$ of soil carbon. We can therefore write the heat diffusion
+by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\kelvin})\cite{Best2005},
+it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. We can therefore write the heat diffusion
 equation for the soil temperature $T_s(z,t)$ as:
 \begin{equation}
   \label{eq:one_d_model}
@@ -126,16 +126,16 @@ using dimensional units, with standard values given in \cref{tab:standard_values
 and different choices will lead to different figures, whereas the nondimensional plots are valid for all parameter choices.
 \begin{table}
   \centering
-\begin{tabular}{@{}llll@{}}
-  Parameter & Name & Equation & Value                                          \\ \midrule
-  $\Pi$     & Net Primary Productivity &\ref{subeq:lc10_soil_carbon} &\SI{0.5}{\kilo\gram\carbon\per\year}           \\
-  $Q_{10}$   &  $Q_{10}$ value for response of specific respiration to temperature &\ref{eq:one_d_model} & 2.5  \\
-  $H$       & Characteristic Soil Depth &\ref{eq:one_d_model} &\SI{0.4}{\meter}                               \\ 
-  $\kappa$  & Soil Thermal Conductivity &\ref{eq:one_d_model} &\SI{0.16}{\watt\per\meter\per\degreeCelsius}          \\
-  $A$       & Specific Heat of Respiration &\ref{eq:one_d_model} &\SI{3.9e9}{\joule(\kilo\gram\carbon)^{-1}}        \\
-  $\mu_V$   & Volumetric Heat Capacity&\ref{eq:one_d_model} &\SI{1.0}{\mega\joule\per\cubic\meter\per\degreeCelsius} \\
-  $\lambda$ & Heat Transfer Coefficient &\ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{10}{\watt\per\square\meter\per\degreeCelsius} \\
-  $T_{a0}$  & Average Air temperature   &\ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{0.0}{\degreeCelsius}
+  \begin{tabular}{@{}llll@{}}
+  Parameter    & Symbol & Equation & Value                                          \\ \midrule
+  Net Primary Productivity &$\Pi$     &\ref{subeq:lc10_soil_carbon} &\SI{0.5}{\kilo\gram\carbon\per\year}           \\
+  Temperature response of respiration &$Q_{10}$   &\ref{eq:one_d_model} & 2.5  \\
+  Characteristic Soil Depth &$H$       & \ref{eq:one_d_model} &\SI{0.4}{\meter}                               \\ 
+  Soil Thermal Conductivity &$\kappa$  & \ref{eq:one_d_model} &\SI{0.16}{\watt\per\meter\per\kelvin}          \\
+  Specific Heat of Respiration &$A$       & \ref{eq:one_d_model} &\SI{3.9e9}{\joule\kilo\gram\per\carbon}        \\
+  Volumetric Heat Capacity&$\mu_V$   &\ref{eq:one_d_model} &\SI{1.0}{\mega\joule\per\cubic\meter\per\kelvin} \\
+  Heat Transfer Coefficient &$\lambda$ & \ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{10}{\watt\per\square\meter\per\kelvin} \\
+  Average Air temperature   &$T_{a0}$  & \ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{0.0}{\degreeCelsius}
 \end{tabular}
 \caption{\label{tab:standard_values}Parameter values used to produce the figures in this study.}
 \end{table}
@@ -324,7 +324,7 @@ compost bombs. This susceptibility is because the atmosphere can warm larger fra
   \includegraphics[scale=0.5,keepaspectratio]{seasonal_dim_and_nondim}
   \caption{\textbf{Panel a}: the relationship between nondimensional respiration, soil depth and the seasonal cycle amplitude required to cause a compost bombs.
     For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: we also plot the dimensional version, here we modify the standard value
-    of $\kappa$ to \SI{0.5}{\watt\per\meter\per\degreeCelsius} so make the $H$ values more realistic.}
+    of $\kappa$ to \SI{0.5}{\watt\per\meter\per\kelvin} so make the $H$ values more realistic.}
   \label{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}
 \end{figure}
 \section{Conclusion}
