@@ -146,7 +146,7 @@ We numerically integrated
 the continuum model in both space and time, and discovered that it can give rise to a compost bomb instability.
 The PDE, \cref{eq:one_d_model}, was solved using the `method of lines' technique\cite{Schiesser2012}. It was discretized spatially into 100 equally spaced intervals.
 The spatial derivatives were approximated using central differences. This was then integrated using
-the backwards differentiation formula \textsc{BDF} method from the scipy library\cite{Virtanen2020}. The \textsc{BDF} method was chosen as it is well suited to stiff problems.
+the backwards differentiation formula \textsc{bdf} method from the scipy library\cite{Virtanen2020}. The \textsc{bdf} method was chosen as it is well suited to stiff problems.
 We considered the instability to occur when scipy's solver could not find a solution.
 
 This is our first piece of evidence that the results of the LC10 model remain when soil depth is taken into account. In \cref{fig:vertical_profiles}
@@ -157,7 +157,7 @@ We set $\delta T_a$ to a  a sinusoid of frequency one year.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{seasonal_cycle_profiles}
-  \caption{Vertical temperature profiles of soil undergoing a compost bomb thermal runaway when subject to a seasonal cycle of temperatures with amplitude \SI{32.5}{\degreeCelsius}.}
+  \caption[Vertical profile of soil temperature]{Vertical temperature profiles of soil undergoing a compost bomb thermal runaway when subject to a seasonal cycle of temperatures with amplitude \SI{32.5}{\degreeCelsius}.}
   \label{fig:vertical_profiles}
 \end{figure}
 \subsection{Consistency of the continuum model with LC10}
@@ -176,7 +176,7 @@ values of $\kappa$ the critical warming is actually lower in the continuum case 
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,scale=0.5]{dimensional_continuum_vs_lc10}
-  \caption{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model. We have also plotted on the seasonal cycle amplitude required for this instability.}
+  \caption[Critcal warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model. We have also plotted on the seasonal cycle amplitude required for this instability.}
   \label{fig:comparison_with_lc10}
 \end{figure}
 
@@ -277,7 +277,7 @@ soil carbon with a weak dependence on depth, are more unstable.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,scale=0.5]{static_dim_and_nondim}
-  \caption{\textbf{Panel a}: the relationship between nondimensional soil carbon $e$-folding depth $D$, nondimensional NPP $\widetilde{\Pi}$ and the critical warming required to cause a compost
+  \caption[Critical warming to trigger a compost bomb]{\textbf{Panel a}: the relationship between nondimensional soil carbon $e$-folding depth $D$, nondimensional NPP $\widetilde{\Pi}$ and the critical warming required to cause a compost
     bomb $\delta\theta_a$. \textbf{Panel b}: we also plot a dimensional version using the standard parameters in \cref{tab:standard_values}}
   \label{fig:critical_theta_a}
 \end{figure}
@@ -301,7 +301,7 @@ We plot these in \cref{fig:forcing_frequency_vs_amplitude}.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{critical_amplitude_vs_period}
-  \caption{The relationship between forcing period $T$ and the amplitude of the minimum near surface air temperature changes required to trigger a compost bomb.}
+  \caption[Critical warming for periodic forcing]{The relationship between forcing period $T$ and the amplitude of the minimum near surface air temperature changes required to trigger a compost bomb.}
   \label{fig:forcing_frequency_vs_amplitude}
 \end{figure}
 
@@ -323,7 +323,7 @@ compost bombs. This susceptibility is because the atmosphere can warm larger fra
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{seasonal_dim_and_nondim}
-  \caption{\textbf{Panel a}: the relationship between nondimensional respiration, soil depth and the seasonal cycle amplitude required to cause a compost bombs.
+  \caption[Critical seasonal cycle for a compost bomb]{\textbf{Panel a}: the relationship between nondimensional respiration, soil depth and the seasonal cycle amplitude required to cause a compost bombs.
     For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: we also plot the dimensional version, here we modify the standard value
     of $\kappa$ to \SI{0.5}{\watt\per\meter\per\kelvin} so make the $H$ values more realistic.}
   \label{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}
@@ -358,6 +358,6 @@ However, even with these approximations, we have added to the evidence base of t
 Whilst adding a feature that can cause `blow-up' requires great care, we would encourage ESM developers to examine this effect in more complicated models to discover the situations in which it is important.
 
 \section{Data Availability}
-All code used in this paper to plot figures and run numerical simulations is available at www.github.com/josephjclarke/ContinuumCompostBomb.
+All code used in this paper to plot figures and run numerical simulations is available at \url{www.github.com/josephjclarke/ContinuumCompostBomb}.
 
 
