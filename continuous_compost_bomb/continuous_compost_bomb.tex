@@ -182,15 +182,15 @@ values of $\kappa$ the critical warming is actually lower in the continuum case 
 
 To investigate this further, we derive  the LC10 model from the continuum case. We do this by vertically averaging \cref{eq:one_d_model}.
 We denote vertically averaged quantities as
-$\langle q \rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$. Neglecting the vertical dependence of soil carbon, and
+$\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$. Neglecting the vertical dependence of soil carbon, and
 taking a vertical average, applying boundary conditions, and finally replacing $\mu_A$ with $\mu_V H$ we get
 \begin{equation}
   \label{eq:vertically_averaged}
-  \mu_A \dv{\langle T_s \rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) + AC_sr_0\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\rangle.
+  \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) + AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
 \end{equation}
-This is equivalent to the LC10 model if $T_s(0,t) \approx \langle T_s \rangle$ and $\langle e^{\alpha T_s}\rangle \approx e^{\alpha \langle T_s \rangle}$. These approximations become exact
+This is equivalent to the LC10 model if $T_s(0,t) \approx \left\langle T_s \right\rangle$ and $\left\langle e^{\alpha T_s}\right\rangle \approx e^{\alpha \left\langle T_s \right\rangle}$. These approximations become exact
 when $T_s$ is not a function of $z$, which occurs when $\kappa \rightarrow \infty$, as shown in \cref{fig:comparison_with_lc10}.
-Note however that because $\langle e^{\alpha T_s} \rangle \ge e^{\langle \alpha T_s \rangle}$ the LC10 model underpredicts the amount of respiration
+Note however that because $\left\langle e^{\alpha T_s} \right\rangle \ge e^{\left\langle \alpha T_s \right\rangle}$ the LC10 model underpredicts the amount of respiration
 in soils when $\kappa$ is finite, and so the LC10 model will need a higher amount of warming to trigger a compost bomb.
 
   
@@ -240,7 +240,7 @@ Multiplying this by $\dv*{\psi}{x}$ and integrating gives
 with $c_1$ a constant.
 Rearranging and integrating gives
 \begin{equation}
-  \int \frac{\mathrm{d}\psi}{\left( 1 - \frac{2\mathcal{W}}{c_1} e^{\psi} \right)^{1/2}} = \pm\sqrt{c_1} \int \mathrm{d}x = c_2 \pm \sqrt{c_1} x 
+  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \pm\sqrt{c_1} \int \mathrm{d}x = c_2 \pm \sqrt{c_1} x 
 \end{equation}
 where $c_2$ is another integration constant. This is then reduced to a standard integral\cite{riley2006} with the substitution $u = \left(1 - \frac{2\mathcal{W}}{c_1} e^{\psi}\right)^{1/2}$.
 This substitution gives the solution

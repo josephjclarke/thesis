@@ -275,7 +275,9 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
+# Intermediate cpp file
+thesis.tex.pre
 
 # the main document
 thesis.pdf
-draftthesis.pdf
+
