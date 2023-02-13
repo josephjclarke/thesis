@@ -36,4 +36,4 @@ clean:
 	latexmk -c
 
 check:
-	lacheck main.tex
+	lacheck thesis.tex
