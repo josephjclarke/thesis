@@ -1,0 +1,121 @@
+\chapter{The Compost Bomb and the Terrestrial Carbon Cycle}
+\graphicspath{{global_bomb/figs/}}
+
+\todo[inline]{This is basically just going to be equations for now}
+
+Following\cite{Luke2011}, we have the compost comb equations
+\begin{subequations}
+  \label{eq:compost_bomb_equations}
+  \begin{align}
+    \mu \dv{T_s}{t} &= - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_temperature} \\
+    \dv{C_s}{t} &= \Pi - r_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_carbon}
+  \end{align}
+\end{subequations}
+
+Noting the obvious timescale seperation in \cref{eq:compost_bomb_equations} we can put \cref{eq:compost_bomb_soil_temperature} into
+equilibrium to get
+\begin{equation*}
+  0 = - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s}
+\end{equation*}
+which can be solved for the soil temperature to  give
+\begin{equation}
+  \label{eq:soil_temperature_equilibrium}
+  T_s = T_a - \frac{1}{\alpha} W\left(-\frac{Ar_0C_s \alpha e^{\alpha T_a}}{\kappa} \right),
+\end{equation}
+where $W(x)$ is the Lambert $W$ function. The Lambert $W$ function is defined as the solution to the equation
+\begin{equation}
+  \label{eq:lambert_W}
+  W(x)e^{W(x)} = x.
+\end{equation}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmin=-1,
+      xmax=4,
+      enlarge y limits=false,
+      axis lines=left,
+      xlabel=$x$,
+      ylabel=$W(x)$,
+      samples=1000]
+      \addplot[domain=-5:-1] (x * exp(x), x);
+      \addplot[domain=-1:2] (x * exp(x), x);
+    \end{axis}
+  \end{tikzpicture}
+  \caption{The Lambert $W$ function}
+  \label{fig:lambert_W}
+\end{figure}
+The Lambert $W$ is plotted in \cref{fig:lambert_W}.
+
+Defining
+\begin{equation}
+  \label{eq:critical_npp}
+  \Pi_c = \frac{\kappa}{\alpha A}
+\end{equation}
+we can rewrite \cref{eq:soil_temperature_equilibrium} as
+\begin{equation}
+  \label{eq:soil_temperature_equilibrium_nppc}
+  T_s = T_a - \frac{1}{\alpha} W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
+\end{equation}
+We should therefore insert \cref{eq:soil_temperature_equilibrium_nppc} in \cref{eq:compost_bomb_soil_carbon}
+to give
+\begin{equation}
+  \label{eq:soil_carbon_evolution}
+  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
+\end{equation}
+This implies the equilibrium value of $C_s$ is
+\begin{equation}
+  \label{eq:equilibirum_soil_carbon}
+  C_s^{\mathrm{eq}} = \frac{\Pi}{r_0} e^{-\alpha T_a} e^{-\Pi/\Pi_c}.
+\end{equation}
+Note that we recover the no biogeochemcial heating case by sending $\Pi_c \rightarrow \infty$.
+
+
+Recognising that
+\begin{equation}
+  \label{eq:atmospheric_temperatures}
+  T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}} 
+\end{equation}
+leads, upon substituting \cref{eq:atmospheric_temperatures} into \cref{eq:soil_carbon_evolution},
+\begin{equation}
+  \label{eq:global_soil_carbon}
+  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s}{\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right),
+\end{equation}
+where
+\begin{equation}
+  \label{eq:mu}
+  \mu = \frac{\alpha S}{\log 2}.
+\end{equation}
+We will assume
+\begin{equation}
+  \label{eq:npp_fertilization}
+  \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{a_{1/2}}}.
+\end{equation}
+We will assume further that a fixed fraction $\chi_0$ of atmospheric emissions reaches the ocean, meaning
+\begin{equation}
+  \label{eq:simple_ocean}
+  C_a = C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s0})
+  %C_s = C_{s0} - (1 + \chi_0)(C_a - C_{a0}.
+\end{equation}
+We chose the temperature anomaly so that $T_a = 0$ corresponds to an equilibrium. We can then set
+$r_0 = \frac{\Pi}{C_s^{\mathrm{eq}}}e^{-\Pi/\Pi_c}$ giving
+\begin{equation}
+  \label{eq:soil_carbon_evolution_with_r0_fixed}
+  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right)
+\end{equation}
+Combining \cref{eq:soil_carbon_evolution_with_r0_fixed,eq:simple_ocean,eq:npp_fertilization} gives
+\begin{equation}
+  \label{eq:soil_carbon_evolution_combined}
+  \dv{C_s}{t} = \Pi_{\infty}\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s0})}{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s0})+ C_{a_{1/2}}}
+  + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s0})}{C_{a0}}\right)^\mu \right).
+\end{equation}
+To find the bifurcation we therefore just have to calculate where
+\begin{equation*}
+  \dv{\dot{C_s}}{t} = 0.
+\end{equation*}
+We will make use of
+\begin{equation}
+  \label{eq:derivative_of_lambert_W}
+  W'(x) = \frac{W(x)}{x\left(1 + W\left(x\right)\right)}.
+\end{equation}
