@@ -1,8 +1,4 @@
-.PHONY: draftthesis.pdf thesis.pdf all clean deepclean check final debug
-
-#all: draftthesis.pdf
-#
-#final: thesis.pdf
+.PHONY: draftthesis.pdf thesis.pdf all clean deepclean check final debug draftprint print
 
 all: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
 	cpp -DPAPERSIZE=a4paper -DSIDES=oneside -DMODE=draft -P thesis.tex thesis.tex.pre
