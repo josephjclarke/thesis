@@ -26,13 +26,15 @@ debug: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.b
 	latexmk -pdf -jobname=thesis -pdflatex="pdflatex" -use-make thesis.tex.pre
 
 deepclean:
-	rm -f thesis.tex.pre
-	rm -f */*.aux
-	latexmk -C
+	make clean
+	latexmk -CA
 
 clean:
-	rm -f thesis.tex.pre
 	rm -f */*.aux
+	rm -f thesis.tex.*
+	rm -f thesis.run.xml
+	rm -f thesis.bbl
+	rm -f thesis.tdo
 	latexmk -c
 
 check:
