@@ -102,42 +102,49 @@ We chose the temperature anomaly so that $T_a = 0$ corresponds to an equilibrium
 $r_0 = \frac{\Pi}{C_s^{\mathrm{eq}}}e^{-\Pi/\Pi_c}$ giving
 \begin{equation}
   \label{eq:soil_carbon_evolution_with_r0_fixed}
-  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right)
+  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right).
 \end{equation}
-Combining \cref{eq:soil_carbon_evolution_with_r0_fixed,eq:simple_ocean,eq:npp_fertilization} gives
-\begin{equation}
-  \label{eq:soil_carbon_evolution_combined}
-  \dv{C_s}{t} = \Pi_{\infty}\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})+ C_{a_{1/2}}}
-  + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0}}\right)^\mu \right).
-\end{equation}
+% Combining \cref{eq:soil_carbon_evolution_with_r0_fixed,eq:simple_ocean,eq:npp_fertilization} gives
+% \begin{equation}
+%   \label{eq:soil_carbon_evolution_combined}
+%   \dv{C_s}{t} = \Pi_{\infty}\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})+ C_{a_{1/2}}}
+%   + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0}}\right)^\mu \right).
+% \end{equation}
 To find the bifurcation we therefore just have to calculate where
 \begin{equation*}
-  \dv{\dot{C_s}}{t} = 0.
+  \dv{\dot{C_s}}{t} = 0,
 \end{equation*}
-We will make use of
+we will make use of
 \begin{equation}
   \label{eq:derivative_of_lambert_W}
   W'(x) = \frac{W(x)}{x\left(1 + W\left(x\right)\right)}.
 \end{equation}
+This leads to
+\begin{equation}
+  \label{eq:critical_mu}
+  \mu^* = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left( \frac{1}{1+\chi_0}\left( \frac{1}{W\left(-\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c}\right)}
+      - \frac{\Pi_c}{\Pi}\right)\frac{C_s^{\mathrm{eq}}}{\Pi_c}\dv{\Pi}{C_a} - 1 \right)
+\end{equation}
+where $\mu^*$ is the value of $\mu$ where the bifurcation takes place.
 
-We have
-\begin{equation}
-  \label{eq:derivative_of_cs}
-  \dv{\dot{C_s}}{C_s} = \dv{\Pi}{C_s} + \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\dv{\Pi}{C_s} - \frac{1}{C_s^{\mathrm{eq}}} - \frac{\mu}{C_{a0}}\right) = 0.
-\end{equation}
-As
-\begin{equation}
-  \label{eq:derivative_of_npp}
-  \dv{\Pi}{C_s} = -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}
-\end{equation}
-we have
-\begin{equation}
-  \label{eq:derivative_of_cs_npp}
-  -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} + \frac{1}{C_s^{\mathrm{eq}}} + \frac{\mu}{C_{a0}}\right) = 0.
-\end{equation}
-So there is a bifurcation when
-\begin{equation}
-  \label{eq:bifurcation_mu}
-  \mu = -\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}\frac{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}-
-  \frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{C_{a0}}{C_s^{\mathrm{eq}}} 
-\end{equation}\todo{Is this correct? I don't think it has the right $\Pi_c$ goes to infinity limit}
+% We have
+% \begin{equation}
+%   \label{eq:derivative_of_cs}
+%   \dv{\dot{C_s}}{C_s} = \dv{\Pi}{C_s} + \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\dv{\Pi}{C_s} - \frac{1}{C_s^{\mathrm{eq}}} - \frac{\mu}{C_{a0}}\right) = 0.
+% \end{equation}
+% As
+% \begin{equation}
+%   \label{eq:derivative_of_npp}
+%   \dv{\Pi}{C_s} = -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}
+% \end{equation}
+% we have
+% \begin{equation}
+%   \label{eq:derivative_of_cs_npp}
+%   -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} + \frac{1}{C_s^{\mathrm{eq}}} + \frac{\mu}{C_{a0}}\right) = 0.
+% \end{equation}
+% So there is a bifurcation when
+% \begin{equation}
+%   \label{eq:bifurcation_mu}
+%   \mu = -\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}\frac{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}-
+%   \frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{C_{a0}}{C_s^{\mathrm{eq}}} 
+% \end{equation}\todo{Is this correct? I don't think it has the right $\Pi_c$ goes to infinity limit}
