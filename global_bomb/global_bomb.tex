@@ -104,12 +104,7 @@ $r_0 = \frac{\Pi}{C_s^{\mathrm{eq}}}e^{-\Pi/\Pi_c}$ giving
   \label{eq:soil_carbon_evolution_with_r0_fixed}
   \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right).
 \end{equation}
-% Combining \cref{eq:soil_carbon_evolution_with_r0_fixed,eq:simple_ocean,eq:npp_fertilization} gives
-% \begin{equation}
-%   \label{eq:soil_carbon_evolution_combined}
-%   \dv{C_s}{t} = \Pi_{\infty}\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})+ C_{a_{1/2}}}
-%   + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})}{C_{a0}}\right)^\mu \right).
-% \end{equation}
+
 To find the bifurcation we therefore just have to calculate where
 \begin{equation*}
   \dv{\dot{C_s}}{t} = 0,
@@ -122,29 +117,90 @@ we will make use of
 This leads to
 \begin{equation}
   \label{eq:critical_mu}
-  \mu^* = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left( \frac{1}{1+\chi_0}\left( \frac{1}{W\left(-\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c}\right)}
-      - \frac{\Pi_c}{\Pi}\right)\frac{C_s^{\mathrm{eq}}}{\Pi_c}\dv{\Pi}{C_a} - 1 \right)
+  \mu^* = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left(1+\frac{1}{1+\chi_0}\left( \frac{1}{W\left(-\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c}\right)}
+      - \frac{\Pi_c}{\Pi}\right)\frac{C_s^{\mathrm{eq}}}{\Pi_c}\dv{\Pi}{C_a}\right)
 \end{equation}
 where $\mu^*$ is the value of $\mu$ where the bifurcation takes place.
 
-% We have
-% \begin{equation}
-%   \label{eq:derivative_of_cs}
-%   \dv{\dot{C_s}}{C_s} = \dv{\Pi}{C_s} + \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\dv{\Pi}{C_s} - \frac{1}{C_s^{\mathrm{eq}}} - \frac{\mu}{C_{a0}}\right) = 0.
-% \end{equation}
-% As
-% \begin{equation}
-%   \label{eq:derivative_of_npp}
-%   \dv{\Pi}{C_s} = -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}
-% \end{equation}
-% we have
-% \begin{equation}
-%   \label{eq:derivative_of_cs_npp}
-%   -\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}\left(\frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} + \frac{1}{C_s^{\mathrm{eq}}} + \frac{\mu}{C_{a0}}\right) = 0.
-% \end{equation}
-% So there is a bifurcation when
-% \begin{equation}
-%   \label{eq:bifurcation_mu}
-%   \mu = -\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2}\frac{1+W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}{\Pi_c W\left(\frac{\Pi}{\Pi_c}e^{\Pi/\Pi_c}\right)}-
-%   \frac{1}{\Pi\Pi_c}\frac{\Pi_{\infty}C_{a_{1/2}}C_{a0}}{\left(C_{a0} + C_{a_{1/2}}\right)^2} - \frac{C_{a0}}{C_s^{\mathrm{eq}}} 
-% \end{equation}\todo{Is this correct? I don't think it has the right $\Pi_c$ goes to infinity limit}
+Taking the limit as $\Pi_c \rightarrow \infty$ using the fact that $W(x) = x + \mathcal{O}(x^2)$ as $x \rightarrow 0$ gives
+\begin{equation}
+  \label{eq:critical_mu_no_biogeochemical}
+  \mu^*_{\infty} = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left(1 - \frac{2}{1+\chi_0}\frac{C_s^{\mathrm{eq}}}{\Pi}\dv{\Pi}{C_a}\right).
+\end{equation}
+
+We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable and unstable region.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[
+    /pgf/declare function={
+      chi0 = 0.25;
+      npp = 55.0;
+      Ca0 = 589.0;
+      Cseq = 1500.0;
+    }
+    ]
+    \begin{axis}[
+      legend pos=outer north east,
+      %enlargelimits=false
+      ]
+      \addplot[
+      domain=200:1000,
+      samples=100,
+      enlarge x limits=false,
+      color=red]
+      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.01)};
+      \addlegendentry{$\dv*{\Pi}{C_a} = 0.01$}
+      \addplot[
+      domain=200:1000,
+      samples=100,
+      enlarge x limits=false,
+      color=blue]
+      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.005)};
+      \addlegendentry{$\dv*{\Pi}{C_a} = 0.005$}
+      \addplot[
+      domain=200:1000,
+      samples=100,
+      enlarge x limits=false,
+      color=green]
+      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.00)};
+      \addlegendentry{$\dv*{\Pi}{C_a} = 0.00$}
+
+    \end{axis}
+ 
+    
+  \end{tikzpicture}
+  \caption{The parameter plane}
+  \label{fig:critical_mu_vs_pic}
+\end{figure}\todo{check \cref{fig:critical_mu_vs_pic}}
+
+
+Using \cref{eq:critical_mu_no_biogeochemical} gives an upper limit on the strength of \ce{CO2} fertilization compatible with a stable climate
+\begin{equation}
+  \label{eq:maximum_co2_fertilization}
+  \dv{\Pi}{C_a} < \frac{1+\chi_0}{2} \frac{\Pi}{C_s^{\mathrm{eq}}} - \frac{1}{2} \frac{\Pi}{C_{a0}} \mu_{\infty}^*
+\end{equation}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[
+    /pgf/declare function={
+      chi0 = 0.25;
+      npp = 55.0;
+      Ca0 = 589.0;
+      Cseq = 1500.0;
+    }
+    ]
+    \begin{axis}[
+      xlabel = $\mu$,
+      ylabel = $\dv{\Pi}{C_a}$ \unit{\per\year},
+      ymin=0.0,
+      ymax=2.5E-2,
+      xmin=0.0
+      ]
+      \addplot[domain=0:0.6] {0.5*(1+chi0) * npp/Cseq - 0.5 * npp * x / Ca0};
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Maximum \ce{CO2} fertilization strength}
+  \label{fig:maximum_co2_fertilization}
+\end{figure}
