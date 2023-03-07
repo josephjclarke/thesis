@@ -2,7 +2,8 @@
 \graphicspath{{ROSA/figs}}
 
 
- Potential tipping points in the Earth System present challenges for society and 
+\section{Abstract}
+Potential tipping points in the Earth System present challenges for society and 
 ecosystems, especially as the global warming thresholds at which these may be triggered remain uncertain. 
 Fortunately, a theory of `critical slowing down' has been developed which could warn of approaching tipping points. 
 Applications of this theory often implicitly assume stationary white-noise forcing,  itself requiring a clean separation between forced trends and variability, which is especially difficult under contemporary climate change. 
@@ -10,7 +11,8 @@ This paper proposes a modified method to derive early warning signal in a
 system, such as the climate, which is forced by time correlated processes. 
 The method looks at the \emph{Ratio of Spectra (ROSA)} of a system state variable relative to a forcing variable.   
 We demonstrate the ROSA method on an idealised forced dynamical system, before applying it 
-to a particular challenging example from the Earth System: dieback of the Amazon rainforest. We show that ROSA identifies more examples of abrupt transitions in the Amazon than conventional early warning signals in state-of-the-art CMIP6 Earth System Models.
+to a particular challenging example from the Earth System: dieback of the Amazon rainforest.
+We show that ROSA identifies more examples of abrupt transitions in the Amazon than conventional early warning signals in state-of-the-art CMIP6 Earth System Models.
 
 
 \section{Introduction}\label{sec:introduction}
@@ -72,7 +74,7 @@ these tipping points, however precision remains elusive\cite{Steffen2018}.
 There is almost no inter-ESM
 agreement on which tipping points are the most likely to happen, or on the
 levels of global warming that will trigger their
-occurrence \cite{Drijfhout2015}.
+occurrence\cite{Drijfhout2015}.
 However due to the mathematical theory of Normal 
 Forms\cite{Strogatz2015,guckenheimer2013}, all systems approaching a
 B-tipping point share some common features.
@@ -83,7 +85,8 @@ The time to return to equilibrium is a characteristic timescale which, important
 approaches a tipping point, at which moment the timescale becomes 
 infinite\cite{Scheffer2012}---referred to as `critical slowing down'. 
 For near-equilibrium systems, the variance of a system will increase and its autocorrelation (AC)
-will tend to unity as the system approaches a bifurcation\cite{Scheffer2009,Held2004}. These statistical changes lead to the possibility of `Early Warning Signals' (EWS) of approaching Tipping Points.
+will tend to unity as the system approaches a bifurcation\cite{Scheffer2009,Held2004}.
+These statistical changes lead to the possibility of `Early Warning Signals' (EWS) of approaching Tipping Points.
 
 Care is needed when using EWS, as we 
 expect both AC and variance to increase as a tipping point is 
@@ -127,11 +130,11 @@ There has been some investigations in using EWS with time correlated noise using
 different method of estimating the critical slowing down that occurs near
 a bifurcation that works even in the presence of time-correlated noise.
 
-\section{Failure of Early Warning Signals}
-\label{sec:failure}
+\section{Failure of Early Warning Signals}\label{sec:failure}
 \begin{figure}
 \includegraphics[scale=0.7,keepaspectratio]{figure1.eps}
-\caption{Panel A shows two time series of system (\ref{eq:dynamical_system})--(\ref{eq:discretized_white_or_red_noise}), with $\mu(t)=t$ passing through a saddle node bifurcation at time $t=2/3$. 
+\caption[Early Warning Signals Failing]
+{Panel A shows two time series of system (\cref{eq:dynamical_system,eq:discretized_white_or_red_noise}), with $\mu(t)=t$ passing through a saddle node bifurcation at time $t=2/3$. 
   In the case of the blue curve the system
   is subject to white noise forcing ($r=0$), the red curve is subject to 
   red noise forcing ($r=0.99$). Panels B and C show the
@@ -146,8 +149,7 @@ a bifurcation that works even in the presence of time-correlated noise.
   qaudratic detrend in windows of length $0.2$, in the
   white (blue curve) and red (red curve) noise case. The solid black 
   line is the true value of $\lambda$. In both instances there
-  is a clear Early Warning Signal.}
-\label{fig:failure_of_ews}
+  is a clear Early Warning Signal.}\label{fig:failure_of_ews}
 \end{figure}
 
 In this section, we demonstrate how conventional EWS may fail in the presence of autocorrelated  noise. Due to the fact that near a
@@ -232,28 +234,27 @@ variability and AC of the forcing is constant over time.
 However in the case of 
 climate change, it is likely that the variability of the forcing,
 such as temperature, will change\cite{Huntingford2013}. 
-Increasing the variability, such as in \cite{Boers2021a}, of the forcing will increase the variance of the system even
+Increasing the variability, such as in\cite{Boers2021a}, of the forcing will increase the variance of the system even
 if the system is not approaching a tipping point. This is an example of a false
 alarm (i.e.\ a false positive). 
 
 \begin{figure}
 \includegraphics[width=\textwidth,keepaspectratio]{figure2.eps}
-\caption{Panel A shows a time series obtained by integrating Equation (\ref{eq:dynamical_system}) with $\mu = -1$ when subject to
+\caption[Early Warning Signal False Positive]{Panel A shows a time series obtained by integrating  \cref{eq:dynamical_system} with $\mu = -1$ when subject to
   noise described by (\ref{eq:white_red_forcing}) where the
   value of $r$ linearly increases from $r=0.2$ to $r=0.7$. Panel B 
   shows the classic Early Warning indicators: AC in the solid
   line and variance in the dashed line. They falsely indicate a
   tipping point is approaching. In panel C we plot $\lambda$ obtained
   from ROSA, with the true value plotted in the dashed line. It shows
-  no overall trend hence correctly avoiding the false positive.}
-\label{fig:changing_forcing}
+  no overall trend hence correctly avoiding the false positive.}\label{fig:changing_forcing}
 \end{figure}
 
 
 An example of this phenomenon is plotted in Figure
-\ref{fig:changing_forcing}. We have integrated 
-(\ref{eq:dynamical_system}) with $\mu = -1$, hence there is no 
-tipping point. The stochastic forcing $\eta$, described by (\ref{eq:white_red_forcing}), has its $r$ value
+\cref{fig:changing_forcing}. We have integrated 
+(\cref{eq:dynamical_system}) with $\mu = -1$, hence there is no 
+tipping point. The stochastic forcing $\eta$, described by (\cref{eq:white_red_forcing}), has its $r$ value
 linearly increasing
 from $r=0.2$ at $t=-1$ to $r=0.7$ at $t=1$. The state
 variable is plotted in Panel A. Although there is no
@@ -314,12 +315,12 @@ the tipping point, then it turns out that $\lambda \rightarrow 0$\cite{guckenhei
 identify changes in $\lambda$, and in particular discover any evidence of a decrease which would suggest an approaching tipping point, and
 to do this in a way that is not dependent on $\xi$ being white noise. To achieve this, we move to the frequency domain.
 
-We denote the Fourier transform of a function with a tilde, so that when taking the Fourier transform of (\ref{eq:linearised}) we have
+We denote the Fourier transform of a function with a tilde, so that when taking the Fourier transform of (\cref{eq:linearised}) we have
 \begin{equation}
   \label{eq:fourier_transformed}
   i\omega \tilde{x}(\omega) = -\lambda \tilde{x}(\omega) + \tilde{\xi}(\omega).
 \end{equation}
-We can rearrange Equation~(\ref{eq:fourier_transformed}), and then take the squared modulus to get:
+We can rearrange Equation~(\cref{eq:fourier_transformed}), and then take the squared modulus to get:
 \begin{equation}
   \label{eq:power_spectra}
   |\tilde{x}(\omega)|^2 = \frac{|\tilde{\xi}(\omega)|^2}{\omega^2 + \lambda^2}.
@@ -340,7 +341,7 @@ Early Warning Signal method.
 The method is as follows.
 We now take a moving window of length $\tau_w$, smaller than the slow timescale $1/\epsilon$, but of sufficient
 length that we can calculate the power spectrum of $x$, i.e. $|\tilde{x}(\omega)|^2$, and also of
-$\xi$, i.e. $|\tilde{\xi}(\omega)|^2$. With the knowledge of these power spectra, we perform a least-squares fit of equation~(\ref{eq:power_spectrum_indep}) to obtain an estimate for $|\lambda|$.  We then consider how $|\lambda|$ varies over longer timescales, i.e. of
+$\xi$, i.e. $|\tilde{\xi}(\omega)|^2$. With the knowledge of these power spectra, we perform a least-squares fit of equation~(\cref{eq:power_spectrum_indep}) to obtain an estimate for $|\lambda|$.  We then consider how $|\lambda|$ varies over longer timescales, i.e. of
 size $1/\epsilon$, to see if its value changes. 
 If our estimate for $|\lambda|$ is decreasing towards zero in time this implies that a tipping point is approaching. 
 
@@ -364,18 +365,18 @@ poorly, with little agreement between models\cite{Drijfhout2015}.
 
 \section{Test in Simple Models}
 We examine this ROSA method using the two test cases considered earlier in 
-section \ref{sec:failure}; namely its ability to avoid 
+section \cref{sec:failure}; namely its ability to avoid 
 false positives and false negatives.
 We calculate the power spectra of $x$ and $\eta$
 using Welch's method\cite{Welch1967} after a quadratic 
 detrend in moving windows of length $0.2$. We perform a least
 squares fit to
-(\ref{eq:power_spectrum_indep}) and extract $\lambda$. We plot
+(\cref{eq:power_spectrum_indep}) and extract $\lambda$. We plot
 the results in panels D and C of Figures 
-\ref{fig:failure_of_ews} and \ref{fig:changing_forcing} respectively.
+\cref{fig:failure_of_ews} and \cref{fig:changing_forcing} respectively.
 
 \subsection{Avoiding False Negatives}
-In Figure \ref{fig:failure_of_ews} we plot the case
+In Figure \cref{fig:failure_of_ews} we plot the case
 where the system is approaching a tipping point
 subject to white or red noise. Panel D provides
 the value of $\lambda$ estimated from ROSA and shows a clear
@@ -385,7 +386,7 @@ white and red noise estimates lie close to the true value of
 $\lambda$, plotted in the black curve.
 
 \subsection{Avoiding False Positives}
-In Figure \ref{fig:changing_forcing} we look at the case where the 
+In Figure \cref{fig:changing_forcing} we look at the case where the 
 system is not approaching a tipping point, but due to a reddening of 
 the noise process the classic Early Warning Indicators give a 
 false positive. In Panel C we plot $\lambda$ obtained from ROSA, which stays constant and close to the true value (plotted in the dashed line). ROSA therefore avoids a false positive in this case.
@@ -405,7 +406,7 @@ model are assumed to be fixed in each window (although can change between window
 ROSA does not have such a restriction because the noise is analysed directly.
 
 We compare the BB method with ROSA for a system defined by
-(\ref{eq:dynamical_system}). We set $\mu  = t$ so that the system
+(\cref{eq:dynamical_system}). We set $\mu  = t$ so that the system
 reaches a tipping point at $t=2/3$. Furthermore we linearly decrease
 $r$ from $r=0.99$ to $r=0.0$ between $t=-1$ and $t=1$.
 This decreasing AC of the
@@ -424,7 +425,7 @@ large as long before the tipping point as possible.
 
 
 We compute this for $10$ noise realisations and plot the output 
-in Figure \ref{fig:boers_method}. Both indicators show a positive 
+in Figure \cref{fig:boers_method}. Both indicators show a positive 
 $\tau$ near the tipping point. However, ROSA becomes positive substantially earlier than the BB method and there is less variance in the $\tau$ values for the ROSA method, as required for a more reliable early warning indicator. This is indicative of an earlier and stronger warning than the BB method. 
 
 Nevertheless, the BB method has its advantages.
@@ -476,7 +477,7 @@ For each of these indicators, we calculate the Kendall $\tau$ statistic for the
 count that as a detection. As we expect the variance in vegetation carbon to be higher 
 in a high CO$_2$ world, we only take increases in variance as a detection if
 the AC is not decreasing. The results, as a function of threshold value
-is plotted in figure \ref{fig:complex_test}.
+is plotted in figure \cref{fig:complex_test}.
 
 We note that the algorithm will, in addition to examples of B-tipping, detect examples
 of N-tipping and rapid change which is not a true tipping point. As a result, no 
