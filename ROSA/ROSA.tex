@@ -2,22 +2,18 @@
 \graphicspath{{ROSA/figs}}
 
 
-\newcommand{\pr}{\color{black}}
-
-
  Potential tipping points in the Earth System present challenges for society and 
 ecosystems, especially as the global warming thresholds at which these may be triggered remain uncertain. 
 Fortunately, a theory of `critical slowing down' has been developed which could warn of approaching tipping points. 
 Applications of this theory often implicitly assume stationary white-noise forcing,  itself requiring a clean separation between forced trends and variability, which is especially difficult under contemporary climate change. 
 This paper proposes a modified method to derive early warning signal in a 
 system, such as the climate, which is forced by time correlated processes. 
-The method looks at the {\it Ratio of Spectra (ROSA)} of a system state variable relative to a forcing variable.   
+The method looks at the \emph{Ratio of Spectra (ROSA)} of a system state variable relative to a forcing variable.   
 We demonstrate the ROSA method on an idealised forced dynamical system, before applying it 
 to a particular challenging example from the Earth System: dieback of the Amazon rainforest. We show that ROSA identifies more examples of abrupt transitions in the Amazon than conventional early warning signals in state-of-the-art CMIP6 Earth System Models.
 
 
-\section{Introduction}
-\label{sec:introduction}
+\section{Introduction}\label{sec:introduction}
 The paleoclimate record contains numerous examples\cite{Brovkin2021} of 
 major components of the Earth system experiencing rapid 
 change. Such changes can be caused by 
@@ -94,21 +90,21 @@ expect both AC and variance to increase as a tipping point is
 approached\cite{Ditlevsen2010}. Whilst this is only strictly true
 in the case of near one dimensional systems (an approximation which is often made, such as by using principle component analysis to reduce the 
 dimensionality of the system\cite{Held2004}), considering one quantity alone 
-increases the chance of a false positive as that quantity {\pr may change for other reasons such as an increase in the noise variability.} It should 
+increases the chance of a false positive as that quantity may change for other reasons such as an increase in the noise variability. It should 
 be noted that false positives can still occur even when considering 
 both quantities.
 %could instead be changing because the system's environment is changing.
 Additionally, 
 %one must be confident the transition is bifurcation induced, 
 %rather than noise induced (`N-tipping'). In the N-tipping case, 
-{\pr if a transition is noise-induced (rather than bifurcation-induced) then}
+if a transition is noise-induced (rather than bifurcation-induced) then
 critical
-speeding up {\pr is possible, where}
+speeding up is possible, where
 %, leading to 
 a decrease in the variance and AC can
 be signs of an approaching transition\cite{Titus2020}.
 
-The technique of {\pr observing an increase in} the variance and
+The technique of observing an increase in the variance and
 AC has been applied to the paleoclimate record, where it has been shown to give early
 warnings of tipping points\cite{Boers2018a}. It has also been used to 
 suggest that for the present day, due to an increase in global temperatures, we are approaching tipping points in 
@@ -135,13 +131,13 @@ a bifurcation that works even in the presence of time-correlated noise.
 \label{sec:failure}
 \begin{figure}
 \includegraphics[scale=0.7,keepaspectratio]{figure1.eps}
-\caption{Panel A shows two time series of system {\pr (\ref{eq:dynamical_system})--(\ref{eq:discretized_white_or_red_noise}), with $\mu(t)=t$} passing through a saddle node bifurcation at time {\pr $t=2/3$}. 
+\caption{Panel A shows two time series of system (\ref{eq:dynamical_system})--(\ref{eq:discretized_white_or_red_noise}), with $\mu(t)=t$ passing through a saddle node bifurcation at time $t=2/3$. 
   In the case of the blue curve the system
-  is subject to white noise forcing {\pr ($r=0$)}, the red curve is subject to 
-  red noise forcing {\pr ($r=0.99$)}. Panels B and C show the
+  is subject to white noise forcing ($r=0$), the red curve is subject to 
+  red noise forcing ($r=0.99$). Panels B and C show the
   classic EWS for the case of white and
   red noise, calculated after a
-  quadratic detrend in a window of width $0.2$ (in normalised time units {\pr or 500 data points}).
+  quadratic detrend in a window of width $0.2$ (in normalised time units or 500 data points).
   The AC is plotted with a solid curve and
   the variance with a 
   dashed curve.
@@ -163,7 +159,7 @@ bifurcation. Hence, we examine the system
     \label{eq:dynamical_system}
     \epsilon\dv{x}{t} =  x - \frac{1}{3}x^3 - \mu(t) + \eta(t),
 \end{equation}
-where we $\epsilon$ {\pr defines the timescale of the system, $\mu$ is a control parameter and $\eta$ provides the noise.} We note that there is a saddle node bifurcation
+where we $\epsilon$ defines the timescale of the system, $\mu$ is a control parameter and $\eta$ provides the noise. We note that there is a saddle node bifurcation
 when $\mu = 2/3$, corresponding to a tipping point where
 $x$ transitions from a positive to a negative state. To ensure
 $x$ remains in approximate equilibrium, we set $\epsilon$ to be small,
@@ -195,15 +191,15 @@ Euler-Maruyama method\cite{Jacobs2010}.
 
 \subsection{False Negatives}
 As a system approaches a tipping point, the conventional
-EWS suggest that {\pr the system} should become more
-autocorrelated. However, if {\pr the system is subjected to} autocorrelated noise,
+EWS suggest that the system should become more
+autocorrelated. However, if the system is subjected to autocorrelated noise,
 then this can act to mask the changes in the AC of the system so that such
 changes are no longer detectable. Furthermore, decreasing variability in
 the forcing can decrease the system variance even if the system is 
 approaching a tipping point. This again acts to mask the approaching tipping point, which clearly poses problems for conventional
 EWS as these would present a `false negative'.
 
-To illustrate this, we set $\mu(t) = t$, so that system {\pr (\ref{eq:dynamical_system})} has
+To illustrate this, we set $\mu(t) = t$, so that system (\ref{eq:dynamical_system}) has
 a tipping point at $t=2/3$ and calculate the conventional Early 
 Warning Signals after detrending with a second order polynomial, plotted in Figure \ref{fig:failure_of_ews}.
 Panel A of Figure \ref{fig:failure_of_ews} shows two time series of the 
@@ -218,10 +214,10 @@ plot $\frac{1}{\delta t}\log AC$ instead of the AC directly. However, this
 transformation will have no effect on any trends.
 
 The variance and AC show a clear rise in
-the white noise case, giving {\pr a clear} Early Warning Signal. 
-{\pr Whereas, for the red noise case there is no trend in the AC. The 
+the white noise case, giving a clear Early Warning Signal. 
+Whereas, for the red noise case there is no trend in the AC. The 
 variance shows both increases and decreases. A positive trend occurs near
-the tipping point however this would give, if any, very little warning.} Supplementary figure
+the tipping point however this would give, if any, very little warning. Supplementary figure
 S3 repeats this test for 1000 different noise realisations, showing the
 challenge of getting EWS when the noise is very 
 autocorrelated.
@@ -238,7 +234,7 @@ climate change, it is likely that the variability of the forcing,
 such as temperature, will change\cite{Huntingford2013}. 
 Increasing the variability, such as in \cite{Boers2021a}, of the forcing will increase the variance of the system even
 if the system is not approaching a tipping point. This is an example of a false
-alarm (i.e. a false positive). 
+alarm (i.e.\ a false positive). 
 
 \begin{figure}
 \includegraphics[width=\textwidth,keepaspectratio]{figure2.eps}
@@ -256,8 +252,8 @@ alarm (i.e. a false positive).
 
 An example of this phenomenon is plotted in Figure
 \ref{fig:changing_forcing}. We have integrated 
-(\ref{eq:dynamical_system}) with $\mu = -1$, hence there {\pr is} no 
-tipping point. The stochastic forcing $\eta${\pr , described by (\ref{eq:white_red_forcing}),} has its $r$ value
+(\ref{eq:dynamical_system}) with $\mu = -1$, hence there is no 
+tipping point. The stochastic forcing $\eta$, described by (\ref{eq:white_red_forcing}), has its $r$ value
 linearly increasing
 from $r=0.2$ at $t=-1$ to $r=0.7$ at $t=1$. The state
 variable is plotted in Panel A. Although there is no
@@ -351,8 +347,8 @@ If our estimate for $|\lambda|$ is decreasing towards zero in time this implies 
 \subsection{Choosing $\xi$}
 Unlike most EWS, our ROSA method requires knowledge of
 the driving process that controls the variability of the system.
-{\pr Therefore}, using this method requires an understanding
-of the system. Furthermore the system must be {\pr of sufficient temporal resolution such} that 
+Therefore, using this method requires an understanding
+of the system. Furthermore the system must be of sufficient temporal resolution such that 
 both $x$ and $\xi$ can be measured. If $\xi$ is not chosen
 correctly then changes to the calculated $\lambda$ could be driven
 by changes to the incorrectly chosen $\xi$, rather than a 
@@ -370,19 +366,19 @@ poorly, with little agreement between models\cite{Drijfhout2015}.
 We examine this ROSA method using the two test cases considered earlier in 
 section \ref{sec:failure}; namely its ability to avoid 
 false positives and false negatives.
-{\pr We} calculate the power spectra of $x$ and $\eta$
+We calculate the power spectra of $x$ and $\eta$
 using Welch's method\cite{Welch1967} after a quadratic 
 detrend in moving windows of length $0.2$. We perform a least
 squares fit to
 (\ref{eq:power_spectrum_indep}) and extract $\lambda$. We plot
 the results in panels D and C of Figures 
-\ref{fig:failure_of_ews} and \ref{fig:changing_forcing} {\pr respectively}.
+\ref{fig:failure_of_ews} and \ref{fig:changing_forcing} respectively.
 
 \subsection{Avoiding False Negatives}
 In Figure \ref{fig:failure_of_ews} we plot the case
 where the system is approaching a tipping point
-subject to white or red noise. Panel D {\pr provides} 
-the value of $\lambda$ estimated from ROSA {\pr and shows a clear}
+subject to white or red noise. Panel D provides
+the value of $\lambda$ estimated from ROSA and shows a clear
 rise towards zero in both the white and red noise case indicating
 a successful warning, in contrast to the classical indicators. Furthermore, both the
 white and red noise estimates lie close to the true value of 
@@ -392,19 +388,21 @@ $\lambda$, plotted in the black curve.
 In Figure \ref{fig:changing_forcing} we look at the case where the 
 system is not approaching a tipping point, but due to a reddening of 
 the noise process the classic Early Warning Indicators give a 
-false positive. In Panel C we plot $\lambda$ obtained from ROSA, {\pr which stays constant and} close to the true value (plotted in the dashed line). ROSA therefore avoids a false positive in this case.
+false positive. In Panel C we plot $\lambda$ obtained from ROSA, which stays constant and close to the true value (plotted in the dashed line). ROSA therefore avoids a false positive in this case.
 
 
 
 
 \section{Comparison to alternative methods}
-{\pr Recently}, Boers\cite{Boers2021a} introduced a new technique,
+Recently, Boers\cite{Boers2021a} introduced a new technique,
 to avoid the problems introduced by noise that isn't white.This was
 more rigorously analysed by Boettner and Boers\cite{Boettner2022}. The
 technique, which we refer to as the BB method, is essentially a way of
-regressing $\dot{x}$ against $x$, {\pr to give} an estimate for $\lambda$. 
-{\pr This} requires a model for the noise, for example that it is
-generated by an Ornstein-Uhlenbeck process. {\pr Significantly, the BB method makes a quasi-static assumption, such that the} parameters of the {\pr noise model are assumed to be fixed in each window (although can change between windows). On the other hand, ROSA does not have such a restriction because the noise is analysed directly.}
+regressing $\dot{x}$ against $x$, to give an estimate for $\lambda$. 
+This requires a model for the noise, for example that it is
+generated by an Ornstein-Uhlenbeck process. Significantly, the BB method makes a quasi-static assumption, such that the parameters of the noise
+model are assumed to be fixed in each window (although can change between windows). On the other hand,
+ROSA does not have such a restriction because the noise is analysed directly.
 
 We compare the BB method with ROSA for a system defined by
 (\ref{eq:dynamical_system}). We set $\mu  = t$ so that the system
@@ -427,14 +425,14 @@ large as long before the tipping point as possible.
 
 We compute this for $10$ noise realisations and plot the output 
 in Figure \ref{fig:boers_method}. Both indicators show a positive 
-$\tau$ near the tipping point. However, ROSA becomes positive substantially earlier than the BB method and there is less variance in the $\tau$ values for the ROSA method, as required for a more reliable early warning indicator. This is indicative of {\pr an earlier} and stronger warning than the BB method. 
+$\tau$ near the tipping point. However, ROSA becomes positive substantially earlier than the BB method and there is less variance in the $\tau$ values for the ROSA method, as required for a more reliable early warning indicator. This is indicative of an earlier and stronger warning than the BB method. 
 
-Nevertheless, the BB method has {\pr its advantages}.
+Nevertheless, the BB method has its advantages.
 It is flexible and straightforward to modify to different noise
-models {\pr and in many cases gives a} good Early Warning Signal 
-{\pr ahead of} the tipping point. Its principle advantage
+models and in many cases gives a good Early Warning Signal 
+ahead of the tipping point. Its principle advantage
 over ROSA is that an explicit time series of the forcing is not required to use it. As a result, ROSA and BB should be seen as complementary methods: 
-where {\pr data is scarce such as} in paleoclimate studies, BB is more suitable but 
+where data is scarce such as in paleoclimate studies, BB is more suitable but 
 for contemporary climate change where the earliness of the warning is 
 important ROSA is more suited.
 
@@ -454,19 +452,20 @@ because the forcing $\xi$ is uncertain and may not be a single dominant forcing,
 
 %Fortunately, there are many such complex models to choose from.
 There are a very large number of ESMs available, and additionally a substantial number of attributes of the Earth system amenable to investigation. Here we 
-examine Amazon forest dieback in state-of-the-art ESMs from the Coupled Model Intercomparison  Project - Phase 6 (CMIP6)\cite{Eyring2016} database. {\pr Recently, five (EC-Earth3-Veg, GFDL-ESM4, NorCPM1, SAM0-UNICON and TaiESM1) of seven models, which possess a Dynamic Global Vegetation Model
-(DGVM), have been shown to feature abrupt local Amazon dieback shifts (in the IPCC defined North South American region) in an idealised run of increasing CO$_2$ by 1\% per year\cite{Parry2022}.} 
+examine Amazon forest dieback in state-of-the-art ESMs from the Coupled Model Intercomparison  Project - Phase 6 (CMIP6)\cite{Eyring2016} database. Recently,
+five (EC-Earth3-Veg, GFDL-ESM4, NorCPM1, SAM0-UNICON and TaiESM1) of seven models, which possess a Dynamic Global Vegetation Model
+(DGVM), have been shown to feature abrupt local Amazon dieback shifts (in the IPCC defined North South American region) in an idealised run of increasing CO$_2$ by 1\% per year\cite{Parry2022}.
 %(Is this correct???).The model UKESM1-0-LL also has a DGVM but does not show Amazon dieback.
-{\pr The algorithm used in the study (and here) detects an abrupt shift if the following three criteria are satisfied: 1) the abrupt change is fast such that vegetation carbon drops by at least 2 \si{\kilogram\carbon\per\meter\squared} in a 15-year period, 2) the abrupt shift contributes to at least a quarter of the total change in the run, and 3) the mean annual rate of change is more than three times the variability of the rate of changes observed in the unforced control run.} 
+The algorithm used in the study (and here) detects an abrupt shift if the following three criteria are satisfied: 1) the abrupt change is fast such that vegetation carbon drops by at least 2 \si{\kilogram\carbon\per\meter\squared} in a 15-year period, 2) the abrupt shift contributes to at least a quarter of the total change in the run, and 3) the mean annual rate of change is more than three times the variability of the rate of changes observed in the unforced control run. 
 %(is there a citation for it? tipping point = abrupt shift - 5 years) 
 
-{\pr In every grid point identified as containing an abrupt shift, the time series of monthly vegetation carbon had its nonlinear trend and seasonal cycle removed}
+In every grid point identified as containing an abrupt shift, the time series of monthly vegetation carbon had its nonlinear trend and seasonal cycle removed
 %This data was then deseasonalised and detrended 
-using {\pr the} seasonal and trend decomposition using
+using the seasonal and trend decomposition using
 Loess (STL) method\cite{Cleaveland1990}. In 
 windows of length 50 years the conventional EWS and ROSA were calculated.
 We choose the \si{2\meter} air temperature as our forcing variable, which
-{\pr was} detrended similarly to the vegetation carbon. 
+was detrended similarly to the vegetation carbon. 
 
 Although this choice of forcing variable is unlikely to capture all aspects
 of the forcing, there is a known connection between temperature and Amazon 
@@ -484,9 +483,9 @@ of N-tipping and rapid change which is not a true tipping point. As a result, no
 EWS will successfully detect all abrupt shifts. This also means that some
 of the warning signals will be false positives. However this possibility
 affects all the EWS so the comparison remains fair. All three EWS are capable
-of detecting substantial proportions of the {\pr identified} abrupt shifts. {\pr Overall}, we see that ROSA outperforms the traditional EWS. {\pr For} individual models,
+of detecting substantial proportions of the identified abrupt shifts. Overall, we see that ROSA outperforms the traditional EWS. For individual models,
 ROSA detects more abrupt shifts than the AC alone and is often better than the 
-variance. Hence, for most of the CMIP6 models considered, ROSA is able to give a{\pr more robust}
+variance. Hence, for most of the CMIP6 models considered, ROSA is able to give a more robust
 early warning for abrupt shifts.
 
 \begin{figure}
@@ -508,7 +507,7 @@ statistics that can identify approaching tipping points.
 
 Although there has been much work on EWS for Tipping Points,
 this has tended to focus on the simple case that the system is subject to additive white noise. 
-In this paper we {\pr have} shown how EWS can be generalised to deal with more general noise characteristics. By normalising the power spectrum of the forcing, we are able to extract a 
+In this paper we have shown how EWS can be generalised to deal with more general noise characteristics. By normalising the power spectrum of the forcing, we are able to extract a 
 time-evolving parameter $\lambda$, which robustly approaches zero as a tipping point is approached.  
 
 Approximating the driving noise as white is reasonable when $r$ is 
@@ -517,7 +516,7 @@ noise's decorrelation time. In these instances, conventional EWS will be useful.
 possible. This is relevant to anthropogenic climate change given that the changes are fast.
 
 Our work relies on a couple of  key assumptions: (a) that there is a separation of timescales; and (b) that the power spectrum of the forcing and the system is known. Assumption (b)
-requires {\pr having} data {\pr for a sufficiently} long period of time, which may 
+requires having data for a sufficiently long period of time, which may 
 prove challenging in practise. Assumption (b) is notable as other EWS, like the BB technique, do not require the forcing to be known.
 Although assumption (a) is typically
 assumed when dealing with EWS, its applicability
