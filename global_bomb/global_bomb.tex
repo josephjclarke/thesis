@@ -87,46 +87,104 @@ where
   \label{eq:mu}
   \mu = \frac{\alpha S}{\log 2}.
 \end{equation}
-We will assume
-\begin{equation}
-  \label{eq:npp_fertilization}
-  \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{a_{1/2}}}.
-\end{equation}
-We will assume further that a fixed fraction $\chi_0$ of atmospheric emissions reaches the ocean, meaning
-\begin{equation}
-  \label{eq:simple_ocean}
-  C_a = C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})
-  %C_s = C_{s}^{\mathrm{eq}} - (1 + \chi_0)(C_a - C_{a0}.
-\end{equation}
+
+
 We chose the temperature anomaly so that $T_a = 0$ corresponds to an equilibrium. We can then set
-$r_0 = \frac{\Pi}{C_s^{\mathrm{eq}}}e^{-\Pi/\Pi_c}$ giving
-\begin{equation}
-  \label{eq:soil_carbon_evolution_with_r0_fixed}
-  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{C_s}{C_s^{\mathrm{eq}}}\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right).
-\end{equation}
+$r_0 = \frac{\Pi_0}{C_s^{\mathrm{eq}}}e^{-\Pi_0/\Pi_c}$, where $\Pi_0 = \Pi\left(C_{a0}\right)$.
 
 To find the bifurcation we therefore just have to calculate where
 \begin{equation*}
-  \dv{\dot{C_s}}{t} = 0,
+  \dv{\dot{C_s}}{C_s} = 0,
 \end{equation*}
 we will make use of
 \begin{equation}
   \label{eq:derivative_of_lambert_W}
   W'(x) = \frac{W(x)}{x\left(1 + W\left(x\right)\right)}.
 \end{equation}
-This leads to
+
+
+
+% \begin{figure}
+%   \centering
+%   \begin{tikzpicture}[
+%     /pgf/declare function={
+%       chi0 = 0.25;
+%       npp = 55.0;
+%       Ca0 = 589.0;
+%       Cseq = 1500.0;
+%     }
+%     ]
+%     \begin{axis}[
+%       xlabel = $\mu$,
+%       ylabel = $\dv{\Pi}{C_a}$ \unit{\per\year},
+%       ymin=0.0,
+%       ymax=2.5E-2,
+%       xmin=0.0
+%       ]
+%       \addplot[domain=0:0.6] {0.5*(1+chi0) * npp/Cseq - 0.5 * npp * x / Ca0};
+%     \end{axis}
+%     \end{tikzpicture}
+%   \caption{Maximum \ce{CO2} fertilization strength}
+%   \label{fig:maximum_co2_fertilization}
+% \end{figure}
+
+Taking a derivative of the right hand side of \cref{eq:global_soil_carbon} and setting it to zero in equilibrium gives
+\begin{equation}
+  \label{eq:soil_carbon_lambda}
+  \dv{\Pi}{C_a}\dv{C_a}{C_s} + \frac{\Pi_c}{C_s^{\mathrm{eq}}} \frac{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)} \left(
+    1 + \mu \frac{C_s^{\mathrm{eq}}}{C_{a0}} \dv{C_a}{C_s}\right) = 0
+\end{equation}
+so
 \begin{equation}
   \label{eq:critical_mu}
-  \mu^* = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left(1+\frac{1}{1+\chi_0}\left( \frac{1}{W\left(-\frac{\Pi}{\Pi_c}e^{-\Pi/\Pi_c}\right)}
-      - \frac{\Pi_c}{\Pi}\right)\frac{C_s^{\mathrm{eq}}}{\Pi_c}\dv{\Pi}{C_a}\right)
-\end{equation}\todo{check}
-where $\mu^*$ is the value of $\mu$ where the bifurcation takes place.
-
-Taking the limit as $\Pi_c \rightarrow \infty$ using the fact that $W(x) = x + \mathcal{O}(x^2)$ as $x \rightarrow 0$ gives
-\begin{equation}
-  \label{eq:critical_mu_no_biogeochemical}
-  \mu^*_{\infty} = \left(1 + \chi_0\right) \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left(1 - \frac{2}{1+\chi_0}\frac{C_s^{\mathrm{eq}}}{\Pi}\dv{\Pi}{C_a}\right).
+  \mu = -\frac{C_{a0}}{C_{s}^{\mathrm{eq}}}\dv{C_s}{C_a}\left(\dv{\Pi}{C_a}\dv{C_a}{C_s} \frac{C_s^{\mathrm{eq}}}{\Pi_c}\frac{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)} + 1 \right)
 \end{equation}
+
+We will assume  that a fixed fraction $\chi_0$ of atmospheric emissions reaches the ocean, meaning
+\begin{equation}
+  \label{eq:simple_ocean}
+  C_a = C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}})
+  %C_s = C_{s}^{\mathrm{eq}} - (1 + \chi_0)(C_a - C_{a0}.
+\end{equation}
+gives
+\begin{equation}
+  \label{eq:critical_mu_simple_ocean}
+  \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
+  \frac{C_{a0}}{\Pi_c}\frac{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}\dv{\Pi}{C_a}
+\end{equation}
+or
+\begin{equation*}
+  \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
+  \frac{C_{a0}}{\Pi_c}
+  \frac{1+W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}
+  {W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}\dv{\Pi}{C_a} 
+\end{equation*}
+or
+\begin{equation*}
+  \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
+  \frac{C_{a0}}{\Pi_c}
+  \frac{1-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)}{-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)}\dv{\Pi}{C_a} .
+\end{equation*}
+Cleaning this up gives
+\begin{equation}
+  \label{eq:critical_mu_simple_ocean_in_terms_of_npp}
+  \mu^* = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
+  \frac{C_{a0}}{\Pi_0}\exp\left(\frac{\Pi_0}{\Pi_c}\right)  \dv{\Pi}{C_a} - \frac{C_{a0}}{\Pi_c} \dv{\Pi}{C_a}
+\end{equation}
+
+Taking the limit where $\Pi_c \rightarrow \infty$ gives
+\begin{equation}
+  \label{eq:mu_infinity}
+  \mu^*_{\infty} = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
+  \frac{C_{a0}}{\Pi_0}  \dv{\Pi}{C_a}
+\end{equation}
+
+We note this implies a minimum allowed \ce{CO2} fertilization effect for a given $\mu$ (as we need $\mu < \mu_\infty^*$)
+\begin{equation}
+  \label{eq:minimum_allowed_co2_fertilization}
+  \dv{\Pi}{C_a} > \frac{\Pi_0\mu}{C_{a0}} - \frac{1+\chi_0}{C_s^{\mathrm{eq}}}
+\end{equation}
+
 
 We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable and unstable region.
 
@@ -142,66 +200,26 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
     ]
     \begin{axis}[
       legend pos=outer north east,
-      %enlargelimits=false
+      % enlargelimits=false
+      xlabel={$\Pi_c$},
+      ylabel={$\mu^*$}
       ]
       \addplot[
-      domain=200:1000,
+      domain=100:2000,
       samples=100,
       enlarge x limits=false,
       color=red]
-      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.01)};
-      \addlegendentry{$\dv*{\Pi}{C_a} = 0.01$}
-      \addplot[
-      domain=200:1000,
-      samples=100,
-      enlarge x limits=false,
-      color=blue]
-      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.005)};
-      \addlegendentry{$\dv*{\Pi}{C_a} = 0.005$}
-      \addplot[
-      domain=200:1000,
-      samples=100,
-      enlarge x limits=false,
-      color=green]
-      {(1 + chi0)*(Ca0/Cseq)*(1 + (1/(1+chi0)) *(-1/(exp(-npp/x) * npp/x) - x/npp) * (Cseq / x) * 0.00)};
-      \addlegendentry{$\dv*{\Pi}{C_a} = 0.00$}
-
+      {(1+chi0)*Ca0/Cseq + 0.03 * ((Ca0/npp) * exp(npp/x)  - (Ca0/x))};
+      \addlegendentry{$\dv*{\Pi}{C_a} = 0.03$}
     \end{axis}
  
     
   \end{tikzpicture}
   \caption{The parameter plane}
   \label{fig:critical_mu_vs_pic}
-\end{figure}\todo{check \cref{fig:critical_mu_vs_pic}}
-
-
-Using \cref{eq:critical_mu_no_biogeochemical} gives an upper limit on the strength of \ce{CO2} fertilization compatible with a stable climate
-\begin{equation}
-  \label{eq:maximum_co2_fertilization}
-  \dv{\Pi}{C_a} < \frac{1+\chi_0}{2} \frac{\Pi}{C_s^{\mathrm{eq}}} - \frac{1}{2} \frac{\Pi}{C_{a0}} \mu_{\infty}^*
-\end{equation}
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[
-    /pgf/declare function={
-      chi0 = 0.25;
-      npp = 55.0;
-      Ca0 = 589.0;
-      Cseq = 1500.0;
-    }
-    ]
-    \begin{axis}[
-      xlabel = $\mu$,
-      ylabel = $\dv{\Pi}{C_a}$ \unit{\per\year},
-      ymin=0.0,
-      ymax=2.5E-2,
-      xmin=0.0
-      ]
-      \addplot[domain=0:0.6] {0.5*(1+chi0) * npp/Cseq - 0.5 * npp * x / Ca0};
-    \end{axis}
-    \end{tikzpicture}
-  \caption{Maximum \ce{CO2} fertilization strength}
-  \label{fig:maximum_co2_fertilization}
-\end{figure}
-\todo[inline]{Maybe I should stick the derivatives into mathematica and see what they spit out?}
+\end{figure}\todo{This looks like the wrong dependence --- check against \cref{eq:critical_mu_simple_ocean}}
+% We will assume
+% \begin{equation}
+%   \label{eq:npp_fertilization}
+%   \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{a_{1/2}}}.
+% \end{equation}
