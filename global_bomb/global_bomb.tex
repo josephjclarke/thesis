@@ -140,26 +140,26 @@ or
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}
-  \frac{1-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)}{-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)}\dv{\Pi}{C_a} .
+  \frac{1-\frac{\Pi_0}{\Pi_c}}{-\frac{\Pi_0}{\Pi_c}}\dv{\Pi}{C_a} .
 \end{equation*}
 Cleaning this up gives
 \begin{equation}
   \label{eq:critical_mu_simple_ocean_in_terms_of_npp}
   \mu^* = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
-  \frac{C_{a0}}{\Pi_0}\exp\left(\frac{\Pi_0}{\Pi_c}\right)  \dv{\Pi}{C_a} - \frac{C_{a0}}{\Pi_c} \dv{\Pi}{C_a}
+  \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} - \frac{C_{a0}}{\Pi_c}\dv{\Pi}{C_a}.
 \end{equation}
 
 Taking the limit where $\Pi_c \rightarrow \infty$ gives
 \begin{equation}
   \label{eq:mu_infinity}
-  \mu^*_{\infty} = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
-  \frac{C_{a0}}{\Pi_0}  \dv{\Pi}{C_a}
+  \mu^*_{\infty} =\left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
+  \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a}.
 \end{equation}
 
 We note this implies a minimum allowed \ce{CO2} fertilization effect for a given $\mu$ (as we need $\mu < \mu_\infty^*$)
 \begin{equation}
   \label{eq:minimum_allowed_co2_fertilization}
-  \dv{\Pi}{C_a} > \frac{\Pi_0\mu}{C_{a0}} - \frac{1+\chi_0}{C_s^{\mathrm{eq}}}
+  \dv{\Pi}{C_a} > \frac{\Pi_0\mu}{C_{a0}} - \frac{1+\chi_0}{C_s^{\mathrm{eq}}}\Pi_0
 \end{equation}
 
 
@@ -186,7 +186,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
       samples=100,
       enlarge x limits=false,
       color=red]
-      {(1+chi0)*Ca0/Cseq + 0.03 * ((Ca0/npp) * exp(npp/x)  - (Ca0/x))};
+      {(1+chi0)*Ca0/Cseq + 0.03 * ((Ca0/npp)  - (Ca0/x))};
       \addlegendentry{$\dv*{\Pi}{C_a} = 0.03$}
     \end{axis}
  
@@ -213,7 +213,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
       xmin=0.0,
       xmax=1.0
       ]
-      \addplot[domain=0:1.0] {npp * x / Ca0 - (1+chi0) / Cseq};
+      \addplot[domain=0:1.0] {npp * x / Ca0 - npp * (1+chi0) / Cseq};
     \end{axis}
     \end{tikzpicture}
   \caption{Minimum \ce{CO2} fertilization strength}
