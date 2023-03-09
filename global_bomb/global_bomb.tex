@@ -179,12 +179,14 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
       legend pos=outer north east,
       % enlargelimits=false
       xlabel={$\Pi_c$},
-      ylabel={$\mu^*$}
+      ylabel={$\mu^*$},
+      xmin=20,
+      xmax=500,
+      ymin=0.0
       ]
       \addplot[
-      domain=100:2000,
+      domain=20:500,
       samples=100,
-      enlarge x limits=false,
       color=red]
       {(1+chi0)*Ca0/Cseq + 0.03 * ((Ca0/npp)  - (Ca0/x))};
       \addlegendentry{$\dv*{\Pi}{C_a} = 0.03$}
@@ -194,8 +196,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
   \end{tikzpicture}
   \caption{The parameter plane}
   \label{fig:critical_mu_vs_pic}
-\end{figure}\todo{This is wrong}
-
+\end{figure}
 
 \begin{figure}
   \centering
@@ -225,3 +226,39 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
 %   \label{eq:npp_fertilization}
 %   \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{a_{1/2}}}.
 % \end{equation}
+
+
+\section{What is $S$?}
+Ignore compost bomb effects to begin:
+\begin{equation}
+  \label{eq:spatially_resolved_soil_carbon}
+  \pdv{ C_s (\bm{r},t)}{t} = \Pi(\bm{r},t) - r_0(\bm{r},t)C_s(\bm{r},t)e^{\alpha T(\bm{r},t)}
+\end{equation}
+Averaging gives
+\begin{equation}
+  \label{eq:spatially_averaged_soil_carbon}
+  \dv{\left\langle C_s\right\rangle}{t} = \left\langle \Pi \right \rangle - \left\langle r_0 C_s e^{\alpha T} \right \rangle
+\end{equation}
+Expanding:
+\begin{align*}
+  \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s + r_0 C_s \alpha T \right \rangle \\
+                                        &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s\right \rangle - \alpha \left \langle r_0C_s T\right\rangle \\
+                                        &=\approx - \alpha \left \langle \Pi T\right\rangle,
+\end{align*}
+where we have used $\Pi = r_0C_s$ in equilibrium. Introducting an effective temperature $T_{\mathrm{eff}}$ we get
+\begin{equation*}
+  - \alpha \left \langle \Pi T \right\rangle = - \alpha \left \langle \Pi \right\rangle T_{\mathrm{eff}}
+\end{equation*}
+so that
+\begin{equation}
+  \label{eq:definition_of_effective_temperature}
+  T_{\mathrm{eff}} = \frac{\left \langle \Pi T \right\rangle}{\left \langle \Pi \right\rangle}.
+\end{equation}
+After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle = \mathrm{ECS}$ so that
+\begin{equation}
+  \label{eq:S_vs_ECS}
+  \frac{S}{\mathrm{ECS}} = \frac{\left \langle \Pi T \right\rangle}{\left \langle \Pi \right\rangle \left \langle T \right \rangle}.
+\end{equation}
+In words, $S$ is given by an NPP weighted average of global temperatures.
+Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
+\section{What is $\Pi_c$?}
