@@ -13,10 +13,11 @@
 \begin{document}
 \listoftodos{}
 \frontmatter{}
-
+\pagenumbering{arabic}
 \ifdraft{\input{todolist.tex}}{}
 
 \include{titlepage}
+\addtocounter{page}{1}
 \include{abstract}
 \include{acknowledgements}
 \include{contents}
