@@ -140,7 +140,7 @@ or
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}
-  \frac{1-\frac{\Pi_0}{\Pi_c}}{-\frac{\Pi_0}{\Pi_c}}\dv{\Pi}{C_a} .
+  \frac{1-\frac{\Pi_0}{\Pi_c}}{-\frac{\Pi_0}{\Pi_c}}\dv{\Pi}{C_a}.
 \end{equation*}
 Cleaning this up gives
 \begin{equation}
@@ -262,3 +262,17 @@ After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle
 In words, $S$ is given by an NPP weighted average of global temperatures.
 Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
 \section{What is $\Pi_c$?}
+
+\section{Anthropogenic Emissions}
+We can factor in anthropogenic emissions in a simple way by modifying \cref{eq:simple_ocean},
+\begin{equation}
+  \label{eq:simple_ocean_emissions}
+  C_a = C_{a0}(1 + E) - \frac{1}{1+\chi_0}(C_s-C_s^{\mathrm{eq}})
+\end{equation}
+where $E$ is the cumulative amount of anthropogenic emissions measured in units of the preindustrial amount. \Cref{eq:global_soil_carbon}
+becomes
+\begin{equation}
+  \label{eq:global_soil_carbon_emissions}
+  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s}{\Pi_c} \left(1 + E - \frac{1}{C_{a0}\left(1+\chi_0\right)}(C_s-C_s^{\mathrm{eq}})\right)^\mu \right).
+\end{equation}
+We can now ask the question: given a $\mu$ and $\Pi_C$, is there a critical value of $E$ that leads to an instability?
