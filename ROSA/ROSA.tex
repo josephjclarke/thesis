@@ -216,11 +216,17 @@ The variance and AC show a clear rise in
 the white noise case, giving a clear Early Warning Signal. 
 Whereas, for the red noise case there is no trend in the AC. The 
 variance shows both increases and decreases. A positive trend occurs near
-the tipping point however this would give, if any, very little warning. Supplementary figure \todo{sort out supplimentary figures}
-S3 repeats this test for 1000 different noise realisations, showing the
+the tipping point however this would give, if any, very little warning. \Cref{fig:prob_of_suc}
+repeats this test for 1000 different noise realisations, showing the
 challenge of getting EWS when the noise is very 
 autocorrelated.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pofsuccess}
+  \caption[Probability of detection for conventional EWS]{Probability of detection for conventional EWS}
+  \label{fig:prob_of_suc}
+\end{figure}
 
 \subsection{False Positives}
 An additional problem with assuming the system is subject to stationary white noise is that it also implies that the
@@ -530,7 +536,27 @@ prove challenging in practise. \Cref{itm:exists} is notable as other EWS, like t
 Although \cref{itm:timescale_seperation} is typically assumed when dealing with EWS, its applicability
 to the rapidly changing modern climate is still an open question.
 As a result, future work should investigate EWS for systems without this timescale separation.
-Nevertheless, we believe our approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate. 
+Nevertheless, we believe our approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate.
+
+\section{Supplimentary Figures}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{subsampling}
+  \caption[Effect of Subsampling]{Effect of Subsampling}
+  \label{fig:subsampling}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{false_positives_whitenoise}
+  \caption[False positive with white noise]{Probability of False Positive with white noise}
+  \label{fig:false_positives_white}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{false_positives_rednoise}
+  \caption[False positive with red noise]{Probability of False positive with red noise}
+  \label{fig:false_positive_red_noise}
+\end{figure}
 
 \section*{Data Avaliablity}
 The code used to produce the figures in this paper can be found at \texttt{https://github.com/josephjclarke/BeyondWhiteNoiseEWS}.
