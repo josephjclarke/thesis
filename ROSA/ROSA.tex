@@ -219,7 +219,8 @@ variance shows both increases and decreases. A positive trend occurs near
 the tipping point however this would give, if any, very little warning. \Cref{fig:prob_of_suc}
 repeats this test for 1000 different noise realisations, showing the
 challenge of getting EWS when the noise is very 
-autocorrelated.
+autocorrelated. In \cref{fig:subsampling} we investigate the effect on the early warning when the time series
+is subsampled.
 
 \begin{figure}
   \centering
@@ -227,6 +228,14 @@ autocorrelated.
   \caption[Probability of detection for conventional EWS]{Probability of detection for conventional EWS}
   \label{fig:prob_of_suc}
 \end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{subsampling}
+  \caption[Effect of Subsampling]{Effect of Subsampling}
+  \label{fig:subsampling}
+\end{figure}
+
 
 \subsection{False Positives}
 An additional problem with assuming the system is subject to stationary white noise is that it also implies that the
@@ -390,9 +399,20 @@ In \cref{fig:changing_forcing} we look at the case where the
 system is not approaching a tipping point, but due to a reddening of 
 the noise process the classic Early Warning Indicators give a 
 false positive. In Panel C we plot $\lambda$ obtained from ROSA, which stays constant and close to the true
-value (plotted in the dashed line). ROSA therefore avoids a false positive in this case.
-
-
+value (plotted in the dashed line). ROSA therefore avoids a false positive in this case. We look at this more
+systematically in \cref{fig:false_positives_white,fig:false_positive_red_noise}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{false_positives_whitenoise}
+  \caption[False positive with white noise]{Probability of False Positive with white noise}
+  \label{fig:false_positives_white}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{false_positives_rednoise}
+  \caption[False positive with red noise]{Probability of False positive with red noise}
+  \label{fig:false_positive_red_noise}
+\end{figure}
 
 
 \section{Comparison to alternative methods}
@@ -538,25 +558,6 @@ to the rapidly changing modern climate is still an open question.
 As a result, future work should investigate EWS for systems without this timescale separation.
 Nevertheless, we believe our approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate.
 
-\section{Supplimentary Figures}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{subsampling}
-  \caption[Effect of Subsampling]{Effect of Subsampling}
-  \label{fig:subsampling}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{false_positives_whitenoise}
-  \caption[False positive with white noise]{Probability of False Positive with white noise}
-  \label{fig:false_positives_white}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{false_positives_rednoise}
-  \caption[False positive with red noise]{Probability of False positive with red noise}
-  \label{fig:false_positive_red_noise}
-\end{figure}
 
 \section*{Data Avaliablity}
 The code used to produce the figures in this paper can be found at \texttt{https://github.com/josephjclarke/BeyondWhiteNoiseEWS}.
