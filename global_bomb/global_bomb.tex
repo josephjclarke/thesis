@@ -277,7 +277,20 @@ After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle
 In words, $S$ is given by an NPP weighted average of global temperatures.
 Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
 \section{What is $\Pi_c$?}
-
+To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
+We take $A$ from biochemistry to be \SI{3.9E7}{\joule\per\kilo\gram\carbon}. To estimate $\kappa$, we neglect biogeochemical heating
+in \ref{eq:compost_bomb_soil_temperature} to get
+\begin{equation}
+  \label{eq:soil_temp_no_biogeo}
+  \mu \dot{T_s} = -\kappa \left( T_s -T_a \right)
+\end{equation}
+and then move to the frequency domain by fourier transforming to get power spectrum of $T_s$ in terms of $T_a$
+\begin{equation}
+  \label{eq:power_spectrum_of_Ts}
+  \left| \tilde{T}_s\left(\omega\right)\right|^2 = \frac{\kappa^2 \left| \tilde{T}_a\left(\omega\right)\right|^2}{\omega^2 \mu^2 + \kappa^2}.
+    \end{equation}
+Estimates of $\kappa$ and $\mu$ can therefore be extracted from timeseries of global $T_a$ and $T_s$ giving $\kappa$ to be \SI{0.27}{\watt\per\meter}\todo{check units}
+and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
 \section{Critical Emission Rates}
 % We can factor in anthropogenic emissions in a simple way by modifying \cref{eq:simple_ocean},
 % \begin{equation}
