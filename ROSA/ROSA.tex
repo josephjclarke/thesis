@@ -225,14 +225,21 @@ is subsampled.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{pofsuccess}
-  \caption[Probability of detection for conventional EWS]{Probability of detection for conventional EWS}
+  \caption[Probability of detection for conventional EWS]{This figure repeats the experiment carried out in \cref{fig:failure_of_ews}
+    with red noise 1000 times to calculate the probabillity of a succesful detection, defined as a large enough increase in the conventional
+    early warning signals, namely variance and autocorrelation. A large enough increase is measured by Kendall's $\tau$ statistic. The larger the
+    required $\tau$, the stronger the trend. This figure shows that only at low $\tau$ thresholds (i.e.\ weak enough trends) do we get any appreciable
+  chance of succesfully detecting the tipping point.}
   \label{fig:prob_of_suc}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{subsampling}
-  \caption[Effect of Subsampling]{Effect of Subsampling}
+  \caption[Effect of Subsampling]{By subsampling a timeseries we reduce its level of autocorrelation. This figure subsamples the timeseries in
+    \cref{fig:failure_of_ews} to investigate the effect on the trends in autocorrealtion. The value, $n$ of subsampling along the $x$ axis refers to taking
+    every $n$th timestep. As subsampling reduces the number of point in the window, this was also repeated for a longer window, set at double the length of the
+  original window. Overall, we see this makes little difference to the trend in the autocorrelation.}
   \label{fig:subsampling}
 \end{figure}
 
