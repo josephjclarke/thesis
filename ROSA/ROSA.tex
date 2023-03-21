@@ -407,19 +407,21 @@ system is not approaching a tipping point, but due to a reddening of
 the noise process the classic Early Warning Indicators give a 
 false positive. In Panel C we plot $\lambda$ obtained from ROSA, which stays constant and close to the true
 value (plotted in the dashed line). ROSA therefore avoids a false positive in this case. We look at this more
-systematically in \cref{fig:false_positives_white,fig:false_positive_red_noise}.
+systematically in \cref{fig:false_positives_white}.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{false_positives_whitenoise}
-  \caption[False positive with white noise]{Probability of False Positive with white noise}
+  \caption[False positive with white noise]{We repeat the experiment in \cref{fig:changing_forcing} 1000 times to
+    calculate the probability of a false detection of a tipping point. We `detect' a tipping point when Kendall's $\tau$ is large enough. A larger $\tau$
+    corresponds to a stronger trend. We see that ROSA is much less likely to falsely detect a tipping point in this case.}
   \label{fig:false_positives_white}
 \end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{false_positives_rednoise}
-  \caption[False positive with red noise]{Probability of False positive with red noise}
-  \label{fig:false_positive_red_noise}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{false_positives_rednoise}
+%   \caption[False positive with red noise]{Probability of False positive with red noise}
+%   \label{fig:false_positive_red_noise}
+% \end{figure}
 
 
 \section{Comparison to alternative methods}
