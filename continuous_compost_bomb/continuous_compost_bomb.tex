@@ -40,8 +40,8 @@ correspond to bifurcations. The mechanisms underpinning the compost bomb instabi
 approach to the compost bomb was carried out by \cite{Wieczorek2011} where the compost bomb was studied as an `excitable' system in which critical rates were calculated analytically. They found that when the air temperature was
 raised sufficiently slowly the system could follow the steady state equilibrium. However, when the air temperature was raised more rapidly,
 the system was unable to respond quickly enough.
-Here we focus on the compost bomb instability in response to the seasonal cycle. In this case the timescale of the forcing (1 year) is much faster than the response timescale of the soil carbon
-(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (i.e.\ we consider the `compost bomb limit' of LC10). 
+Here I focus on the compost bomb instability in response to the seasonal cycle. In this case the timescale of the forcing (1 year) is much faster than the response timescale of the soil carbon
+(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (i.e.\ I consider the `compost bomb limit' of LC10). 
 
 Some limitations of the LC10 model are that it neglects important thermal processes and soil structure, and in particular vertical variation.
 For example, as a `single box' model, it assumes that the soil is well represented by averaged quantities, such as an average soil temperature,
@@ -51,12 +51,12 @@ By definition, box models neglect processes such as heat diffusion which tend to
 that diffusive damping may make the compost bomb harder to trigger. Additionally, the LC10 model assumes a single pool of carbon, rather than a spatially extended distribution, which might
 increase the possibility for a compost bomb.
 
-Despite these caveats, the LC10 model captures the essence of the system. We aim to add realism to the LC10 model by considering the vertical structure and heat conductivity of the soil.
-We model a one dimensional soil column in which heat can diffuse and soil carbon decreases exponentially with depth. We investigate whether an instability still exists in this model.
+Despite these caveats, the LC10 model captures the essence of the system. T aim is to add realism to the LC10 model by considering the vertical structure and heat conductivity of the soil.
+I model a one dimensional soil column in which heat can diffuse and soil carbon decreases exponentially with depth. I investigate whether an instability still exists in this model.
 
 The compost bomb has generally been considered in relation to an upward decadal timescale linear ramp in air temperature, which is an idealisation of the change in air temperature due to
 human caused climate change. However, there is also the possibility of
-rate-induced tipping by the sinusoidal variations in air temperature caused by the diurnal and seasonal cycles. We investigate those possibilities here, to see if there exist
+rate-induced tipping by the sinusoidal variations in air temperature caused by the diurnal and seasonal cycles. I investigate those possibilities here, to see if there exist
 features of these oscillations that may raise the risk of a compost bomb.
 
 
@@ -71,14 +71,14 @@ also a reaction whose rate increases with temperature. Hence this reaction could
 The rate of respiration is often modelled with a $Q_{10}$ form\cite{Kirschbaum1995} for temperature dependence.
 In this representation the reaction rate increases by a factor $Q_{10}$
 for every \SI{10}{\degreeCelsius} of temperature increase.
-Hence we can model the specific rate of respiration, $r(T_s)$ (\si{\per\square\meter\per\second}) as $r(T_s) = r_0 Q_{10}^{\left(T_s - T_{\mathrm{ref}}\right)/10}$
+Hence the specific rate of respiration, $r(T_s)$ (\si{\per\square\meter\per\second}) can be modeled as $r(T_s) = r_0 Q_{10}^{\left(T_s - T_{\mathrm{ref}}\right)/10}$
 where $T_s$ (\si{\degreeCelsius}) is the soil temperature and $r_0$ is the reaction rate at
 $T_{\mathrm{ref}}$. The rate of reaction also increases in proportion to the available substrate, here soil carbon $C_s$ (\si{\kilo\gram\carbon\per\square\meter}).
 The $Q_{10}$ form implies an exponential dependence of the specific respiration rate on temperature:  $r(T_s)=r_0 \exp\left(\alpha\left(T_s-T_{\mathrm{ref}}\right)\right)$, where
 $\alpha = \ln Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
 $\Pi$ (\si{\kilo\gram\carbon\per\square\meter\per\second}) and decreased by heterotrophic respiration. Introducing the parameters $A$ (\si{\joule\per\kilo\gram\carbon}), the specific heat
 of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\kelvin}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\kelvin})
-the soil-to-atmosphere heat transfer coefficient we have the LC10 model
+the soil-to-atmosphere heat transfer coefficient leads to the LC10 model
 \begin{subequations}
 
   \label{eq:lc10}
@@ -90,7 +90,7 @@ the soil-to-atmosphere heat transfer coefficient we have the LC10 model
 The model assumes that in the absence of biogeochemical heating the soil temperature equilibrates to the atmospheric temperature $T_a$. The amount of soil carbon is set by the equilibrium balance
 between $\Pi$ and heterotrophic respiration.  
 If the decrease in soil carbon is too slow to offset an increase in air temperature, the compost bomb instability is triggered, corresponding mathematically to an instability in which
-$T_s$ is `excited' to a very large value, well in excess of \SI{100}{\degreeCelsius}. We further note that this model implies a value for the equilibrium soil carbon
+$T_s$ is `excited' to a very large value, well in excess of \SI{100}{\degreeCelsius}. I further note that this model implies a value for the equilibrium soil carbon
 \begin{equation}
   \label{eq:equilibrium_soil_carbon}
   C_s^{\mathrm{eq}} = \frac{1}{r_0}e^{-\alpha \left( T_a - T_{\mathrm{ref}}\right)} \Pi e^{-\Pi/\Pi_c}
@@ -99,17 +99,17 @@ where $\Pi_c = \lambda /\alpha A$. This equilibrium value is obtained by setting
 
 \section{Continuum Model With Vertical Depth}
 \label{sec:continuum_model}
-We investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction, which extends from the
-surface at $z = 0$ down to $z = -\infty$. We assume soil carbon falls exponentially with depth, over a characteristic distance of $H$.
-We model soil temperature as a reaction-diffusion system, in which heat is generated
+I investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction, which extends from the
+surface at $z = 0$ down to $z = -\infty$. I assume soil carbon falls exponentially with depth, over a characteristic distance of $H$.
+I model soil temperature as a reaction-diffusion system, in which heat is generated
 by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\kelvin})\cite{Best2005},
-it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. We can therefore write the heat diffusion
+it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. I can therefore write the heat diffusion
 equation for the soil temperature $T_s(z,t)$ as:
 \begin{equation}
   \label{eq:one_d_model}
   \mu_V \pdv{T_s}{t} = \kappa \pdv[2]{T_s}{z} + \frac{AC_sr_0}{H}e^{\alpha (T_s - T_{\mathrm{ref}})}e^{z/H}.
 \end{equation}
-At $z=-\infty$ we impose a no flux boundary condition.
+At $z=-\infty$ a no flux boundary condition is imposed.
 At the upper boundary the soil temperature is controlled by the turbulent heat flux from the atmosphere which has temperature
 $T_{a0} + \delta T_a(t)$, where $T_{a0}$ represents a background mean temperature and $\delta T_a(t)$ a time dependent warming. Mathematically:
 
@@ -122,11 +122,11 @@ $T_{a0} + \delta T_a(t)$, where $T_{a0}$ represents a background mean temperatur
 \end{subequations}
 
 Here the parameter $\lambda$ characterises the turbulent heat transfer from the atmosphere to the top layer of the soil.
-We set $C_s$ to the equilibrium value using \cref{eq:equilibrium_soil_carbon} where the air temperature is taken to be $T_{a0}$. This approximation
-is justified provided we work on timescales short relative to the turnover time of soil carbon, which is on the order of many decades\cite{Varney2020}. 
+I set $C_s$ to the equilibrium value using \cref{eq:equilibrium_soil_carbon} where the air temperature is taken to be $T_{a0}$. This approximation
+is justified provided I work on timescales short relative to the turnover time of soil carbon, which is on the order of many decades\cite{Varney2020}. 
 
-Throughout this study we undertake the mathematical investigation using nondimensional values. However, to aid understanding we plot certain figures
-using dimensional units, with standard values given in \cref{tab:standard_values}. It should be noted however that these parameters are choices we have made,
+Throughout this study I undertake the mathematical investigation using nondimensional values. However, to aid understanding I plot certain figures
+using dimensional units, with standard values given in \cref{tab:standard_values}. It should be noted however that these parameters are choices I have made,
 and different choices will lead to different figures, whereas the nondimensional plots are valid for all parameter choices.
 \begin{table}
   \centering
@@ -146,16 +146,16 @@ and different choices will lead to different figures, whereas the nondimensional
 \end{table}
 \subsection{Numerical Investigation}
 \label{sec:numerical_investigation}
-We numerically integrated 
+I numerically integrated 
 the continuum model in both space and time, and discovered that it can give rise to a compost bomb instability.
 The PDE, \cref{eq:one_d_model}, was solved using the `method of lines' technique\cite{Schiesser2012}. It was discretized spatially into 100 equally spaced intervals.
 The spatial derivatives were approximated using central differences. This was then integrated using
 the backwards differentiation formula \textsc{bdf} method from the scipy library\cite{Virtanen2020}. The \textsc{bdf} method was chosen as it is well suited to stiff problems.
-We considered the instability to occur when scipy's solver could not find a solution.
+I considered the instability to occur when scipy's solver could not find a solution.
 
 This is our first piece of evidence that the results of the LC10 model remain when soil depth is taken into account. In \cref{fig:vertical_profiles}
-we plot the temperature profile of soil at different times, initialised to be in equilibrium, undergoing the compost bomb thermal runaway after five months.
-We set $\delta T_a$ to a  a sinusoid of frequency one year.
+I plot the temperature profile of soil at different times, initialised to be in equilibrium, undergoing the compost bomb thermal runaway after five months.
+I set $\delta T_a$ to a  a sinusoid of frequency one year.
 \Cref{fig:vertical_profiles} shows that the instability remains in the continuous case, and it is not prevented by diffusion.
 
 \begin{figure}
@@ -166,28 +166,28 @@ We set $\delta T_a$ to a  a sinusoid of frequency one year.
 \end{figure}
 \subsection{Consistency of the continuum model with LC10}
 \label{sec:consistency_with_LC10}
-In this subsection we compare the LC10 and continuum models numerically. The level of soil carbon is chosen such that the soil temperature is initially in an equilibrium state with $\delta T_{a} = 0$.
-We then integrate forward in time with $\delta T_a$ constant and greater than zero. We find for sufficiently large values of $\delta T_a$ the system has an instability.
-We refer to the smallest value of $\delta T_a$ for which this is true as the `critical warming level', as if air temperatures were increased by this amount quickly with respect to the soil carbon turn over time,
+In this subsection I compare the LC10 and continuum models numerically. The level of soil carbon is chosen such that the soil temperature is initially in an equilibrium state with $\delta T_{a} = 0$.
+I then integrate forward in time with $\delta T_a$ constant and greater than zero. I find for sufficiently large values of $\delta T_a$ the system has an instability.
+I refer to the smallest value of $\delta T_a$ for which this is true as the `critical warming level', as if air temperatures were increased by this amount quickly with respect to the soil carbon turn over time,
 an instability would be triggered.
 
-We plot this critical warming, as a function of $\kappa$ in \cref{fig:comparison_with_lc10}. We also overlay the warming required to cause a compost bomb in the LC10
+I plot this critical warming, as a function of $\kappa$ in \cref{fig:comparison_with_lc10}. I also overlay the warming required to cause a compost bomb in the LC10
 model. Also shown is the amplitude of the seasonal cycle needed to cause a compost bomb.
-We see that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC10 case. In addition, we see that the soil is more stable
+I see that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC10 case. In addition, I see that the soil is more stable
 to seasonal cycle oscillations than instantaneous jumps. This `overshoot' behaviour\cite{Ritchie2019,Ritchie2021} is due to the fact that soil temperatures do not instantly respond to the seasonal cycle.
 Surprisingly for smaller
 values of $\kappa$ the critical warming is actually lower in the continuum case than the LC10 case, despite the damping effects of diffusion.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,scale=0.5]{dimensional_continuum_vs_lc10}
-  \caption[Critcal warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model. We have also plotted on the seasonal cycle amplitude required for this instability.}
+  \caption[Critcal warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model. I have also plotted on the seasonal cycle amplitude required for this instability.}
   \label{fig:comparison_with_lc10}
 \end{figure}
 
-To investigate this further, we derive  the LC10 model from the continuum case. We do this by vertically averaging \cref{eq:one_d_model}.
-We denote vertically averaged quantities as
+To investigate this further, I derive  the LC10 model from the continuum case. I do this by vertically averaging \cref{eq:one_d_model}.
+I denote vertically averaged quantities as
 $\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$. Neglecting the vertical dependence of soil carbon, and
-taking a vertical average, applying boundary conditions, and finally replacing $\mu_A$ with $\mu_V H$ we get
+taking a vertical average, applying boundary conditions, and finally replacing $\mu_A$ with $\mu_V H$ I get
 \begin{equation}
   \label{eq:vertically_averaged}
   \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) + AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
@@ -200,11 +200,11 @@ in soils when $\kappa$ is finite, and so the LC10 model will need a higher amoun
   
 \subsection{Existence of the Compost Bomb in the Continuum Case}
 \label{sec:existence_of_compost_bomb}
-Now that we have numerical evidence for a compost bomb in the continuum case, we investigate this analytically. In the approximation where soil carbon is constant,
-we lose the rate dependent tipping feature of the model, and instead it reverts to a classical bifurcation-induced tipping problem.
-We consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which we refer to as an atmospheric warming.
+Now that I have numerical evidence for a compost bomb in the continuum case, I investigate this analytically. In the approximation where soil carbon is constant,
+I lose the rate dependent tipping feature of the model, and instead it reverts to a classical bifurcation-induced tipping problem.
+I consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which I refer to as an atmospheric warming.
 In this case $\delta T_a$ is the bifurcation control parameter.
-We begin by making the following nondimensionalisations:
+I begin by making the following nondimensionalisations:
 \begin{subequations}
   \label{eq:nondimensionalisations}
   \begin{align}
@@ -228,12 +228,12 @@ The nondimensionalisation process reveals two parameter clusters $D = H\lambda/\
 correspond to a nondimensional soil thermal depth and a nondimensional respiration strength. Note that $\theta$ and $\delta\theta_a$ should be interpreted as (nondimensional) temperatures
 relative to the background air temperature, so in particular $\delta\theta_a$ is a temperature anomaly.
 
-We now show that the model defined by \cref{eq:nondimensional_model_nonuniform} only has an equilibrium state for low levels of atmospheric warming, $\delta\theta_a$.
-We make a change of variables which lets us find the first integral of the steady-state of 
+I now show that the model defined by \cref{eq:nondimensional_model_nonuniform} only has an equilibrium state for low levels of atmospheric warming, $\delta\theta_a$.
+I make a change of variables which lets us find the first integral of the steady-state of 
 \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion}. Then a second integration followed by a change of variables reveals a standard integral with a
 well-known solution.
 
-We assume $\delta\theta_a$ is constant, set $\partial_{\tau}\theta = 0$, and then let $\psi = \theta + x/D$. Then \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} becomes
+I assume $\delta\theta_a$ is constant, set $\partial_{\tau}\theta = 0$, and then let $\psi = \theta + x/D$. Then \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} becomes
 \begin{equation}
   \pdv[2]{\psi}{x} + \mathcal{W}e^{\psi} = 0
 \end{equation}
@@ -252,7 +252,7 @@ This substitution gives the solution
   \label{eq:nondimensional_model_nonuniform_solution_general}
   \theta = \ln \frac{c_1}{2\mathcal{W}} + 2 \ln \sech \left( \frac{c_2 \pm \sqrt{c_1} x}{2}\right) - \frac{x}{D}
 \end{equation}
-Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  We can write the solution:
+Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  I can write the solution:
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_one_bc}
   \theta = \ln \frac{1}{2\mathcal{W}D^2} + 2 \ln \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}
@@ -264,16 +264,16 @@ Now applying the boundary condition at $x = 0$ gives
 \end{equation}
 Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
 be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered. To determine the critical level of $\delta\theta_a$ to cause a compost bomb
-we find the $c_2$ that satisfies $F'(c_2) = 0$ and substitute this back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition}:
+I find the $c_2$ that satisfies $F'(c_2) = 0$ and substitute this back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition}:
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_critical_warming}
   \delta\theta_a^{\mathrm{crit}} = \ln \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \ln 2\mathcal{W}D^2
 \end{equation}
-where we have used the fact that the logarithm of a negative number is not real.
-Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which we can interpret as the soil being inherently unstable without any warming.
+where I have used the fact that the logarithm of a negative number is not real.
+Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which I can interpret as the soil being inherently unstable without any warming.
 
 As $\mathcal{W}$ is a function of $\widetilde{\Pi}$ and $D$, specifying $\widetilde{\Pi}$ and $D$ is enough to determine $\delta\theta_a^{\mathrm{crit}}$, through
-\cref{eq:nondimensional_model_nonuniform_critical_warming}. We plot the critical maximum warming obtained in \cref{fig:critical_theta_a} for a range of $\widetilde{\Pi}$ and $D$ values.
+\cref{eq:nondimensional_model_nonuniform_critical_warming}. I plot the critical maximum warming obtained in \cref{fig:critical_theta_a} for a range of $\widetilde{\Pi}$ and $D$ values.
 \cref{fig:critical_theta_a} shows the critical warming, above which no equilibrium solutions exist, corresponding to triggering a compost bomb.
 Increasing the `fuel', $\widetilde{\Pi}$, decreases the warming
 required to trigger a compost bomb. Furthermore, the figure shows that in this model, soils with larger $D$, corresponding to soils that are well insulated and have a
@@ -282,7 +282,7 @@ soil carbon with a weak dependence on depth, are more unstable.
   \centering
   \includegraphics[keepaspectratio,scale=0.5]{static_dim_and_nondim}
   \caption[Critical warming to trigger a compost bomb]{\textbf{Panel a}: the relationship between nondimensional soil carbon $e$-folding depth $D$, nondimensional NPP $\widetilde{\Pi}$ and the critical warming required to cause a compost
-    bomb $\delta\theta_a$. \textbf{Panel b}: we also plot a dimensional version using the standard parameters in \cref{tab:standard_values}}
+    bomb $\delta\theta_a$. \textbf{Panel b}: I also plot a dimensional version using the standard parameters in \cref{tab:standard_values}}
   \label{fig:critical_theta_a}
 \end{figure}
 
@@ -294,14 +294,14 @@ relative to the rate of decrease of soil carbon. Prior work\cite{Luke2011} exami
 mean air temperature being caused by anthropogenic influence.
 
 However, air temperature varies on multiple timescales. Two important modes of rapid air temperature change (relative to the timescale of soil
-carbon) are the diurnal and seasonal cycles. We let $\delta T_a$ vary sinusoidally,
+carbon) are the diurnal and seasonal cycles. I let $\delta T_a$ vary sinusoidally,
 \begin{equation}
   \label{eq:sinusoidal_forcing}
   \delta T_a(t) = \Delta T_a \sin \frac{2\pi t}{T}
 \end{equation}
 and numerically integrate \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} for a range of
 forcing periods, using the standard parameters in \cref{tab:standard_values}. Sufficiently large forcing amplitudes will lead to a compost bomb.
-We plot these in \cref{fig:forcing_frequency_vs_amplitude}.
+I plot these in \cref{fig:forcing_frequency_vs_amplitude}.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{critical_amplitude_vs_period}
@@ -311,14 +311,14 @@ We plot these in \cref{fig:forcing_frequency_vs_amplitude}.
 
 Whilst the rate dependence alone would suggest that higher frequency oscillations are more unstable,
 high frequency oscillations can be too rapid to affect the soil temperature. Such high frequencies are in effect `averaged out', as the air cannot heat the soil rapidly enough to
-have an effect deeper in the soil. Hence we do not expect compost bombs except at very high and unrealistic amplitudes.
+have an effect deeper in the soil. Hence I do not expect compost bombs except at very high and unrealistic amplitudes.
 
-In particular from \cref{fig:forcing_frequency_vs_amplitude}, we see that
+In particular from \cref{fig:forcing_frequency_vs_amplitude}, I see that
 the amplitudes required to cause a compost bomb from the very high frequency diurnal cycle are about \SI{100}{\degreeCelsius}, which is implausibly large.
 However for oscillations corresponding to timescales of the annual seasonal cycle, the magnitude is around \SI{30}{\degreeCelsius}. This remains large,
 but such variations occur in high latitude, soil carbon rich ecosystems, for instance in parts of Siberia\cite{Peixoto1992}.
 
-We investigate the possibility of a seasonal cycle triggered compost bomb in \cref{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}, scanning across our two nondimensional parameters.
+I investigate the possibility of a seasonal cycle triggered compost bomb in \cref{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}, scanning across our two nondimensional parameters.
 This shows that for a variety of plausible parameters, a large seasonal cycle could trigger a compost bomb. Soils with larger $\widetilde{\Pi}$ are more susceptible to a seasonal
 cycle driven compost bomb as they have more `fuel'. However, in marked contrast to the conditions for the existence of an equilibrium, shallower soils are more susceptible to seasonal cycle driven
 compost bombs. This susceptibility is because the atmosphere can warm larger fractions of shallower soils per unit of time.
@@ -328,38 +328,38 @@ compost bombs. This susceptibility is because the atmosphere can warm larger fra
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{seasonal_dim_and_nondim}
   \caption[Critical seasonal cycle for a compost bomb]{\textbf{Panel a}: the relationship between nondimensional respiration, soil depth and the seasonal cycle amplitude required to cause a compost bombs.
-    For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: we also plot the dimensional version, here we modify the standard value
+    For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: I also plot the dimensional version, here I modify the standard value
     of $\kappa$ to \SI{0.5}{\watt\per\meter\per\kelvin} so make the $H$ values more realistic.}
   \label{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}
 \end{figure}
 \section{Conclusion}
 \label{sec:conclusion}
 The purpose of this research is to determine features of raised near-surface temperature that could trigger thermal runaway in soils, a process called a `compost bomb'.
-The compost bomb instability was originally identified in a single box model. Here we present a substantial advance in realism,
+The compost bomb instability was originally identified in a single box model. Here I present a substantial advance in realism,
 by introducing the spatial dimension of soil depth to simulations. Our overarching finding is that when accounting for vertical heterogeneity, thermal runaway still occurs.
 Furthermore, for realistic levels of heat diffusion, warming levels required to initiate the instability are much smaller than in the LC10 case.
-We attribute this difference, at least in part, to strong nonlinearity in respiration heat release, due to its exponential (`$Q_{10}$') temperature response. 
-For all finite values of thermal conductivity, we find these temperature thresholds are lower than those in the LC10 model. Nondimensionalisation supports this balance of two dominant factors,
+I attribute this difference, at least in part, to strong nonlinearity in respiration heat release, due to its exponential (`$Q_{10}$') temperature response. 
+For all finite values of thermal conductivity, I find these temperature thresholds are lower than those in the LC10 model. Nondimensionalisation supports this balance of two dominant factors,
 by collapsing the governing equations to parameters $D$ and $\mathcal{W}$, that characterise the physical thermal aspects and respiration strength respectively.
 For our standard set of parameters, a rapid increase followed by a sustained temperature of order \SI{10}{\degreeCelsius} may push the soil system into the unstable regime.
-Besides discovering dangerous jumps in critical near-surface air temperature, above which there is no stable state, we also investigate the vulnerability to seasonal cycles in air temperature.
-We find that it is plausible that annual cycles of around \SI{30}{\degreeCelsius} risk uncontrolled warming in soils.
+Besides discovering dangerous jumps in critical near-surface air temperature, above which there is no stable state, I also investigate the vulnerability to seasonal cycles in air temperature.
+I find that it is plausible that annual cycles of around \SI{30}{\degreeCelsius} risk uncontrolled warming in soils.
 
-We have created a deliberately simplified model of the compost bomb. This has the advantage of being analytically tractable, yet ignores certain processes. Most obviously, we assume soil carbon is in
-equilibrium. This is not an unreasonable assumption however as we consider short enough timescales where this is approximately true. More importantly we neglect the role of soil moisture. Although it is
-beyond the scope of this paper to analyse this thoroughly we offer some justification for why our model captures the essential features of the system. The addition of soil
+I have created a deliberately simplified model of the compost bomb. This has the advantage of being analytically tractable, yet ignores certain processes. Most obviously, I assume soil carbon is in
+equilibrium. This is not an unreasonable assumption however as I consider short enough timescales where this is approximately true. More importantly I neglect the role of soil moisture. Although it is
+beyond the scope of this paper to analyse this thoroughly I offer some justification for why our model captures the essential features of the system. The addition of soil
 moisture has two principal effects.
 
 Firstly, it affects the amount of respiration in the soils. In the framework of our model, weakening respiration corresponds to decreasing $\mathcal{W}$,
 a nondimensional parameter that encodes the amount of soil carbon, the heat released from respiration and the thermal properties of the soil. 
 Although this affects the precise value for the air temperature warming that leads to a compost bomb, for any $\mathcal{W} > 0$ there is still a critical level of warming that produces a compost bomb.
 
-Secondly soil moisture affects heat transport through phase changes, which is a second order effect and so we are justified in ignoring it, and also through setting the conductivity of the soil.
+Secondly soil moisture affects heat transport through phase changes, which is a second order effect and so I are justified in ignoring it, and also through setting the conductivity of the soil.
 It is reasonable to neglect seasonal changes in the conductivity
 when compared to seasonal changes in respiration, as respiration varies exponentially with temperature.
 
-However, even with these approximations, we have added to the evidence base of the plausibility of self-igniting fires in soils, and with an equation set that accounts explicitly for depth variation.
-Whilst adding a feature that can cause `blow-up' requires great care, we would encourage ESM developers to examine this effect in more complicated models to discover the situations in which it is important.
+However, even with these approximations, I have added to the evidence base of the plausibility of self-igniting fires in soils, and with an equation set that accounts explicitly for depth variation.
+Whilst adding a feature that can cause `blow-up' requires great care, I would encourage ESM developers to examine this effect in more complicated models to discover the situations in which it is important.
 
 \section{Data Availability}
 All code used in this paper to plot figures and run numerical simulations is available at \url{www.github.com/josephjclarke/ContinuumCompostBomb}.
