@@ -148,17 +148,16 @@ and different choices will lead to different figures, whereas the nondimensional
 \end{table}
 \subsection{Numerical Investigation}
 \label{sec:numerical_investigation}
-I numerically integrated 
-the continuum model in both space and time, and discovered that it can give rise to a compost bomb instability.
+The continuum model was integrated in both space and time, and it was found that it can give rise to a compost bomb instability.
 The PDE, \cref{eq:one_d_model}, was solved using the `method of lines' technique\cite{Schiesser2012}. It was discretized spatially into 100 equally spaced intervals.
 The spatial derivatives were approximated using central differences. This was then integrated using
 the backwards differentiation formula \textsc{bdf} method from the scipy library\cite{Virtanen2020}. The \textsc{bdf} method was chosen as it is well suited to stiff problems.
-I considered the instability to occur when scipy's solver could not find a solution.
+If scipy's solver could not find a solution, then it was assumed that compost bomb had occured.
 
-This is our first piece of evidence that the results of the LC10 model remain when soil depth is taken into account. In \cref{fig:vertical_profiles}
-I plot the temperature profile of soil at different times, initialised to be in equilibrium, undergoing the compost bomb thermal runaway after five months.
-I set $\delta T_a$ to a  a sinusoid of frequency one year.
-\Cref{fig:vertical_profiles} shows that the instability remains in the continuous case, and it is not prevented by diffusion.
+This is a first piece of evidence that the results of the LC10 model remain when soil depth is taken into account. \Cref{fig:vertical_profiles}
+is a plot of the temperature profile of soil at different times, initialised to be in equilibrium, undergoing the compost bomb thermal runaway after five months.
+$\delta T_a$ was set to a  a sinusoid of frequency one year. \Cref{fig:vertical_profiles} shows that
+the instability remains in the continuous case, and it is not prevented by diffusion.
 
 \begin{figure}
   \centering
