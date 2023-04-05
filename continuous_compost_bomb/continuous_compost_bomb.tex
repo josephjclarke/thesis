@@ -308,22 +308,18 @@ for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows fro
 that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
 be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered.
 
-To determine the critical level of $\delta\theta_a$ to cause a compost bomb
-the $c_2$ that satisfies $F'(c_2) = 0$ must be found and substituted back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} to give. The deriviative of $F$
+To determine the critical level of $\delta\theta_a$ to cause a compost bomb,
+the $c_2$ that satisfies $F'(c_2) = 0$ must be found and substituted back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition}. The deriviative of $F$
 is
 \begin{equation}
-  F'(c_2) = \frac{\sech^2 \frac{c_2}{2}}{2D} + \tanh\frac{c_2}{2},
+  F'(c_2) = \pm \frac{1}{2D}\sech^2 \frac{c_2}{2} + \tanh \frac{c_2}{2} = \pm \frac{1}{2D}\left(1 - \tanh^2 \frac{c_2}{2}\right) + \tanh \frac{c_2}{2} 
 \end{equation}
-so that when $F'(c_2) = 0$, \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} becomes
-\begin{equation}
-  \mp\frac{\sech^2 \frac{c_2}{2}}{2D^2} - 2 \log \sech \frac{c_2}{2} = -\frac{1}{D} - \log 2\mathcal{W}D^2 - \delta\theta_a.
-\end{equation}
+so that $F'(c_2) = 0$ can be solved for $\tanh c_2$ and so \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} becomes
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_critical_warming}
   \delta\theta_a^{\mathrm{crit}} = \log \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \log 2\mathcal{W}D^2
 \end{equation}
-where I have used the fact that the logarithm of a negative number is not real.
-Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which I can interpret as the soil being inherently unstable without any warming.
+Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which can be interpretted as the soil being inherently unstable without any warming.
 
 As $\mathcal{W}$ is a function of $\widetilde{\Pi}$ and $D$, specifying $\widetilde{\Pi}$ and $D$ is enough to determine $\delta\theta_a^{\mathrm{crit}}$, through
 \cref{eq:nondimensional_model_nonuniform_critical_warming}. I plot the critical maximum warming obtained in \cref{fig:critical_theta_a} for a range of $\widetilde{\Pi}$ and $D$ values.
