@@ -100,12 +100,12 @@ where $\Pi_c = \lambda /\alpha A$. This equilibrium value is obtained by setting
 
 \section{Continuum Model With Vertical Depth}
 \label{sec:continuum_model}
-I investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction, which extends from the
-surface at $z = 0$ down to $z = -\infty$. I assume soil carbon falls exponentially with depth, over a characteristic distance of $H$.
-I model soil temperature as a reaction-diffusion system, in which heat is generated
+To investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction the soil column is
+modeled as existing on a semiinfinite line, which extends from the surface at $z = 0$ down to $z = -\infty$. It is assumed that soil carbon
+falls exponentially with depth, over a characteristic distance of $H$. The soil temperature is modeled by a reaction-diffusion system, in which heat is generated
 by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\kelvin})\cite{Best2005},
-it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. I can therefore write the heat diffusion
-equation for the soil temperature $T_s(z,t)$ as:
+it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. Therefore the heat equation
+for the soil temperature $T_s(z,t)$ becomes:
 \begin{equation}
   \label{eq:one_d_model}
   \mu_V \pdv{T_s}{t} = \kappa \pdv[2]{T_s}{z} + \frac{AC_sr_0}{H}e^{\alpha (T_s - T_{\mathrm{ref}})}e^{z/H}.
@@ -118,17 +118,18 @@ $T_{a0} + \delta T_a(t)$, where $T_{a0}$ represents a background mean temperatur
   \label{eq:dimensional_bcs_nonuniform}
   \begin{align}
   \pdv{T_s}{z} &= 0 \quad \mathrm{at} \quad z = -\infty,\label{subeq:dimensional_bcs_nonuniform_lower} \\[1ex] 
-  - \kappa\pdv{T}{z} &=   \lambda\left(T\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) \quad \mathrm{at}\quad z = 0.\label{subeq:dimensional_bcs_nonuniform_upper}
+  - \kappa\pdv{T_s}{z} &=   \lambda\left(T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) \quad \mathrm{at}\quad z = 0.\label{subeq:dimensional_bcs_nonuniform_upper}
   \end{align}
 \end{subequations}
 
 Here the parameter $\lambda$ characterises the turbulent heat transfer from the atmosphere to the top layer of the soil.
-I set $C_s$ to the equilibrium value using \cref{eq:equilibrium_soil_carbon} where the air temperature is taken to be $T_{a0}$. This approximation
-is justified provided I work on timescales short relative to the turnover time of soil carbon, which is on the order of many decades\cite{Varney2020}. 
+$C_s$ is set to the equilibrium value using \cref{eq:equilibrium_soil_carbon} where the air temperature is taken to be $T_{a0}$. This approximation
+is justified provided the system is investigated on timescales short relative to the turnover time of soil carbon, which is on the order of many decades\cite{Varney2020}. 
 
 Throughout this study I undertake the mathematical investigation using nondimensional values. However, to aid understanding I plot certain figures
 using dimensional units, with standard values given in \cref{tab:standard_values}. It should be noted however that these parameters are choices I have made,
 and different choices will lead to different figures, whereas the nondimensional plots are valid for all parameter choices.
+
 \begin{table}
   \centering
   \begin{tabular}{@{}llll@{}}
