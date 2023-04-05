@@ -16,12 +16,12 @@ This chapter is based on a published paper, `The Compost Bomb Instability in the
  \section{Introduction}
 \label{section:compost_bomb_intro}
 Coupled climate-carbon cycle Earth System Models (ESMs) show that rising temperatures will cause carbon cycle feedbacks that accelerate global
-warming further\cite{Cox2000}. Although the magnitude of the increase remains uncertain, a main contributing factor is the
+warming further\cite{Cox2000}. Although the magnitude of the increase remains uncertain, a major contributing factor is the
 response of the land carbon cycle to increased temperatures\cite{Friedlingstein2006,Arora2020}. Over the last decade, there has therefore been a strong focus on improving
 models of the expected response of terrestrial carbon to global warming.
 
 The largest uncertainties are associated with the response of soil carbon to warming\cite{Varney2020}.
-One positive carbon cycle feedback related to the soil is the Jenkinson effect\cite{Jenkinson1991}. Heterotrophic respiration converts
+The Jenkinson effect\cite{Jenkinson1991} is a positive carbon cycle feedback related to the soil is. Heterotrophic respiration converts
 organic matter held in soils into \ce{CO2}. At higher temperatures the rate of this reaction increases, leading to
 larger emissions of \ce{CO2} from soils. However, a key aspect of heterotrophic respiration, ignored by ESMs\cite{Arora2020}, is that due to respiration being
 an exothermic reaction, the released heat must raise the temperature of the soils it occurs in. This biogeochemical heating has been shown
@@ -33,15 +33,19 @@ runaway respiration also significantly increases the soil temperature.
 
 This runaway potential was first investigated in Luke and Cox (2010)\cite{Luke2011}. The Luke and Cox model (hereafter referred to as the LC10 model)
 showed an instability if the rate of increase of air temperature was large compared to the soil turnover time. They dubbed this instability
-the `compost bomb' due to the known capability of compost heaps to self-heat\cite{Nelson2007,Sidhu2007,Browne1929}. A range of climate tipping points have been observed in
+the `compost bomb' due to the known capability of compost heaps to self-heat\cite{Nelson2007,Sidhu2007,Browne1929}.
+
+A range of climate tipping points have been observed in
 paleoclimate records\cite{Alley2003}, and both expert opinion\cite{Lenton2008} and ESMs\cite{Drijfhout2015} raise the possibility that they may be triggered this century by climate change.
-Most tipping points associated so far with the behaviour of the Earth System are believed to
+These tipping points associated so far with the behaviour of the Earth System are believed to
 correspond to bifurcations. The mechanisms underpinning the compost bomb instability are more unusual in that this is an example of rate-dependent tipping\cite{Ashwin2012}. A more mathematical
-approach to the compost bomb was carried out by \cite{Wieczorek2011} where the compost bomb was studied as an `excitable' system in which critical rates were calculated analytically. They found that when the air temperature was
+approach to the compost bomb was carried out by \cite{Wieczorek2011} where the compost bomb was studied as an `excitable' system in which critical rates
+were calculated analytically. They found that when the air temperature was
 raised sufficiently slowly the system could follow the steady state equilibrium. However, when the air temperature was raised more rapidly,
-the system was unable to respond quickly enough.
-Here I focus on the compost bomb instability in response to the seasonal cycle. In this case the timescale of the forcing (1 year) is much faster than the response timescale of the soil carbon
-(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (i.e.\ I consider the `compost bomb limit' of LC10). 
+the system was unable to adapt sufficently quickly to the new equilibrium and thus tipped.
+
+Here a focus is on the compost bomb instability in response to the seasonal cycle. In this case the timescale of the forcing (1 year) is much faster than the response timescale of the soil carbon
+(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (this is the `compost bomb limit' of LC10). 
 
 Some limitations of the LC10 model are that it neglects important thermal processes and soil structure, and in particular vertical variation.
 For example, as a `single box' model, it assumes that the soil is well represented by averaged quantities, such as an average soil temperature,
@@ -51,12 +55,13 @@ By definition, box models neglect processes such as heat diffusion which tend to
 that diffusive damping may make the compost bomb harder to trigger. Additionally, the LC10 model assumes a single pool of carbon, rather than a spatially extended distribution, which might
 increase the possibility for a compost bomb.
 
-Despite these caveats, the LC10 model captures the essence of the system. T aim is to add realism to the LC10 model by considering the vertical structure and heat conductivity of the soil.
-I model a one dimensional soil column in which heat can diffuse and soil carbon decreases exponentially with depth. I investigate whether an instability still exists in this model.
+Despite these caveats, the LC10 model captures the essence of the system. The aim is to add realism to the LC10 model by considering the vertical structure and heat conductivity of the soil.
+The new model will consist of a one dimensional soil column in which heat can diffuse and soil carbon
+decreases exponentially with depth. Whether or not an instability still exists in this model will be investigated.
 
 The compost bomb has generally been considered in relation to an upward decadal timescale linear ramp in air temperature, which is an idealisation of the change in air temperature due to
 human caused climate change. However, there is also the possibility of
-rate-induced tipping by the sinusoidal variations in air temperature caused by the diurnal and seasonal cycles. I investigate those possibilities here, to see if there exist
+rate-induced tipping by the sinusoidal variations in air temperature caused by the diurnal and seasonal cycles. These possibilities are investigated here, to see if there exist
 features of these oscillations that may raise the risk of a compost bomb.
 
 
