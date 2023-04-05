@@ -76,7 +76,7 @@ Hence the specific rate of respiration, $r(T_s)$ (\si{\per\square\meter\per\seco
 where $T_s$ (\si{\degreeCelsius}) is the soil temperature and $r_0$ is the reaction rate at
 $T_{\mathrm{ref}}$. The rate of reaction also increases in proportion to the available substrate, here soil carbon $C_s$ (\si{\kilo\gram\carbon\per\square\meter}).
 The $Q_{10}$ form implies an exponential dependence of the specific respiration rate on temperature:  $r(T_s)=r_0 \exp\left(\alpha\left(T_s-T_{\mathrm{ref}}\right)\right)$, where
-$\alpha = \ln Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
+$\alpha = \log Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
 $\Pi$ (\si{\kilo\gram\carbon\per\square\meter\per\second}) and decreased by heterotrophic respiration. Introducing the parameters $A$ (\si{\joule\per\kilo\gram\carbon}), the specific heat
 of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\kelvin}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\kelvin})
 the soil-to-atmosphere heat transfer coefficient leads to the LC10 model:
@@ -282,26 +282,26 @@ Inverting this then leads to
 \end{equation}
 and thus
 \begin{equation}
-  \psi = \ln \frac{c_1}{2\mathcal{W}} + \ln \left(1 - \tanh^2 \left(c_2 \pm \sqrt{c_1} x\right)\right).
+  \psi = \log \frac{c_1}{2\mathcal{W}} + \log \left(1 - \tanh^2 \left(c_2 \pm \sqrt{c_1} x\right)\right).
 \end{equation}
 Using the Pythagorian identity\cite{riley2006} this can be reduced to
 \begin{equation}
-  \psi = \ln \frac{c_1}{2\mathcal{W}} + 2\ln \left(\sech \left(c_2 \pm \sqrt{c_1} x\right)\right).
+  \psi = \log \frac{c_1}{2\mathcal{W}} + 2\log \left(\sech \left(c_2 \pm \sqrt{c_1} x\right)\right).
 \end{equation}
 In terms of $\theta$, the solution is
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_general}
-  \theta = \ln \frac{c_1}{2\mathcal{W}} + 2 \ln \sech \left( \frac{c_2 \pm \sqrt{c_1} x}{2}\right) - \frac{x}{D}
+  \theta = \log \frac{c_1}{2\mathcal{W}} + 2 \log \sech \left( \frac{c_2 \pm \sqrt{c_1} x}{2}\right) - \frac{x}{D}
 \end{equation}
 Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  I can write the solution:
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_one_bc}
-  \theta = \ln \frac{1}{2\mathcal{W}D^2} + 2 \ln \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}
+  \theta = \log \frac{1}{2\mathcal{W}D^2} + 2 \log \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}
 \end{equation}
 Now applying the boundary condition at $x = 0$ gives
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_upper_boundary_condition}
-  \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \ln \sech \frac{c_2}{2} = -\frac{1}{D} - \ln 2\mathcal{W}D^2 - \delta\theta_a.
+  \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \log \sech \frac{c_2}{2} = -\frac{1}{D} - \log 2\mathcal{W}D^2 - \delta\theta_a.
 \end{equation}
 Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. To see this note that $F$ is a continuous function which
 for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows from Rolle's Theorem\cite{Bourbaki2004}
@@ -316,11 +316,11 @@ is
 \end{equation}
 so that when $F'(c_2) = 0$, \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} becomes
 \begin{equation}
-  \mp\frac{\sech^2 \frac{c_2}{2}}{2D^2} - 2 \ln \sech \frac{c_2}{2} = -\frac{1}{D} - \ln 2\mathcal{W}D^2 - \delta\theta_a.
+  \mp\frac{\sech^2 \frac{c_2}{2}}{2D^2} - 2 \log \sech \frac{c_2}{2} = -\frac{1}{D} - \log 2\mathcal{W}D^2 - \delta\theta_a.
 \end{equation}
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_critical_warming}
-  \delta\theta_a^{\mathrm{crit}} = \ln \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \ln 2\mathcal{W}D^2
+  \delta\theta_a^{\mathrm{crit}} = \log \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \log 2\mathcal{W}D^2
 \end{equation}
 where I have used the fact that the logarithm of a negative number is not real.
 Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which I can interpret as the soil being inherently unstable without any warming.
