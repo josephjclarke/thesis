@@ -301,11 +301,23 @@ Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^
 Now applying the boundary condition at $x = 0$ gives
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_upper_boundary_condition}
-  \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \ln \sech \frac{c_2}{2} = \frac{-1}{D} - \ln 2\mathcal{W}D^2 - \delta\theta_a.
+  \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \ln \sech \frac{c_2}{2} = -\frac{1}{D} - \ln 2\mathcal{W}D^2 - \delta\theta_a.
 \end{equation}
-Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
-be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered. To determine the critical level of $\delta\theta_a$ to cause a compost bomb
-I find the $c_2$ that satisfies $F'(c_2) = 0$ and substitute this back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition}:
+Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. To see this note that $F$ is a continuous function which
+for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows from Rolle's Theorem\cite{Bourbaki2004}
+that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
+be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered.
+
+To determine the critical level of $\delta\theta_a$ to cause a compost bomb
+the $c_2$ that satisfies $F'(c_2) = 0$ must be found and substituted back into \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} to give. The deriviative of $F$
+is
+\begin{equation}
+  F'(c_2) = \frac{\sech^2 \frac{c_2}{2}}{2D} + \tanh\frac{c_2}{2},
+\end{equation}
+so that when $F'(c_2) = 0$, \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} becomes
+\begin{equation}
+  \mp\frac{\sech^2 \frac{c_2}{2}}{2D^2} - 2 \ln \sech \frac{c_2}{2} = -\frac{1}{D} - \ln 2\mathcal{W}D^2 - \delta\theta_a.
+\end{equation}
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_critical_warming}
   \delta\theta_a^{\mathrm{crit}} = \ln \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \ln 2\mathcal{W}D^2
