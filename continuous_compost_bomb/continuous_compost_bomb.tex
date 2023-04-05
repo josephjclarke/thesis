@@ -10,7 +10,7 @@ model using ordinary differential equations. That model is deliberately idealise
 I confirm using a partial differential equation framework that this runaway effect still occurs when accounting for soil depth.
 Using this newer representation I investigate the forcing parameters that make soils vulnerable to this instability. In particular, I find that the effect of
 dangerously large seasonal cycle variations in air temperature can create plausible conditions for a `compost bomb' thermal instability.
-
+\\\\
 This chapter is based on a published paper, `The Compost Bomb Instability in the Continuum Limit'\cite{Clarke2021}.
 
  \section{Introduction}
@@ -21,7 +21,7 @@ response of the land carbon cycle to increased temperatures\cite{Friedlingstein2
 models of the expected response of terrestrial carbon to global warming.
 
 The largest uncertainties are associated with the response of soil carbon to warming\cite{Varney2020}.
-The Jenkinson effect\cite{Jenkinson1991} is a positive carbon cycle feedback related to the soil is. Heterotrophic respiration converts
+The Jenkinson effect\cite{Jenkinson1991} is a positive carbon cycle feedback related to the soil. Heterotrophic respiration converts
 organic matter held in soils into \ce{CO2}. At higher temperatures the rate of this reaction increases, leading to
 larger emissions of \ce{CO2} from soils. However, a key aspect of heterotrophic respiration, ignored by ESMs\cite{Arora2020}, is that due to respiration being
 an exothermic reaction, the released heat must raise the temperature of the soils it occurs in. This biogeochemical heating has been shown
@@ -38,8 +38,10 @@ the `compost bomb' due to the known capability of compost heaps to self-heat\cit
 A range of climate tipping points have been observed in
 paleoclimate records\cite{Alley2003}, and both expert opinion\cite{Lenton2008} and ESMs\cite{Drijfhout2015} raise the possibility that they may be triggered this century by climate change.
 These tipping points associated so far with the behaviour of the Earth System are believed to
-correspond to bifurcations. The mechanisms underpinning the compost bomb instability are more unusual in that this is an example of rate-dependent tipping\cite{Ashwin2012}. A more mathematical
-approach to the compost bomb was carried out by \cite{Wieczorek2011} where the compost bomb was studied as an `excitable' system in which critical rates
+correspond to bifurcations. The mechanisms underpinning the compost bomb instability are more unusual in that this is an example of rate-dependent tipping\cite{Ashwin2012}.
+
+This rate-dependence was analysed mathematically
+by \cite{Wieczorek2011} where the compost bomb was studied as an `excitable' system in which critical rates
 were calculated analytically. They found that when the air temperature was
 raised sufficiently slowly the system could follow the steady state equilibrium. However, when the air temperature was raised more rapidly,
 the system was unable to adapt sufficently quickly to the new equilibrium and thus tipped.
@@ -101,7 +103,7 @@ where $\Pi_c = \lambda /\alpha A$. This equilibrium value is obtained by setting
 \section{Continuum Model With Vertical Depth}
 \label{sec:continuum_model}
 To investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction the soil column is
-modeled as existing on a semiinfinite line, which extends from the surface at $z = 0$ down to $z = -\infty$. It is assumed that soil carbon
+modeled as existing on a semi-infinite line, which extends from the surface at $z = 0$ down to $z = -\infty$. It is assumed that soil carbon
 falls exponentially with depth, over a characteristic distance of $H$. The soil temperature is modeled by a reaction-diffusion system, in which heat is generated
 by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\kelvin})\cite{Best2005},
 it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. Therefore the heat equation
@@ -201,7 +203,7 @@ $\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$.  Beg
 Applying boundary conditions (\cref{eq:dimensional_bcs_nonuniform}) gives
 \begin{equation}
   \label{eq:vertical_integration_after_bc}
-  \mu_v H \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0}
+  \mu_V H \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0}
     - \delta T_a\left(t\right)\right) + \frac{AC_sr_0}{H}\int_{-\infty}^0 e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)} e^{z/H} \, \mathrm{d} z.
 \end{equation}
 
@@ -274,7 +276,7 @@ Rearranging and recognising that this is a separable differential equation gives
 where $c_2$ is another integration constant. The right hand side is then reduced to a standard integral\cite{riley2006}
 with the substitution $u = \left(1 - \frac{2\mathcal{W}}{c_1} e^{\psi}\right)^{1/2}$, giving
 \begin{equation}
-  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \int \frac{2}{u^2 - 1} \,\mathrm{d}u = \artanh\left(u\right). 
+  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \int \frac{2}{u^2 - 1} \,\mathrm{d}u = \artanh u. 
 \end{equation}
 Inverting this then leads to
 \begin{equation}
@@ -293,7 +295,7 @@ In terms of $\theta$, the solution is
   \label{eq:nondimensional_model_nonuniform_solution_general}
   \theta = \log \frac{c_1}{2\mathcal{W}} + 2 \log \sech \left( \frac{c_2 \pm \sqrt{c_1} x}{2}\right) - \frac{x}{D}
 \end{equation}
-Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  I can write the solution:
+Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  The solution becomes:
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_one_bc}
   \theta = \log \frac{1}{2\mathcal{W}D^2} + 2 \log \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}
@@ -304,7 +306,7 @@ Now applying the boundary condition at $x = 0$ gives
   \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \log \sech \frac{c_2}{2} = -\frac{1}{D} - \log 2\mathcal{W}D^2 - \delta\theta_a.
 \end{equation}
 Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. To see this note that $F$ is a continuous function which
-for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows %from Rolle's Theorem\cite{Bourbaki2004}
+for $|c_2| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows %from Rolle's Theorem\cite{Bourbaki2004}
 that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
 be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered.
 
