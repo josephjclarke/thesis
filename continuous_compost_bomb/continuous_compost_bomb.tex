@@ -384,34 +384,47 @@ compost bombs. This susceptibility can be understood as the atmosphere being abl
   \label{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}
 \end{figure}
 
-\section{Conclusion}
-\label{sec:conclusion}
-The purpose of this research is to determine features of raised near-surface temperature that could trigger thermal runaway in soils, a process called a `compost bomb'.
-The compost bomb instability was originally identified in a single box model. Here I present a substantial advance in realism,
-by introducing the spatial dimension of soil depth to simulations. Our overarching finding is that when accounting for vertical heterogeneity, thermal runaway still occurs.
-Furthermore, for realistic levels of heat diffusion, warming levels required to initiate the instability are much smaller than in the LC10 case.
-I attribute this difference, at least in part, to strong nonlinearity in respiration heat release, due to its exponential (`$Q_{10}$') temperature response. 
-For all finite values of thermal conductivity, I find these temperature thresholds are lower than those in the LC10 model. Nondimensionalisation supports this balance of two dominant factors,
-by collapsing the governing equations to parameters $D$ and $\mathcal{W}$, that characterise the physical thermal aspects and respiration strength respectively.
-For our standard set of parameters, a rapid increase followed by a sustained temperature of order \SI{10}{\degreeCelsius} may push the soil system into the unstable regime.
-Besides discovering dangerous jumps in critical near-surface air temperature, above which there is no stable state, I also investigate the vulnerability to seasonal cycles in air temperature.
-I find that it is plausible that annual cycles of around \SI{30}{\degreeCelsius} risk uncontrolled warming in soils.
+\section{Discussion}
 
-I have created a deliberately simplified model of the compost bomb. This has the advantage of being analytically tractable, yet ignores certain processes. Most obviously, I assume soil carbon is in
-equilibrium. This is not an unreasonable assumption however as I consider short enough timescales where this is approximately true. More importantly I neglect the role of soil moisture. Although it is
-beyond the scope of this paper to analyse this thoroughly I offer some justification for why our model captures the essential features of the system. The addition of soil
-moisture has two principal effects.
+The purpose of this research is to determine features of raised near-surface temperature that could trigger thermal runaway in soils, a process called a `compost bomb'.
+The compost bomb instability was originally identified in a single box model. The overarching finding of this chapter is that when accounting for vertical heterogeneity,
+thermal runaway still occurs. For all finite values of thermal conductivity, I find these temperature thresholds are lower than those in the LC10 model, which I attribute
+to the strongly nonlinear respiration response to temperature.
+
+The analysis undertaken suggests there are two important nondimensional parameters, $D$ and $\mathcal{W}$ which characterise the `thermal thickness' and energy output
+of respiration respectively.
+%Nondimensionalisation supports this balance of two dominant factors,
+%by collapsing the governing equations to parameters $D$ and $\mathcal{W}$, that characterise the physical thermal aspects and respiration strength respectively.
+%For our standard set of parameters, a rapid increase followed by a sustained temperature of order \SI{10}{\degreeCelsius} may push the soil system into the unstable regime.
+%Besides discovering dangerous jumps in critical near-surface air temperature, above which there is no stable state, I also investigate the vulnerability to seasonal cycles in air temperature.
+%I find that it is plausible that annual cycles of around \SI{30}{\degreeCelsius} risk uncontrolled warming in soils.
+However, I have created a deliberately simplified model of the compost bomb. This has the advantage of being analytically tractable, yet ignores certain processes. Most obviously,
+I assume soil carbon is in equilibrium. This is not an unreasonable assumption however as I consider short enough timescales where this is approximately true.
+More importantly I neglect the role of soil moisture. Although this is not a thoughough analysis, I offer some justification for why this model captures
+the essential features of the system. The addition of soil moisture has two principal effects.
 
 Firstly, it affects the amount of respiration in the soils. In the framework of our model, weakening respiration corresponds to decreasing $\mathcal{W}$,
 a nondimensional parameter that encodes the amount of soil carbon, the heat released from respiration and the thermal properties of the soil. 
 Although this affects the precise value for the air temperature warming that leads to a compost bomb, for any $\mathcal{W} > 0$ there is still a critical level of warming that produces a compost bomb.
 
-Secondly soil moisture affects heat transport through phase changes, which is a second order effect and so I are justified in ignoring it, and also through setting the conductivity of the soil.
-It is reasonable to neglect seasonal changes in the conductivity
-when compared to seasonal changes in respiration, as respiration varies exponentially with temperature.
+Secondly soil moisture affects heat transport by setting the conductivity of the soil. However the thermal conducivity can be
+modeled as varying linearly with soil moisture\cite{Best2011}, whereas respiration has an exponential dependence on temperature. Therefore, temperature variations
+should play a more important role than moisture variations in the dynamics of the compost bomb.
+%It is reasonable to neglect seasonal changes in the conductivity
+%when compared to seasonal changes in respiration, as respiration varies exponentially with temperature.
 
-However, even with these approximations, I have added to the evidence base of the plausibility of self-igniting fires in soils, and with an equation set that accounts explicitly for depth variation.
-Whilst adding a feature that can cause `blow-up' requires great care, I would encourage ESM developers to examine this effect in more complicated models to discover the situations in which it is important.
+%However, even with these approximations, I have added to the evidence base of the plausibility of self-igniting fires in soils, and with an equation set that accounts explicitly for depth variation.
+%Whilst adding a feature that can cause `blow-up' requires great care, I would encourage ESM developers to examine this effect in more complicated models to discover the situations in which it is important.
+
+\section{Conclusion}
+\label{sec:conclusion}
+In this chapter I present an advance in the realism of compost bomb models, by accounting for the vertical structure of the soils. I have found that even accounting
+for the diffusive effects of vertical structure, compost bombs can still occur. Furthermore, for realistic levels of heat diffusion,
+warming levels required to initiate the instability are much smaller than in the LC10 case. For the set of parameters investigated a rapid warming of the order of \SI{10}{\degreeCelsius} is
+enough to push soils into an unstable regime. Furthermore, I have also found that for annual temperature cycles of around \SI{30}{\degreeCelsius} risk triggering compost bombs.
+
+This research adds to the evidence base that fires may self-ignite in high-latitude soils, which would have implications for the carbon cycle in these regions.
+This should encourage the development of biogeochemical heating in state-of-the-art land surface models to study the situations in which biogeochemcial heating is important.
 
 \section{Data Availability}
 All code used in this paper to plot figures and run numerical simulations is available at \url{www.github.com/josephjclarke/ContinuumCompostBomb}.
