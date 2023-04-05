@@ -65,10 +65,6 @@ rate-induced tipping by the sinusoidal variations in air temperature caused by t
 features of these oscillations that may raise the risk of a compost bomb.
 
 
-
-
-
-
 \section{LC10 Single Box Conceptual Model}
 \label{sec:lc10}
 The compost bomb instability is based on the idea that heterotrophic respiration in the soil is both an exothermic reaction\cite{Thornley1971} and
@@ -83,7 +79,7 @@ The $Q_{10}$ form implies an exponential dependence of the specific respiration 
 $\alpha = \ln Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
 $\Pi$ (\si{\kilo\gram\carbon\per\square\meter\per\second}) and decreased by heterotrophic respiration. Introducing the parameters $A$ (\si{\joule\per\kilo\gram\carbon}), the specific heat
 of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\kelvin}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\kelvin})
-the soil-to-atmosphere heat transfer coefficient leads to the LC10 model
+the soil-to-atmosphere heat transfer coefficient leads to the LC10 model:
 \begin{subequations}
 
   \label{eq:lc10}
@@ -95,7 +91,7 @@ the soil-to-atmosphere heat transfer coefficient leads to the LC10 model
 The model assumes that in the absence of biogeochemical heating the soil temperature equilibrates to the atmospheric temperature $T_a$. The amount of soil carbon is set by the equilibrium balance
 between $\Pi$ and heterotrophic respiration.  
 If the decrease in soil carbon is too slow to offset an increase in air temperature, the compost bomb instability is triggered, corresponding mathematically to an instability in which
-$T_s$ is `excited' to a very large value, well in excess of \SI{100}{\degreeCelsius}. I further note that this model implies a value for the equilibrium soil carbon
+$T_s$ is `excited' to a very large value, well in excess of \SI{100}{\degreeCelsius}. This model implies a value for the equilibrium soil carbon
 \begin{equation}
   \label{eq:equilibrium_soil_carbon}
   C_s^{\mathrm{eq}} = \frac{1}{r_0}e^{-\alpha \left( T_a - T_{\mathrm{ref}}\right)} \Pi e^{-\Pi/\Pi_c}
