@@ -304,7 +304,7 @@ Now applying the boundary condition at $x = 0$ gives
   \pm\frac{1}{D}\tanh \frac{c_2}{2} - 2 \log \sech \frac{c_2}{2} = -\frac{1}{D} - \log 2\mathcal{W}D^2 - \delta\theta_a.
 \end{equation}
 Denoting the left-hand side of this equation as $F(c_2)$, it can be shown that $F$ has a minimum. To see this note that $F$ is a continuous function which
-for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows from Rolle's Theorem\cite{Bourbaki2004}
+for $|x| \rightarrow \infty$ behaves like $F(c_2) \sim 2|c_2|$ so it follows %from Rolle's Theorem\cite{Bourbaki2004}
 that $F$ has a minimum. Hence for sufficiently large $\delta\theta_a$, the right-hand side will always
 be less than the left-hand side. This means there is no equilibrium solution, consistent with a compost bomb having been triggered.
 
@@ -344,14 +344,14 @@ relative to the rate of decrease of soil carbon. Prior work\cite{Luke2011} exami
 mean air temperature being caused by anthropogenic influence.
 
 However, air temperature varies on multiple timescales. Two important modes of rapid air temperature change (relative to the timescale of soil
-carbon) are the diurnal and seasonal cycles. I let $\delta T_a$ vary sinusoidally,
+carbon) are the diurnal and seasonal cycles. Suppose $\delta T_a$ varies sinusoidally,
 \begin{equation}
   \label{eq:sinusoidal_forcing}
   \delta T_a(t) = \Delta T_a \sin \frac{2\pi t}{T}
 \end{equation}
 and numerically integrate \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} for a range of
 forcing periods, using the standard parameters in \cref{tab:standard_values}. Sufficiently large forcing amplitudes will lead to a compost bomb.
-I plot these in \cref{fig:forcing_frequency_vs_amplitude}.
+These are plotted in \cref{fig:forcing_frequency_vs_amplitude}.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{critical_amplitude_vs_period}
@@ -361,27 +361,29 @@ I plot these in \cref{fig:forcing_frequency_vs_amplitude}.
 
 Whilst the rate dependence alone would suggest that higher frequency oscillations are more unstable,
 high frequency oscillations can be too rapid to affect the soil temperature. Such high frequencies are in effect `averaged out', as the air cannot heat the soil rapidly enough to
-have an effect deeper in the soil. Hence I do not expect compost bombs except at very high and unrealistic amplitudes.
+have an effect deeper in the soil. Hence diurnally driven compost bombs are unlikely except at very high and unrealistic amplitudes.
 
-In particular from \cref{fig:forcing_frequency_vs_amplitude}, I see that
+In particular from \cref{fig:forcing_frequency_vs_amplitude}, 
 the amplitudes required to cause a compost bomb from the very high frequency diurnal cycle are about \SI{100}{\degreeCelsius}, which is implausibly large.
 However for oscillations corresponding to timescales of the annual seasonal cycle, the magnitude is around \SI{30}{\degreeCelsius}. This remains large,
 but such variations occur in high latitude, soil carbon rich ecosystems, for instance in parts of Siberia\cite{Peixoto1992}.
 
-I investigate the possibility of a seasonal cycle triggered compost bomb in \cref{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}, scanning across our two nondimensional parameters.
+The possibility of a seasonal cycle triggered compost bomb was investigated and plotted in \cref{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle},
+by scanning across the two nondimensional parameters.
 This shows that for a variety of plausible parameters, a large seasonal cycle could trigger a compost bomb. Soils with larger $\widetilde{\Pi}$ are more susceptible to a seasonal
 cycle driven compost bomb as they have more `fuel'. However, in marked contrast to the conditions for the existence of an equilibrium, shallower soils are more susceptible to seasonal cycle driven
-compost bombs. This susceptibility is because the atmosphere can warm larger fractions of shallower soils per unit of time.
+compost bombs. This susceptibility can be understood as the atmosphere being able to warm larger fractions of shallower soils per unit of time.
 
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5,keepaspectratio]{seasonal_dim_and_nondim}
   \caption[Critical seasonal cycle for a compost bomb]{\textbf{Panel a}: the relationship between nondimensional respiration, soil depth and the seasonal cycle amplitude required to cause a compost bombs.
-    For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: I also plot the dimensional version, here I modify the standard value
-    of $\kappa$ to \SI{0.5}{\watt\per\meter\per\kelvin} so make the $H$ values more realistic.}
+    For typical values of $Q_{10}$, the seasonal cycle could trigger a compost bomb. \textbf{Panel b}: Also plotted is the dimensional version, where the standard value
+    of $\kappa$ is modified to \SI{0.5}{\watt\per\meter\per\kelvin} so make the $H$ values more realistic.}
   \label{fig:critical_amplitude_to_be_triggered_by_the_seasonal_cycle}
 \end{figure}
+
 \section{Conclusion}
 \label{sec:conclusion}
 The purpose of this research is to determine features of raised near-surface temperature that could trigger thermal runaway in soils, a process called a `compost bomb'.
