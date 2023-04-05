@@ -208,21 +208,22 @@ Applying boundary conditions (\cref{eq:dimensional_bcs_nonuniform}) gives
 Assuming the vertical distribution of soil carbon does not affect the average value too much and setting $\mu_A = \mu_VH$ gives 
 \begin{equation}
   \label{eq:vertically_averaged}
-  \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) + AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
+  \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) +
+  AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
 \end{equation}
-This is equivalent to the LC10 model if $T_s(0,t) \approx \left\langle T_s \right\rangle$ and $\left\langle e^{\alpha T_s}\right\rangle \approx e^{\alpha \left\langle T_s \right\rangle}$. These approximations become exact
-when $T_s$ is not a function of $z$, which occurs when $\kappa \rightarrow \infty$, as shown in \cref{fig:comparison_with_lc10}.
+This is equivalent to the LC10 model if $T_s(0,t) \approx \left\langle T_s \right\rangle$ and $\left\langle e^{\alpha T_s}\right\rangle \approx e^{\alpha \left\langle T_s \right\rangle}$.
+These approximations become exact when $T_s$ is not a function of $z$, which occurs when $\kappa \rightarrow \infty$, as shown in \cref{fig:comparison_with_lc10}.
 Note however that because $\left\langle e^{\alpha T_s} \right\rangle \ge e^{\left\langle \alpha T_s \right\rangle}$ the LC10 model underpredicts the amount of respiration
 in soils when $\kappa$ is finite, and so the LC10 model will need a higher amount of warming to trigger a compost bomb.
 
   
 \subsection{Existence of the Compost Bomb in the Continuum Case}
 \label{sec:existence_of_compost_bomb}
-Now that I have numerical evidence for a compost bomb in the continuum case, I investigate this analytically. In the approximation where soil carbon is constant,
-I lose the rate dependent tipping feature of the model, and instead it reverts to a classical bifurcation-induced tipping problem.
-I consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which I refer to as an atmospheric warming.
+Now that there is numerical evidence for a compost bomb in the continuum case, this will be investigated analytically. In the approximation where soil carbon is constant,
+the rate dependent tipping feature of the model is lost, and instead it reverts to a classical bifurcation-induced tipping problem.
+Consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which is refered to as an atmospheric warming.
 In this case $\delta T_a$ is the bifurcation control parameter.
-I begin by making the following nondimensionalisations:
+To begin the following nondimensionalisations are made:
 \begin{subequations}
   \label{eq:nondimensionalisations}
   \begin{align}
@@ -237,7 +238,7 @@ then \cref{eq:one_d_model,eq:dimensional_bcs_nonuniform} become
 \begin{subequations}
   \label{eq:nondimensional_model_nonuniform}
   \begin{align}
-  \pdv{\theta}{\tau} &= \pdv[2]{\theta}{x} + \mathcal{W} e^{\theta}e^{-x/D} \label{subeq:nondimensional_model_nonuniform_reaction_diffusion}\\
+  \pdv{\theta}{\tau} &= \pdv[2]{\theta}{x} + \mathcal{W} e^{\theta}e^{x/D} \label{subeq:nondimensional_model_nonuniform_reaction_diffusion}\\
   \pdv{\theta}{x} &= 0\quad \mathrm{when} \quad x=-\infty \label{subeq:nondimensional_model_nonuniform_bcs_upper}\\
   -\pdv{\theta}{x} &= \theta(0,t) - \delta\theta_a(t) \quad \mathrm{when} \quad x=0             \label{subeq:nondimensional_model_nonuniform_bcs_lower}
   \end{align}
@@ -246,26 +247,48 @@ The nondimensionalisation process reveals two parameter clusters $D = H\lambda/\
 correspond to a nondimensional soil thermal depth and a nondimensional respiration strength. Note that $\theta$ and $\delta\theta_a$ should be interpreted as (nondimensional) temperatures
 relative to the background air temperature, so in particular $\delta\theta_a$ is a temperature anomaly.
 
-I now show that the model defined by \cref{eq:nondimensional_model_nonuniform} only has an equilibrium state for low levels of atmospheric warming, $\delta\theta_a$.
-I make a change of variables which lets us find the first integral of the steady-state of 
+It will now be shown that the model defined by \cref{eq:nondimensional_model_nonuniform} only has an equilibrium state for low levels of atmospheric warming, $\delta\theta_a$.
+First a change of variables is made to reveal the first integral of the steady-state of 
 \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion}. Then a second integration followed by a change of variables reveals a standard integral with a
 well-known solution.
 
-I assume $\delta\theta_a$ is constant, set $\partial_{\tau}\theta = 0$, and then let $\psi = \theta + x/D$. Then \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} becomes
+Let $\delta\theta_a$ be constant, set $\partial_{\tau}\theta = 0$, and then let $\psi = \theta + x/D$. Then \cref{subeq:nondimensional_model_nonuniform_reaction_diffusion} becomes
 \begin{equation}
-  \pdv[2]{\psi}{x} + \mathcal{W}e^{\psi} = 0
+  \dv[2]{\psi}{x} + \mathcal{W}e^{\psi} = 0.
 \end{equation}
 Multiplying this by $\dv*{\psi}{x}$ and integrating gives
+\begin{equation}
+  \int\dv{\psi}{x}\dv[2]{\psi}{x}\,\mathrm{d}z + \int\mathcal{W}\dv{\psi}{x}e^\psi\,\mathrm{d}{x} = 0
+\end{equation}
+\begin{equation}
+  \int \dv{x}\left(\frac{1}{2}\left(\dv{\psi}{x}\right)^2\right)\,\mathrm{d}x + \mathcal{W} \int \dv{e^{\psi}}{x} \, \mathrm{d}x = 0
+\end{equation}
 \begin{equation}
   \frac{1}{2} \left(\dv{\psi}{x}\right)^2 + \mathcal{W}e^{\psi} = \frac{1}{2} c_1
 \end{equation}
 with $c_1$ a constant.
-Rearranging and integrating gives
+Rearranging and recognising that this is a separable differential equation gives
 \begin{equation}
   \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \pm\sqrt{c_1} \int \mathrm{d}x = c_2 \pm \sqrt{c_1} x 
 \end{equation}
-where $c_2$ is another integration constant. This is then reduced to a standard integral\cite{riley2006} with the substitution $u = \left(1 - \frac{2\mathcal{W}}{c_1} e^{\psi}\right)^{1/2}$.
-This substitution gives the solution
+where $c_2$ is another integration constant. The right hand side is then reduced to a standard integral\cite{riley2006}
+with the substitution $u = \left(1 - \frac{2\mathcal{W}}{c_1} e^{\psi}\right)^{1/2}$, giving
+\begin{equation}
+  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \int \frac{2}{u^2 - 1} \,\mathrm{d}u = \artanh\left(u\right). 
+\end{equation}
+Inverting this then leads to
+\begin{equation}
+  \sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}} = \tanh\left(c_2 \pm \sqrt{c_1} x\right)
+\end{equation}
+and thus
+\begin{equation}
+  \psi = \ln \frac{c_1}{2\mathcal{W}} + \ln \left(1 - \tanh^2 \left(c_2 \pm \sqrt{c_1} x\right)\right).
+\end{equation}
+Using the Pythagorian identity\cite{riley2006} this can be reduced to
+\begin{equation}
+  \psi = \ln \frac{c_1}{2\mathcal{W}} + 2\ln \left(\sech \left(c_2 \pm \sqrt{c_1} x\right)\right).
+\end{equation}
+In terms of $\theta$, the solution is
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_general}
   \theta = \ln \frac{c_1}{2\mathcal{W}} + 2 \ln \sech \left( \frac{c_2 \pm \sqrt{c_1} x}{2}\right) - \frac{x}{D}
