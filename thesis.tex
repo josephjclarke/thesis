@@ -15,7 +15,10 @@
 \listoftodos{}
 \frontmatter{}
 \pagenumbering{arabic}
-\ifdraft{\input{todolist.tex}}{}
+\ifdraft{
+  \input{todolist.tex}
+  \doublespacing
+}{}
 
 \include{titlepage}
 \addtocounter{page}{1}
