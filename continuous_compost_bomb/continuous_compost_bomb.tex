@@ -167,28 +167,45 @@ the instability remains in the continuous case, and it is not prevented by diffu
 \end{figure}
 \subsection{Consistency of the continuum model with LC10}
 \label{sec:consistency_with_LC10}
-In this subsection I compare the LC10 and continuum models numerically. The level of soil carbon is chosen such that the soil temperature is initially in an equilibrium state with $\delta T_{a} = 0$.
-I then integrate forward in time with $\delta T_a$ constant and greater than zero. I find for sufficiently large values of $\delta T_a$ the system has an instability.
-I refer to the smallest value of $\delta T_a$ for which this is true as the `critical warming level', as if air temperatures were increased by this amount quickly with respect to the soil carbon turn over time,
+In this subsection the LC10 model and continuum model are compared numerically. The level of soil carbon is chosen such that the soil temperature is
+initially in an equilibrium state with $\delta T_{a} = 0$. The models are then integrate forward in time with $\delta T_a$ constant and greater than zero.
+For sufficiently large values of $\delta T_a$ the system has an instability. The smallest value of $\delta T_a$ for which this is true is refered to
+as the `critical warming level', because if air temperatures were increased by this amount quickly with respect to the soil carbon turn over time,
 an instability would be triggered.
 
-I plot this critical warming, as a function of $\kappa$ in \cref{fig:comparison_with_lc10}. I also overlay the warming required to cause a compost bomb in the LC10
+This critical warming is plotted, as a function of $\kappa$ in \cref{fig:comparison_with_lc10}.
+Also overlayed is the warming required to cause a compost bomb in the LC10
 model. Also shown is the amplitude of the seasonal cycle needed to cause a compost bomb.
-I see that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC10 case. In addition, I see that the soil is more stable
+It can be observed that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC10 case. In addition, the soil is more stable
 to seasonal cycle oscillations than instantaneous jumps. This `overshoot' behaviour\cite{Ritchie2019,Ritchie2021} is due to the fact that soil temperatures do not instantly respond to the seasonal cycle.
-Surprisingly for smaller
-values of $\kappa$ the critical warming is actually lower in the continuum case than the LC10 case, despite the damping effects of diffusion.
+Surprisingly for smaller values of $\kappa$ the critical warming is actually lower in the continuum case than the LC10 case,
+despite the damping effects of diffusion.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,scale=0.5]{dimensional_continuum_vs_lc10}
-  \caption[Critcal warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model. I have also plotted on the seasonal cycle amplitude required for this instability.}
+  \caption[Critcal warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model.
+    Also plotted on is the seasonal cycle amplitude required for this instability.}
   \label{fig:comparison_with_lc10}
 \end{figure}
 
-To investigate this further, I derive  the LC10 model from the continuum case. I do this by vertically averaging \cref{eq:one_d_model}.
-I denote vertically averaged quantities as
-$\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$. Neglecting the vertical dependence of soil carbon, and
-taking a vertical average, applying boundary conditions, and finally replacing $\mu_A$ with $\mu_V H$ I get
+To investigate this further, the LC10 model will be derived from the continuum case. This is done by vertically averaging \cref{eq:one_d_model}.
+Vertically averaged quantities are denoted by
+$\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$.  Begin by integrating \cref{eq:one_d_model} over the vertical domain:
+\begin{equation}
+  \label{eq:vertical_integration}
+  \mu_V \dv{t} \int_{-\infty}^0 T_s \, \mathrm{d} z =
+  \kappa \eval{\pdv{T_s}{z}}_{z=0}
+  - \kappa \eval{\pdv{T_s}{z}}_{z=-\infty} +
+  \frac{AC_sr_0}{H} \int_{-\infty}^0 e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)} e^{z/H} \, \mathrm{d} z.
+\end{equation}
+Applying boundary conditions (\cref{eq:dimensional_bcs_nonuniform}) gives
+\begin{equation}
+  \label{eq:vertical_integration_after_bc}
+  \mu_v H \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0}
+    - \delta T_a\left(t\right)\right) + \frac{AC_sr_0}{H}\int_{-\infty}^0 e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)} e^{z/H} \, \mathrm{d} z.
+\end{equation}
+
+Assuming the vertical distribution of soil carbon does not affect the average value too much and setting $\mu_A = \mu_VH$ gives 
 \begin{equation}
   \label{eq:vertically_averaged}
   \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) + AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
