@@ -22,7 +22,7 @@ We show that ROSA identifies more examples of abrupt transitions in the Amazon t
 
 
 \section{Introduction}\label{sec:introduction}
-The paleoclimate record contains numerous examples\cite{Brovkin2021} of 
+The paleoclimate record contains numerous examples\parencite{Brovkin2021} of 
 major components of the Earth system experiencing rapid 
 change. Such changes can be caused by 
 relatively small changes in external forcing, such as changes in incoming
@@ -32,100 +32,100 @@ Over the last two hundred years humans have increasingly forced the climate syst
 primarily through the burning of fossil fuels,
 which has caused global warming and other related changes to the climate
 system. As a result there is now major scientific interest and public 
-concern\cite{Lenton2019a,Steffen2018,Ritchie2021} that future 
+concern\parencite{Lenton2019a,Steffen2018,Ritchie2021} that future 
 temperature increases may also cause key
 Earth System components (so called `Tipping Elements')  to cross 
 critical thresholds known as `Tipping Points', undergoing rapid 
-irreversible transitions\cite{Lenton2008}. 
+irreversible transitions\parencite{Lenton2008}. 
 
 Tipping points are typically triggered by a small change in a system parameter, such as one describing the forcing or
 relating to aspects of the internal structure. Crossing some critical threshold associated with this parameter causes the system to be pushed into a qualitatively 
 different state. Mathematically this can be described as a system passing through a bifurcation. 
-Although different types of tipping exist\cite{Ashwin2012}, in the analysis here 
+Although different types of tipping exist\parencite{Ashwin2012}, in the analysis here 
 we will be concerned with so-called `Bifurcation-' or `B-tipping'.
 
 
 Pioneering work by Stommel suggested that the Atlantic Meridional Overturning 
-Circulation (AMOC)\cite{STOMMEL1961} is such a tipping element, although
+Circulation (AMOC)\parencite{STOMMEL1961} is such a tipping element, although
 his work predates widespread use of the term. Since then,
 numerous examples of potential tipping elements have been identified.
-For example, the Amazon Rainforest can undergo dieback\cite{Cox2000}, the 
-Greenland ice-sheet can melt\cite{Feldmann2015} and
-permafrost can thaw rapidly\cite{Steffen2018}.
+For example, the Amazon Rainforest can undergo dieback\parencite{Cox2000}, the 
+Greenland ice-sheet can melt\parencite{Feldmann2015} and
+permafrost can thaw rapidly\parencite{Steffen2018}.
 
-Sophisticated climate model simulations\cite{Rahmstorf1995} provide evidence that tipping points can occur
+Sophisticated climate model simulations\parencite{Rahmstorf1995} provide evidence that tipping points can occur
 in the Earth System. For example, multiple
-instances of abrupt shifts were identified in the Coupled Model Intercomparison Project Phase 5 (CMIP5)\cite{Taylor2012}
-collection of Earth System Models (ESMs)\cite{Drijfhout2015} and hysteresis has been found in 
-simulations of the Antarctic Ice Sheet\cite{Garbe2020}. 
+instances of abrupt shifts were identified in the Coupled Model Intercomparison Project Phase 5 (CMIP5)\parencite{Taylor2012}
+collection of Earth System Models (ESMs)\parencite{Drijfhout2015} and hysteresis has been found in 
+simulations of the Antarctic Ice Sheet\parencite{Garbe2020}. 
 
 It is unsurprising that major transitions in important components
 of the Earth System would have significant impacts. As tipping points
 are not routinely included in Integrated Assessment Models (IAMs) many of 
 their impacts on society are not yet quantified, yet recent 
-work\cite{Dietz2021}
+work\parencite{Dietz2021}
 suggests including tipping points in IAMs
 substantially increases the Social Cost 
 of Carbon. Impact studies of individual 
 Tipping Points reveal significant challenges for many people. For instance, a 
 collapse of the AMOC is projected to cause
-widespread cessation of arable farming in Great Britain\cite{Ritchie2020a}.
+widespread cessation of arable farming in Great Britain\parencite{Ritchie2020a}.
 High latitude communities face increased fire risks caused 
-by the self-heating of soils\cite{Clarke2021} and infrastructure damage 
-caused by a rapid increase in permafrost degradation\cite{Teufel2019}. 
+by the self-heating of soils\parencite{Clarke2021} and infrastructure damage 
+caused by a rapid increase in permafrost degradation\parencite{Teufel2019}. 
 
 
 Given the potential for major impacts, it would be useful to know the exact thresholds of
-these tipping points, however precision remains elusive\cite{Steffen2018}.
+these tipping points, however precision remains elusive\parencite{Steffen2018}.
 There is almost no inter-ESM
 agreement on which tipping points are the most likely to happen, or on the
 levels of global warming that will trigger their
-occurrence\cite{Drijfhout2015}.
+occurrence\parencite{Drijfhout2015}.
 However due to the mathematical theory of Normal 
-Forms\cite{Strogatz2015,guckenheimer2013}, all systems approaching a
+Forms\parencite{Strogatz2015,guckenheimer2013}, all systems approaching a
 B-tipping point share some common features.
 
 For our purposes, the most important of these generic characteristics
 is \emph{critical slowing down}. Systems generally revert to  equilibrium after a small disturbance. 
 The time to return to equilibrium is a characteristic timescale which, importantly, increases as the system 
 approaches a tipping point, at which moment the timescale becomes 
-infinite\cite{Scheffer2012}---referred to as `critical slowing down'. 
+infinite\parencite{Scheffer2012}---referred to as `critical slowing down'. 
 For near-equilibrium systems, the variance of a system will increase and its autocorrelation (AC)
-will tend to unity as the system approaches a bifurcation\cite{Scheffer2009,Held2004}.
+will tend to unity as the system approaches a bifurcation\parencite{Scheffer2009,Held2004}.
 These statistical changes lead to the possibility of `Early Warning Signals' (EWS) of approaching Tipping Points.
 
 Care is needed when using EWS, as we 
 expect both AC and variance to increase as a tipping point is 
-approached\cite{Ditlevsen2010}. Whilst this is only strictly true
+approached\parencite{Ditlevsen2010}. Whilst this is only strictly true
 in the case of near one dimensional systems (an approximation which is often made, such as by using principle component analysis to reduce the 
-dimensionality of the system\cite{Held2004}), considering one quantity alone 
+dimensionality of the system\parencite{Held2004}), considering one quantity alone 
 increases the chance of a false positive as that quantity may change for other reasons such as an increase in the noise variability. It should 
 be noted that false positives can still occur even when considering 
 both quantities.
 Additionally, if a transition is noise-induced (rather than bifurcation-induced) then critical speeding up is possible, where
-a decrease in the variance and AC can be signs of an approaching transition\cite{Titus2020}.
+a decrease in the variance and AC can be signs of an approaching transition\parencite{Titus2020}.
 
 The technique of observing an increase in the variance and
 AC has been applied to the paleoclimate record, where it has been shown to give early
-warnings of tipping points\cite{Boers2018a}. It has also been used to 
+warnings of tipping points\parencite{Boers2018a}. It has also been used to 
 suggest that for the present day, due to an increase in global temperatures, we are approaching tipping points in 
-the Greenland Ice Sheet\cite{Boers2021} and in the AMOC\cite{Boers2021a}.	
+the Greenland Ice Sheet\parencite{Boers2021} and in the AMOC\parencite{Boers2021a}.	
 However, a key assumption when using the variance and AC as EWS is that the system is subject to a statistically stationary white-noise forcing. Unfortunately, for many
 components of the Earth System, the external drivers do not have variability that exhibits white noise characteristics, and
 so this assumption is not satisfied. For example, forcing factors in the Earth System are rarely well approximated by stationary white-noise, due to the many quasi-oscillatory modes
-of variability in the Earth System\cite{VonderHeydt2021}, which add peaks
+of variability in the Earth System\parencite{VonderHeydt2021}, which add peaks
 to the power spectrum of the forcing. For example, the Amazon
 Rainforest, which is of particular interest due to its risk of large-scale vegetation dieback in a potentially hotter and drier
 climate, experiences
 forcing which is coherent in space and in time, but is also strongly modulated by the
-El-Ni\~{n}o Southern Oscillation (ENSO)\cite{Jimenez-Munoz2016}.
+El-Ni\~{n}o Southern Oscillation (ENSO)\parencite{Jimenez-Munoz2016}.
 White noise forcing is also incompatible with
-long memory processes\cite{Hurst1957}, such as the effect of sea ice changes on the AMOC\cite{Kuehn2021}. Recently, it was shown\cite{Kuehn2021}
+long memory processes\parencite{Hurst1957}, such as the effect of sea ice changes on the AMOC\parencite{Kuehn2021}. Recently, it was shown\parencite{Kuehn2021}
 that traditional EWS  can change their characteristics or disappear entirely when we relax these assumptions on the forcing. This motivates creating EWS that do not assume white noise.
 
 
 There has been some investigations in using EWS with time correlated noise using generalised least
-squares\cite{Boers2021a,Boettner2022} and a Bayesian method\cite{hessler2022,Hessler2022b}. Here we examine a different method of
+squares\parencite{Boers2021a,Boettner2022} and a Bayesian method\parencite{hessler2022,Hessler2022b}. Here we examine a different method of
 estimating the critical slowing down that occurs near a bifurcation that works even in the presence of time-correlated noise.
 
 \section{Failure of Early Warning Signals}\label{sec:failure}
@@ -152,7 +152,7 @@ estimating the critical slowing down that occurs near a bifurcation that works e
 
 In this section, we demonstrate how conventional EWS may fail in the presence of autocorrelated  noise. Due to the fact that near a
 saddle node bifurcation all dynamical systems with such a
-bifurcation behave similarly\cite{guckenheimer2013}, we ought to
+bifurcation behave similarly\parencite{guckenheimer2013}, we ought to
 investigate the simplest bistable system exhibiting a saddle node
 bifurcation. Hence, we examine the system 
 \begin{equation}
@@ -166,7 +166,7 @@ $x$ remains in approximate equilibrium, we set $\epsilon$ to be small,
 we take $\epsilon = 0.01$ throughout.
 
 
-We define $\eta$ by the following Ornstein-Uhlenbeck process\cite{Uhlenbeck1930}:
+We define $\eta$ by the following Ornstein-Uhlenbeck process\parencite{Uhlenbeck1930}:
 \begin{equation}
 \label{eq:white_red_forcing}
     \dv{\eta}{t} = \frac{r-1}{\delta t}\eta + \sqrt{\frac{1-r^2}{\delta t}} \xi
@@ -185,7 +185,7 @@ more and more autocorrelated.
 
 After discretizing with time step $\delta t = 0.0004$,
 these equations are solved numerically using the 
-Euler-Maruyama method\cite{Jacobs2010}.
+Euler-Maruyama method\parencite{Jacobs2010}.
 
 
 \subsection{False Negatives}
@@ -249,8 +249,8 @@ An additional problem with assuming the system is subject to stationary white no
 variability and AC of the forcing is constant over time. 
 However in the case of 
 climate change, it is likely that the variability of the forcing,
-such as temperature, will change\cite{Huntingford2013}. 
-Increasing the variability, such as in\cite{Boers2021a}, of the forcing will increase the variance of the system even
+such as temperature, will change\parencite{Huntingford2013}. 
+Increasing the variability, such as in\parencite{Boers2021a}, of the forcing will increase the variance of the system even
 if the system is not approaching a tipping point. This is an example of a false
 alarm (i.e.\ a false positive). 
 
@@ -288,8 +288,8 @@ While it is not clear
 how to do this directly from the time series, we show that this can be achieved if we move
 to the frequency domain, where it is has been shown to be possible
 to extract estimates of distances to bifurcation 
-points\cite{Kleinen2003}, by taking a Fourier Transform of the data. 
-Under white noise forcing, it is found that the spectrum reddens\cite{Kefi2014,Dakos2012c}, we look at the case where the forcing 
+points\parencite{Kleinen2003}, by taking a Fourier Transform of the data. 
+Under white noise forcing, it is found that the spectrum reddens\parencite{Kefi2014,Dakos2012c}, we look at the case where the forcing 
 can mask this reddening.
 
 We begin by modelling a tipping element with a state variable $y$ that evolves in time $t$, and depends on a slowly evolving parameter $\mu$.  The tipping point occurs when $\mu=\mu_c$.
@@ -300,7 +300,7 @@ We can  write this generically as:
     \dv{\mu}{t} &= \epsilon g(y,\mu).
 \end{eqnarray}
 for some functions $f$ and $g$, and $\epsilon \ll 1$.
-As $\epsilon g(y,\mu)$ is small, we can use the theory of fast-slow systems\cite{Kuehn2011} to reduce to a one
+As $\epsilon g(y,\mu)$ is small, we can use the theory of fast-slow systems\parencite{Kuehn2011} to reduce to a one
 dimensional dynamical system depending only on the parameter $\mu$:
 \begin{equation}
   \label{eq:1d_dynamical_sys}
@@ -323,11 +323,11 @@ $y(t) = x^* + x(t)$ to give:
 \end{equation}
 where $\lambda = -f'(x^*,\mu)$ and the prime denotes a derivative with respect to $x$. 
 Physically, $\lambda$ represents the rate at which the system returns to equilibrium after
-a disturbance, and thus characterises the resilience of a system. Held and Kleinen\cite{Held2004} developed a technique to estimate $\lambda$
+a disturbance, and thus characterises the resilience of a system. Held and Kleinen\parencite{Held2004} developed a technique to estimate $\lambda$
 under the assumption that $\xi$ is Gaussian white noise. Here, we will
 relax that assumption.
 When $\mu \rightarrow \mu_c$, which is to say that the system approaches
-the tipping point, then it turns out that $\lambda \rightarrow 0$\cite{guckenheimer2013}. This is the phenomenon of critical slowing down. Our aim is to therefore
+the tipping point, then it turns out that $\lambda \rightarrow 0$\parencite{guckenheimer2013}. This is the phenomenon of critical slowing down. Our aim is to therefore
 identify changes in $\lambda$, and in particular discover any evidence of a decrease which would suggest an approaching tipping point, and
 to do this in a way that is not dependent on $\xi$ being white noise. To achieve this, we move to the frequency domain.
 
@@ -377,7 +377,7 @@ case of EWS for transitions caused by contemporary
 climate change. Many different Earth System quantities are regularly 
 measured and many processes are understood. Furthermore to help 
 guard against choosing the wrong $\xi$ it could first be tested in an Earth System Model (ESM). Note however that ESMs represent tipping elements 
-poorly, with little agreement between models\cite{Drijfhout2015}.
+poorly, with little agreement between models\parencite{Drijfhout2015}.
 
 
 \section{Test in Simple Models}
@@ -385,7 +385,7 @@ We examine this ROSA method using the two test cases considered earlier in
 section \cref{sec:failure}; namely its ability to avoid 
 false positives and false negatives.
 We calculate the power spectra of $x$ and $\eta$
-using Welch's method\cite{Welch1967} after a quadratic 
+using Welch's method\parencite{Welch1967} after a quadratic 
 detrend in moving windows of length $0.2$. We perform a least
 squares fit to
 \cref{eq:power_spectrum_indep} and extract $\lambda$. We plot
@@ -425,9 +425,9 @@ systematically in \cref{fig:false_positives_white}.
 
 
 \section{Comparison to alternative methods}
-Recently, Boers\cite{Boers2021a} introduced a new technique,
+Recently, Boers\parencite{Boers2021a} introduced a new technique,
 to avoid the problems introduced by noise that isn't white.This was
-more rigorously analysed by Boettner and Boers\cite{Boettner2022}. The
+more rigorously analysed by Boettner and Boers\parencite{Boettner2022}. The
 technique, which we refer to as the BB method, is essentially a way of
 regressing $\dot{x}$ against $x$, to give an estimate for $\lambda$. 
 This requires a model for the noise, for example that it is
@@ -447,7 +447,7 @@ with non-stationary noise.
 
 Both methods give estimates for $-\lambda$, which should rise
 to zero as the tipping point is approached. To compare the 
-rise we compute a running Kendall $\tau$\cite{Wilks2019} for all data points up to
+rise we compute a running Kendall $\tau$\parencite{Wilks2019} for all data points up to
 that time. This quantity, bounded 
 between $-1$ and $1$ gives a measure of whether a sequence is 
 increasing or decreasing. A strongly positive $\tau$ suggests a tipping point is approaching, and a strongly
@@ -486,10 +486,10 @@ because the forcing $\xi$ is uncertain and may not be a single dominant forcing,
 These individual components, when combined, make-up `full-form' Earth System Models (ESMs).
 
 There are a very large number of ESMs available, and additionally a substantial number of attributes of the Earth system amenable to investigation. Here we 
-examine Amazon forest dieback in state-of-the-art ESMs from the Coupled Model Intercomparison  Project Phase 6 (CMIP6)\cite{Eyring2016} database. Recently,
+examine Amazon forest dieback in state-of-the-art ESMs from the Coupled Model Intercomparison  Project Phase 6 (CMIP6)\parencite{Eyring2016} database. Recently,
 five (EC-Earth3-Veg, GFDL-ESM4, NorCPM1, SAM0-UNICON and TaiESM1) of seven models, which possess a Dynamic Global Vegetation Model
 (DGVM), have been shown to feature abrupt local Amazon dieback shifts (in the IPCC defined North South American region) in an idealised run
-of increasing \ce{CO2} by 1\% per year\cite{Parry2022}.
+of increasing \ce{CO2} by 1\% per year\parencite{Parry2022}.
 
 The algorithm used in the study (and here) detects an abrupt shift if the following three criteria are satisfied:
 \begin{enumerate}
@@ -499,16 +499,16 @@ The algorithm used in the study (and here) detects an abrupt shift if the follow
 \end{enumerate}
 In every grid point identified as containing an abrupt shift, the time series of monthly vegetation carbon had its nonlinear trend and seasonal cycle removed
 using the seasonal and trend decomposition using
-LOESS (STL) method\cite{Cleaveland1990}. In 
+LOESS (STL) method\parencite{Cleaveland1990}. In 
 windows of length 50 years the conventional EWS and ROSA were calculated.
 We choose the \si{2\meter} air temperature as our forcing variable, which
 was detrended similarly to the vegetation carbon. 
 
 Although this choice of forcing variable is unlikely to capture all aspects
 of the forcing, there is a known connection between temperature and Amazon 
-dieback. For example, increases in the temperature seasonal cycle amplitude reveal declines in the evaporative fraction and hence a drying over the Amazon basin\cite{Ritchie2022}.
-Moreover, high sensitivities of the temperature seasonal cycle to global warming are more likely to incur abrupt forest dieback events\cite{Parry2022} in CMIP6.
-Furthermore there is a link between temperature anomalies and Amazon productivity\cite{Boulton2013}.
+dieback. For example, increases in the temperature seasonal cycle amplitude reveal declines in the evaporative fraction and hence a drying over the Amazon basin\parencite{Ritchie2022}.
+Moreover, high sensitivities of the temperature seasonal cycle to global warming are more likely to incur abrupt forest dieback events\parencite{Parry2022} in CMIP6.
+Furthermore there is a link between temperature anomalies and Amazon productivity\parencite{Boulton2013}.
 Therefore, the air temperature plays an important role in controlling the resilience of the forest.
 
 For each of these indicators, we calculate the Kendall $\tau$ statistic for the

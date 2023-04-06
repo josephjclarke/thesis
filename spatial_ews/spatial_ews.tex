@@ -9,7 +9,7 @@ antropogenic global warming the forcing is fast. In this chapter we investigate 
 
 \section{Fast and Slow Tipping Elements}
 An open question in the theory of Early Warning Signals is how to make use of them when the control parameter
-changes quickly relative to the timescale of the system\cite{VanderBolt2021}\todo{I should read this paper properly}.
+changes quickly relative to the timescale of the system\parencite{VanderBolt2021}\todo{I should read this paper properly}.
 To be more formal about this, consider the system
 \begin{equation}
   \label{eq:system_with_a_timescale}
@@ -26,15 +26,15 @@ so that \cref{eq:system_with_a_timescale} becomes
 
 There is an important limit to be considered here. Suppose $r$ is very small --- in other words the system is forced very slowly --- so that we
 can take $\epsilon\rightarrow 0$ in such a way that $\epsilon s \rightarrow \mu$ where $\mu$ is a constant. We can now view this as a bifurcation
-problem and can then apply all the usual tools to detect approaching tipping points\cite{scheffer2009}.
+problem and can then apply all the usual tools to detect approaching tipping points\parencite{scheffer2009}.
 
 This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence the tipping point associated to the system
 this limit applies to (whether because it is slowly forced or rapidly responding) is known as a \emph{fast tipping point}.
 
 Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good early warning signals
-using the temporal variance and autocorrelation\cite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
-Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\cite{Osborn2021}, a rate unprecedented in at least
-the last 2000 years\cite{AR6}. Many important tipping elements have timescales of centuries or longer\cite{Lenton2008}.
+using the temporal variance and autocorrelation\parencite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
+Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\parencite{Osborn2021}, a rate unprecedented in at least
+the last 2000 years\parencite{AR6}. Many important tipping elements have timescales of centuries or longer\parencite{Lenton2008}.
 This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of techniques that enable
 larger values of $\epsilon$ to be probed.
 
@@ -42,11 +42,11 @@ Part of the problem with these slow tipping elements is that the forcing changes
 To get around this we might try to make `instantaneous' measurements of its variance and autocorrelation. One way to do this would be to calculate these
 statistics over space instead of over time.
 
-Spatial early warning signals have been studied before. \cite{Donangelo2010} compared spatial and temporal early warning signals, finding that the spatial variance
-can give a better early warning than the temporal variance. Another study\cite{Kefi2014} found rising memory, variability and changes to patchiness were all
-spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems\cite{Carpenter2010,Dakos2011,Guttal2009}.
-Spatial early warning signals have even been applied to observational data\cite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
-the earth system have all involved temporal rather than spatial indicators\cite{Boulton2022,Boers2021,Boers2021a}.\todo{I should read these studies\ldots}
+Spatial early warning signals have been studied before. \parencite{Donangelo2010} compared spatial and temporal early warning signals, finding that the spatial variance
+can give a better early warning than the temporal variance. Another study\parencite{Kefi2014} found rising memory, variability and changes to patchiness were all
+spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems\parencite{Carpenter2010,Dakos2011,Guttal2009}.
+Spatial early warning signals have even been applied to observational data\parencite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
+the earth system have all involved temporal rather than spatial indicators\parencite{Boulton2022,Boers2021,Boers2021a}.\todo{I should read these studies\ldots}
 
 \section{The System}
 In order to investigate spatial early warning signals we will investigate a specific system. We will choose this system
@@ -54,15 +54,15 @@ to be generic enough that broader conclusions can be drawn. We will make the sys
 likely to give understandable results.
 
 Making the hypothesis that near a tipping point many systems are governed by coherent dynamics leads us to introduce one dependent
-variable $y$. In one dimension there is only one generic type of bifurcation\cite{Thompson1994}, the saddle node. Furthermore
-near a saddle node bifurcation, all systems show qualitatively similar behaviour\cite{guckenheimer2013} so the dynamics of $y$ should
+variable $y$. In one dimension there is only one generic type of bifurcation\parencite{Thompson1994}, the saddle node. Furthermore
+near a saddle node bifurcation, all systems show qualitatively similar behaviour\parencite{guckenheimer2013} so the dynamics of $y$ should
 involve the lowest order terms which give a saddle node, namely $\dot{y} = y - y^3/3 - \mu$, where $\mu$ is a control parameter.
 
 We need to take into account the spatial nature of the problem. We will restrict attention to a 1 dimensional
 periodic domain. To couple in space we use the well studied diffusive coupling which acts to smooth out the value of $y$.
 Such a form has found numerous uses in climate and ecological models.
-For example, it has been used in energy balance models for the global temperature\cite{Ghil1976}, ecosystem pattern formation\cite{Gowda2014}
-and in continuum models of the compost bomb\cite{Clarke2021}.
+For example, it has been used in energy balance models for the global temperature\parencite{Ghil1976}, ecosystem pattern formation\parencite{Gowda2014}
+and in continuum models of the compost bomb\parencite{Clarke2021}.
 
 We will introduce noise into the system and assume the control parameter changes linearly with time. These considerations combine to motivate studying
 \begin{subequations}
@@ -94,7 +94,7 @@ Armed with $\mathscr{E}$ we can rewrite \cref{eq:spatial_system_y} as
   \label{eq:spatial_system_y_variational}
     \pdv{y}{t} = -\fdv{\mathscr{E}}{y(x)}  + \sigma\zeta, 
 \end{equation}
-which is a Time Dependent Ginzburg Landau equation\cite{goldenfeld1992}.
+which is a Time Dependent Ginzburg Landau equation\parencite{goldenfeld1992}.
 
 \section{Statistics}
 We will compare the autocorrelation and variance of \cref{eq:spatial_system} calculated over space and over time. We will now
@@ -166,7 +166,7 @@ To solve \cref{eq:spatial_system}, we discretise the domain into $N = 100$ grid
 points and 
 calculate the diffusive term with finite differences. We denote the value of $y$ at the $k$th gridpoint by $y_k$. We integrate forward in time by 
 using an implicit Euler method, where we solve the resulting nonlinear equation using 
-MINPACK's HYBRD method accessed through SciPy\cite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
+MINPACK's HYBRD method accessed through SciPy\parencite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
 we set the timestep $\delta t = 0.001/\epsilon$ and integrate until $t=1/\epsilon$. We
 calculate all early warning signals from $\epsilon t=0$ until $\epsilon t=2/3$, which is the 
 time of the tipping point. When working over time, we choose our window size to 
@@ -223,7 +223,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     We sample 50 points in each direction, geometrically spaced, giving $2500$ total points.
 
     We can determine if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
-    A positive value implies an increasing trend\cite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
+    A positive value implies an increasing trend\parencite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
     experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
     (SNR), defined as the ratio of the mean to the standard deviation, is smaller than 1 we cannot reliably expect and early warning.
 
@@ -270,12 +270,12 @@ We will  begin by examining the case when $D = 0$, for large and small values of
   $D$ and hence we expect the temporal early warning signals to be independent of $D$.
 
   To get good early warning signals we shall require $\langle z\rangle$ to be small so that the linearisation in
-  \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$\cite{Berglund2006},
+  \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$\parencite{Berglund2006},
   we expect good temporal early warning signals when $\epsilon^{1/3} \ll 1$.
 
   \subsection{Spatial Early Warning Signals}
   Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
-  model\cite{goldenfeld1992}, where
+  model\parencite{goldenfeld1992}, where
   $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
 
   This theory gives the correlation length as $\xi = \sqrt{D}$. In order to get good statistics, we need to be sampling over a region
