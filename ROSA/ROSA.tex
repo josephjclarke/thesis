@@ -85,7 +85,7 @@ However due to the mathematical theory of Normal
 Forms \parencite{Strogatz2015,guckenheimer2013}, all systems approaching a
 B-tipping point share some common features.
 
-For our purposes, the most important of these generic characteristics
+For purposes of this study, the most important of these generic characteristics
 is \emph{critical slowing down}. Systems generally revert to  equilibrium after a small disturbance. 
 The time to return to equilibrium is a characteristic timescale which, importantly, increases as the system 
 approaches a tipping point, at which moment the timescale becomes 
@@ -326,7 +326,7 @@ a disturbance, and thus characterises the resilience of a system. Held and Klein
 under the assumption that $\xi$ is Gaussian white noise. Here, 
 that assumption will be relaxed.
 When $\mu \rightarrow \mu_c$, which is to say that the system approaches
-the tipping point, then it turns out that $\lambda \rightarrow 0$ \parencite{guckenheimer2013}. This is the phenomenon of critical slowing down. Our aim is to therefore
+the tipping point, then it turns out that $\lambda \rightarrow 0$ \parencite{guckenheimer2013}. This is the phenomenon of critical slowing down. The aim is to therefore
 identify changes in $\lambda$, and in particular discover any evidence of a decrease which would suggest an approaching tipping point, and
 to do this in a way that is not dependent on $\xi$ being white noise. This can be achieved by moving to the frequency domain.
 
@@ -362,7 +362,7 @@ size $1/\epsilon$, to see if its value changes.
 If the estimate for $|\lambda|$ is decreasing towards zero in time this implies that a tipping point is approaching. 
 
 \subsection{Choosing $\xi$}
-Unlike most EWS, our ROSA method requires knowledge of
+Unlike most EWS, the ROSA method requires knowledge of
 the driving process that controls the variability of the system.
 Therefore, using this method requires an understanding
 of the system. Furthermore the system must be of sufficient temporal resolution such that 
@@ -477,7 +477,7 @@ method.}\label{fig:boers_method}
 \end{figure}
 
 \section{Complex Models}
-The verification of our proposed early warning system with relatively simple conceptual models is important.
+The verification of the proposed early warning system with relatively simple conceptual models is important.
 However, the majority of components of the Earth System are complex, requiring highly detailed numerical models to emulate them. Hence, it is 
 desirable to see if the technique is still successful in the case of
 a more complex model. The dimensionality of such models can be very high, due to their spatial extent and related heterogeneity, and 
@@ -500,7 +500,7 @@ In every grid point identified as containing an abrupt shift, the time series of
 using the seasonal and trend decomposition using
 LOESS (STL) method \parencite{Cleaveland1990}. In 
 windows of length 50 years the conventional EWS and ROSA were calculated.
-The \si{2\meter} air temperature  was chosen as our forcing variable, which
+The \si{2\meter} air temperature  was chosen as the forcing variable, which
 was detrended similarly to the vegetation carbon. 
 
 Although this choice of forcing variable is unlikely to capture all aspects
@@ -554,7 +554,7 @@ small or when the window length can be chosen to be long relative to the
 noise's decorrelation time. In these instances, conventional EWS will be useful. ROSA is most applicable to the cases where this choice is not
 possible. This is relevant to anthropogenic climate change given that the changes are fast.
 
-Our work relies on a couple of  key assumptions:
+This work relies on a couple of  key assumptions:
 \begin{enumerate}[A.]
 \item \label{itm:timescale_seperation} that there is a separation of timescales; and
 \item \label{itm:exists} that the power spectrum of the forcing and the system is known.
@@ -564,7 +564,7 @@ prove challenging in practise. \Cref{itm:exists} is notable as other EWS, like t
 Although \cref{itm:timescale_seperation} is typically assumed when dealing with EWS, its applicability
 to the rapidly changing modern climate is still an open question.
 As a result, future work should investigate EWS for systems without this timescale separation.
-Nevertheless, I believe our approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate.
+Nevertheless, I believe this approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate.
 
 
 \section*{Data Avaliablity}
