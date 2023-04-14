@@ -2,15 +2,17 @@
 \label{chapter:rosa}
 \graphicspath{{ROSA/figs}}
 
-Early Warning Signals generally assume the system of interest sits in an enviroment which forces it with white noise.
-Genuine white noise is rare in nature, but it can be approximately realised when the decorrelation timecsale of the noise
-is short compared to the observational timescale of the system. As in \cref{chapter:spatial_ews} for anthropogenic climate
-change there is no guarantee of this timescale seperation. In this chapter an investigation into relaxing the assumptions on the noise will be undertaken.
+%Early Warning Signals generally assume the system of interest sits in an enviroment which forces it with white noise.
+%Genuine white noise is rare in nature, but it can be approximately realised when the decorrelation timecsale of the noise
+%is short compared to the observational timescale of the system. As in \cref{chapter:spatial_ews} for anthropogenic climate
+%change there is no guarantee of this timescale seperation. In this chapter an investigation into relaxing the assumptions on the noise will be undertaken.
 
-\section{Abstract}
-Potential tipping points in the Earth System present challenges for society and 
-ecosystems, especially as the global warming thresholds at which these may be triggered remain uncertain. 
-Fortunately, a theory of `critical slowing down' has been developed which could warn of approaching tipping points. 
+%\section{Abstract}
+
+In previous chapters, I have examined specific tipping points in the Earth system.
+These tipping points present challenges for society and 
+ecosystems, yet the global warming thresholds at which these may be triggered remain uncertain. However,
+a theory of `critical slowing down' has been developed which could warn of approaching tipping points. 
 Applications of this theory often implicitly assume stationary white-noise forcing,  itself requiring a clean separation
 between forced trends and variability, which is especially difficult under contemporary climate change. 
 This chapter proposes a modified method to derive early warning signal in a 
@@ -92,9 +94,9 @@ approaches a tipping point, at which moment the timescale becomes
 infinite \parencite{Scheffer2012}---referred to as `critical slowing down'. 
 For near-equilibrium systems, the variance of a system will increase and its autocorrelation (AC)
 will tend to unity as the system approaches a bifurcation \parencite{Scheffer2009,Held2004}.
-These statistical changes lead to the possibility of `Early Warning Signals' (EWS) of approaching Tipping Points.
+These statistical changes lead to the possibility of `Early Warning Signals' of approaching Tipping Points.
 
-Care is needed when using EWS, as
+Care is needed when using early warning signals, as
 both AC and variance are expected to increase as a tipping point is 
 approached \parencite{Ditlevsen2010}. Whilst this is only strictly true
 in the case of near one dimensional systems (an approximation which is often made, such as by using principle component analysis to reduce the 
@@ -110,7 +112,7 @@ AC has been applied to the paleoclimate record, where it has been shown to give 
 warnings of tipping points \parencite{Boers2018a}. It has also been used to 
 suggest that for the present day, due to an increase in global temperatures, there are approaching tipping points in 
 the Greenland Ice Sheet \parencite{Boers2021} and in the AMOC \parencite{Boers2021a}.	
-However, a key assumption when using the variance and AC as EWS is that the system is subject to a statistically stationary white-noise forcing. Unfortunately, for many
+However, a key assumption when using the variance and AC as early warning signals is that the system is subject to a statistically stationary white-noise forcing. Unfortunately, for many
 components of the Earth System, the external drivers do not have variability that exhibits white noise characteristics, and
 so this assumption is not satisfied. For example, forcing factors in the Earth System are rarely well approximated by stationary white-noise, due to the many quasi-oscillatory modes
 of variability in the Earth System \parencite{VonderHeydt2021}, which add peaks
@@ -121,10 +123,10 @@ forcing which is coherent in space and in time, but is also strongly modulated b
 El-Ni\~{n}o Southern Oscillation (ENSO) \parencite{Jimenez-Munoz2016}.
 White noise forcing is also incompatible with
 long memory processes \parencite{Hurst1957}, such as the effect of sea ice changes on the AMOC \parencite{Kuehn2021}. Recently, it was shown \parencite{Kuehn2021}
-that traditional EWS  can change their characteristics or disappear entirely when these assumptions on the forcing are relaxed. This motivates creating EWS that do not assume white noise.
+that traditional early warning signals  can change their characteristics or disappear entirely when these assumptions on the forcing are relaxed. This motivates creating early warning signals that do not assume white noise.
 
 
-There has been some investigations in using EWS with time correlated noise using generalised least
+There has been some investigations in using early warning signals with time correlated noise using generalised least
 squares \parencite{Boers2021a,Boettner2022} and a Bayesian method \parencite{hessler2022,Hessler2022b}. Here examine a different method of
 estimating the critical slowing down that occurs near a bifurcation that works even in the presence of time-correlated noise is examined.
 
@@ -136,13 +138,13 @@ estimating the critical slowing down that occurs near a bifurcation that works e
   In the case of the blue curve the system
   is subject to white noise forcing ($r=0$), the red curve is subject to 
   red noise forcing ($r=0.99$). Panels B and C show the
-  classic EWS for the case of white and
+  classic early warning signals for the case of white and
   red noise, calculated after a
   quadratic detrend in a window of width $0.2$ (in normalised time units or 500 data points).
   The AC is plotted with a solid curve and
   the variance with a 
   dashed curve.
-  The white noise case shows clear EWS, 
+  The white noise case shows clear early warning signals, 
   but the red noise case gives no indication of the approaching tipping point. Panel D shows $\lambda$ calculated from ROSA, after a
   qaudratic detrend in windows of length $0.2$, in the
   white (blue curve) and red (red curve) noise case. The solid black 
@@ -150,7 +152,7 @@ estimating the critical slowing down that occurs near a bifurcation that works e
   is a clear Early Warning Signal.}\label{fig:failure_of_ews}
 \end{figure}
 
-In this section, it will be demonstrated how conventional EWS may fail in the presence of autocorrelated  noise. Due to the fact that near a
+In this section, it will be demonstrated how conventional early warning signals may fail in the presence of autocorrelated  noise. Due to the fact that near a
 saddle node bifurcation all dynamical systems with such a
 bifurcation behave similarly \parencite{guckenheimer2013}, this motivates investigating 
 the simplest bistable system exhibiting a saddle node
@@ -179,7 +181,7 @@ $\delta t$:
     \eta_{t+1} = r\eta_t + \sqrt{1-r^2} \epsilon_t
 \end{equation}
 with $\epsilon_t \sim \mathcal{N}(0,1)$. When $r = 0$, this is 
-the conventional white noise assumed in most EWS
+the conventional white noise assumed in most early warning signals
 studies. However, as $r$ approaches unity the process becomes
 more and more autocorrelated.
 
@@ -190,13 +192,13 @@ Euler-Maruyama method \parencite{Jacobs2010}.
 
 \subsection{False Negatives}
 As a system approaches a tipping point, the conventional
-EWS suggest that the system should become more
+early warning signals suggest that the system should become more
 autocorrelated. However, if the system is subjected to autocorrelated noise,
 then this can act to mask the changes in the AC of the system so that such
 changes are no longer detectable. Furthermore, decreasing variability in
 the forcing can decrease the system variance even if the system is 
 approaching a tipping point. This again acts to mask the approaching tipping point, which clearly poses problems for conventional
-EWS as these would present a `false negative'.
+early warning signals as these would present a `false negative'.
 
 To illustrate this, set $\mu(t) = t$, so that the system described by \cref{eq:dynamical_system} has
 a tipping point at $t=2/3$ and calculate the conventional Early 
@@ -208,7 +210,7 @@ while the other (red) curve is driven by red noise ($r = 0.99$). To
 ensure the tipping occurs at a similar time in both
 cases, the magnitude of the red noise is reduced by half.
 Despite the qualitative similarity of the time series,
-the classical EWS plotted in Panels B and C, are very different. To assist with comparisons to the method of this chapter, we
+the classical early warning signals plotted in Panels B and C, are very different. To assist with comparisons to the method of this chapter, we
 plot $\frac{1}{\delta t}\log AC$ instead of the AC directly. However, this
 transformation will have no effect on any trends.
 
@@ -218,14 +220,14 @@ Whereas, for the red noise case there is no trend in the AC. The
 variance shows both increases and decreases. A positive trend occurs near
 the tipping point however this would give, if any, very little warning. \Cref{fig:prob_of_suc}
 repeats this test for 1000 different noise realisations, showing the
-challenge of getting EWS when the noise is very 
+challenge of getting early warning signals when the noise is very 
 autocorrelated. In \cref{fig:subsampling} an investigation into the effect on the early warning when the time series
 is subsampled is carried out.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{pofsuccess}
-  \caption[Probability of detection for conventional EWS]{This figure repeats the experiment carried out in \cref{fig:failure_of_ews}
+  \caption[Probability of detection for conventional early warning signals]{This figure repeats the experiment carried out in \cref{fig:failure_of_ews}
     with red noise 1000 times to calculate the probabillity of a succesful detection, defined as a large enough increase in the conventional
     early warning signals, namely variance and autocorrelation. A large enough increase is measured by Kendall's $\tau$ statistic. The larger the
     required $\tau$, the stronger the trend. This figure shows that only at low $\tau$ thresholds (i.e.\ weak enough trends) are there any appreciable
@@ -311,7 +313,7 @@ At this point, an additional time-dependent perturbation $\xi(t)$ is applied, wh
   \label{eq:1d_dyn_sys_forced}
   \dv{y}{t} = f(y,\mu) + \xi(t).
 \end{equation}
-The classical theory of EWS assumes $\xi$ is a white noise process, however no such restriction is made here. It may have both
+The classical theory of early warning signals assumes $\xi$ is a white noise process, however no such restriction is made here. It may have both
 deterministic and stochastic components, it is only required that its Fourier Transform exists.
 
 Linearising about a quasiequilibrium, $x^*$, (i.e.\ that is evolving on the slower timescale), and denoting
@@ -362,7 +364,7 @@ size $1/\epsilon$, to see if its value changes.
 If the estimate for $|\lambda|$ is decreasing towards zero in time this implies that a tipping point is approaching. 
 
 \subsection{Choosing $\xi$}
-Unlike most EWS, the ROSA method requires knowledge of
+Unlike most early warning signals, the ROSA method requires knowledge of
 the driving process that controls the variability of the system.
 Therefore, using this method requires an understanding
 of the system. Furthermore the system must be of sufficient temporal resolution such that 
@@ -372,7 +374,7 @@ by changes to the incorrectly chosen $\xi$, rather than a
 tipping point. 
 
 I argue that these requirements are not too restrictive, at least in the 
-case of EWS for transitions caused by contemporary
+case of early warning signals for transitions caused by contemporary
 climate change. Many different Earth System quantities are regularly 
 measured and many processes are understood. Furthermore to help 
 guard against choosing the wrong $\xi$ it could first be tested in an Earth System Model (ESM). Note however that ESMs represent tipping elements 
@@ -440,7 +442,7 @@ reaches a tipping point at $t=2/3$. Furthermore $r$ is linearly decreased
 from $r=0.99$ to $r=0.0$ between $t=-1$ and $t=1$.
 This decreasing AC of the
 noise can feed through into the system's AC, thus masking
-the conventional EWS. This test therefore
+the conventional early warning signals. This test therefore
 combines the challenges of predicting a tipping point with dealing
 with non-stationary noise.
 
@@ -499,7 +501,7 @@ The algorithm used in the study (and here) detects an abrupt shift if the follow
 In every grid point identified as containing an abrupt shift, the time series of monthly vegetation carbon had its nonlinear trend and seasonal cycle removed
 using the seasonal and trend decomposition using
 LOESS (STL) method \parencite{Cleaveland1990}. In 
-windows of length 50 years the conventional EWS and ROSA were calculated.
+windows of length 50 years the conventional early warning signals and ROSA were calculated.
 The \si{2\meter} air temperature  was chosen as the forcing variable, which
 was detrended similarly to the vegetation carbon. 
 
@@ -519,10 +521,10 @@ is plotted in \cref{fig:complex_test}.
 
 Note that the algorithm will, in addition to examples of B-tipping, detect examples
 of N-tipping and rapid change which is not a true tipping point. As a result, no 
-EWS will successfully detect all abrupt shifts. This also means that some
+early warning signals will successfully detect all abrupt shifts. This also means that some
 of the warning signals will be false positives. However this possibility
-affects all the EWS so the comparison remains fair. All three EWS are capable
-of detecting substantial proportions of the identified abrupt shifts. Overall, it can be seen that ROSA outperforms the traditional EWS.
+affects all the early warning signals so the comparison remains fair. All three early warning signals are capable
+of detecting substantial proportions of the identified abrupt shifts. Overall, it can be seen that ROSA outperforms the traditional early warning signals.
 For individual models,
 ROSA detects more abrupt shifts than the AC alone and is often better than the 
 variance. Hence, for most of the CMIP6 models considered, ROSA is able to give a more robust
@@ -531,7 +533,7 @@ early warning for abrupt shifts.
 \begin{figure}
 \includegraphics[width=\textwidth,keepaspectratio]{figure4}
 \caption[ROSA in CMIP6]{The proportion of abrupt shifts in Amazon vegetation carbon
-detected, as a function of threshold Kendall $\tau$ for three EWS across 5 ESMs. The blue line is the variance,
+detected, as a function of threshold Kendall $\tau$ for three early warning signals across 5 ESMs. The blue line is the variance,
 the red is the AC and the black is ROSA.}\label{fig:complex_test}
 \end{figure}
 
@@ -544,14 +546,14 @@ disproportionately large (and possibly irreversible) changes.
 For these reasons, it is essential to develop
 statistics that can identify approaching tipping points.
 
-Although there has been much work on EWS for Tipping Points,
+Although there has been much work on early warning signals for Tipping Points,
 this has tended to focus on the simple case that the system is subject to additive white noise. 
-In this chapter I have shown how EWS can be generalised to deal with more general noise characteristics. By normalising the power spectrum of the forcing, I am able to extract a 
+In this chapter I have shown how early warning signals can be generalised to deal with more general noise characteristics. By normalising by the power spectrum of the forcing, I am able to extract a 
 time-evolving parameter $\lambda$, which robustly approaches zero as a tipping point is approached.  
 
 Approximating the driving noise as white is reasonable when $r$ is 
 small or when the window length can be chosen to be long relative to the 
-noise's decorrelation time. In these instances, conventional EWS will be useful. ROSA is most applicable to the cases where this choice is not
+noise's decorrelation time. In these instances, conventional early warning signals will be useful. ROSA is most applicable to the cases where this choice is not
 possible. This is relevant to anthropogenic climate change given that the changes are fast.
 
 This work relies on a couple of  key assumptions:
@@ -560,11 +562,11 @@ This work relies on a couple of  key assumptions:
 \item \label{itm:exists} that the power spectrum of the forcing and the system is known.
 \end{enumerate}
 \Cref{itm:exists} requires having data for a sufficiently long period of time, which may 
-prove challenging in practise. \Cref{itm:exists} is notable as other EWS, like the BB technique, do not require the forcing to be known.
-Although \cref{itm:timescale_seperation} is typically assumed when dealing with EWS, its applicability
+prove challenging in practise. \Cref{itm:exists} is notable as other early warning signals, like the BB technique, do not require the forcing to be known.
+Although \cref{itm:timescale_seperation} is typically assumed when dealing with early warning signals, its applicability
 to the rapidly changing modern climate is still an open question.
-As a result, future work should investigate EWS for systems without this timescale separation.
-Nevertheless, I believe this approach represents an increase in the flexibility and generality of EWS for tipping points in a changing climate.
+As a result, future work should investigate early warning signals for systems without this timescale separation.
+Nevertheless, I believe this approach represents an increase in the flexibility and generality of early warning signals for tipping points in a changing climate.
 
 
 \section*{Data Avaliablity}
