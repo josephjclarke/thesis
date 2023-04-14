@@ -14,8 +14,11 @@
 \usepackage{setspace}
 
 % bibliography
-%\ifdraft{\usepackage[backend=biber,sorting=none,style=draft]{biblatex}}{\usepackage[backend=biber,sorting=none]{biblatex}}
-\usepackage[backend=biber,sorting=none,style=authoryear-comp,maxbibnames=99]{biblatex}
+\usepackage[backend=biber,
+style=apa,
+maxbibnames=99,
+uniquename=false
+]{biblatex}
 \addbibresource{bibliography/bibliography.bib}
 
 % Maths
