@@ -421,4 +421,16 @@ At the Hopf bifurcation, $\gamma$ is purely imaginary, so set $\gamma = i\lambda
   -i\lambda^3 - a_1 \lambda^2 + i a_2 \lambda + a_3 = 0. 
 \end{equation}
 Demanding that both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} are zero, leads to $\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{a_2}$. That these two expressions
-are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$.
+are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$. Doing this gives
+\begin{equation}
+  \label{eq:mu_two_box}
+  \mu^* = \frac{c_a \left(\pm\sqrt{f_1^2 k^2 \tau ^2 (\epsilon -1)^2-2 f_1 k \tau  (\epsilon -1) \left(-r_0 \tau  (k \tau +2 \epsilon +2)+\epsilon  (k \tau +2)+\epsilon ^2+1\right)+
+        \left(-k r_0 \tau ^2+k \tau  \epsilon +\epsilon ^2-1\right){}^2}-f_1 k \tau +f_1 k \tau 
+   \epsilon +k r_0 \tau ^2+2 k \tau +k \tau  \epsilon +2 \Pi' \tau +2 \Pi' \tau  \epsilon +2 r_0 \tau +2 r_0 \tau  \epsilon +\epsilon ^2+2 \epsilon +1\right)}{2 r_0 \tau  (\epsilon +1) c_s}
+\end{equation}
+or
+\begin{equation}
+  \label{eq:mu_two_box_zero_eps}
+  \mu^* \sim \frac{c_a \left(\pm\sqrt{f_1^2 k^2 \tau ^2+2 f_1 k \tau  \left(1-r_0 \tau  (k \tau +2)\right)+\left(-k r_0 \tau ^2-1\right)^2}-f_1 k \tau +k r_0 \tau ^2+2 k \tau +2 \Pi' \tau +2 r_0 \tau +1\right)}{2 \Pi_0 \tau} \, \epsilon \rightarrow 0.
+\end{equation}
+There are 2 values of $\mu$ that satisfy the consistency condition - there are two Hopfs? (Sub/supercritical?)
