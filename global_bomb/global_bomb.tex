@@ -212,35 +212,6 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
   \label{fig:critical_mu_vs_pic}
 \end{figure}
 
-% \begin{figure}
-%   \centering
-%   \begin{tikzpicture}[
-%     /pgf/declare function={
-%       chi0 = 0.25;
-%       npp = 55.0;
-%       Ca0 = 589.0;
-%       Cseq = 1500.0;
-%     }
-%     ]
-%     \begin{axis}[
-%       xlabel = $\mu$,
-%       ylabel = $\dv{\Pi}{C_a}$ \unit{\per\year},
-%       xmin=0.0,
-%       xmax=1.0
-%       ]
-%       \addplot[domain=0:1.0] {npp * x / Ca0 - npp * (1+chi0) / Cseq};
-%     \end{axis}
-%     \end{tikzpicture}
-%   \caption{Minimum \ce{CO2} fertilization strength}
-%   \label{fig:minimum_co2_fertilization}
-% \end{figure}
-
-% We will assume
-% \begin{equation}
-%   \label{eq:npp_fertilization}
-%   \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{a_{1/2}}}.
-% \end{equation}
-
 
 \section{What is $S$?}
 Ignoring the effects of biogeochemical heating, we can write spatially resolved soil carbon equations:
@@ -290,22 +261,14 @@ and then move to the frequency domain by fourier transforming to get power spect
     \end{equation}
 Estimates of $\kappa$ and $\mu$ can therefore be extracted from timeseries of global $T_a$ and $T_s$ giving $\kappa$ to be \SI{0.27}{\watt\per\meter}\todo{check units}
 and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
-\section{Critical Emission Rates}
-% We can factor in anthropogenic emissions in a simple way by modifying \cref{eq:simple_ocean},
-% \begin{equation}
-%   \label{eq:simple_ocean_emissions}
-%   C_a = C_{a0}(1 + E) - \frac{1}{1+\chi_0}(C_s-C_s^{\mathrm{eq}})
-% \end{equation}
-% where $E$ is the cumulative amount of anthropogenic emissions measured in units of the preindustrial amount. \Cref{eq:global_soil_carbon}
-% becomes
-% \begin{equation}
-%   \label{eq:global_soil_carbon_emissions}
-%   \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s}{\Pi_c} \left(1 + E - \frac{1}{C_{a0}\left(1+\chi_0\right)}(C_s-C_s^{\mathrm{eq}})\right)^\mu \right).
-% \end{equation}
-% We can now ask the question: given a $\mu$ and $\Pi_C$, is there a critical value of $E$ that leads to an instability?
 
 \section{Variability and Autocorrelation}
-
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{co2_std_ac}
+  \caption[Atmospheric Carbon Variability]{Standard Deviation and Autocorrelation of atmospheric carbon}
+  \label{fig:co2_std_ac}
+\end{figure}
 \section{A more Realistic Ocean Model}
 \subsection{A dynamic Ocean Box}
 Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
