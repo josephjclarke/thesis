@@ -424,9 +424,17 @@ Demanding that both real and imaginary parts of \cref{eq:cubic_with_imaginary_ro
 are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$. Doing this gives
 \begin{equation}
   \label{eq:mu_two_box}
-  \mu^* = \frac{c_a \left(\pm\sqrt{f_1^2 k^2 \tau ^2 (\epsilon -1)^2-2 f_1 k \tau  (\epsilon -1) \left(-r_0 \tau  (k \tau +2 \epsilon +2)+\epsilon  (k \tau +2)+\epsilon ^2+1\right)+
-        \left(-k r_0 \tau ^2+k \tau  \epsilon +\epsilon ^2-1\right){}^2}-f_1 k \tau +f_1 k \tau 
-   \epsilon +k r_0 \tau ^2+2 k \tau +k \tau  \epsilon +2 \Pi' \tau +2 \Pi' \tau  \epsilon +2 r_0 \tau +2 r_0 \tau  \epsilon +\epsilon ^2+2 \epsilon +1\right)}{2 r_0 \tau  (\epsilon +1) c_s}
+  \begin{split}
+  \mu^* = &\frac{C_{a0}}{2 \Pi_0 \tau  (1+\epsilon)}
+  \Biggl(
+  -f k \tau  (1-\epsilon)+r_0 \tau  (2 + k \tau +2 \epsilon)+k \tau  (2+\epsilon)+(1+\epsilon) (1+2 \Pi' \tau +\epsilon)\\
+  &\pm\sqrt{
+    \begin{split}
+    f^2 k^2 \tau ^2 (1-\epsilon)^2-&2 f k \tau  (1-\epsilon) \left(r_0 \tau  (k \tau +2 \epsilon +2)-k \tau  \epsilon -(1+\epsilon)^2\right)\\+
+    \left(1+k r_0 \tau ^2-k \tau  \epsilon -\epsilon ^2\right)^2
+  \end{split}}
+  \Biggr)
+  \end{split}
 \end{equation}
 or
 \begin{equation}
@@ -438,4 +446,5 @@ or
 \end{split}
 \end{equation}
 as $\epsilon \rightarrow 0$.
-There are 2 values of $\mu$ that satisfy the consistency condition - there are two Hopfs? (Sub/supercritical?)
+There are 2 values of $\mu$ that satisfy the consistency condition - there are two Hopfs? (Sub/supercritical?)\todo{show what happens as $\epsilon \rightarrow 0$ and
+  $f \rightarrow 1$.}
