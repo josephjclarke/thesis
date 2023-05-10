@@ -409,3 +409,16 @@ For oscaillatory solutions, the arguemnt of the square root must be negative, wh
 \end{equation}
 For $f = 0.3$, $\tau = 5$ this implies that $\epsilon < 0.06$, which is consistent with the assumption that the second ocean box is slow. This value of $\epsilon$ implies a second box timescale
 of about 80 years.
+
+There is another mode of attack however. The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
+\begin{equation}
+  \label{eq:generic_cubic}
+  \gamma^3 + a_1 \gamma^2 + a_2 \gamma + a_3 = 0.
+\end{equation}
+At the Hopf bifurcation, $\gamma$ is purely imaginary, so set $\gamma = i\lambda$. Then \cref{eq:generic_cubic} becomes
+\begin{equation}
+  \label{eq:cubic_with_imaginary_root}
+  -i\lambda^3 - a_1 \lambda^2 + i a_2 \lambda + a_3 = 0. 
+\end{equation}
+Demanding that both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} are zero, leads to $\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{\a_2}$. That these two expressions
+are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$.
