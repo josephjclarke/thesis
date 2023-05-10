@@ -204,8 +204,14 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
       domain=20:500,
       samples=100,
       color=red]
-      {(1+chi0)*Ca0/Cseq + 0.03 * ((Ca0/npp)  - (Ca0/x))};
-      \addlegendentry{$\dv*{\Pi}{C_a} = 0.03$}
+      {(1+chi0)*Ca0/Cseq + 0.07 * ((Ca0/npp)  - (Ca0/x))};
+      \addplot[
+      domain=20:500,
+      samples=100,
+      color=red,
+      dashed]
+      {(1+chi0)*Ca0/Cseq + 0.07 * ((Ca0/npp))};
+      \addlegendentry{$\dv*{\Pi}{C_a} = 0.07$}
     \end{axis}
   \end{tikzpicture}
   \caption{The parameter plane}
