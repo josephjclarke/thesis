@@ -275,6 +275,18 @@ and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
   \caption[Atmospheric Carbon Variability]{Standard Deviation and Autocorrelation of atmospheric carbon}
   \label{fig:co2_std_ac}
 \end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{co2stdcontour}
+  \caption{CO2 standard deviation}
+  \label{fig:co2_std_Q10_S}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{co2accontour}
+  \caption{CO2 AC}
+  \label{fig:co2_ac_Q10_S}
+\end{figure}
 \section{A more Realistic Ocean Model}
 \subsection{A dynamic Ocean Box}
 Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
@@ -415,5 +427,16 @@ or
 \end{split}
 \end{equation}
 as $\epsilon \rightarrow 0$.
-There are 2 values of $\mu$ that satisfy the consistency condition - there are two Hopfs? (Sub/supercritical?)\todo{show what happens as $\epsilon \rightarrow 0$ and
-  $f \rightarrow 1$.}
+There are 2 values of $\mu$ that satisfy the consistency condition --- there are two Hopfs? (Sub/supercritical?)
+In the case where $\epsilon = 0$ and $f = 1$, this reduces to the one box model case. In this case \cref{eq:mu_two_box} becomes
+\begin{equation}
+  \label{eq:mu_zero_one}
+  \mu^*_{\pm} = \frac{C_{a0} \left(\pm\left(-k r_0 \tau ^2+k \tau +1\right)+r_0 \tau  (k \tau +2)+k \tau +2 \Pi' \tau +1\right)}{2 \Pi_0 \tau}
+\end{equation}
+or
+\begin{align}
+  \label{eq:mu_zero_one_cases}
+  \mu_+^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} \left(\frac{k}{r_0} + \frac{\tau^{-1}}{r_0}\right) \\
+  \mu_-^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}}k\tau 
+\end{align}
+which correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
