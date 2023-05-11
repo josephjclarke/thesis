@@ -220,6 +220,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
 
 
 \section{What is $S$?}
+\todo[inline]{Can also look at respiration directly}
 Ignoring the effects of biogeochemical heating, we can write spatially resolved soil carbon equations:
 \begin{equation}
   \label{eq:spatially_resolved_soil_carbon}
@@ -253,6 +254,7 @@ After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle
 In words, $S$ is given by an NPP weighted average of global temperatures.
 Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
 \section{What is $\Pi_c$?}
+\todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
 To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
 We take $A$ from biochemistry to be \SI{3.9E7}{\joule\per\kilo\gram\carbon}. To estimate $\kappa$, we neglect biogeochemical heating
 in \ref{eq:compost_bomb_soil_temperature} to get
@@ -274,8 +276,8 @@ and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
   \includegraphics[width=\textwidth]{co2_std_ac}
   \caption[Atmospheric Carbon Variability]{Standard Deviation and Autocorrelation of atmospheric carbon}
   \label{fig:co2_std_ac}
-\end{figure}
-\begin{figure}
+  \end{figure}\todo{do this instead with more complex model}
+  \begin{figure}
   \centering
   \includegraphics{co2stdcontour}
   \caption{CO2 standard deviation}
@@ -288,6 +290,7 @@ and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
   \label{fig:co2_ac_Q10_S}
 \end{figure}
 \section{A more Realistic Ocean Model}
+\todo[inline]{Split into two chapters here?}
 \subsection{A dynamic Ocean Box}
 Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
 total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
@@ -348,7 +351,7 @@ This leads to the condition
   \mu^* =\frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} \left(
     \frac{k}{r_0} + \frac{\tau^{-1}}{r_0}
   \right) 
-\end{equation}
+\end{equation}\todo{write this more like previous form}
 This corresponds to the eigenvalues crossing the imaginary axis and is thus a Hopf bifurcation.
 \subsection{Two Dynamic Ocean Boxes}
 Suppose I modify \cref{eq:one_box_ocean} to include an extra ocean box. I imagine a fast box and a slow box. In principle, I could repeat the
@@ -440,3 +443,4 @@ or
   \mu_-^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}}k\tau 
 \end{align}
 which correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
+\todo[inline]{Some numerical work}
