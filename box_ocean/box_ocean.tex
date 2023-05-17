@@ -43,3 +43,64 @@ $\tau_1 = \SI{3.7}{\year}$.
 \missingfigure{Plot of ocean carbon uptake with fits}.
 
 \section{One Box Ocean}
+Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
+total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
+
+Work with the system:
+\begin{subequations}
+  \label{eq:one_box_ocean}
+  \begin{align}
+    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
+    \dv{C_o}{t} &= k(C_a - C_{a0}) - \frac{C_o}{\tau} \\
+    C_a &= \mathcal{C} - C_s - C_o
+\end{align}
+\end{subequations}
+This leads to the Jacobian:
+\begin{equation}
+  \label{eq:jacobian_of_one_box}
+    \bm{J} = 
+    \begin{pmatrix}
+    r_0 \left( \mu \frac{C_{s0}}{C_{a0}} - 1\right) - \Pi'(C_{a0}) & 
+    \mu \frac{C_{s0}}{C_{a0}} - \Pi'(C_{a0}) \\
+    -k & -k - \frac{1}{\tau}
+    \end{pmatrix}
+\end{equation}
+The eigenvalues are given by finding the roots of the characteristic polynomial:
+$\det(\bm{J} - \gamma \bm{I})$ = 0, where $\gamma$ is an eigenvalue. This equation is quadratic with 
+two roots. Solving it leads to:
+\begin{equation}
+  \label{eq:eigenvalues_of_one_box_jac}
+  \gamma_{\pm} = \frac{B \pm \sqrt{\Delta}}{2\tau C_{a0}}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:B_in_one_box}
+  B = -k \tau  C_{a0}-\Pi'(C_{a0}) \tau  C_{a0}-r_0 \tau  C_{a0}-C_{a0}+\mu  \Pi_0 \tau
+\end{equation}
+and
+\begin{equation}
+  \label{eq:discriminant_from_one_box}
+  \Delta = \left(k \tau  C_{a0} +\Pi'\tau  C_{a0}+r_0 \tau  C_{a0}+C_{a0}-\mu  \Pi_0 \tau \right)^2-4 \left(k r_0 \tau ^2 C_{a0}^2+\Pi' \tau  C_{a0}^2-\mu  \Pi_0 \tau  C_{a0} +r_0 \tau  C_{a0}^2\right)
+\end{equation}
+is the determinant. I have used $\Pi_0 = r_0 C_{s0}$.
+
+The behaviour of this system will depend on the sign of $\Delta$.
+
+\subsection{Real Eigenvalues}
+If $\tau < 1/r_0$ then $\Delta > 0$ for all values of $\mu$. $1/r_0 \approx 30$ years so this represents the fast ocean response.
+To find the instability, we look for when $\gamma_+ > 0$. Under the assumption of a fast ocean response,
+\begin{equation}
+  \label{eq:instability_condition_one_box_fast}
+  \mu^* = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau.
+\end{equation}
+This is essentially the condition in \cref{eq:mu_infinity} if we make the identification $\chi_0 = k \tau$.
+\subsection{Complex Eigenvalues}
+If $\Delta < 0$, which is to say if the ocean response is considered on a long timescale, the stabilty of the system is given by the sign of $B$.
+This leads to the condition
+\begin{equation}
+  \label{eq:instability_condition_one_box_slow}
+  \mu^* =\frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau\left(
+     1 + \frac{1}{k\tau}
+  \right) \frac{1}{r_0\tau}
+\end{equation}
+This corresponds to the eigenvalues crossing the imaginary axis and is thus a Hopf bifurcation.
