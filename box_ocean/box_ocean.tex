@@ -21,7 +21,8 @@ This leads to an equation of the form
   \label{eq:ocean_box_i}
   \dv{C_i}{t} = f_ik \Delta C_a(t) - \frac{C_i}{\tau_i},
 \end{equation}
-where $C_i$ is the change in ocean carbon stored in box $i$.
+where $C_i$ is the change in ocean carbon stored in box $i$ and $k = \SI{0.2}{\per\year}$ gives the timescale
+of the carbon flux.
 
 For a given $C_a(t)$ \cref{eq:ocean_box_i} can be solved in quadratures to give
 \begin{equation}
@@ -33,3 +34,12 @@ The overall ocean response is therefore
   \label{eq:ocean_response}
   \Delta C_o(t) = \sum_{i=1}^N \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u}.
 \end{equation}
+
+\Cref{eq:ocean_response} can then be fitted to observed changes in ocean carbon\todo{give details} to estimate the
+parameters $f_i$ and $\tau_i$. Doing this for the two box case gives $f_1 = 0.9$, $\tau_1 = \SI{0.5}{\year}$ and
+$\tau_2 = \SI{124}{\year}$. As a fraction, it must be the case that $f_2 = 1 - f_1$. For the one box case,
+$\tau_1 = \SI{3.7}{\year}$.
+
+\missingfigure{Plot of ocean carbon uptake with fits}.
+
+\section{One Box Ocean}
