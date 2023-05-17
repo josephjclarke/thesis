@@ -1,0 +1,35 @@
+\chapter{A Conceptual Model of the Carbon Cycle}
+\label{chapter:conceptual_carbon_cycle}
+\graphicspath{{box_ocean/figs/}}
+
+In \cref{chapter:global_bomb}, I showed that there were conditions under which the climate was unstable,
+driven by an instability in the terrestrial carbon cycle. In that chapter I found that the effects of
+the biogeochemical feedback were small at the global scale. I also used a parameter $\chi_0$ to model the ocean,
+which is a obvious simplification.
+
+In this chapter then, I will construct a model of the climate-carbon system which is analytically tractable
+with a dynamical ocean component but neglects the role of biochemical heating.
+
+\section{Ocean Model}
+I assume the ocean is made up of $N$ non-intereacting boxes.
+The $i$th box absorbs atmospheric carbon over a timescale $\tau_i$ and recieves a fraction
+$f_i$ of the atmospheric-ocean \ce{CO2} flux. I assume this flux is proportional to the difference in \ce{CO2}
+from the atmospheric equilibrium value.
+
+This leads to an equation of the form
+\begin{equation}
+  \label{eq:ocean_box_i}
+  \dv{C_i}{t} = f_ik \Delta C_a(t) - \frac{C_i}{\tau_i},
+\end{equation}
+where $C_i$ is the change in ocean carbon stored in box $i$.
+
+For a given $C_a(t)$ \cref{eq:ocean_box_i} can be solved in quadratures to give
+\begin{equation}
+  \label{eq:solution_for_box_i}
+  C_i(t) = \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u}.
+\end{equation}
+The overall ocean response is therefore
+\begin{equation}
+  \label{eq:ocean_response}
+  \Delta C_o(t) = \sum_{i=1}^N \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u}.
+\end{equation}
