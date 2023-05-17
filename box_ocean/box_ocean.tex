@@ -110,3 +110,94 @@ For the one box case, it was found that $\tau r_0 \approx 0.1$ which means that 
 $0.7$.
 
 \missingfigure{One Box Bifurcation Diagram}
+
+\section{Two Box Model}
+Suppose I modify \cref{eq:one_box_ocean} to include an extra ocean box. I imagine a fast box and a slow box. In principle, I could repeat the
+analysis above, by finding the eigenvalues of a $3 \times 3$ matrix. This is possible in principle but involves solving a cubic polynomial which
+is challenging analytically.
+
+Instead, I will use the timescale seperation between the two ocean boxes to make some remarks about the qualitative behaviour of the system.
+As the slow box is much slower than the fast box, over short timescales it can be ignored. So if $\mu$ were to be slowly increased through
+the condition given in \cref{eq:instability_condition_one_box_fast} there would still be an instability.
+
+However, on longer timescales, the system will still behave like a one box model but now the box will be the slow ocean component. As this is the slow box,
+it will have $\Delta < 0$ and so there will be oscillatory behaviour. Hence I expect the bifurcation to occur at a similar place as in the one box fast ocean model,
+but to have the character of a Hopf bifurcation.
+
+To be more formal, consider the system
+\begin{subequations}
+  \begin{align}
+    \label{eq:two_box_ocean}
+    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
+    \dv{C_1}{t} &= fk(C_a - C_{a0}) - \frac{C_1}{\tau} \\
+    \dv{C_2}{t} &= (1-f)k(C_a-C_{a0}) - \epsilon\frac{C_2}{\tau} \\
+    C_a &= \mathcal{C} - C_s - C_1 - C_2
+  \end{align}
+\end{subequations}
+where $f$ is the fraction of carbon taken up by the fast response and $\epsilon$ is the ratio of the timescale of the fast box to the slow box, so $\epsilon \ll 1$. If
+$C_2$ can be taken as approximately constant, then there is an instability when $\mu^*_{\mathrm{fast}} = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} kf\tau$.
+
+Now working on the slower timescale where $C_1$ is approximately constant the eigenvalues of the Jacobian of $C_s$ and $C_2$ can be evaluated at $\mu = \mu^*_{\mathrm{fast}}$. In this case, the eigenvalues
+have the form
+\begin{equation}
+  \label{eq:slow_eigenvalues}
+  \gamma_{\pm} = \frac{f k r_0 \tau ^2+\sqrt{\left(-f k r_0 \tau ^2-f k \tau +k \tau +\epsilon \right)^2-4 \left(-f k r_0 \tau ^2-f k r_0 \tau ^2 \epsilon +k r_0 \tau ^2\right)}+f k \tau -k \tau -\epsilon }
+  {2 \tau }.
+\end{equation}
+For oscaillatory solutions, the arguemnt of the square root must be negative, which requires
+\begin{equation}
+  \label{eq:epsilon_requirement}
+  \epsilon < 2 \sqrt{-f^2 k^2 r_0 \tau ^3+f k^2 r_0 \tau ^3-f k r_0 \tau ^2+k r_0 \tau ^2}-f k r_0 \tau ^2+f k \tau -k \tau.
+\end{equation}
+For $f = 0.3$, $\tau = 5$ this implies that $\epsilon < 0.06$, which is consistent with the assumption that the second ocean box is slow. This value of $\epsilon$ implies a second box timescale
+of about 80 years.
+
+There is another mode of attack however. The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
+\begin{equation}
+  \label{eq:generic_cubic}
+  \gamma^3 + a_1 \gamma^2 + a_2 \gamma + a_3 = 0.
+\end{equation}
+At the Hopf bifurcation, $\gamma$ is purely imaginary, so set $\gamma = i\lambda$. Then \cref{eq:generic_cubic} becomes
+\begin{equation}
+  \label{eq:cubic_with_imaginary_root}
+  -i\lambda^3 - a_1 \lambda^2 + i a_2 \lambda + a_3 = 0. 
+\end{equation}
+Demanding that both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} are zero, leads to $\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{a_2}$. That these two expressions
+are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$. Doing this gives
+\begin{equation}
+  \label{eq:mu_two_box}
+  \begin{split}
+  \mu^* = &\frac{C_{a0}}{2 \Pi_0 \tau  (1+\epsilon)}
+  \Biggl(
+  -f k \tau  (1-\epsilon)+r_0 \tau  (2 + k \tau +2 \epsilon)+k \tau  (2+\epsilon)+(1+\epsilon) (1+2 \Pi' \tau +\epsilon)\\
+  &\pm\sqrt{
+    \begin{split}
+    f^2 k^2 \tau ^2 (1-\epsilon)^2-&2 f k \tau  (1-\epsilon) \left(r_0 \tau  (k \tau +2 \epsilon +2)-k \tau  \epsilon -(1+\epsilon)^2\right)\\+
+    \left(1+k r_0 \tau ^2-k \tau  \epsilon -\epsilon ^2\right)^2
+  \end{split}}
+  \Biggr)
+  \end{split}
+\end{equation}
+or
+\begin{equation}
+  \label{eq:mu_two_box_zero_eps}
+  \begin{split}
+  \mu^* \sim &\frac{C_{a0}}{\Pi_0}\Biggl(
+    \frac{1}{2\tau} + k(1 - \frac{1}{2}f + r_0 \tau) + r_0 + \Pi'\\
+  &\pm\frac{1}{2}\sqrt{\frac{1}{\tau^2} + 2kf + k\tau(kf^2 + 2 (1 - 2f)r_0  - 2 k r_0\tau f  + k r_0^2 \tau^2)}\,\Biggr)
+\end{split}
+\end{equation}
+as $\epsilon \rightarrow 0$.
+There are 2 values of $\mu$ that satisfy the consistency condition --- there are two Hopfs? (Sub/supercritical?)
+In the case where $\epsilon = 0$ and $f = 1$, this reduces to the one box model case. In this case \cref{eq:mu_two_box} becomes
+\begin{equation}
+  \label{eq:mu_zero_one}
+  \mu^*_{\pm} = \frac{C_{a0} \left(\pm\left(-k r_0 \tau ^2+k \tau +1\right)+r_0 \tau  (k \tau +2)+k \tau +2 \Pi' \tau +1\right)}{2 \Pi_0 \tau}
+\end{equation}
+or
+\begin{align}
+  \label{eq:mu_zero_one_cases}
+  \mu_+^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} \left(\frac{k}{r_0} + \frac{\tau^{-1}}{r_0}\right) \\
+  \mu_-^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}}k\tau 
+\end{align}
+which correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
