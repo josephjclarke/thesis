@@ -224,7 +224,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
 Ignoring the effects of biogeochemical heating, we can write spatially resolved soil carbon equations:
 \begin{equation}
   \label{eq:spatially_resolved_soil_carbon}
-  \pdv{ C_s (\bm{r},t)}{t} = \Pi(\bm{r},t) - r_0(\bm{r},t)C_s(\bm{r},t)e^{\alpha T(\bm{r},t)}
+  \pdv{C_s(\bm{r},t)}{t} = \Pi(\bm{r},t) - r_0(\bm{r},t)C_s(\bm{r},t)e^{\alpha T(\bm{r},t)}
 \end{equation}
 Averaging gives
 \begin{equation}
@@ -257,7 +257,7 @@ Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} 
 \todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
 To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
 We take $A$ from biochemistry to be \SI{3.9E7}{\joule\per\kilo\gram\carbon}. To estimate $\kappa$, we neglect biogeochemical heating
-in \ref{eq:compost_bomb_soil_temperature} to get
+in \cref{eq:compost_bomb_soil_temperature} to get
 \begin{equation}
   \label{eq:soil_temp_no_biogeo}
   \mu \dot{T_s} = -\kappa \left( T_s -T_a \right)
