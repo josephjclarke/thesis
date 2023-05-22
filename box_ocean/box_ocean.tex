@@ -80,17 +80,19 @@ Combining these two sensitivities gives the potential for a runaway effect. Cons
 will warm. As the feedback from the land is positive more carbon will be released into the atmosphere leading to further warming and more carbon released. This cycle could continue until all the
 carbon from the land has been released into the atmosphere. The fact that there is carbon on land therefore tells us something about the magnitudes of the land carbon feedback and the climate sensitivity.
 To make progress analysing this we must include the effect of the other store of carbon: the ocean.
-\section{Ocean Model}
-I assume the ocean is made up of $N$ non-intereacting boxes.
-The $i$th box absorbs atmospheric carbon over a timescale $\tau_i$ and recieves a fraction
-$f_i$ of the atmospheric-ocean \ce{CO2} flux. I assume this flux is proportional to the difference in \ce{CO2}
-from the atmospheric equilibrium value.
 
-This leads to an equation of the form
+\section{Ocean Model}
+I will neglect temperature and chemical feedbacks on the ocean response and assume it behaves linearly to elevated \ce{CO2} levels. I will further assume that the ocean carbon carbon uptake
+can be viewed as $N$ non-interacting boxes which each respond over a timescale $\tau_i$ where $i$ indexes the boxes. A fraction $f_i$ of the total carbon
+flux will enter the $i$th box. I will give a post-hoc justification for this in that this model can capture the observed carbon uptake of the oceans since pre-industrial times and
+will qualitatively reproduce the results of a more complex ocean model. The model I introduce here has the advantage that it can be treated analytically.
+
+The change in carbon stored in the $i$th box, $C_i$, is given by
 \begin{equation}
   \label{eq:ocean_box_i}
   \dv{C_i}{t} = f_ik \Delta C_a(t) - \frac{C_i}{\tau_i},
 \end{equation}
+where $k=\SI{0.2}{\per\year}$ gives the timescale of the ocean uptake.
 where $C_i$ is the change in ocean carbon stored in box $i$ and $k = \SI{0.2}{\per\year}$ gives the timescale
 of the carbon flux.
 
