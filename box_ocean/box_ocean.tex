@@ -10,6 +10,36 @@ which is a obvious simplification.
 In this chapter then, I will construct a model of the climate-carbon system which is analytically tractable
 with a dynamical ocean component but neglects the role of biochemical heating.
 
+\section{Background}
+
+\subsection{Climate Response to Radiative Forcing}
+When certain gases, known as Greenhouse Gases, are emitted into the atmosphere they can affect global temperatures.
+They do this by absorbing infrared radiation emitted by the Earth's surface and reradiating it to space at a lower temperature.
+The effect of this is that less energy is radiated away to space than it did before the emission of greenhouse gases. To be in
+equilibrium, the energy recieved from the Sun must equal the energy radiated to space by the Earth. As less radiation is now
+emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it
+radiates to restore equilibrium.
+
+The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. If $T$ is
+the global mean temperature and $N(T)$ is the net radiation recieved by the Earth (in equilibrium $N$ is zero) then for a small
+radiative forcing $\Delta N$ the change in global mean temperatures is
+\begin{equation}
+  \label{eq:response_to_radiative_forcing}
+  \Delta N = \pdv{N}{T} \Delta T.
+\end{equation}
+The quantity
+\begin{equation}
+  \label{eq:climate_sensitivity}
+  \lambda = -\pdv{N}{T}
+\end{equation}
+known as the \empgh{climate sensitivity} determines the amount of warming experienced for a given radiative forcing. This quanity is measured
+in units \SI{\watts\per\meter\squared\per\kelvin} but it has become common to discuss $\lamdba$ in terms of a given radiative forcing, $Q_{2\times}$,
+the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atmosphere, giving rise to
+\begin{equation}
+  \label{eq:definition_of_ECS}
+  \mathrm{ECS} = \frac{Q_{2\times}}{\lambda}
+\end{equation}
+known as \emph{Equilibrium Climate Sensitivity}.
 \section{Ocean Model}
 I assume the ocean is made up of $N$ non-intereacting boxes.
 The $i$th box absorbs atmospheric carbon over a timescale $\tau_i$ and recieves a fraction
