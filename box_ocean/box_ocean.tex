@@ -97,20 +97,59 @@ where $k=\SI{0.2}{\per\year}$ gives the timescale of the ocean uptake and $\Delt
 For a given $C_a(t)$ \cref{eq:ocean_box_i} can be solved in quadratures to give
 \begin{equation}
   \label{eq:solution_for_box_i}
-  C_i(t) = \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u}.
+  C_i(t) = \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u},
 \end{equation}
+if $C_i(0) = 0$.
+
+
 The overall ocean response is therefore
 \begin{equation}
   \label{eq:ocean_response}
-  \Delta C_o(t) = \sum_{i=1}^N \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u}.
+  \Delta C_o(t) = \sum_{i=1}^N \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - s) \dd{s}.
 \end{equation}
+or
+\begin{equation}
+  \label{eq:ocean_response_in_terms_of_G}
+  \Delta C_o(t) = \int_0^t G(s) \Delta C_a(t-s) \dd{s}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:ocean_greens_function}
+  G(t) = \sum_{i=1}^{N} f_ik e^{-t/\tau_i}
+\end{equation}
+is the impulse response function for the uptake of ocean carbon.
 
+\subsection{Parameter Estimation}
 \Cref{eq:ocean_response} can then be fitted to observed changes in ocean carbon\todo{give details} to estimate the
-parameters $f_i$ and $\tau_i$. Doing this for the two box case gives $f_1 = 0.9$, $\tau_1 = \SI{0.5}{\year}$ and
-$\tau_2 = \SI{124}{\year}$. As a fraction, it must be the case that $f_2 = 1 - f_1$. For the one box case,
-$\tau_1 = \SI{3.7}{\year}$.
+parameters $f_i$ and $\tau_i$. I will do this for a one box model, in which only $\tau_1$ needs to be estimated and
+for a two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The quantity $f_2$ is determined by the requirement that $f_1 + f_2 = 1$.
+\begin{table}
+  \centering
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \multicolumn{1}{c}{Parameter} & \multicolumn{2}{c}{Estimated Quantity} \\
+    \cmidrule{2-3}
+                                  & One Box         & Two Box              \\
+    \midrule
+    $\tau_1$                      & \SI{3.7}{\year} & \SI{0.5}{\year}      \\
+    $\tau_2$                      &                 & \SI{124}{\year}      \\
+    $f_1$                         & $1$             & $0.9$                \\
+    $f_2$                         & $0$             & $0.1$                \\
+    \bottomrule
+  \end{tabular}
+  \caption{Parameter Estimates for one and two box ocean models}
+  \label{tab:one_and_two_box_parameters}
+\end{table}
+Taking ocean carbon sink data and atmospheric \ce{CO2} data from the global carbon budget from the year 1781 onwards (which is
+when the ocean sink data is avaliable) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year I perform a
+least squares fit to the one and two box models giving the parameter estimates shown in \cref{tab:one_and_two_box_parameters}.
 
-\missingfigure{Plot of ocean carbon uptake with fits}.
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{gcb_ocean_atmosphere_boxes}
+  \caption{The reconstructed ocean uptake using the one and two box models, with parameters from \cref{tab:one_and_two_box_parameters}}
+  \label{fig:fits_from_one_and_two}
+\end{figure}
 
 \section{One Box Ocean}
 Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
