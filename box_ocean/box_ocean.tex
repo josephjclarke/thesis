@@ -163,6 +163,7 @@ I assume Net Primary Priductivity,$\Pi$, is a function of the atmospheric carbon
 $R_h = r_0 C_s e^{\alpha T}$ where $r_0$ is the specific respiration, $\alpha = \log \left( Q_{10} \right)/10$ and $C_s$ is the soil carbon. The global temperature anomaly, $T$,
 is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a refernce level of
 atmospheric carbon which I take as corresponding to the preindustrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
+I set $r_0 = \Pi(C_{a0})/C_{s0}$ where $C_{s0}$ is a reference level of soil carbon, set to the preindustrial level.  
 
 The ocean carbon dynamics are set by the one box model described in \cref{eq:ocean_box_i} and the level of atmospheric carbon is set through conservation of carbon, namely $\mathcal{C} = C_a + C_s + C_o$,
 where the total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
@@ -176,14 +177,28 @@ These assumptions give rise to the following set of equations.
     C_a &= \mathcal{C} - C_s - C_o.
 \end{align}
 \end{subequations}
+Note that there is a fixed point at $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$. I am interested in its stability.
+
 \subsection{The Stability of a fixed point}
 Here I give a summary of the conditions for an equilibrium to stable. Let
 \begin{equation}
   \label{eq:generic_system}
   \dv{\bm{x}}{t} = f(\bm{x})
 \end{equation}
-with $\bm{x} \in \mathbb{R}^n$ and $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$. Suppose there is a fixed point at $\bm{x}^*$
-This leads to the Jacobian:
+with $\bm{x} \in \mathbb{R}^n$ and $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$. Suppose there is a fixed point at $\bm{x}^*$, so $f(\bm{x}^*) = \bm{0}$. Then linearising around this
+fixed point gives
+\begin{equation}
+  \label{eq:generic_system_linearised}
+  \dv{\bm{y}}{t} = J\bm{y}
+\end{equation}
+where $\bm{y} = \bm{x} - \bm{x}^*$ and $J$ is the Jacobian defined by
+\begin{equation}
+  \label{eq:generic_jacobian}
+  J_{ij} = \pdv{f_i}{x_j}.
+\end{equation}
+This fixed point is stable if no eigenvalues of $J$, denoted $\gamma$, have positive real part.
+\subsection{Stability of One Box}
+The Jacobian of \cref{eq:one_box_ocean} is given by
 \begin{equation}
   \label{eq:jacobian_of_one_box}
     \bm{J} = 
@@ -192,10 +207,12 @@ This leads to the Jacobian:
     \mu \frac{C_{s0}}{C_{a0}} - \Pi'(C_{a0}) \\
     -k & -k - \frac{1}{\tau}
     \end{pmatrix}
-\end{equation}
-The eigenvalues are given by finding the roots of the characteristic polynomial:
-$\det(\bm{J} - \gamma \bm{I})$ = 0, where $\gamma$ is an eigenvalue. This equation is quadratic with 
-two roots. Solving it leads to:
+  \end{equation}
+where $\Pi'(C_a)$ denotes there derivative of NPP with respect to atmospheric carbon.
+  
+To finds the eigenvalues of the Jacobian, I must solve the characteristic polynomial $\det(\bm{J} - \gamma \bm{I})$ = 0, where $\gamma$ is an eigenvalue.
+
+This equation is quadratic and therefore has two roots. Solving it would lead to a solution of the form:
 \begin{equation}
   \label{eq:eigenvalues_of_one_box_jac}
   \gamma_{\pm} = \frac{B \pm \sqrt{\Delta}}{2\tau C_{a0}}
@@ -210,7 +227,7 @@ and
   \label{eq:discriminant_from_one_box}
   \Delta = \left(k \tau  C_{a0} +\Pi'\tau  C_{a0}+r_0 \tau  C_{a0}+C_{a0}-\mu  \Pi_0 \tau \right)^2-4 \left(k r_0 \tau ^2 C_{a0}^2+\Pi' \tau  C_{a0}^2-\mu  \Pi_0 \tau  C_{a0} +r_0 \tau  C_{a0}^2\right)
 \end{equation}
-is the determinant. I have used $\Pi_0 = r_0 C_{s0}$.
+is the discriminant. I have used $\Pi_0 = r_0 C_{s0}$.
 
 The behaviour of this system will depend on the sign of $\Delta$.
 
