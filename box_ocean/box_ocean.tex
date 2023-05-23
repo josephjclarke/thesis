@@ -156,18 +156,33 @@ These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that 
 historical record of ocean carbon uptake. However the two box model does substantially better.
 
 \section{One Box Ocean}
-Assume only one ocean box which responds linearly to elevated atmospheric \ce{CO2}. Set the
-total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
+Although the two-box ocean model does better than the one box ocean model in fitting the observed carbon sink, the one box model is simpler
+and more easily analysable. Therefore as a warm up, I will analyse the stability of the carbon cycle assuming a one box ocean.
 
-Work with the system:
+I assume Net Primary Priductivity,$\Pi$, is a function of the atmospheric carbon only. I model heterotrophic respiration as having a $Q_{10}$ temperature dependence:
+$R_h = r_0 C_s e^{\alpha T}$ where $r_0$ is the specific respiration, $\alpha = \log \left( Q_{10} \right)/10$ and $C_s$ is the soil carbon. The global temperature anomaly, $T$,
+is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a refernce level of
+atmospheric carbon which I take as corresponding to the preindustrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
+
+The ocean carbon dynamics are set by the one box model described in \cref{eq:ocean_box_i} and the level of atmospheric carbon is set through conservation of carbon, namely $\mathcal{C} = C_a + C_s + C_o$,
+where the total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
+
+These assumptions give rise to the following set of equations.
 \begin{subequations}
   \label{eq:one_box_ocean}
   \begin{align}
     \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
     \dv{C_o}{t} &= k(C_a - C_{a0}) - \frac{C_o}{\tau} \\
-    C_a &= \mathcal{C} - C_s - C_o
+    C_a &= \mathcal{C} - C_s - C_o.
 \end{align}
 \end{subequations}
+\subsection{The Stability of a fixed point}
+Here I give a summary of the conditions for an equilibrium to stable. Let
+\begin{equation}
+  \label{eq:generic_system}
+  \dv{\bm{x}}{t} = f(\bm{x})
+\end{equation}
+with $\bm{x} \in \mathbb{R}^n$ and $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$. Suppose there is a fixed point at $\bm{x}^*$
 This leads to the Jacobian:
 \begin{equation}
   \label{eq:jacobian_of_one_box}
