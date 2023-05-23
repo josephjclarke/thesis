@@ -244,32 +244,44 @@ then \cref{eq:instability_condition_one_box_fast} is identitical to \cref{eq:mu_
 to the timescale of its response. Previously, $\chi_0$ was interpreted as a fraction. This can be done only if $\tau < 1/k = \SI{5}{\year}$.
 \begin{figure}
   \centering
-  \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7.pdf}
+  \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7}
   \caption{Equilibrium Soil Carbon level as a funtion of $\mu$ for a fast ocean response}
   \label{fig:fast_response_bf_diagram}
 \end{figure}
 
 The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram}.
 In this case, $\tau = \SI{3.7}{\year}$. The dashed line represents the position
-of the analytically calculated bifurcation point. It can been seen that the agreement is good. To the extent that this model is valid, this imposes an upper limit on the possible value of $\mu$ given
+of the analytically calculated bifurcation point. It can been seen that the agreement is good, and that this is a transcritical bifurcation.
+To the extent that this model is valid, this imposes an upper limit on the possible value of $\mu$ given
 the observed stability of the pre-industrial climate.
 
 \subsection{Complex Eigenvalues}
-If $\Delta < 0$, which is to say if the ocean response is considered on a long timescale, the stabilty of the system is given by the sign of $B$.
-This leads to the condition
+In the case where the ocean timescale is larger than $1/r_0$, then $\Delta < 0$. This means if the ocean response is considered to have a long timescale,
+the stabilty of the system is given by the sign of $B$.
+
+The value of $B$ will become positive when $mu$ exceeds the following threshold:
 \begin{equation}
   \label{eq:instability_condition_one_box_slow}
   \mu^* =\frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau\left(
      1 + \frac{1}{k\tau}
   \right) \frac{1}{r_0\tau}
 \end{equation}
-This corresponds to the eigenvalues crossing the imaginary axis and is thus a Hopf bifurcation.
+This is similar to the conditions derived in \cref{eq:mu_infinity,eq:instability_condition_one_box_fast} except now $\chi_0 = k\tau\left(1 + \frac{1}{k\tau} \right) \frac{1}{r_0\tau} \approx \tau/r_0$
+where the approximation assumes $k \gg r_0$. This means the ``fraction absorbed by the oceans'' is now controlled by the ratio of the timescale of the oceans as well as the turnover time of the soil.
+Furthermore we are assuming that $\tau r_0 > 1$ in this case and so $\chi_0 > 1$ so it loses its interpretation as a fraction of carbon absorbed.
 
-\subsection{Comparison with Data}
-For the one box case, it was found that $\tau r_0 \approx 0.1$ which means that the system is in the `real eigenvalues' case. The value of $\chi_0$ becomes
-$0.7$.
 
-\missingfigure{One Box Bifurcation Diagram}
+In addition, because $\gamma$ is complex, this bifurcation occurs when the complex conjugate eigenvalue pair crosses the imaginary axis. This means this bifurcation is
+a Hopf bifurcation rather than a transcritical bifurcation.
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_300.0}
+  \caption{Equilibrium Soil Carbon for a one box model as a function of $\mu$ with a slow ocean response.}
+  \label{fig:slow_response_bf_diagram}
+\end{figure}
+For the case where $\tau = \SI{300}{\year}$ I integrate \cref{eq:one_box_ocean} so numerically find the equilibrium as a function of $\mu$, which I plot in \cref{fig:slow_response_bf_diagram}.
+Where there is an osciallatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
+
 
 \section{Two Box Model}
 Suppose I modify \cref{eq:one_box_ocean} to include an extra ocean box. I imagine a fast box and a slow box. In principle, I could repeat the
