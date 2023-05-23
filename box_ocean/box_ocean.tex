@@ -177,8 +177,8 @@ These assumptions give rise to the following set of equations.
     C_a &= \mathcal{C} - C_s - C_o.
 \end{align}
 \end{subequations}
+The parameter $\mu = \alpha S / \log 2$ will be the control parameter that determines the stability of the system.
 Note that there is a fixed point at $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$. I am interested in its stability.
-
 \subsection{The Stability of a fixed point}
 Here I give a summary of the conditions for an equilibrium to stable. Let
 \begin{equation}
@@ -212,7 +212,7 @@ where $\Pi'(C_a)$ denotes there derivative of NPP with respect to atmospheric ca
   
 To finds the eigenvalues of the Jacobian, I must solve the characteristic polynomial $\det(\bm{J} - \gamma \bm{I})$ = 0, where $\gamma$ is an eigenvalue.
 
-This equation is quadratic and therefore has two roots. Solving it would lead to a solution of the form:
+This equation is quadratic and therefore has two roots. Solving it leads to a solution of the form:
 \begin{equation}
   \label{eq:eigenvalues_of_one_box_jac}
   \gamma_{\pm} = \frac{B \pm \sqrt{\Delta}}{2\tau C_{a0}}
@@ -229,16 +229,31 @@ and
 \end{equation}
 is the discriminant. I have used $\Pi_0 = r_0 C_{s0}$.
 
-The behaviour of this system will depend on the sign of $\Delta$.
+The stability of this system is goverened by $\Re \gamma$. This number is controlled by the sign of $\Delta$. If $\Delta > 0$, then $\Re \gamma = \gamma$, but if $\Delta < 0$, then
+$\Re \gamma = B / 2\tau C_{a0}$. 
 
 \subsection{Real Eigenvalues}
-If $\tau < 1/r_0$ then $\Delta > 0$ for all values of $\mu$. $1/r_0 \approx 30$ years so this represents the fast ocean response.
-To find the instability, we look for when $\gamma_+ > 0$. Under the assumption of a fast ocean response,
+If $\tau < 1/r_0$ then $\Delta > 0$ for all values of $\mu$. As $1/r_0 \approx 30$ year this situation represents a relatively fast ocean response.
+Under this assumption, it turns out that $\gamma_+ > 0$ when
 \begin{equation}
   \label{eq:instability_condition_one_box_fast}
   \mu^* = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau.
 \end{equation}
-This is essentially the condition in \cref{eq:mu_infinity} if we make the identification $\chi_0 = k \tau$.
+It is interesting to compare this to the condition given in \cref{eq:mu_infinity}. If the parameter $\chi_0$ is introduced and set to $\chi_0 = k \tau$.
+then \cref{eq:instability_condition_one_box_fast} is identitical to \cref{eq:mu_infinity}. This gives an interpretation to $\chi_0$ as the ratio of the timescale of the ocean carbon flux
+to the timescale of its response. Previously, $\chi_0$ was interpreted as a fraction. This can be done only if $\tau < 1/k = \SI{5}{\year}$.
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7.pdf}
+  \caption{Equilibrium Soil Carbon level as a funtion of $\mu$ for a fast ocean response}
+  \label{fig:fast_response_bf_diagram}
+\end{figure}
+
+The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram}.
+In this case, $\tau = \SI{3.7}{\year}$. The dashed line represents the position
+of the analytically calculated bifurcation point. It can been seen that the agreement is good. To the extent that this model is valid, this imposes an upper limit on the possible value of $\mu$ given
+the observed stability of the pre-industrial climate.
+
 \subsection{Complex Eigenvalues}
 If $\Delta < 0$, which is to say if the ocean response is considered on a long timescale, the stabilty of the system is given by the sign of $B$.
 This leads to the condition
