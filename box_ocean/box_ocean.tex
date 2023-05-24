@@ -319,18 +319,27 @@ the soil can once again become a sink of carbon. However eventually the soil wil
 and so the cycle will start again.
 
 \subsection{Computation of Bifurcation Point}
-There is another mode of attack however. The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
+If the assumption that there is a Hopf bifurcation can be made, then there is another mode of attack. At the Hopf bifurcation a pair of complex conjugate eigenvalues
+cross the imaginary axis from the negative real part side to the positive real part side. This means that at the bifurcation, the eigenvalues are purely imaginary. It is
+comparitively easy to solve a cubic equation under the assumption of imaginary roots.
+
+The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
 \begin{equation}
   \label{eq:generic_cubic}
-  \gamma^3 + a_1 \gamma^2 + a_2 \gamma + a_3 = 0.
+  \gamma^3 + a_1 \gamma^2 + a_2 \gamma + a_3 = 0,
 \end{equation}
-At the Hopf bifurcation, $\gamma$ is purely imaginary, so set $\gamma = i\lambda$. Then \cref{eq:generic_cubic} becomes
+where $\gamma$ is an eigenvalue. As has been stated, at the Hopf bifurcation, $\gamma$ is purely imaginary so the subsitution $\gamma = i\lambda$ with $\lambda \in \mathbb{R}$
+can be made. Then \cref{eq:generic_cubic} becomes
 \begin{equation}
   \label{eq:cubic_with_imaginary_root}
   -i\lambda^3 - a_1 \lambda^2 + i a_2 \lambda + a_3 = 0. 
 \end{equation}
-Demanding that both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} are zero, leads to $\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{a_2}$. That these two expressions
-are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved for $\mu$. Doing this gives
+For this equation to be statisfied, both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} must be zero. This leads to
+$\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{a_2}$. For consistency, these expressions for $\lambda$ must be equal. This requires that $a_3 = a_1a_2$.
+Alternatively, both expressions for $\lambda$ can be satisfied if $a_2 = a_3 = 0$. However, this leads to $\gamma = 0$ which has no non-zero imaginary part and so cannot lead to
+oscillatory solutions and thus is not consistent with the assumption that there is a Hopf bifurcation.
+
+The condition $a_1a_2=a_3$  can now be solved for $\mu$. Doing this gives two solutions.
 \begin{equation}
   \label{eq:mu_two_box}
   \begin{split}
@@ -343,9 +352,9 @@ are equal leads to the condition that $a_3 = a_1a_2$, which can then be solved f
     \left(1+k r_0 \tau ^2-k \tau  \epsilon -\epsilon ^2\right)^2
   \end{split}}
   \Biggr)
-  \end{split}
+  \end{split}.
 \end{equation}
-or
+This equation is very unwieldy but in the case of a timescale separation where $\epsilon \ll 1$, a zeroth order approximation for \cref{eq:mu_two_box} can be derived. It is given by
 \begin{equation}
   \label{eq:mu_two_box_zero_eps}
   \begin{split}
@@ -355,8 +364,9 @@ or
 \end{split}
 \end{equation}
 as $\epsilon \rightarrow 0$.
-There are 2 values of $\mu$ that satisfy the consistency condition --- there are two Hopfs? (Sub/supercritical?)
-In the case where $\epsilon = 0$ and $f = 1$, this reduces to the one box model case. In this case \cref{eq:mu_two_box} becomes
+Note that there are 2 values of $\mu$ that satisfy the consistency condition and so there could be two Hopf bifurcations. It can be further noted that
+in the case where $\epsilon = 1$ and $f=1$ then \cref{eq:mu_to_box} should reduce to the one box condition.
+Performing this analysis gives
 \begin{equation}
   \label{eq:mu_zero_one}
   \mu^*_{\pm} = \frac{C_{a0} \left(\pm\left(-k r_0 \tau ^2+k \tau +1\right)+r_0 \tau  (k \tau +2)+k \tau +2 \Pi' \tau +1\right)}{2 \Pi_0 \tau}
@@ -367,7 +377,9 @@ or
   \mu_+^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} \left(\frac{k}{r_0} + \frac{\tau^{-1}}{r_0}\right) \\
   \mu_-^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}}k\tau 
 \end{align}
-which correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
+which correspond does indeed correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
+
+
 
 \missingfigure{Eigenvalues of Jacobian Demonstrating Spurious Root}
 \missingfigure{Bifurcation Diagram with fitted parameters}
