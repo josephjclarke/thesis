@@ -365,7 +365,7 @@ This equation is very unwieldy but in the case of a timescale separation where $
 \end{equation}
 as $\epsilon \rightarrow 0$.
 Note that there are 2 values of $\mu$ that satisfy the consistency condition and so there could be two Hopf bifurcations. It can be further noted that
-in the case where $\epsilon = 1$ and $f=1$ then \cref{eq:mu_to_box} should reduce to the one box condition.
+in the case where $\epsilon = 1$ and $f=1$ then \cref{eq:mu_two_box} should reduce to the one box condition.
 Performing this analysis gives
 \begin{equation}
   \label{eq:mu_zero_one}
@@ -379,11 +379,25 @@ or
 \end{align}
 which correspond does indeed correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
 
-
-
-\missingfigure{Eigenvalues of Jacobian Demonstrating Spurious Root}
-\missingfigure{Bifurcation Diagram with fitted parameters}
-
+\subsection{Numerical Results}
+To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifuration, I integrate \cref{eq:two_box_ocean} with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
+Furthermore I numerically compute the eigenvalues of the Jacobian for a range of values of $\mu$. The eigenvalues of the Jacobian are plotted in \cref{fig:eigen_values_of_the_jacobian},
+which show the eigenvalues cross the imaginary axis at the predicted bifurcation point, $mu_-$.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
+  \caption{The eigenvalues of the two box jacobian plotted in the complex plane. The colours correspond to the value of $\mu$. The colourscheme is chosen so that the colours change at $\mu = \mu_-$ }
+  \label{fig:eigen_values_of_the_jacobian}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{two_box_model_soil_carbon_equilibrium}
+  \caption{The equilibrium values of soil carbon for the two box model. Where the equilibrium state is oscillatory, the minimum and maximum are plotted in red}
+  \label{fig:two_box_bf_diagram}
+\end{figure}
+Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
+In all my integrations, there did not appear to be a bifurcation at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
+parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevence to the climate system.
 \section{IMOGEN}
 \subsection{IMOGEN description}
 \subsection{Bifurcations in IMOGEN}
