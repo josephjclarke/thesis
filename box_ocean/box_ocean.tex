@@ -259,7 +259,7 @@ the observed stability of the pre-industrial climate.
 In the case where the ocean timescale is larger than $1/r_0$, then $\Delta < 0$. This means if the ocean response is considered to have a long timescale,
 the stabilty of the system is given by the sign of $B$.
 
-The value of $B$ will become positive when $mu$ exceeds the following threshold:
+The value of $B$ will become positive when $\mu$ exceeds the following threshold:
 \begin{equation}
   \label{eq:instability_condition_one_box_slow}
   \mu^* =\frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau\left(
@@ -284,9 +284,29 @@ Where there is an osciallatory response I plot the maximum and minimum in red. I
 
 
 \section{Two Box Model}
-Suppose I modify \cref{eq:one_box_ocean} to include an extra ocean box. I imagine a fast box and a slow box. In principle, I could repeat the
-analysis above, by finding the eigenvalues of a $3 \times 3$ matrix. This is possible in principle but involves solving a cubic polynomial which
-is challenging analytically.
+To improve the realism of the model, I will now consider the two box ocean case. In order to do this \cref{eq:one_box_ocean} must be modified to include
+two ocean stores of carbon $C_1$ and $C_2$. Each box will have their own timescale $\tau$ and $\tau/\epsilon$ respectively. This notation is suggestive of
+$C_1$ being a fast box and $C_2$ being a slow box, although this restriction is not necessary.
+
+This leads to the following system of equations:
+\begin{subequations}
+  \begin{align}
+    \label{eq:two_box_ocean}
+    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
+    \dv{C_1}{t} &= fk(C_a - C_{a0}) - \frac{C_1}{\tau} \\
+    \dv{C_2}{t} &= (1-f)k(C_a-C_{a0}) - \epsilon\frac{C_2}{\tau} \\
+    C_a &= \mathcal{C} - C_s - C_1 - C_2.
+  \end{align}
+\end{subequations}
+Again note the equilibrium at $C_a = C_{a0}$,$C_s = C_{s0}$ and $C_1 = C_2 = 0$. To determine the stability of this state the eigenvalues of the Jacobian
+of \cref{eq:two_box_ocean} must be computed, which involves finding the roots of a cubic characteristic polynomial.
+Whilst this is possible in principle it is analytically very challenging.
+
+To avoid this therefore I will give some heuristic arguments as to why a Hopf bifurcation occurs at a critical value of $\mu$. I will then solve a special case
+of the characteristic polynomial of the Jacobian, which corresponds to assuming the existence of a Hopf bifurcation. Under this assumption I find
+critical values of $\mu$ at which a Hopf bifurcation could occur, which I then verify with a numerical investigation.
+
+\subsection{A Heuristic Argument}
 
 Instead, I will use the timescale seperation between the two ocean boxes to make some remarks about the qualitative behaviour of the system.
 As the slow box is much slower than the fast box, over short timescales it can be ignored. So if $\mu$ were to be slowly increased through
