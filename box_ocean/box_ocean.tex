@@ -421,31 +421,21 @@ where $T_o$ is the ocean temperature which is related to the land temperature by
 so both parameters will affect the bifurcation point.
 
 \subsection{Bifurcations in IMOGEN}
-In c\ref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comprable to the $S$ values
+In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comprable to the $S$ values
 predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
 \begin{figure}
   \centering
-  \includegraphics{width=\textwidth,keepaspectratio}{imogen_traj}
+  \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
   \caption{Trajectories for IMOGEN, assuming $Q_{10} = 2$}
   \label{fig:imogen_trajectories}
 \end{figure}
-We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in
+We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in \cref{fig:critical_S_vs_Q10}.
 \begin{figure}
   \centering
-  \includegraphics{width=\textwidth,keepaspectratio}{imogen_critical_values}
+  \includegraphics[width=\textwidth,keepaspectratio]{imogen_critical_values}
   \caption{Critical $S$ values as a function of $Q_{10}$}
   \label{fig:critical_S_vs_Q10}
 \end{figure}
 
+As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback.
 
-\subsection{Variability in IMOGEN}
-\begin{subequations}
-  \label{eq:climate_system}
-  \begin{align}
-    c_1 \dv{T_1}{t} &= \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} - \frac{Q_{2\times}}{ECS}T_1 -\gamma (T_1 - T_2) + \sigma_Q \xi(t)\\
-    c_2 \dv{T_2}{t} &= -\gamma(T_1 - T_2) \\
-    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 e^{\alpha T_1} \\
-    \dv{C_o}{t}     &= \mathrm{IMOGEN} \\
-    C_a &= \mathcal{C} - C_s - C_o
-  \end{align}
-\end{subequations}
