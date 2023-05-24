@@ -307,42 +307,17 @@ of the characteristic polynomial of the Jacobian, which corresponds to assuming 
 critical values of $\mu$ at which a Hopf bifurcation could occur, which I then verify with a numerical investigation.
 
 \subsection{A Heuristic Argument}
+For this section, the assumption of a timescale separation in ocean responses will be assumed, namely that $\epsilon \ll 1$. It has already been shown that a long timescale
+single ocean box will lead to a Hopf so it is reasonable to expect that adding a faster box will not change this. Here I give a more mechanistic argument.
 
-Instead, I will use the timescale seperation between the two ocean boxes to make some remarks about the qualitative behaviour of the system.
-As the slow box is much slower than the fast box, over short timescales it can be ignored. So if $\mu$ were to be slowly increased through
-the condition given in \cref{eq:instability_condition_one_box_fast} there would still be an instability.
+Due to the timescale
+separation, over short timescales the slow box can be ignored and so it will behave like a one box system. As a result, it can be expected that there
+is a value of $\mu$ which leads to an instability. This instability leads to a high atmospheric carbon state, but the ultimate fate of this carbon will depend on the long-time response of the oceans, in other
+words on the slow box. Over these longer timescales we can treat the system as a one box model with the ocean box corresponding to the slow box.
+Over these long timescales the slow ocean box will absorb the excess carbon from the atmosphere which will tend to cool the globe. As a result
+the soil can once again become a sink of carbon. However eventually the soil will contain $C_{s0}$ of soil carbon, but it has already been argued that this state is unstable
+and so the cycle will start again.
 
-However, on longer timescales, the system will still behave like a one box model but now the box will be the slow ocean component. As this is the slow box,
-it will have $\Delta < 0$ and so there will be oscillatory behaviour. Hence I expect the bifurcation to occur at a similar place as in the one box fast ocean model,
-but to have the character of a Hopf bifurcation.
-
-To be more formal, consider the system
-\begin{subequations}
-  \begin{align}
-    \label{eq:two_box_ocean}
-    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
-    \dv{C_1}{t} &= fk(C_a - C_{a0}) - \frac{C_1}{\tau} \\
-    \dv{C_2}{t} &= (1-f)k(C_a-C_{a0}) - \epsilon\frac{C_2}{\tau} \\
-    C_a &= \mathcal{C} - C_s - C_1 - C_2
-  \end{align}
-\end{subequations}
-where $f$ is the fraction of carbon taken up by the fast response and $\epsilon$ is the ratio of the timescale of the fast box to the slow box, so $\epsilon \ll 1$. If
-$C_2$ can be taken as approximately constant, then there is an instability when $\mu^*_{\mathrm{fast}} = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} kf\tau$.
-
-Now working on the slower timescale where $C_1$ is approximately constant the eigenvalues of the Jacobian of $C_s$ and $C_2$ can be evaluated at $\mu = \mu^*_{\mathrm{fast}}$. In this case, the eigenvalues
-have the form
-\begin{equation}
-  \label{eq:slow_eigenvalues}
-  \gamma_{\pm} = \frac{f k r_0 \tau ^2+\sqrt{\left(-f k r_0 \tau ^2-f k \tau +k \tau +\epsilon \right)^2-4 \left(-f k r_0 \tau ^2-f k r_0 \tau ^2 \epsilon +k r_0 \tau ^2\right)}+f k \tau -k \tau -\epsilon }
-  {2 \tau }.
-\end{equation}
-For oscaillatory solutions, the arguemnt of the square root must be negative, which requires
-\begin{equation}
-  \label{eq:epsilon_requirement}
-  \epsilon < 2 \sqrt{-f^2 k^2 r_0 \tau ^3+f k^2 r_0 \tau ^3-f k r_0 \tau ^2+k r_0 \tau ^2}-f k r_0 \tau ^2+f k \tau -k \tau.
-\end{equation}
-For $f = 0.3$, $\tau = 5$ this implies that $\epsilon < 0.06$, which is consistent with the assumption that the second ocean box is slow. This value of $\epsilon$ implies a second box timescale
-of about 80 years.
 \subsection{Computation of Bifurcation Point}
 There is another mode of attack however. The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
 \begin{equation}
