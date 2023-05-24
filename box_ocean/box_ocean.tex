@@ -400,8 +400,44 @@ In all my integrations, there did not appear to be a bifurcation at $\mu_+$. Thi
 parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevence to the climate system.
 \section{IMOGEN}
 \subsection{IMOGEN description}
+This is as far as can be gotten analytically. To increase realism further, only numerical analysis is possible. However the previous analytical results give confidence in the robustness
+of the bifurcation.
+
+Now, I will use the IMOGEN model, which can be used to model ocean carbon uptake. The full IMOGEN model is typically used in conjunction with the land surface model JULES,
+however here I will make use only of the ocean component. Similarly the box models previously described, IMGOEN's impulse response function to eleveated \ce{CO2} is a sum of exponentials,
+in this case six.
+However it is not just integrated against the change in \ce{CO2} but instead a nonlinear function of atmospheric carbon, ocean carbon and ocean temperature. The climate carbon system with IMGOEN
+can be written symbolically as
+\begin{subequations}
+  \label{eq:imogen_deterministic}
+  \begin{align}
+    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 \left(\frac{C_a}{C_{a0}}\right)^\mu \\
+    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
+    C_a             &= \mathcal{C} - C_s - C_o \\
+    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
+  \end{align}
+\end{subequations}
+where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that now $S$ and $Q_{10}$ (through $\mu$) appear seperately in this equation,
+so both parameters will affect the bifurcation point.
+
 \subsection{Bifurcations in IMOGEN}
-\missingfigure{Bifurcation Diagram for IMOGEN}
+In c\ref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comprable to the $S$ values
+predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
+\begin{figure}
+  \centering
+  \includegraphics{width=\textwidth,keepaspectratio}{imogen_traj}
+  \caption{Trajectories for IMOGEN, assuming $Q_{10} = 2$}
+  \label{fig:imogen_trajectories}
+\end{figure}
+We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in
+\begin{figure}
+  \centering
+  \includegraphics{width=\textwidth,keepaspectratio}{imogen_critical_values}
+  \caption{Critical $S$ values as a function of $Q_{10}$}
+  \label{fig:critical_S_vs_Q10}
+\end{figure}
+
+
 \subsection{Variability in IMOGEN}
 \begin{subequations}
   \label{eq:climate_system}
