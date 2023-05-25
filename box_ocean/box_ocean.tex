@@ -159,7 +159,12 @@ historical record of ocean carbon uptake. However the two box model does substan
 Although the two-box ocean model does better than the one box ocean model in fitting the observed carbon sink, the one box model is simpler
 and more easily analysable. Therefore as a warm up, I will analyse the stability of the carbon cycle assuming a one box ocean.
 
-I assume Net Primary Priductivity,$\Pi$, is a function of the atmospheric carbon only. I model heterotrophic respiration as having a $Q_{10}$ temperature dependence:
+I assume Net Primary Priductivity is a function of the atmospheric carbon only that saturates at high \ce{CO2}, having the form
+\begin{equation}
+  \label{eq:npp}
+  \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{1/2}}.
+\end{equation}
+I model heterotrophic respiration as having a $Q_{10}$ temperature dependence:
 $R_h = r_0 C_s e^{\alpha T}$ where $r_0$ is the specific respiration, $\alpha = \log \left( Q_{10} \right)/10$ and $C_s$ is the soil carbon. The global temperature anomaly, $T$,
 is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a refernce level of
 atmospheric carbon which I take as corresponding to the preindustrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
@@ -250,7 +255,8 @@ to the timescale of its response. Previously, $\chi_0$ was interpreted as a frac
 \end{figure}
 
 The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram}.
-In this case, $\tau = \SI{3.7}{\year}$. The dashed line represents the position
+I set $C_{1/2} = \SI{593.6}{\peta\g\carbon}$ and chose $\Pi_{\infty}$ so that $\Pi(C_{a0}) = \SI{55}{\peta\g\carbon\per\year}$. In this case, $\tau = \SI{3.7}{\year}$.
+The dashed line represents the position
 of the analytically calculated bifurcation point. It can been seen that the agreement is good, and that this is a transcritical bifurcation.
 To the extent that this model is valid, this imposes an upper limit on the possible value of $\mu$ given
 the observed stability of the pre-industrial climate.
@@ -438,5 +444,5 @@ We can investigate this more thoroughly by plotting the critical $S$ values requ
 \end{figure}
 
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
-near this bifurcation point, they will be subject to critical slowing down and this will affect their variability.
+near this bifurcation point, they will be subject to critical slowing down and this will affect their variability. In this next figure \todo{make figure}
 
