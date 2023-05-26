@@ -465,12 +465,12 @@ To calculate these statistics I introduce noise into the system in terms of glob
   \begin{align}
     \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 e^{\alpha T_{s}} \\
     \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
-    c\dv{T}{t}       &= -\gamma\frac{Q_{2\times}}{S} T + \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} + \sigma_Q \xi_
+    c\dv{T}{t}       &= -\gamma\frac{Q_{2\times}}{S} T + \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} + \sigma_Q \xi \\
     C_a             &= \mathcal{C} - C_s - C_o \\
-    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
+    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}} \\
     T_s             &= \gamma T
   \end{align}
-  where $S = \gamma \mthrm{ECS}$, $c = \SI{10.0}{\watt\year\per\meter\squared\per\kelvin}$ is the heat capacity, $\xi$ is white noise
-  and $sigma_Q = \SI{0.5}{\watt\per\meter\squared}$. Observed interannual variability in \ce{CO2} is around \SI{0.7}{\ppm}, so it appears that this system is too variable even at low
-  values of $S$. This probably relates to the low strength of the \ce{CO2} fertilisation effect.
 \end{subequations}
+where $S = \gamma \mathrm{ECS}$, $c = \SI{10.0}{\watt\year\per\meter\squared\per\kelvin}$ is the heat capacity, $\xi$ is white noise
+and $\sigma_Q = \SI{0.5}{\watt\per\meter\squared}$. Observed interannual variability in \ce{CO2} is around \SI{0.7}{\ppm}, so it appears that this system is too variable even at low
+values of $S$. This probably relates to the low strength of the \ce{CO2} fertilisation effect.
