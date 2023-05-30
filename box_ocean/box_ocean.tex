@@ -14,14 +14,14 @@ with a dynamical ocean component but neglects the role of biochemical heating.
 
 \subsection{Climate Response to Radiative Forcing}
 When certain gases, known as Greenhouse Gases, are emitted into the atmosphere they can affect global temperatures.
-They do this by absorbing infrared radiation emitted by the Earth's surface and reradiating it to space at a lower temperature.
+They do this by absorbing infrared radiation emitted by the Earth's surface and re-radiating it to space at a lower temperature.
 The effect of this is that less energy is radiated away to space than it did before the emission of greenhouse gases. To be in
-equilibrium, the energy recieved from the Sun must equal the energy radiated to space by the Earth. As less radiation is now
+equilibrium, the energy received from the Sun must equal the energy radiated to space by the Earth. As less radiation is now
 emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it
 radiates to restore equilibrium.
 
 The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. If $T$ is
-the global mean temperature and $N(T)$ is the net radiation recieved by the Earth (in equilibrium $N$ is zero) then for a small
+the global mean temperature and $N(T)$ is the net radiation received by the Earth (in equilibrium $N$ is zero) then for a small
 radiative forcing $\Delta N$ the change in global mean temperatures is
 \begin{equation}
   \label{eq:response_to_radiative_forcing}
@@ -32,7 +32,7 @@ The quantity
   \label{eq:climate_sensitivity}
   \lambda = -\pdv{N}{T}
 \end{equation}
-known as the \emph{climate sensitivity} determines the amount of warming experienced for a given radiative forcing. This quanity is measured
+known as the \emph{climate sensitivity} determines the amount of warming experienced for a given radiative forcing. This quantity is measured
 in units \si{\watt\per\square\meter\per\kelvin} but it has become common to discuss $\lambda$ in terms of a given radiative forcing, $Q_{2\times}$,
 the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atmosphere, giving rise to
 \begin{equation}
@@ -50,22 +50,22 @@ increase in uncertainty from CMIP5. However, these estimates should be combined 
 analysis leads the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin}.
 
 \subsection{Terrestrial Carbon Cycle Response to \ce{CO2}}
-Whilst the above disussion of $\mathrm{ECS}$ treats the amount of $\ce{CO2}$ in the atmosphere as a given quantity, in reality it is also affected by the climate
+Whilst the above discussion of $\mathrm{ECS}$ treats the amount of $\ce{CO2}$ in the atmosphere as a given quantity, in reality it is also affected by the climate
 system, which determines the fluxes of carbon into and out of the atmosphere through biogeochemical cycles.
 
 On human-relevant timescales, these fluxes are controlled by terrestrial and ocean processes. The terrestrial part of the carbon cycle is controlled by the biosphere.
 Carbon enters the biosphere through photosynthesis and leaves via respiration. Respiration can be subdivided into \emph{autotrophic} and \emph{heterotrophic}.
-These relate to repiration done by plants (which produce their own food which hence the name \emph{auto}troph) and non-plants respectively. Heterotrophic respiration
-is primarily performed by soil microbial communites which decompse the organic matter deposited into the soil from plants.
+These relate to respiration done by plants (which produce their own food which hence the name \emph{auto}troph) and non-plants respectively. Heterotrophic respiration
+is primarily performed by soil microbial communities which decompose the organic matter deposited into the soil from plants.
 
 This means that the net carbon flux into the biosphere due to plants called \emph{Net Primary Productivity} (NPP) is given by the difference between photosynthesis and
 autotrophic respiration. The overall carbon flux between the land and the atmosphere is therefore the difference between NPP and heterotrophic respiration. There are two key feedbacks
 on NPP and heterotrophic respiration related to elevated \ce{CO2} levels that I will discuss.
 
-Firstly, increasing $\ce{CO2}$ increases the amount of carbon availiable for plants to photosynthesise. This means that if a plant's photosynthetic activity is limit by
-$\ce{CO2}$ (as opposed to light or nutrients) then increases \ce{CO2} will increase NPP. This \emph{\ce{CO2} fertilisation effect} has been detected. It acts as a negative feedback
+Firstly, increasing $\ce{CO2}$ increases the amount of carbon available for plants to photosynthesise. This means that if a plant's photosynthetic activity is limit by
+$\ce{CO2}$ (as opposed to light or nutrients) then increases \ce{CO2} will increase NPP\@. This \emph{\ce{CO2} fertilisation effect} has been detected. It acts as a negative feedback
 on global warming as it tends to decrease the amount of \ce{CO2} in the atmosphere by increasing photosynthesis. This feedback is expected to decrease with increased $\ce{CO2}$ as
-fewer plants become limited by avaliable carbon.
+fewer plants become limited by available carbon.
 
 Secondly, the decomposition of organic matter is a biochemical process that depends on temperature. In particular, increasing the temperature of the decomposition reaction
 will increase the rate of this reaction. Hence as $\ce{CO2}$ has a warming effect the amount of respiration will increase. This means there will be a larger flux of carbon to the
@@ -141,7 +141,7 @@ for a two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The qua
   \label{tab:one_and_two_box_parameters}
 \end{table}
 Taking ocean carbon sink data and atmospheric \ce{CO2} data from the global carbon budget from the year 1781 onwards (which is
-when the ocean sink data is avaliable) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year I perform a
+when the ocean sink data is available) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year I perform a
 least squares fit to the one and two box models giving the parameter estimates shown in \cref{tab:one_and_two_box_parameters}.
 
 \begin{figure}
@@ -152,23 +152,23 @@ least squares fit to the one and two box models giving the parameter estimates s
 \end{figure}
 
 
-These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in captureing the
+These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in capturing the
 historical record of ocean carbon uptake. However the two box model does substantially better.
 
 \section{One Box Ocean}
 Although the two-box ocean model does better than the one box ocean model in fitting the observed carbon sink, the one box model is simpler
 and more easily analysable. Therefore as a warm up, I will analyse the stability of the carbon cycle assuming a one box ocean.
 
-I assume Net Primary Priductivity is a function of the atmospheric carbon only that saturates at high \ce{CO2}, having the form
+I assume Net Primary Productivity is a function of the atmospheric carbon only that saturates at high \ce{CO2}, having the form
 \begin{equation}
   \label{eq:npp}
   \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{1/2}}.
 \end{equation}
 I model heterotrophic respiration as having a $Q_{10}$ temperature dependence:
 $R_h = r_0 C_s e^{\alpha T}$ where $r_0$ is the specific respiration, $\alpha = \log \left( Q_{10} \right)/10$ and $C_s$ is the soil carbon. The global temperature anomaly, $T$,
-is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a refernce level of
-atmospheric carbon which I take as corresponding to the preindustrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
-I set $r_0 = \Pi(C_{a0})/C_{s0}$ where $C_{s0}$ is a reference level of soil carbon, set to the preindustrial level.  
+is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a reference level of
+atmospheric carbon which I take as corresponding to the pre-industrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
+I set $r_0 = \Pi(C_{a0})/C_{s0}$ where $C_{s0}$ is a reference level of soil carbon, set to the pre-industrial level.  
 
 The ocean carbon dynamics are set by the one box model described in \cref{eq:ocean_box_i} and the level of atmospheric carbon is set through conservation of carbon, namely $\mathcal{C} = C_a + C_s + C_o$,
 where the total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
@@ -234,7 +234,7 @@ and
 \end{equation}
 is the discriminant. I have used $\Pi_0 = r_0 C_{s0}$.
 
-The stability of this system is goverened by $\Re \gamma$. This number is controlled by the sign of $\Delta$. If $\Delta > 0$, then $\Re \gamma = \gamma$, but if $\Delta < 0$, then
+The stability of this system is governed by $\Re \gamma$. This number is controlled by the sign of $\Delta$. If $\Delta > 0$, then $\Re \gamma = \gamma$, but if $\Delta < 0$, then
 $\Re \gamma = B / 2\tau C_{a0}$. 
 
 \subsection{Real Eigenvalues}
@@ -245,12 +245,12 @@ Under this assumption, it turns out that $\gamma_+ > 0$ when
   \mu^* = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau.
 \end{equation}
 It is interesting to compare this to the condition given in \cref{eq:mu_infinity}. If the parameter $\chi_0$ is introduced and set to $\chi_0 = k \tau$.
-then \cref{eq:instability_condition_one_box_fast} is identitical to \cref{eq:mu_infinity}. This gives an interpretation to $\chi_0$ as the ratio of the timescale of the ocean carbon flux
+then \cref{eq:instability_condition_one_box_fast} is identical to \cref{eq:mu_infinity}. This gives an interpretation to $\chi_0$ as the ratio of the timescale of the ocean carbon flux
 to the timescale of its response. Previously, $\chi_0$ was interpreted as a fraction. This can be done only if $\tau < 1/k = \SI{5}{\year}$.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7}
-  \caption{Equilibrium Soil Carbon level as a funtion of $\mu$ for a fast ocean response}
+  \caption{Equilibrium Soil Carbon level as a function of $\mu$ for a fast ocean response}
   \label{fig:fast_response_bf_diagram}
 \end{figure}
 
@@ -263,7 +263,7 @@ the observed stability of the pre-industrial climate.
 
 \subsection{Complex Eigenvalues}
 In the case where the ocean timescale is larger than $1/r_0$, then $\Delta < 0$. This means if the ocean response is considered to have a long timescale,
-the stabilty of the system is given by the sign of $B$.
+the stability of the system is given by the sign of $B$.
 
 The value of $B$ will become positive when $\mu$ exceeds the following threshold:
 \begin{equation}
@@ -286,7 +286,7 @@ a Hopf bifurcation rather than a transcritical bifurcation.
   \label{fig:slow_response_bf_diagram}
 \end{figure}
 For the case where $\tau = \SI{300}{\year}$ I integrate \cref{eq:one_box_ocean} so numerically find the equilibrium as a function of $\mu$, which I plot in \cref{fig:slow_response_bf_diagram}.
-Where there is an osciallatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
+Where there is an oscillatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
 
 
 \section{Two Box Model}
@@ -327,20 +327,20 @@ and so the cycle will start again.
 \subsection{Computation of Bifurcation Point}
 If the assumption that there is a Hopf bifurcation can be made, then there is another mode of attack. At the Hopf bifurcation a pair of complex conjugate eigenvalues
 cross the imaginary axis from the negative real part side to the positive real part side. This means that at the bifurcation, the eigenvalues are purely imaginary. It is
-comparitively easy to solve a cubic equation under the assumption of imaginary roots.
+comparatively easy to solve a cubic equation under the assumption of imaginary roots.
 
 The characteristic polynomial of the Jacobian of \cref{eq:two_box_ocean} will be of the form
 \begin{equation}
   \label{eq:generic_cubic}
   \gamma^3 + a_1 \gamma^2 + a_2 \gamma + a_3 = 0,
 \end{equation}
-where $\gamma$ is an eigenvalue. As has been stated, at the Hopf bifurcation, $\gamma$ is purely imaginary so the subsitution $\gamma = i\lambda$ with $\lambda \in \mathbb{R}$
+where $\gamma$ is an eigenvalue. As has been stated, at the Hopf bifurcation, $\gamma$ is purely imaginary so the substitution $\gamma = i\lambda$ with $\lambda \in \mathbb{R}$
 can be made. Then \cref{eq:generic_cubic} becomes
 \begin{equation}
   \label{eq:cubic_with_imaginary_root}
   -i\lambda^3 - a_1 \lambda^2 + i a_2 \lambda + a_3 = 0. 
 \end{equation}
-For this equation to be statisfied, both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} must be zero. This leads to
+For this equation to be satisfied, both real and imaginary parts of \cref{eq:cubic_with_imaginary_root} must be zero. This leads to
 $\lambda = \pm \sqrt{a_3/a_1}$ and $\lambda = \pm \sqrt{a_2}$. For consistency, these expressions for $\lambda$ must be equal. This requires that $a_3 = a_1a_2$.
 Alternatively, both expressions for $\lambda$ can be satisfied if $a_2 = a_3 = 0$. However, this leads to $\gamma = 0$ which has no non-zero imaginary part and so cannot lead to
 oscillatory solutions and thus is not consistent with the assumption that there is a Hopf bifurcation.
@@ -386,13 +386,13 @@ or
 which correspond does indeed correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
 
 \subsection{Numerical Results}
-To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifuration, I integrate \cref{eq:two_box_ocean} with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
+To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifurcation, I integrate \cref{eq:two_box_ocean} with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
 Furthermore I numerically compute the eigenvalues of the Jacobian for a range of values of $\mu$. The eigenvalues of the Jacobian are plotted in \cref{fig:eigen_values_of_the_jacobian},
 which show the eigenvalues cross the imaginary axis at the predicted bifurcation point, $mu_-$.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
-  \caption{The eigenvalues of the two box jacobian plotted in the complex plane. The colours correspond to the value of $\mu$. The colourscheme is chosen so that the colours change at $\mu = \mu_-$ }
+  \caption{The eigenvalues of the two box Jacobian plotted in the complex plane. The colours correspond to the value of $\mu$. The colour scheme is chosen so that the colours change at $\mu = \mu_-$ }
   \label{fig:eigen_values_of_the_jacobian}
 \end{figure}
 \begin{figure}
@@ -403,16 +403,16 @@ which show the eigenvalues cross the imaginary axis at the predicted bifurcation
 \end{figure}
 Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
 In all my integrations, there did not appear to be a bifurcation at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
-parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevence to the climate system.
+parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevance to the climate system.
 \section{IMOGEN}
 \subsection{IMOGEN description}
 This is as far as can be gotten analytically. To increase realism further, only numerical analysis is possible. However the previous analytical results give confidence in the robustness
 of the bifurcation.
 
 Now, I will use the IMOGEN model, which can be used to model ocean carbon uptake. The full IMOGEN model is typically used in conjunction with the land surface model JULES,
-however here I will make use only of the ocean component. Similarly the box models previously described, IMGOEN's impulse response function to eleveated \ce{CO2} is a sum of exponentials,
+however here I will make use only of the ocean component. Similarly the box models previously described, IMOGEN's impulse response function to elevated \ce{CO2} is a sum of exponentials,
 in this case six.
-However it is not just integrated against the change in \ce{CO2} but instead a nonlinear function of atmospheric carbon, ocean carbon and ocean temperature. The climate carbon system with IMGOEN
+However it is not just integrated against the change in \ce{CO2} but instead a nonlinear function of atmospheric carbon, ocean carbon and ocean temperature. The climate carbon system with IMOGEN
 can be written symbolically as
 \begin{subequations}
   \label{eq:imogen_deterministic}
@@ -423,11 +423,11 @@ can be written symbolically as
     T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
   \end{align}
 \end{subequations}
-where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that now $S$ and $Q_{10}$ (through $\mu$) appear seperately in this equation,
+where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that now $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
 so both parameters will affect the bifurcation point.
 
 \subsection{Bifurcations in IMOGEN}
-In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comprable to the $S$ values
+In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comparable to the $S$ values
 predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
 \begin{figure}
   \centering
@@ -444,7 +444,7 @@ We can investigate this more thoroughly by plotting the critical $S$ values requ
 \end{figure}
 
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
-near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the `stable' branch of the carbon cycle.
+near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the `stable branch of the carbon cycle.
 %In \cref{fig:imogen_ca_variability,fig:imogen_ca_autocorrelation}
 %I show how the variability in atmospheric carbon varies with the control parameters.
 %
@@ -482,7 +482,7 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
-  \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilsation and the strength of respiration feedback}
+  \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilisation and the strength of respiration feedback}
   \label{fig:imogen_bifurcation_plane}
 \end{figure}
 
@@ -499,6 +499,6 @@ has bifurcations for large enough values of a sensitivity. In this next figure, 
 I have chosen the ocean parameters so that the bifurcation points line up. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
 was more freedom in the parameter choice. I set $\tau_1 = \SI{0.1}{\year}$, $f = 0.92$ and $\epsilon = 1.6\times 10^{-5}$.
 
-Unlike the other two models, the one box model does not give any osciallatory behaviour. The two box model gives  oscillations for all values of $S$ above a threshold, whereas IMOGEN shuts the
+Unlike the other two models, the one box model does not give any oscillatory behaviour. The two box model gives  oscillations for all values of $S$ above a threshold, whereas IMOGEN shuts the
 oscillations down at large enough $S$, and no carbon is found in the atmosphere. However the two box model and IMOGEN give qualitative agreement on the amplitude of the limit cycles beyond the bifurcation
 point.
