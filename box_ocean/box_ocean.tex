@@ -481,7 +481,24 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
 
 \begin{figure}
   \centering
-  \includegraphics[keepaspectratio,wisth=\textwidth]{imogen_critical_S_Q10_ca05}
+  \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
   \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilsation and the strength of respiration feedback}
   \label{fig:imogen_bifurcation_plane}
 \end{figure}
+
+\subsection{Model Comparison}
+In this section, I have introduced 3 models for the Earth's carbon cycle: a one-box, a two-box and a more complex model. Each model suggests the carbon cycle
+has bifurcations for large enough values of a sensitivity. In this next figure, \cref{fig:imogen_one_box_two_box} I plot the equilibria for each model.
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{imogen_one_box_two_box}
+  \caption{A comparison of bifurcation diagrams across the models. Dots refer to IMOGEN, the ``+'' refers to the one box model and ``$\times$'' to the two box.
+  Equilibria are plotted in black and the minimum and maximum of any oscillations are in red.}
+\label{fig:imogen_one_box_two_box}
+\end{figure}
+I have chosen the ocean parameters so that the bifurcation points line up. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
+was more freedom in the parameter choice. I set $\tau_1 = \SI{0.1}{\year}$, $f = 0.92$ and $\epsilon = 1.6\times 10^{-5}$.
+
+Unlike the other two models, the one box model does not give any osciallatory behaviour. The two box model gives  oscillations for all values of $S$ above a threshold, whereas IMOGEN shuts the
+oscillations down at large enough $S$, and no carbon is found in the atmosphere. However the two box model and IMOGEN give qualitative agreement on the amplitude of the limit cycles beyond the bifurcation
+point.
