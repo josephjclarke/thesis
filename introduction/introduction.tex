@@ -23,14 +23,22 @@ Derive Kramers rate?
 \subsubsection{Compost Bomb}
 \subsection{Shock}
 \subsubsection{Theory}
-Average time until tip?
+Calculate the distance to the boundary for a general fixed point. Suppose $x^*$ is a fixed point with basin $\mathcal{B}$. Let $d(a,b)$ be the distance from
+$a$ to $b$ .Then $\Delta = \inf \{d(x,x^*) : x \in \partial\mathcal{B}\}$.
 \subsubsection{An Example}
-Ulrike Fuedel will have some.
-
+Consider the Allee Effect.
+\begin{equation}
+  \label{eq:allee_effect}
+  \dot{x} = x\left(x-1\right)\left(1-\frac{x}{k}\right).
+\end{equation}
+Assume $k > 1$. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. If the system is
+initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system recieves a kick of
+this magnitude or greater then the system will transition to the extinction state.
 
 \section{Early Warning Signals}
 Systems behaving 1D. Critical Slowing Down. Use of variance and
 autocorrelation. Other methods. Fluctuation dissipation theorem.
+Resiliance. Critical Speeding up
 
 
 \section{Non-autonomous Topics}
