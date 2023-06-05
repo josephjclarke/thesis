@@ -79,7 +79,7 @@ is thought that the heterotrophic respiration effect is larger, which leads to a
 Combining these two sensitivities gives the potential for a runaway effect. Consider the following situation. Suppose some carbon is transferred from the land to the atmosphere. Then the globe
 will warm. As the feedback from the land is positive more carbon will be released into the atmosphere leading to further warming and more carbon released. This cycle could continue until all the
 carbon from the land has been released into the atmosphere. However, because of the negative feedbacks in the system (principally \ce{CO2} fertilisation) these positive feedbacks would have to be
-sufficently strong in order for this to happen.
+sufficiently strong in order for this to happen.
 
 The fact that there is carbon on land therefore tells us something about the magnitudes of the land carbon feedback and the climate sensitivity, namely that they cannot be too large.
 To make progress analysing this we must include the effect of the other store of carbon: the ocean.
@@ -87,7 +87,7 @@ To make progress analysing this we must include the effect of the other store of
 \section{A Climate-Carbon Cycle model using IMOGEN as the Ocean Component}
 \subsection{IMOGEN description}
 The land surface model JULES is often used in conjunction with IMOGEN \parencite{Huntingford2004,Huntingford2010} which is a model that `closes' the carbon cycle in that it provides
-an atmospheric and oceanic response to changes in terrestrial carbon. For the purposes of this chapter, we will isolate the ocean component of IMOGEN. The ocean component is based on the
+an atmospheric and oceanic response to changes in terrestrial carbon. For the purposes of this chapter, I will isolate the ocean component of IMOGEN\@. The ocean component is based on the
 model of \cite{Joos1996} which represents ocean carbon in terms of an impulse response to atmospheric \ce{CO2}.
 
 It calculates the changes in dissolved inorganic carbon in the surface water as
@@ -116,9 +116,9 @@ $\delta \Sigma \ce{CO2}$ are related by
   \label{eq:imogen_temp_feedback}
   \Delta C_o = g(T_o,\delta \Sigma \ce{CO2})e^{0.0423\delta T_o}
 \end{equation}
-where $T_o$ is the initial ocean temperature, $\delta T_o$ is the change in ocean temperature and $g$ is a quintic polynomial in $\delta \Sigma \ce{CO2}$ whose coefficents depend on $T_o$.
+where $T_o$ is the initial ocean temperature, $\delta T_o$ is the change in ocean temperature and $g$ is a quintic polynomial in $\delta \Sigma \ce{CO2}$ whose coefficients depend on $T_o$.
 \subsection{Terrestrial Carbon Cycle}
-The total avaliable carbon is a constant given by $\mathcal{C}  = C_s + C_a + C_o$ where $C_s$ is the soil carbon, $C_a$ is the atmospheric carbon  and $C_o$ is the ocean carbon.
+The total available carbon is a constant given by $\mathcal{C}  = C_s + C_a + C_o$ where $C_s$ is the soil carbon, $C_a$ is the atmospheric carbon  and $C_o$ is the ocean carbon.
 Therefore to close the system only the land carbon dynamics need to be set, with the dynamics of atmospheric carbon being set by this conservation law.
 
 The change in soil carbon is given by the difference between net primary productivity and heterotrophic respiration. Heterotrophic
@@ -154,7 +154,7 @@ Following \cite{Cox2006}, net primary productivity is modelled as
 \end{equation}
 which is an increasing function of \ce{CO2} that saturates for $C_a \gg C_{1/2}$. Unless otherwise stated, $C_{1/2} = \SI{280}{\ppm}$, which is compatible with other estimates
 \parencite{KolbySmith2016,Wenzel2016}. This parameter controls the strength of the \ce{CO2} fertilisation feedback. \Cref{eq:npp} assumes that net primary productivity depends only
-on \ce{CO2}. Allowing for other factors like nitrogen limitation would act to reduce the effective $C_{1/2}$ value. $\Pi_{\infty}$ is set so that $\Pi(C_{a0})$ is the preindustrial
+on \ce{CO2}. Allowing for other factors like nitrogen limitation would act to reduce the effective $C_{1/2}$ value. $\Pi_{\infty}$ is set so that $\Pi(C_{a0})$ is the pre-industrial
 level of net primary productivity \SI{55}{\peta\gram\carbon\per\year}.
 
 Putting this all together leads to the following set of coupled differential equations:
@@ -170,13 +170,13 @@ Putting this all together leads to the following set of coupled differential equ
 where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
 so both parameters will affect the bifurcation point.
 
-Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_{s0} = \Pi(C_{a0})/r_0$, $C_o = 0$, $T_o = 0$, corresponding to the preindustrial equilibrium, which has been stable over the
-holocene.
+Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_{s0} = \Pi(C_{a0})/r_0$, $C_o = 0$, $T_o = 0$, corresponding to the pre-industrial equilibrium, which has been stable over the
+Holocene.
 
 \subsection{Bifurcations in IMOGEN}
-\Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initilised close to equilibrium and then allowed to equilibriate over 5000 years.
+\Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initialised close to equilibrium and then allowed to equilibrate over 5000 years.
 The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there appears to be a Hopf bifurcation which results
-in osciallatory behaviour. 
+in oscillatory behaviour. 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
@@ -195,7 +195,7 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
 \end{figure}
 
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
-near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the non-oscialltory branch of the carbon cycle.
+near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the non-oscillatory branch of the carbon cycle.
 
 Despite the simplicity of this model, it is still too complex to analyse mathematically. In the next section I will develop simplified models to enable this bifurcation to be investigated further.
 
@@ -240,7 +240,7 @@ ocean carbon.
 \section{One Box Ocean}
 The simplest possible ocean box model is a one box model. I will analyse this first to see if it can reproduce the results of the IMOGEN model.
 
-The one box model can be written symbollically as through the following set of ODEs
+The one box model can be written symbolically as through the following set of ODEs
 \begin{subequations}
   \label{eq:one_box_ocean}
   \begin{align}
@@ -353,7 +353,7 @@ For the case where $\tau = \SI{300}{\year}$ I integrate \cref{eq:one_box_ocean} 
 Where there is an oscillatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
 
 Based on the conditions derived in \cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow} the critical value of $\mu$ can be chosen to match the
-bifurcation point predicted by the IMOGEN model. This involves chosing $\tau = \SI{2.23}{\year}$. This puts the ocean into the fast regime, and therefore a transcritical bifurcation.
+bifurcation point predicted by the IMOGEN model. This involves choosing $\tau = \SI{2.23}{\year}$. This puts the ocean into the fast regime, and therefore a transcritical bifurcation.
 This is the wrong sort of bifurcation and so motivates increasing the complexity of the ocean model slightly.
 
 \section{Two Box Model}
@@ -532,13 +532,13 @@ the single parameter $\tau_1$ is close to that used to match the IMOGEN case. In
 is much shorter.
 
 \section{Conclusion}
-In this chapter I have taken a simple but but realistic model of the carbon cycle and shown that only certain parameter values are compatible with the qualitiative behaviour
-of terrestrial carbon cycle since during the holocene. In particular these parameters relate to key sensitivites in the Earth system: the climate sensitivity, the sensitivity of
-terrestrial carbon to temperature and the sensitivites of net primary production to \ce{CO2}. In this model I find that the negative feedbacks on the system (namely changes in net primary
-production due to increased \ce{CO2}) must be sufficently strong enough to offset the positive feedbacks (the Jenkinson effect).
+In this chapter I have taken a simple but but realistic model of the carbon cycle and shown that only certain parameter values are compatible with the qualitative behaviour
+of terrestrial carbon cycle since during the Holocene. In particular these parameters relate to key sensitivities in the Earth system: the climate sensitivity, the sensitivity of
+terrestrial carbon to temperature and the sensitivities of net primary production to \ce{CO2}. In this model I find that the negative feedbacks on the system (namely changes in net primary
+production due to increased \ce{CO2}) must be sufficiently strong enough to offset the positive feedbacks (the Jenkinson effect).
 
 Although the model was relatively simple, the ocean component is still too complex to handle analytically. I simplified the ocean model down to a box model of the oceans,
-which meant I could derive exact results about the bifurcation. I found that a single box could recreate the osciallatory behaviour seen for large enough climate senitivites,
+which meant I could derive exact results about the bifurcation. I found that a single box could recreate the oscillatory behaviour seen for large enough climate sensitivities,
 however it did not do this at the correct bifurcation point. On the other hand, a two box model could reproduce the oscillations at the correct bifurcation point.
 
 I could then fit the box models to the observed carbon uptake by the oceans to estimate what parameters best fit the observations. These parameters are similar to those found in the more
