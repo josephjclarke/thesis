@@ -20,12 +20,12 @@ equilibrium, the energy received from the Sun must equal the energy radiated to 
 emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it
 radiates to restore equilibrium.
 
-The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. If $T$ is
-the global mean temperature and $N(T)$ is the net radiation received by the Earth (in equilibrium $N$ is zero) then for a small
-radiative forcing $\Delta N$ the change in global mean temperatures is
+The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. Let $T$ be
+the global mean temperature assume that $N(T)$, the net radiation received by the Earth, depends on $T$. In equilibrium $N$ is zero. If there is
+a small radiative forcing $\Delta Q$ then $T$ must change to ensure $N = 0$. The change in global mean temperatures is
 \begin{equation}
   \label{eq:response_to_radiative_forcing}
-  \Delta N = \pdv{N}{T} \Delta T.
+  \Delta T = -\pdv{N}{T}^{-1} \Delta Q.
 \end{equation}
 The quantity
 \begin{equation}
@@ -78,7 +78,10 @@ is thought that the heterotrophic respiration effect is larger, which leads to a
 \subsection{Potential For Runaway}
 Combining these two sensitivities gives the potential for a runaway effect. Consider the following situation. Suppose some carbon is transferred from the land to the atmosphere. Then the globe
 will warm. As the feedback from the land is positive more carbon will be released into the atmosphere leading to further warming and more carbon released. This cycle could continue until all the
-carbon from the land has been released into the atmosphere. The fact that there is carbon on land therefore tells us something about the magnitudes of the land carbon feedback and the climate sensitivity.
+carbon from the land has been released into the atmosphere. However, because of the negative feedbacks in the system (principally \ce{CO2} fertilisation) these positive feedbacks would have to be
+sufficently strong in order for this to happen.
+
+The fact that there is carbon on land therefore tells us something about the magnitudes of the land carbon feedback and the climate sensitivity, namely that they cannot be too large.
 To make progress analysing this we must include the effect of the other store of carbon: the ocean.
 
 \section{A Climate-Carbon Cycle model using IMOGEN as the Ocean Component}
