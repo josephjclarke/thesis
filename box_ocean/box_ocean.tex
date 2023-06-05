@@ -319,11 +319,8 @@ to the timescale of its response. Previously, $\chi_0$ was interpreted as a frac
 \end{figure}
 
 The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram}.
-I set $C_{1/2} = \SI{593.6}{\peta\g\carbon}$ and chose $\Pi_{\infty}$ so that $\Pi(C_{a0}) = \SI{55}{\peta\g\carbon\per\year}$. In this case, $\tau = \SI{3.7}{\year}$.
-The dashed line represents the position
-of the analytically calculated bifurcation point. It can been seen that the agreement is good, and that this is a transcritical bifurcation.
-To the extent that this model is valid, this imposes an upper limit on the possible value of $\mu$ given
-the observed stability of the pre-industrial climate.
+I set $\tau = \SI{3.7}{\year}$. The dashed line represents the position of the analytically calculated bifurcation point.
+It can been seen that the agreement is good, and that this is a transcritical bifurcation.
 
 \subsection{Complex Eigenvalues}
 In the case where the ocean timescale is larger than $1/r_0$, then $\Delta < 0$. This means if the ocean response is considered to have a long timescale,
@@ -336,8 +333,8 @@ The value of $B$ will become positive when $\mu$ exceeds the following threshold
      1 + \frac{1}{k\tau}
   \right) \frac{1}{r_0\tau}
 \end{equation}
-This is similar to the conditions derived in \cref{eq:mu_infinity,eq:instability_condition_one_box_fast} except now $\chi_0 = k\tau\left(1 + \frac{1}{k\tau} \right) \frac{1}{r_0\tau} \approx \tau/r_0$
-where the approximation assumes $k \gg r_0$. This means the ``fraction absorbed by the oceans'' is now controlled by the ratio of the timescale of the oceans as well as the turnover time of the soil.
+This is similar to the conditions derived in \cref{eq:mu_infinity,eq:instability_condition_one_box_fast} except now $\chi_0 = k\tau\left(1 + \frac{1}{k\tau} \right) \frac{1}{r_0\tau} \approx k/r_0$
+where the approximation assumes $k \gg r_0$. This means the ``fraction absorbed by the oceans'' is now controlled by the ratio of the timescale of the ocean flux as well as the turnover time of the soil.
 Furthermore we are assuming that $\tau r_0 > 1$ in this case and so $\chi_0 > 1$ so it loses its interpretation as a fraction of carbon absorbed.
 
 
@@ -352,6 +349,9 @@ a Hopf bifurcation rather than a transcritical bifurcation.
 For the case where $\tau = \SI{300}{\year}$ I integrate \cref{eq:one_box_ocean} so numerically find the equilibrium as a function of $\mu$, which I plot in \cref{fig:slow_response_bf_diagram}.
 Where there is an oscillatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
 
+Based on the conditions derived in \cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow} the critical value of $\mu$ can be chosen to match the
+bifurcation point predicted by the IMOGEN model. This involves chosing $\tau = \SI{2.23}{\year}$. This puts the ocean into the fast regime, and therefore a transcritical bifurcation.
+This is the wrong sort of bifurcation and so motivates increasing the complexity of the ocean model slightly.
 
 \section{Two Box Model}
 To improve the realism of the model, I will now consider the two box ocean case. In order to do this \cref{eq:one_box_ocean} must be modified to include
@@ -452,7 +452,7 @@ which correspond does indeed correspond to the conditions (\cref{eq:instability_
 \subsection{Numerical Results}
 To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifurcation, I integrate \cref{eq:two_box_ocean} with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
 Furthermore I numerically compute the eigenvalues of the Jacobian for a range of values of $\mu$. The eigenvalues of the Jacobian are plotted in \cref{fig:eigen_values_of_the_jacobian},
-which show the eigenvalues cross the imaginary axis at the predicted bifurcation point, $\mu_-$.
+which show the eigenvalues crossing the imaginary axis at the predicted bifurcation point, $\mu_-$.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
@@ -469,8 +469,10 @@ Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_b
 In all my integrations, there did not appear to be a bifurcation at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
 parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevance to the climate system.
 
+It can be seen therefore that the two box model is complex enough to reproduce the behaviour of the IMOGEN model but simple enough to be analytically tractable.
+
 \section{Model Comparison}
-In this section, I have introduced 3 models for the Earth's carbon cycle: a one-box, a two-box and a more complex model. Each model suggests the carbon cycle
+In this chapter, I have introduced 3 models for the Earth's carbon cycle: a one-box, a two-box and a more complex model. Each model suggests the carbon cycle
 has bifurcations for large enough values of a sensitivity. In this next figure, \cref{fig:imogen_one_box_two_box} I plot the equilibria for each model.
 \begin{figure}
   \centering
