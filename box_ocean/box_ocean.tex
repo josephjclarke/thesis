@@ -194,14 +194,15 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
 near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the non-oscialltory branch of the carbon cycle.
 
+Despite the simplicity of this model, it is still too complex to analyse mathematically. In the next section I will develop simplified models to enable this bifurcation to be investigated further.
 
-\section{Ocean Model}
-I will neglect temperature and chemical feedbacks on the ocean response and assume it behaves linearly to elevated \ce{CO2} levels. I will further assume that the ocean carbon carbon uptake
+\section{A Simpler Ocean Model}
+I will neglect temperature feedbacks on the ocean response and assume it behaves linearly to elevated \ce{CO2} levels. I will further assume that the ocean carbon carbon uptake
 can be viewed as $N$ non-interacting boxes which each respond over a timescale $\tau_i$ where $i$ indexes the boxes. A fraction $f_i$ of the total carbon
-flux will enter the $i$th box. I will give a post-hoc justification for this in that this model can capture the observed carbon uptake of the oceans since pre-industrial times and
-will qualitatively reproduce the results of a more complex ocean model. The model I introduce here has the advantage that it can be treated analytically.
+flux will enter the $i$th box. These assumptions can be justified in that they represent a simplification of the IMOGEN model and can be used to fit the observed ocean carbon
+uptake, which is done in \cref{sec:ocean_uptake}.
 
-The change in carbon stored in the $i$th box, $C_i$, is given by
+The model is as follows: the change in carbon stored in the $i$th box, $C_i$, is given by
 \begin{equation}
   \label{eq:ocean_box_i}
   \dv{C_i}{t} = f_ik \Delta C_a(t) - \frac{C_i}{\tau_i},
@@ -211,10 +212,9 @@ where $k=\SI{0.2}{\per\year}$ gives the timescale of the ocean uptake and $\Delt
 For a given $C_a(t)$ \cref{eq:ocean_box_i} can be solved in quadratures to give
 \begin{equation}
   \label{eq:solution_for_box_i}
-  C_i(t) = \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - u) \dd{u},
+  C_i(t) = \int_0^t f_ik e^{-s/\tau_i} \Delta C_a(t - s) \dd{s},
 \end{equation}
 if $C_i(0) = 0$.
-
 
 The overall ocean response is therefore
 \begin{equation}
@@ -231,65 +231,13 @@ where
   \label{eq:ocean_greens_function}
   G(t) = \sum_{i=1}^{N} f_ik e^{-t/\tau_i}
 \end{equation}
-is the impulse response function for the uptake of ocean carbon.
-
-\subsection{Parameter Estimation}
-\Cref{eq:ocean_response} can then be fitted to observed changes in ocean carbon\todo{give details} to estimate the
-parameters $f_i$ and $\tau_i$. I will do this for a one box model, in which only $\tau_1$ needs to be estimated and
-for a two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The quantity $f_2$ is determined by the requirement that $f_1 + f_2 = 1$.
-\begin{table}
-  \centering
-  \begin{tabular}{@{}lll@{}}
-    \toprule
-    \multicolumn{1}{c}{Parameter} & \multicolumn{2}{c}{Estimated Quantity} \\
-    \cmidrule{2-3}
-                                  & One Box         & Two Box              \\
-    \midrule
-    $\tau_1$                      & \SI{3.7}{\year} & \SI{0.5}{\year}      \\
-    $\tau_2$                      &                 & \SI{124}{\year}      \\
-    $f_1$                         & $1$             & $0.9$                \\
-    $f_2$                         & $0$             & $0.1$                \\
-    \bottomrule
-  \end{tabular}
-  \caption{Parameter Estimates for one and two box ocean models}
-  \label{tab:one_and_two_box_parameters}
-\end{table}
-Taking ocean carbon sink data and atmospheric \ce{CO2} data from the global carbon budget from the year 1781 onwards (which is
-when the ocean sink data is available) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year I perform a
-least squares fit to the one and two box models giving the parameter estimates shown in \cref{tab:one_and_two_box_parameters}.
-
-\begin{figure}
-  \centering
-  \includegraphics[keepaspectratio,width=\textwidth]{gcb_ocean_atmosphere_boxes}
-  \caption{The reconstructed ocean uptake using the one and two box models, with parameters from \cref{tab:one_and_two_box_parameters}}
-  \label{fig:fits_from_one_and_two}
-\end{figure}
-
-
-These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in capturing the
-historical record of ocean carbon uptake. However the two box model does substantially better.
-
-
+is the impulse response function for the uptake of ocean carbon. This is similar to \cref{eq:imogen_impulse_response}, except the short term behaviour differs and there is no nonlinear dependence on
+ocean carbon.
 
 \section{One Box Ocean}
-Although the two-box ocean model does better than the one box ocean model in fitting the observed carbon sink, the one box model is simpler
-and more easily analysable. Therefore as a warm up, I will analyse the stability of the carbon cycle assuming a one box ocean.
+The simplest possible ocean box model is a one box model. I will analyse this first to see if it can reproduce the results of the IMOGEN model.
 
-I assume Net Primary Productivity is a function of the atmospheric carbon only that saturates at high \ce{CO2}, having the form
-\begin{equation}
-  \label{eq:npp}
-  \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{1/2}}.
-\end{equation}
-I model heterotrophic respiration as having a $Q_{10}$ temperature dependence:
-$R_h = r_0 C_s e^{\alpha T}$ where $r_0$ is the specific respiration, $\alpha = \log \left( Q_{10} \right)/10$ and $C_s$ is the soil carbon. The global temperature anomaly, $T$,
-is set assuming a logarithmic dependence on atmospheric \ce{CO2} giving $T = S \log \left(C_a / C_{a0}\right)/\log 2$ where $C_a$ is the atmospheric carbon, $C_{a0}$ is a reference level of
-atmospheric carbon which I take as corresponding to the pre-industrial state, which I assume is stable. The parameter $S$ is related to the climate sensitivity, although it is land-weighted.
-I set $r_0 = \Pi(C_{a0})/C_{s0}$ where $C_{s0}$ is a reference level of soil carbon, set to the pre-industrial level.  
-
-The ocean carbon dynamics are set by the one box model described in \cref{eq:ocean_box_i} and the level of atmospheric carbon is set through conservation of carbon, namely $\mathcal{C} = C_a + C_s + C_o$,
-where the total carbon in the atmosphere-land-ocean system to $\mathcal{C}$.
-
-These assumptions give rise to the following set of equations.
+The one box model can be written symbollically as through the following set of ODEs
 \begin{subequations}
   \label{eq:one_box_ocean}
   \begin{align}
@@ -298,8 +246,8 @@ These assumptions give rise to the following set of equations.
     C_a &= \mathcal{C} - C_s - C_o.
 \end{align}
 \end{subequations}
-The parameter $\mu = \alpha S / \log 2$ will be the control parameter that determines the stability of the system.
-Note that there is a fixed point at $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$. I am interested in its stability.
+Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
+$C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$.
 \subsection{The Stability of a fixed point}
 Here I give a summary of the conditions for an equilibrium to stable. Let
 \begin{equation}
@@ -537,6 +485,45 @@ was more freedom in the parameter choice. I set $\tau_1 = \SI{0.1}{\year}$, $f =
 Unlike the other two models, the one box model does not give any oscillatory behaviour. The two box model gives  oscillations for all values of $S$ above a threshold, whereas IMOGEN shuts the
 oscillations down at large enough $S$, and no carbon is found in the atmosphere. However the two box model and IMOGEN give qualitative agreement on the amplitude of the limit cycles beyond the bifurcation
 point.
+
+
+\subsection{Parameter Estimation}
+\label{sec:ocean_uptake}
+\Cref{eq:ocean_response} can then be fitted to observed changes in ocean carbon\todo{give details} to estimate the
+parameters $f_i$ and $\tau_i$. I will do this for a one box model, in which only $\tau_1$ needs to be estimated and
+for a two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The quantity $f_2$ is determined by the requirement that $f_1 + f_2 = 1$.
+\begin{table}
+  \centering
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \multicolumn{1}{c}{Parameter} & \multicolumn{2}{c}{Estimated Quantity} \\
+    \cmidrule{2-3}
+                                  & One Box         & Two Box              \\
+    \midrule
+    $\tau_1$                      & \SI{3.7}{\year} & \SI{0.5}{\year}      \\
+    $\tau_2$                      &                 & \SI{124}{\year}      \\
+    $f_1$                         & $1$             & $0.9$                \\
+    $f_2$                         & $0$             & $0.1$                \\
+    \bottomrule
+  \end{tabular}
+  \caption{Parameter Estimates for one and two box ocean models}
+  \label{tab:one_and_two_box_parameters}
+\end{table}
+Taking ocean carbon sink data and atmospheric \ce{CO2} data from the global carbon budget from the year 1781 onwards (which is
+when the ocean sink data is available) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year I perform a
+least squares fit to the one and two box models giving the parameter estimates shown in \cref{tab:one_and_two_box_parameters}.
+
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{gcb_ocean_atmosphere_boxes}
+  \caption{The reconstructed ocean uptake using the one and two box models, with parameters from \cref{tab:one_and_two_box_parameters}}
+  \label{fig:fits_from_one_and_two}
+\end{figure}
+
+
+These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in capturing the
+historical record of ocean carbon uptake. However the two box model does substantially better.
+
 
 \section{Conclusion}
 In this chapter I have taken a simple but but realistic model of the carbon cycle and shown that only certain parameter values are compatible with the qualitiative behaviour
