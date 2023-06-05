@@ -167,55 +167,19 @@ Putting this all together leads to the following set of coupled differential equ
 where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
 so both parameters will affect the bifurcation point.
 
+Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_{s0} = \Pi(C_{a0})/r_0$, $C_o = 0$, $T_o = 0$, corresponding to the preindustrial equilibrium, which has been stable over the
+holocene.
+
 \subsection{Bifurcations in IMOGEN}
-In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comparable to the $S$ values
-predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
+\Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initilised close to equilibrium and then allowed to equilibriate over 5000 years.
+The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there appears to be a Hopf bifurcation which results
+in osciallatory behaviour. 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
   \caption{Trajectories for IMOGEN, assuming $Q_{10} = 2$}
   \label{fig:imogen_trajectories}
 \end{figure}
-We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in \cref{fig:critical_S_vs_Q10}.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,keepaspectratio]{imogen_critical_values}
-  \caption{Critical $S$ values as a function of $Q_{10}$}
-  \label{fig:critical_S_vs_Q10}
-\end{figure}
-
-As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
-near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the `stable branch of the carbon cycle.
-%In \cref{fig:imogen_ca_variability,fig:imogen_ca_autocorrelation}
-%I show how the variability in atmospheric carbon varies with the control parameters.
-%
-%\begin{figure}
-%  \centering
-%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_std.pdf}
-%  \caption{Standard Deviation of Atmospheric Carbon as a function of $Q_10$ and $S$}
-%  \label{fig:imogen_ca_variability}
-%\end{figure}
-%\begin{figure}
-%  \centering
-%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_ac.pdf}
-%  \caption{Autocorrelation of Atmospheric Carbon as a function of $Q_10$ and $S$}
-%  \label{fig:imogen_ca_autocorrelation}
-%\end{figure}
-%To calculate these statistics I introduce noise into the system in terms of global temperature:
-%\begin{subequations}
-%  \label{eq:imogen_noise}
-%  \begin{align}
-%    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 e^{\alpha T_{s}} \\
-%    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
-%    c\dv{T}{t}       &= -\gamma\frac{Q_{2\times}}{S} T + \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} + \sigma_Q \xi \\
-%    C_a             &= \mathcal{C} - C_s - C_o \\
-%    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}} \\
-%    T_s             &= \gamma T
-%  \end{align}
-%\end{subequations}
-%where $S = \gamma \mathrm{ECS}$, $c = \SI{10.0}{\watt\year\per\meter\squared\per\kelvin}$ is the heat capacity, $\xi$ is white noise
-%and $\sigma_Q = \SI{0.5}{\watt\per\meter\squared}$. Observed interannual variability in \ce{CO2} is around \SI{0.7}{\ppm}, so it appears that this system is too variable even at low
-%values of $S$. This probably relates to the low strength of the \ce{CO2} fertilisation effect.
 
 To be more complete, I use this IMOGEN model to estimate the critical $S$ as a function of $Q_{10}$ and $C_{1/2}$, the parameter that controls the \ce{CO2} fertilisation effect. This
 is plotted in \cref{fig:imogen_bifurcation_plane}.
@@ -226,6 +190,9 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
   \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilisation and the strength of respiration feedback}
   \label{fig:imogen_bifurcation_plane}
 \end{figure}
+
+As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
+near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the non-oscialltory branch of the carbon cycle.
 
 
 \section{Ocean Model}
