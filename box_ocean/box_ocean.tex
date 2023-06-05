@@ -81,6 +81,153 @@ will warm. As the feedback from the land is positive more carbon will be release
 carbon from the land has been released into the atmosphere. The fact that there is carbon on land therefore tells us something about the magnitudes of the land carbon feedback and the climate sensitivity.
 To make progress analysing this we must include the effect of the other store of carbon: the ocean.
 
+\section{A Climate-Carbon Cycle model using IMOGEN as the Ocean Component}
+\subsection{IMOGEN description}
+The land surface model JULES is often used in conjunction with IMOGEN \parencite{Huntingford2004,Huntingford2010} which is a model that `closes' the carbon cycle in that it provides
+an atmospheric and oceanic response to changes in terrestrial carbon. For the purposes of this chapter, we will isolate the ocean component of IMOGEN. The ocean component is based on the
+model of \cite{Joos1996} which represents ocean carbon in terms of an impulse response to atmospheric \ce{CO2}.
+
+It calculates the changes in dissolved inorganic carbon in the surface water as
+\begin{equation}
+  \label{eq:imogen_upper_ocean_carbon}
+  \delta \Sigma \ce{CO2} = \int_0^{t} F_{a}(t-s)G_{I}(s)\dd{s}.
+\end{equation}
+where $F_a$ is the atmosphere to ocean flux of carbon and $G_I$ is IMOGEN's impulse-response function. This function is defined as
+\begin{equation}
+  \label{eq:imogen_impulse_response}
+  G_I(t) =
+  \begin{cases}
+    1 - 2.2617t + 14.002t^2 - 48.770t^3 & t \leq \SI{1}{\year} \\
+    f_0 + \sum_{i=1}^{5} f_i e^{-t/\tau_i} & t > \SI{1}{\year}
+  \end{cases}
+\end{equation}
+where $f_0=0.014819,f_1 = 0.70367,f_2=0.24966,f_3=0.066485,f_4 = 0.038344,f_5=0.019439$ and $\tau_1= 0.70177,\tau_2 = 2.3488,\tau_3=15.281,\tau_4 = 65.359,\tau_5 = 347.55$.
+The carbon flux is given by
+\begin{equation}
+  \label{eq:imogen_ocean_atmosphere_flux}
+  F(t) = k \left(\Delta C_a - \Delta C_o\right)
+\end{equation}
+where $\Delta C_a$ and $\Delta C_o$ are the perturbations in atmospheric and ocean carbon. To take into account ocean temperature feedbacks on the ocean carbon cycle $\Delta C_o$ and
+$\delta \Sigma \ce{CO2}$ are related by
+\begin{equation}
+  \label{eq:imogen_temp_feedback}
+  \Delta C_o = g(T_o,\delta \Sigma \ce{CO2})e^{0.0423\delta T_o}
+\end{equation}
+where $T_o$ is the initial ocean temperature, $\delta T_o$ is the change in ocean temperature and $g$ is a quintic polynomial in $\delta \Sigma \ce{CO2}$ whose coefficents depend on $T_o$.
+\subsection{Terrestrial Carbon Cycle}
+The total avaliable carbon is a constant given by $\mathcal{C}  = C_s + C_a + C_o$ where $C_s$ is the soil carbon, $C_a$ is the atmospheric carbon  and $C_o$ is the ocean carbon.
+Therefore to close the system only the land carbon dynamics need to be set, with the dynamics of atmospheric carbon being set by this conservation law.
+
+The change in soil carbon is given by the difference between net primary productivity and heterotrophic respiration. Heterotrophic
+respiration has the following form:
+\begin{equation}
+  \label{eq:heterotrophic_respiration}
+  R_h = r_0 C_s Q_{10}^{T_a/10} = r_0 C_s e^{\alpha T_a}
+\end{equation}
+where $T_a$ is the change in atmospheric temperature, $r_0$ is a reference respiration level and $\alpha = 0.1\log Q_{10}$ is the strength of the temperature feedback.
+
+It is assumed that $T_a$ depends logarithmically on temperature
+\begin{equation}
+  \label{eq:air_temperature}
+  T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}}
+\end{equation}
+where $C_{a0}$ is a reference \ce{CO2} level, set at \SI{589}{\peta\gram\carbon}. The parameter $S$ is a land-weighted climate sensitivity. This can be combined \cref{eq:heterotrophic_respiration}
+to give
+\begin{equation}
+  \label{eq:heterotrophic_respiration_combined}
+  R_h = r_0 C_s \left( \frac{C_a}{C_{a0}}\right)^{\mu}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:mu}
+  \mu = \frac{1}{\log 2} \alpha S.
+\end{equation}
+
+
+Following \cite{Cox2006}, net primary productivity is modelled as
+\begin{equation}
+  \label{eq:npp}
+  \Pi(C_a) = \Pi_{\infty}\frac{C_a}{C_a + C_{1/2}},
+\end{equation}
+which is an increasing function of \ce{CO2} that saturates for $C_a \gg C_{1/2}$. Unless otherwise stated, $C_{1/2} = \SI{280}{\ppm}$, which is compatible with other estimates
+\parencite{KolbySmith2016,Wenzel2016}. This parameter controls the strength of the \ce{CO2} fertilisation feedback. \Cref{eq:npp} assumes that net primary productivity depends only
+on \ce{CO2}. Allowing for other factors like nitrogen limitation would act to reduce the effective $C_{1/2}$ value. $\Pi_{\infty}$ is set so that $\Pi(C_{a0})$ is the preindustrial
+level of net primary productivity \SI{55}{\peta\gram\carbon\per\year}.
+
+Putting this all together leads to the following set of coupled differential equations:
+\begin{subequations}
+  \label{eq:imogen_deterministic}
+  \begin{align}
+    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 \left(\frac{C_a}{C_{a0}}\right)^\mu \\
+    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
+    C_a             &= \mathcal{C} - C_s - C_o \\
+    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
+  \end{align}
+\end{subequations}
+where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
+so both parameters will affect the bifurcation point.
+
+\subsection{Bifurcations in IMOGEN}
+In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comparable to the $S$ values
+predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
+  \caption{Trajectories for IMOGEN, assuming $Q_{10} = 2$}
+  \label{fig:imogen_trajectories}
+\end{figure}
+We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in \cref{fig:critical_S_vs_Q10}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{imogen_critical_values}
+  \caption{Critical $S$ values as a function of $Q_{10}$}
+  \label{fig:critical_S_vs_Q10}
+\end{figure}
+
+As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
+near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the `stable branch of the carbon cycle.
+%In \cref{fig:imogen_ca_variability,fig:imogen_ca_autocorrelation}
+%I show how the variability in atmospheric carbon varies with the control parameters.
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_std.pdf}
+%  \caption{Standard Deviation of Atmospheric Carbon as a function of $Q_10$ and $S$}
+%  \label{fig:imogen_ca_variability}
+%\end{figure}
+%\begin{figure}
+%  \centering
+%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_ac.pdf}
+%  \caption{Autocorrelation of Atmospheric Carbon as a function of $Q_10$ and $S$}
+%  \label{fig:imogen_ca_autocorrelation}
+%\end{figure}
+%To calculate these statistics I introduce noise into the system in terms of global temperature:
+%\begin{subequations}
+%  \label{eq:imogen_noise}
+%  \begin{align}
+%    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 e^{\alpha T_{s}} \\
+%    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
+%    c\dv{T}{t}       &= -\gamma\frac{Q_{2\times}}{S} T + \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} + \sigma_Q \xi \\
+%    C_a             &= \mathcal{C} - C_s - C_o \\
+%    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}} \\
+%    T_s             &= \gamma T
+%  \end{align}
+%\end{subequations}
+%where $S = \gamma \mathrm{ECS}$, $c = \SI{10.0}{\watt\year\per\meter\squared\per\kelvin}$ is the heat capacity, $\xi$ is white noise
+%and $\sigma_Q = \SI{0.5}{\watt\per\meter\squared}$. Observed interannual variability in \ce{CO2} is around \SI{0.7}{\ppm}, so it appears that this system is too variable even at low
+%values of $S$. This probably relates to the low strength of the \ce{CO2} fertilisation effect.
+
+To be more complete, I use this IMOGEN model to estimate the critical $S$ as a function of $Q_{10}$ and $C_{1/2}$, the parameter that controls the \ce{CO2} fertilisation effect. This
+is plotted in \cref{fig:imogen_bifurcation_plane}.
+
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
+  \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilisation and the strength of respiration feedback}
+  \label{fig:imogen_bifurcation_plane}
+\end{figure}
+
+
 \section{Ocean Model}
 I will neglect temperature and chemical feedbacks on the ocean response and assume it behaves linearly to elevated \ce{CO2} levels. I will further assume that the ocean carbon carbon uptake
 can be viewed as $N$ non-interacting boxes which each respond over a timescale $\tau_i$ where $i$ indexes the boxes. A fraction $f_i$ of the total carbon
@@ -154,6 +301,8 @@ least squares fit to the one and two box models giving the parameter estimates s
 
 These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in capturing the
 historical record of ocean carbon uptake. However the two box model does substantially better.
+
+
 
 \section{One Box Ocean}
 Although the two-box ocean model does better than the one box ocean model in fitting the observed carbon sink, the one box model is simpler
@@ -404,87 +553,6 @@ which show the eigenvalues cross the imaginary axis at the predicted bifurcation
 Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
 In all my integrations, there did not appear to be a bifurcation at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
 parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevance to the climate system.
-\section{IMOGEN}
-\subsection{IMOGEN description}
-This is as far as can be gotten analytically. To increase realism further, only numerical analysis is possible. However the previous analytical results give confidence in the robustness
-of the bifurcation.
-
-Now, I will use the IMOGEN model, which can be used to model ocean carbon uptake. The full IMOGEN model is typically used in conjunction with the land surface model JULES,
-however here I will make use only of the ocean component. Similarly the box models previously described, IMOGEN's impulse response function to elevated \ce{CO2} is a sum of exponentials,
-in this case six.
-However it is not just integrated against the change in \ce{CO2} but instead a nonlinear function of atmospheric carbon, ocean carbon and ocean temperature. The climate carbon system with IMOGEN
-can be written symbolically as
-\begin{subequations}
-  \label{eq:imogen_deterministic}
-  \begin{align}
-    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 \left(\frac{C_a}{C_{a0}}\right)^\mu \\
-    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
-    C_a             &= \mathcal{C} - C_s - C_o \\
-    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
-  \end{align}
-\end{subequations}
-where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that now $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
-so both parameters will affect the bifurcation point.
-
-\subsection{Bifurcations in IMOGEN}
-In \cref{fig:imogen_trajectories} The atmospheric carbon calculated using IMOGEN is plotted for a variety of $S$ values. It is clear that at $S$ values comparable to the $S$ values
-predicted in the one-and two- box case the carbon cycle undergoes a bifurcation, in this case a Hopf.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
-  \caption{Trajectories for IMOGEN, assuming $Q_{10} = 2$}
-  \label{fig:imogen_trajectories}
-\end{figure}
-We can investigate this more thoroughly by plotting the critical $S$ values required for a bifurcation against the $Q_{10}$ values. This is done in \cref{fig:critical_S_vs_Q10}.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,keepaspectratio]{imogen_critical_values}
-  \caption{Critical $S$ values as a function of $Q_{10}$}
-  \label{fig:critical_S_vs_Q10}
-\end{figure}
-
-As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
-near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the `stable branch of the carbon cycle.
-%In \cref{fig:imogen_ca_variability,fig:imogen_ca_autocorrelation}
-%I show how the variability in atmospheric carbon varies with the control parameters.
-%
-%\begin{figure}
-%  \centering
-%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_std.pdf}
-%  \caption{Standard Deviation of Atmospheric Carbon as a function of $Q_10$ and $S$}
-%  \label{fig:imogen_ca_variability}
-%\end{figure}
-%\begin{figure}
-%  \centering
-%  \includegraphics[keepaspectratio,width=\textwidth]{imogen_co2_ac.pdf}
-%  \caption{Autocorrelation of Atmospheric Carbon as a function of $Q_10$ and $S$}
-%  \label{fig:imogen_ca_autocorrelation}
-%\end{figure}
-%To calculate these statistics I introduce noise into the system in terms of global temperature:
-%\begin{subequations}
-%  \label{eq:imogen_noise}
-%  \begin{align}
-%    \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 e^{\alpha T_{s}} \\
-%    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
-%    c\dv{T}{t}       &= -\gamma\frac{Q_{2\times}}{S} T + \frac{Q_{2\times}}{\log 2} \log \frac{C_a}{C_{a0}} + \sigma_Q \xi \\
-%    C_a             &= \mathcal{C} - C_s - C_o \\
-%    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}} \\
-%    T_s             &= \gamma T
-%  \end{align}
-%\end{subequations}
-%where $S = \gamma \mathrm{ECS}$, $c = \SI{10.0}{\watt\year\per\meter\squared\per\kelvin}$ is the heat capacity, $\xi$ is white noise
-%and $\sigma_Q = \SI{0.5}{\watt\per\meter\squared}$. Observed interannual variability in \ce{CO2} is around \SI{0.7}{\ppm}, so it appears that this system is too variable even at low
-%values of $S$. This probably relates to the low strength of the \ce{CO2} fertilisation effect.
-
-To be more complete, I use this IMOGEN model to estimate the critical $S$ as a function of $Q_{10}$ and $C_{1/2}$, the parameter that controls the \ce{CO2} fertilisation effect. This
-is plotted in \cref{fig:imogen_bifurcation_plane}.
-
-\begin{figure}
-  \centering
-  \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
-  \caption{Values of $S$ at the bifurcation point as a function of \ce{CO2} fertilisation and the strength of respiration feedback}
-  \label{fig:imogen_bifurcation_plane}
-\end{figure}
 
 \section{Model Comparison}
 In this section, I have introduced 3 models for the Earth's carbon cycle: a one-box, a two-box and a more complex model. Each model suggests the carbon cycle
