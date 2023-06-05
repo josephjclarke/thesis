@@ -488,10 +488,9 @@ Unlike the other two models, the one box model does not give any oscillatory beh
 oscillations down at large enough $S$, and no carbon is found in the atmosphere. However the two box model and IMOGEN give qualitative agreement on the amplitude of the limit cycles beyond the bifurcation
 point.
 
-
-\subsection{Parameter Estimation}
+\subsection{Ocean Parameter Estimation}
 \label{sec:ocean_uptake}
-\Cref{eq:ocean_response} can then be fitted to observed changes in ocean carbon\todo{give details} to estimate the
+\Cref{eq:ocean_response} can be fitted to observed changes in ocean carbon to estimate the
 parameters $f_i$ and $\tau_i$. I will do this for a one box model, in which only $\tau_1$ needs to be estimated and
 for a two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The quantity $f_2$ is determined by the requirement that $f_1 + f_2 = 1$.
 \begin{table}
@@ -522,10 +521,12 @@ least squares fit to the one and two box models giving the parameter estimates s
   \label{fig:fits_from_one_and_two}
 \end{figure}
 
-
 These fits are plotted in \cref{fig:fits_from_one_and_two}. It can be seen that both one and two box models do a reasonable job in capturing the
 historical record of ocean carbon uptake. However the two box model does substantially better.
 
+These parameters can also be compared to the ones used to make the bifurcation point in IMOGEN line up with the bifurcation points in the one and two box models. In the one box model case,
+the single parameter $\tau_1$ is close to that used to match the IMOGEN case. In the two box case, parameters $\tau_1$ and $f_1$ are similar, however the second timescale obtained from observations
+is much shorter.
 
 \section{Conclusion}
 In this chapter I have taken a simple but but realistic model of the carbon cycle and shown that only certain parameter values are compatible with the qualitiative behaviour
