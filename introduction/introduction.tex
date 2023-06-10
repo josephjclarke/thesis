@@ -5,33 +5,33 @@
 Take a pan of water and heat it up. As its temperature rises, some of the water's properties may change. For example, the viscosity and heat flux to the
 environment may change. However, the water still remains as water and these changes will vary continuously with the water temperature. However, if the water is heated beyond
 a critical temperature of \SI{100}{\degreeCelsius} something more dramatic happens and the water boils away. The properties of the resulting steam are quite different
-to the original water --- a \emph{qualitiative} change has occured.
+to the original water --- a \emph{qualitative} change has occurred.
 
 It is this sort of qualitative change that this thesis shall be concerned with. Whilst the boiling of water is a phase transition \parencite{Goldenfeld1992}, I shall use the broader terminology
 of \emph{tipping points} \parencite{Lenton2008} or \emph{critical transitions} \parencite{Rahmstorf1995} or \emph{abrupt changes} \parencite{Alley2003} to describe these phenomena. I shall largely stick
-to the term tipping point, or just tipping, which has its origins in the idea that when an object is leant over it will return to its original position unless it is leant over sufficently far when the object
+to the term tipping point, or just tipping, which has its origins in the idea that when an object is lent over it will return to its original position unless it is lent over sufficiently far when the object
 will tip over.
 
 \subsection{Definitions}
 
 Although it can be a vague term, the concept of a small nudge leading to a large change generally forms a part of most formal definitions of tipping points.
-For example,~\cite{Lenton2008} defines the occurance of a tipping
-point as when a control parameter, there is a critical valuem $\rho_{\mathrm{crit}}$ of a control parameter, $\rho$, above which any significant variation, $\delta \rho > 0$ leads to a qualitative change
+For example,~\cite{Lenton2008} defines the occurrence of a tipping
+point as when a control parameter, there is a critical value $\rho_{\mathrm{crit}}$ of a control parameter, $\rho$, above which any significant variation, $\delta \rho > 0$ leads to a qualitative change
 $\hat{F}$ of a system feature $F$, after some observation time $T > 0$. They write this mathematically as
 \begin{equation}
   \label{eq:lenton_tipping_definition}
   |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho|T)| \geq \hat{F} > 0.
 \end{equation}
 More recently,~\cite{ArmstrongMcKay2022} updated this definition by requiring $\delta \rho$ to be within the natural variability of the system. They also require that changes become self perpetuating
-beyond $\rho_{\mathrm{crit}}$ as a result of the asymmetry of relevant feedbacks and that the tipping leads to `substantial' impacts. The IPCC \parencite{AR6} defines tippings differently still
+beyond $\rho_{\mathrm{crit}}$ as a result of the asymmetry of relevant feedbacks and that the tipping leads to `substantial' impacts. The IPCC \parencite{AR6} defines tipping differently still
 as `a level of change in system properties beyond which a system reorganises, often in a nonlinear manner, and does not return to the initial state even if the drivers of the change are abated'.
 Others, such as~\cite{Wang2023}, inspired by~\cite{Kopp2016}, insist that tipping points should occur on fast time scales.
 
-Each of these definitions are deficent in their own way. The IPCC definition allows for linear behaviour, although tipping is a fundamentally nonlinear phenomenon. It also insists on \emph{hysteresis},
+Each of these definitions are deficient in their own way. The IPCC definition allows for linear behaviour, although tipping is a fundamentally nonlinear phenomenon. It also insists on \emph{hysteresis},
 which is the property that the system does not return to its initial state after abating the drivers, although not all examples of tipping --- including boiling water --- experience this.
-The complex definition in~\cite{Lenton2008} views tipping in terms of changes in parameters of a system, and not something a system can do spontaneouslty, which excludes certain types of
+The complex definition in~\cite{Lenton2008} views tipping in terms of changes in parameters of a system, and not something a system can do spontaneously, which excludes certain types of
 tipping (see \cref{sec:tipping_typology}). The third definition, that of~\cite{ArmstrongMcKay2022}, suffers from the problems of~\cite{Lenton2008} and also requires `substantial' impacts, which
-artifically restricts the abrupt shifts that can be investigated. Finally,the requirement of~\cite{Wang2023} that tipping points be realised quickly is problematic for Earth System investigations
+artificially restricts the abrupt shifts that can be investigated. Finally,the requirement of~\cite{Wang2023} that tipping points be realised quickly is problematic for Earth System investigations
 as some of the tipping points of interest will be realised slowly.
 
 In this thesis, I will use the term tipping point in the sense that a system undergoes a tipping point when it experiences a qualitative change in its properties. Although this is a vague definition,
@@ -40,7 +40,7 @@ it enables the term tipping point to include all dynamics of interest. I am adop
 
 \subsection{Examples of Tipping}
 
-These sorts of nonlinear changes have long facinated scientists. Physicists have investigated phase changes not just in terms of the boiling and freezing of substances but also
+These sorts of nonlinear changes have long fascinated scientists. Physicists have investigated phase changes not just in terms of the boiling and freezing of substances but also
 in magnetic materials \parencite{Ising1925,Onsager1944}, superconductivity \parencite{Landau1965} and percolation theory \parencite{Flory1941}. Each of these are different processes, but it is a
 remarkable fact that near the phase transition different systems can be dynamically very similar, a phenomenon known as universality \parencite{Wilson1983}. This sort of idea --- that different examples
 of tipping points across totally different systems can share many common features as been an important driving force in the theory of tipping points. 
@@ -48,7 +48,7 @@ of tipping points across totally different systems can share many common feature
 Tipping points are also important in biology. In medicine, tipping point theory has been used to help understand asthma attacks \parencite{Donovan2022} and sleeping dynamics \parencite{Skeldon2014}.
 Tipping points have proven very important in ecology. In an influential article, \parencite{May1976}, the ecologist Robert May noted that even very simple nonlinear models have rich dynamics and are capable
 of experiencing tipping points (although he did use that term).~\cite{Holling1973} introduced the idea of resilience which is to do with the ability of a system to resist tipping. Tipping points have
-been found in a range of ecosystems \parencite{Scheffer2001,Dakos2019}. The transition to turbid state in lakes \parencite{Scheffer1993} and the collapse of plant-polinator communities
+been found in a range of ecosystems \parencite{Scheffer2001,Dakos2019}. The transition to turbid state in lakes \parencite{Scheffer1993} and the collapse of plant-pollinator communities
 \parencite{Lever2014} are both examples of ecological tipping points, however other studies \parencite{Hillebrand2020} have challenged this.
 
 Notions of multiple equilibria and the ability to transition between them has been used to explain patterns seen in nature. This was introduced by Turing \parencite{Turing1952} to explain
@@ -56,30 +56,30 @@ patterns found in certain plants and animals. Since then, it has been used to ex
 
 \section{Tipping Points in the Earth System}
 Whilst part of this thesis is applicable to many systems, the focus of this work has been on applications to the Earth system. In this section I want to give some background on these tipping
-points, including outlining some mechanisms. I will focus on a few key sub subsistems. I will then discuss some of the evidence for tipping behaviour in the Earth's past.
+points, including outlining some mechanisms. I will focus on a few key sub subsystems. I will then discuss some of the evidence for tipping behaviour in the Earth's past.
 
 The most recent IPCC report \parencite{AR6} finds it `unequivocal that human influence has warmed the atmosphere, ocean and land'. Humans have done this through the release of greenhouse
 gases, most importantly carbon dioxide (\ce{CO2}), and also through land use change. This has led to observable changes in the Earths climate. Most obvious is the changes in global mean surface
 temperature, with a most likely temperature increase of \SI{1.07}{\kelvin} \parencite{AR6} in the global mean but with clear regional differences \parencite{Morice2021} such as
-artic amplification as well as more warming over land than over ocean. Other effects include rise of around \SI{0.2}{\meter} in sea levels \parencite{Frederikse2020} and increase in heavy precipitation
+Arctic amplification as well as more warming over land than over ocean. Other effects include rise of around \SI{0.2}{\meter} in sea levels \parencite{Frederikse2020} and increase in heavy precipitation
 events \parencite{Fischer2016}.
 
 \subsection{Tipping at the global scale}
-This global warming is unprecidented in at least the last 2000 years and has caused global temperature levels not seen in the last $125,000$ years \parencite{AR6}. This naturally leads to a question
+This global warming is unprecedented in at least the last 2000 years and has caused global temperature levels not seen in the last $125,000$ years \parencite{AR6}. This naturally leads to a question
 about the nature of the change the Earth system is experiencing: will it be a smooth function of increasing \ce{CO2} or is tipping behaviour possible?
 
-A controvertial paper,~\cite{Steffen2018}, considered the possiblity that ongoing global warming could make the Earth transition from its current current glacial-interglacial limit cycle
+A controversial paper,~\cite{Steffen2018}, considered the possibility that ongoing global warming could make the Earth transition from its current current glacial-interglacial limit cycle
 state into a new `hothouse' state. This state would be defined by high temperatures and sea levels, posing challenges both to humanity and the wider biosphere. This state would be reached
 through biogeochemical feedbacks leading to a cascade of tipping points. This would require humanity to operate with certain `planetary boundaries' \parencite{Rockstrom2009} to avoid this possibility.
 
-Part of the reason~\cite{Steffen2018} proved so controvertial is that there is little evidence this nonlinear response at the global scale. Global temperature rise is approximatly linear
+Part of the reason~\cite{Steffen2018} proved so controversial is that there is little evidence this nonlinear response at the global scale. Global temperature rise is approximately linear
 in emitted carbon dioxide \parencite{Allen2009,Rogelj2019} and not expected to continue after emissions cease \parencite{MacDougall2020}. However certain cloud resolving models
-report that at suffiently high levels of global warming stratocumulus cloud decks can break up causing \SI{8}{\kelvin} of warming globally \parencite{Schneider2019}.
+report that at sufficiently high levels of global warming stratocumulus cloud decks can break up causing \SI{8}{\kelvin} of warming globally \parencite{Schneider2019}.
 
 \subsection{Tipping Elements}
 
 However there is still the possibility of more regional tipping point behaviour. A foundational paper,~\cite{Lenton2008}, introduced the notion of \emph{tipping elements} which
-are components of the Earth system that are `at least subcontinential in scale' ($\mathcal{O}(\SI{1000}{\kilo\meter}$) which can undergo tipping behaviour as a result of
+are components of the Earth system that are `at least subcontinental in scale' ($\mathcal{O}(\SI{1000}{\kilo\meter}$) which can undergo tipping behaviour as a result of
 anthropogenic influence. Lenton lead an expert elicitation of potential tipping elements in the Earth system to estimate how much warming would be needed to trigger the tipping element
 and what the key uncertainties were. More recently,~\cite{ArmstrongMcKay2022} updated this study by reviewing the literature published since.  Following this, I will discuss some key tipping elements.
 
@@ -91,21 +91,21 @@ warm surface water is transported northwards where it cools and becomes more den
 The potential for the AMOC to exhibit bistability was postulated by Stommel in a pioneering paper \parencite{STOMMEL1961}. He showed in a simple two box model that if the North Atlantic was
 freshened then the salt-advection feedback means that meridional transport could shift to a different state. Later work \parencite{Rahmstorf1995,Hawkins2011} found multistability in
 complex ocean models, when the north Atlantic was subject to a `hosing' experiment in which fresh water was added to the oceans. Other research has shown the AMOC is sensitive to the
-rate of hosing \parencite{Alkhayuon2019} in a complex way \parencite{Lohmann2021} in that there is not one critical rate of hosing. By this is meant that there is no well definied critical
+rate of hosing \parencite{Alkhayuon2019} in a complex way \parencite{Lohmann2021} in that there is not one critical rate of hosing. By this is meant that there is no well defined critical
 hosing rate but that increasing the rate will switch the rate from a dangerous one and back again.
 
 Increased arctic precipitation, melting of the Greenland icesheet and increases in surface temperatures all act to weaken the AMOC \parencite{ArmstrongMcKay2022}.
-Over the past half century, there is evidence that the AMOC has weaken by around 15\% \parencite{Caesar2018} and might be the weakest in a millenium \parencite{Caesar2021}.
+Over the past half century, there is evidence that the AMOC has weaken by around 15\% \parencite{Caesar2018} and might be the weakest in a millennium \parencite{Caesar2021}.
 There is observational evidence of decreasing AMOC stability \parencite{Boers2021a,Michel2022}. Some CMIP5 models show AMOC tipping at low
 levels of global warming \parencite{Drijfhout2015}, although most models show only a gradual decline in the AMOC, which is helps explain why~\cite{AR6} view AMOC shutdown as
-being unlikely, although they view the modelled AMOCs as being unrealistically stable. \cite{ArmstrongMcKay2022} estimate the AMOC's theshold to be at \SI{4}{\degreeCelsius},
+being unlikely, although they view the modelled AMOCs as being unrealistically stable. \cite{ArmstrongMcKay2022} estimate the AMOC's threshold to be at \SI{4}{\degreeCelsius},
 with a range of \SIrange{1.4}{8}{\degreeCelsius}.
 
 Should the AMOC tip, this would have serious impacts on British agriculture \parencite{Ritchie2020a}, global climate \parencite{Jackson2015} and the carbon cycle \parencite{Bozbiyik2011}.
 
 \subsubsection{Ice Sheets}
 \subsubsection{Amazon Rainforest}
-But more regional? But low likeihood, high impact.
+But more regional? But low likelihood, high impact.
 What are tipping elements. Ice sheets. AMOC. Amazon. Permafrost? Sea Ice?
 
 Localised tipping. Reefs, compost bomb? Fire? Clouds?
@@ -148,7 +148,7 @@ Consider the Allee Effect \parencite{Allee1932,Stephens1999}.
   \dot{x} = x\left(x-1\right)\left(1-\frac{x}{k}\right).
 \end{equation}
 Assume $k > 1$. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. If the system is
-initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system recieves a kick of
+initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
 this magnitude or greater then the system will transition to the extinction state.
 
 %Phase tipping?
@@ -156,7 +156,7 @@ this magnitude or greater then the system will transition to the extinction stat
 \section{Early Warning Signals}
 Systems behaving 1D. Critical Slowing Down. Use of variance and
 autocorrelation. Other methods. Fluctuation dissipation theorem.
-Resiliance. Critical Speeding up. Hasselmann. Loreenz. Leith. 
+Resilience. Critical Speeding up. Hasselmann. Loreenz. Leith. 
 Why is it hard to model?
 \section{Non-autonomous Topics}
 Overshoot. Timescales. Slow fast systems.
