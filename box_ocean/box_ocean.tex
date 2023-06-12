@@ -12,19 +12,25 @@ I will neglect the role of biochecmical heating as \cref{chapter:global_bomb} fo
 \section{Background}
 
 \subsection{Climate Response to Radiative Forcing}
-When certain gases, known as Greenhouse Gases, are emitted into the atmosphere they can affect global temperatures.
-They do this by absorbing infrared radiation emitted by the Earth's surface and re-radiating it to space at a lower temperature.
+When greenhouse gases are emitted into the atmosphere they can affect global temperatures.
+by absorbing infrared radiation emitted by the Earth's surface and re-radiating it to space at a lower temperature.
 The effect of this is that less energy is radiated away to space than it did before the emission of greenhouse gases. To be in
 equilibrium, the energy received from the Sun must equal the energy radiated to space by the Earth. As less radiation is now
 emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it
-radiates to restore equilibrium.
+radiates until it reaches equilibrium.
 
 The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. Let $T$ be
-the global mean temperature assume that $N(T)$, the net radiation received by the Earth, depends on $T$. In equilibrium $N$ is zero. If there is
-a small radiative forcing $\Delta Q$ then $T$ must change to ensure $N = 0$. The change in global mean temperatures is
+the global mean temperature and assume that $N$, the net radiation received by the Earth, depends on $T$. After emitting a greenhouse gas
+the change in the top of atmosphere energy flux can split into a forcing, $\Delta Q$, and feedback, $\lambda \Delta T$, component
+\begin{equation}
+  \label{eq:deltaN}
+  \Delta N = \Delta Q - \lambda \Delta T.
+\end{equation}
+
+In equilibrium $\Delta N$ is zero. Hence the change in global mean temperatures is
 \begin{equation}
   \label{eq:response_to_radiative_forcing}
-  \Delta T = -\pdv{N}{T}^{-1} \Delta Q.
+  \Delta T = \frac{\Delta Q}{\lambda}.
 \end{equation}
 The quantity
 \begin{equation}
