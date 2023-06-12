@@ -12,16 +12,16 @@ I will neglect the role of biochecmical heating as \cref{chapter:global_bomb} fo
 \section{Background}
 
 \subsection{Climate Response to Radiative Forcing}
-When greenhouse gases are emitted into the atmosphere they can affect global temperatures.
+When greenhouse gases are emitted into the atmosphere they affect global temperatures
 by absorbing infrared radiation emitted by the Earth's surface and re-radiating it to space at a lower temperature.
 The effect of this is that less energy is radiated away to space than it did before the emission of greenhouse gases. To be in
 equilibrium, the energy received from the Sun must equal the energy radiated to space by the Earth. As less radiation is now
 emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it
-radiates until it reaches equilibrium.
+radiates until it reaches equilibrium \parencite{Pierrehumbert2010}. 
 
 The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. Let $T$ be
 the global mean temperature and assume that $N$, the net radiation received by the Earth, depends on $T$. After emitting a greenhouse gas
-the change in the top of atmosphere energy flux can split into a forcing, $\Delta Q$, and feedback, $\lambda \Delta T$, component
+the change in the top of atmosphere energy flux can split \parencite{Gregory2004} into a forcing term, $\Delta Q$, and feedback term, $\lambda \Delta T$
 \begin{equation}
   \label{eq:deltaN}
   \Delta N = \Delta Q - \lambda \Delta T.
@@ -44,15 +44,17 @@ the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atm
   \label{eq:definition_of_ECS}
   \mathrm{ECS} = \frac{Q_{2\times}}{\lambda}
 \end{equation}
-known as \emph{Equilibrium Climate Sensitivity} which is measured in \si{\kelvin}.
+known as \emph{Equilibrium Climate Sensitivity} which is measured in \si{\kelvin} \parencite{Charney1979}.
 
 Implicit in this definition is the idea that $Q_{2\times}$ is well defined. It is an empirical fact that over a range of concentrations the radiative forcing
-of $\ce{CO2}$ varies with the logarithm of its concentration, and so the notion of a radiative forcing due to doubling is well defined. It is also usually assumed that
-$\mathrm{ECS}$ is a constant independent of background climate state. Whilst this appears to be a good approximation, it has been challenged.
+of $\ce{CO2}$ varies to a good approximation with the logarithm of its concentration \parencite{Pierrehumbert2010}, and so the notion of a radiative forcing due to doubling is well defined.
+It is also usually assumed that $\mathrm{ECS}$ is a constant independent of background climate state. Whilst this appears to be a good approximation, some authors
+have investigated its state dependence \parencite{Ashwin2019,Caballero2013}.
 
-The value of $\mathrm{ECS}$ is uncertain. State of the art climate models (CMIP6) do not agree on its value, and give a range of \SIrange{1.8}{5.6}{\kelvin}, which represents an
-increase in uncertainty from CMIP5. However, these estimates should be combined with other observational estimates as well as paleoclimate records. Doing this sort of
-analysis leads the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin}.
+The value of $\mathrm{ECS}$ is uncertain. State of the art climate models (CMIP6) do not agree on its value, and give a range of
+\SIrange{1.8}{5.6}{\kelvin} \parencite{Zelinka2020}, which represents an increase in uncertainty from CMIP5.
+However, these estimates should be combined with other observational estimates as well as paleoclimate records \parencite{Sherwood2020}. This analysis of multiple lines 
+of evidence lead the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin} \parencite{AR6}.
 
 \subsection{Terrestrial Carbon Cycle Response to \ce{CO2}}
 Whilst the above discussion of $\mathrm{ECS}$ treats the amount of $\ce{CO2}$ in the atmosphere as a given quantity, in reality it is also affected by the climate
