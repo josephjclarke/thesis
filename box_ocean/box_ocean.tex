@@ -321,13 +321,13 @@ The stability of this system is governed by $\Re \gamma$. This number is control
 $\Re \gamma = B / 2\tau C_{a0}$. 
 
 \subsection{Real Eigenvalues}
-If $\tau < 1/r_0$ then $\Delta > 0$ for all values of $\mu$. As $1/r_0 \approx 30$ year this situation represents a relatively fast ocean response.
+If $\tau < 1/r_0$ then $D > 0$ for all values of $\mu$. As $1/r_0 = C_{s0}/\Pi_0 \approx \SI{30}{\year}$ this situation represents a relatively fast ocean response.
 Under this assumption, it turns out that $\gamma_+ > 0$ when
 \begin{equation}
   \label{eq:instability_condition_one_box_fast}
   \mu^* = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau.
 \end{equation}
-It is interesting to compare this to the condition given in \cref{eq:mu_infinity}. If the parameter $\chi_0$ is introduced and set to $\chi_0 = k \tau$.
+It is interesting to compare this to the condition given in \cref{eq:mu_infinity}. If the parameter $\chi_0$ is introduced, as by~\cite{Cox2006}, and set to $\chi_0 = k \tau$.
 then \cref{eq:instability_condition_one_box_fast} is identical to \cref{eq:mu_infinity}. This gives an interpretation to $\chi_0$ as the ratio of the timescale of the ocean carbon flux
 to the timescale of its response. Previously, $\chi_0$ was interpreted as a fraction. This can be done only if $\tau < 1/k = \SI{5}{\year}$.
 \begin{figure}
@@ -337,12 +337,12 @@ to the timescale of its response. Previously, $\chi_0$ was interpreted as a frac
   \label{fig:fast_response_bf_diagram}
 \end{figure}
 
-The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram}.
-I set $\tau = \SI{3.7}{\year}$. The dashed line represents the position of the analytically calculated bifurcation point.
+The system \cref{eq:one_box_ocean} is integrated to equilibrium and the equilibria are plotted as a function of $\mu$ in \cref{fig:fast_response_bf_diagram},
+with $\tau = \SI{3.7}{\year}$. The dashed line represents the position of the analytically calculated bifurcation point.
 It can been seen that the agreement is good, and that this is a transcritical bifurcation.
 
 \subsection{Complex Eigenvalues}
-In the case where the ocean timescale is larger than $1/r_0$, then $\Delta < 0$. This means if the ocean response is considered to have a long timescale,
+In the case where the ocean timescale is larger than $1/r_0$, then $D < 0$. This means if the ocean response is considered to have a long timescale,
 the stability of the system is given by the sign of $B$.
 
 The value of $B$ will become positive when $\mu$ exceeds the following threshold:
@@ -354,9 +354,7 @@ The value of $B$ will become positive when $\mu$ exceeds the following threshold
 \end{equation}
 This is similar to the conditions derived in \cref{eq:mu_infinity,eq:instability_condition_one_box_fast} except now $\chi_0 = k\tau\left(1 + \frac{1}{k\tau} \right) \frac{1}{r_0\tau} \approx k/r_0$
 where the approximation assumes $k \gg r_0$. This means the ``fraction absorbed by the oceans'' is now controlled by the ratio of the timescale of the ocean flux as well as the turnover time of the soil.
-Furthermore we are assuming that $\tau r_0 > 1$ in this case and so $\chi_0 > 1$ so it loses its interpretation as a fraction of carbon absorbed.
-
-
+Furthermore the assumption is made that $\tau r_0 > 1$ in this case and therefore $\chi_0 > 1$. This means that $\chi_0$ can't be interpretted as a fraction of carbon absorbed anymore.
 In addition, because $\gamma$ is complex, this bifurcation occurs when the complex conjugate eigenvalue pair crosses the imaginary axis. This means this bifurcation is
 a Hopf bifurcation rather than a transcritical bifurcation.
 \begin{figure}
@@ -365,16 +363,17 @@ a Hopf bifurcation rather than a transcritical bifurcation.
   \caption{Equilibrium Soil Carbon for a one box model as a function of $\mu$ with a slow ocean response.}
   \label{fig:slow_response_bf_diagram}
 \end{figure}
-For the case where $\tau = \SI{300}{\year}$ I integrate \cref{eq:one_box_ocean} so numerically find the equilibrium as a function of $\mu$, which I plot in \cref{fig:slow_response_bf_diagram}.
-Where there is an oscillatory response I plot the maximum and minimum in red. It can be seen that the agreement with the numerics is good.
+For the case where $\tau = \SI{300}{\year}$ \cref{eq:one_box_ocean} was integrated numerically the equilibrium was found as a function of $\mu$,
+which is plotted in \cref{fig:slow_response_bf_diagram}. Where the equilibrium is an osciallation rather than a steady state the plot shows the maximum and minimum of the
+oscillation in red. It can be seen that the agreement with the numerics is good.
 
 Based on the conditions derived in \cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow} the critical value of $\mu$ can be chosen to match the
 bifurcation point predicted by the IMOGEN model. This involves choosing $\tau = \SI{2.23}{\year}$. This puts the ocean into the fast regime, and therefore a transcritical bifurcation.
-This is the wrong sort of bifurcation and so motivates increasing the complexity of the ocean model slightly.
+This is a different sort of bifurcation to the one found in IMOGEN and so motivates increasing the complexity of the ocean model slightly.
 
 \section{Two Box Model}
 \label{sec:two_box}
-To improve the realism of the model, I will now consider the two box ocean case. In order to do this \cref{eq:one_box_ocean} must be modified to include
+To improve the realism of the model, the two box ocean case is now considered. In order to do this \cref{eq:one_box_ocean} must be modified to include
 two ocean stores of carbon $C_1$ and $C_2$. Each box will have their own timescale $\tau$ and $\tau/\epsilon$ respectively. This notation is suggestive of
 $C_1$ being a fast box and $C_2$ being a slow box, although this restriction is not necessary.
 
@@ -392,20 +391,20 @@ Again note the equilibrium at $C_a = C_{a0}$,$C_s = C_{s0}$ and $C_1 = C_2 = 0$.
 of \cref{eq:two_box_ocean} must be computed, which involves finding the roots of a cubic characteristic polynomial.
 Whilst this is possible in principle it is analytically very challenging.
 
-To avoid this therefore I will give some heuristic arguments as to why a Hopf bifurcation occurs at a critical value of $\mu$. I will then solve a special case
-of the characteristic polynomial of the Jacobian, which corresponds to assuming the existence of a Hopf bifurcation. Under this assumption I find
-critical values of $\mu$ at which a Hopf bifurcation could occur, which I then verify with a numerical investigation.
+To avoid this therefore some heuristic arguments are given as to why a Hopf bifurcation occurs at a critical value of $\mu$. A special case of the 
+characteristic polynomial of the Jacobian is solved, which corresponds to assuming the existence of a Hopf bifurcation. Under this assumption 
+critical values of $\mu$ are found at which a Hopf bifurcation could occur, which is then verified with a numerical investigation.
 
 \subsection{A Heuristic Argument}
 For this section, the assumption of a timescale separation in ocean responses will be assumed, namely that $\epsilon \ll 1$. It has already been shown that a long timescale
-single ocean box will lead to a Hopf so it is reasonable to expect that adding a faster box will not change this. Here I give a more mechanistic argument.
+single ocean box will lead to a Hopf so it is reasonable to expect that adding a faster box will not change this. A more mechanistic argument can be formulated as follows.
 
 Due to the timescale
 separation, over short timescales the slow box can be ignored and so it will behave like a one box system. As a result, it can be expected that there
 is a value of $\mu$ which leads to an instability. This instability leads to a high atmospheric carbon state, but the ultimate fate of this carbon will depend on the long-time response of the oceans, in other
-words on the slow box. Over these longer timescales we can treat the system as a one box model with the ocean box corresponding to the slow box.
+words on the slow box. Over these longer timescales the system can be treated as a one box model with the ocean box corresponding to the slow box.
 Over these long timescales the slow ocean box will absorb the excess carbon from the atmosphere which will tend to cool the globe. As a result
-the soil can once again become a sink of carbon. However eventually the soil will contain $C_{s0}$ of soil carbon, but it has already been argued that this state is unstable
+the soil can once again become a sink of carbon. However eventually the soil will contain an amount $C_{s0}$ of soil carbon, but it has already been argued that this state is unstable
 and so the cycle will start again.
 
 \subsection{Computation of Bifurcation Point}
@@ -470,8 +469,8 @@ or
 which correspond does indeed correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
 
 \subsection{Numerical Results}
-To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifurcation, I integrate \cref{eq:two_box_ocean} with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
-Furthermore I numerically compute the eigenvalues of the Jacobian for a range of values of $\mu$. The eigenvalues of the Jacobian are plotted in \cref{fig:eigen_values_of_the_jacobian},
+To test if the value of $\mu$ in \cref{eq:mu_two_box} does correspond to a Hopf bifurcation, \cref{eq:two_box_ocean} was integrated with $f = 0.5$, $\tau = 0.45$ and $\epsilon = 0.004$.
+Furthermore the eigenvalues of the Jacobian were numerically computed for a range of values of $\mu$. The eigenvalues of the Jacobian are plotted in \cref{fig:eigen_values_of_the_jacobian},
 which show the eigenvalues crossing the imaginary axis at the predicted bifurcation point, $\mu_-$.
 \begin{figure}
   \centering
@@ -486,14 +485,14 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
   \label{fig:two_box_bf_diagram}
 \end{figure}
 Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
-In all my integrations, there did not appear to be a bifurcation at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
+No bifurcation was found at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
 parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevance to the climate system.
 
 It can be seen therefore that the two box model is complex enough to reproduce the behaviour of the IMOGEN model but simple enough to be analytically tractable.
 
 \section{Model Comparison}
-In this chapter, I have introduced 3 models for the Earth's carbon cycle: a one-box, a two-box and a more complex model. Each model suggests the carbon cycle
-has bifurcations for large enough values of a sensitivity. In this next figure, \cref{fig:imogen_one_box_two_box} I plot the equilibria for each model.
+In this chapter, the ocean component of the Earth's carbon cycle has been represented in three diferent ways: by a one-box, a two-box and as a more complex model. Each model suggests the carbon cycle
+has bifurcations for large enough values of the climate sensitivity. In this next figure, \cref{fig:imogen_one_box_two_box} the equilibria are plotted for each model.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_one_box_two_box}
@@ -501,8 +500,8 @@ has bifurcations for large enough values of a sensitivity. In this next figure, 
   Equilibria are plotted in black and the minimum and maximum of any oscillations are in red.}
 \label{fig:imogen_one_box_two_box}
 \end{figure}
-I have chosen the ocean parameters so that the bifurcation points line up. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
-was more freedom in the parameter choice. I set $\tau_1 = \SI{0.1}{\year}$, $f = 0.92$ and $\epsilon = 1.6\times 10^{-5}$.
+The ocean parameters have been chosen so that the bifurcation occurs at the same point. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
+was more freedom in the parameter choice. The choice $\tau_1 = \SI{0.1}{\year}$, $f = 0.92$ and $\epsilon = 1.6\times 10^{-5}$ was made.
 
 Unlike the other two models, the one box model does not give any oscillatory behaviour. The two box model gives  oscillations for all values of $S$ above a threshold, whereas IMOGEN shuts the
 oscillations down at large enough $S$, and no carbon is found in the atmosphere. However the two box model and IMOGEN give qualitative agreement on the amplitude of the limit cycles beyond the bifurcation
