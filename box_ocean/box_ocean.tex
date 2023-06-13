@@ -90,15 +90,15 @@ will warm. As the feedback from the land is positive more carbon will be release
 carbon from the land has been released into the atmosphere. However, because of the negative feedbacks in the system (principally \ce{CO2} fertilisation) these positive feedbacks would have to be
 sufficiently strong in order for this to happen.
 
-The fact that there is carbon on land and the low variation in atmospheric \ce{CO2} over the pre-industrial holocene \parencite{Marcott2014,Bauska2015}, therefore indicates something about
+The fact that there is carbon on land and the low variation in atmospheric \ce{CO2} over the pre-industrial Holocene \parencite{Marcott2014,Bauska2015}, therefore indicates something about
 the magnitudes of the land carbon feedback and the climate sensitivity, namely that they cannot be too large.
 To make progress analysing this we must include the effect of the other store of carbon: the ocean.
 
 \section{A Climate-Carbon Cycle model using IMOGEN as the Ocean Component}
 \subsection{IMOGEN description}
 The land surface model JULES is often used in conjunction with IMOGEN \parencite{Huntingford2004,Huntingford2010} which is a model that `closes' the carbon cycle in that it provides
-an atmospheric and oceanic response to changes in terrestrial carbon. For the purposes of this chapter, I will isolate the ocean component of IMOGEN\@. The ocean component is based on the
-model of \cite{Joos1996} which represents ocean carbon in terms of an impulse response to atmospheric \ce{CO2}.
+an atmospheric and oceanic response to changes in terrestrial carbon. In this chapter, the ocean component of IMOGEN will be isolated. The ocean component is based on the
+model of~\cite{Joos1996} which represents ocean carbon in terms of an impulse response to atmospheric \ce{CO2}.
 
 It calculates the changes in dissolved inorganic carbon in the surface water as
 \begin{equation}
@@ -129,23 +129,29 @@ $\delta \Sigma \ce{CO2}$ are related by
 where $T_o$ is the initial ocean temperature, $\delta T_o$ is the change in ocean temperature and $g$ is a quintic polynomial in $\delta \Sigma \ce{CO2}$ whose coefficients depend on $T_o$.
 \subsection{Terrestrial Carbon Cycle}
 The total available carbon is a constant given by $\mathcal{C}  = C_s + C_a + C_o$ where $C_s$ is the soil carbon, $C_a$ is the atmospheric carbon  and $C_o$ is the ocean carbon.
-Therefore to close the system only the land carbon dynamics need to be set, with the dynamics of atmospheric carbon being set by this conservation law.
+Therefore to close the system only the land carbon dynamics need to be set, with the dynamics of atmospheric carbon being controlled by this conservation law.
 
 The change in soil carbon is given by the difference between net primary productivity and heterotrophic respiration. Heterotrophic
 respiration has the following form:
 \begin{equation}
   \label{eq:heterotrophic_respiration}
-  R_h = r_0 C_s Q_{10}^{T_a/10} = r_0 C_s e^{\alpha T_a}
+  R_h = r_0 C_s Q_{10}^{\Delta T_a/10} = r_0 C_s e^{\alpha \Delta T_a}
 \end{equation}
-where $T_a$ is the change in atmospheric temperature, $r_0$ is a reference respiration level and $\alpha = 0.1\log Q_{10}$ is the strength of the temperature feedback.
+where $\Delta T_a$ is the change in atmospheric temperature, $r_0$ is a reference respiration level and $\alpha = 0.1\log Q_{10}$ is the strength of the temperature feedback.
 
-It is assumed that $T_a$ depends logarithmically on temperature
+It is assumed that $\Delta T_a$ depends logarithmically on temperature
 \begin{equation}
   \label{eq:air_temperature}
-  T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}}
+  \Delta T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}}
 \end{equation}
-where $C_{a0}$ is a reference \ce{CO2} level, set at \SI{589}{\peta\gram\carbon}. The parameter $S$ is a land-weighted climate sensitivity. This can be combined \cref{eq:heterotrophic_respiration}
+where $C_{a0}$ is a reference \ce{CO2} level, set at \SI{589}{\peta\gram\carbon}, which approximately the pre-industrial
+level of \ce{CO2}. The parameter $S$ is an NPP weighted climate sensitivity, as shown in
+\cref{chapter:global_bomb}. This can be combined \cref{eq:heterotrophic_respiration}
 to give
+\begin{equation}
+  R_h = r_0 C_s e^{\frac{\alpha S}{\log 2} \log \frac{C_a}{C_{a0}}} = r_0 C_s \exp\left(\log \left(\frac{C_a}{C_{a0}}\right)^{\frac{\alpha S}{\log 2}}\right)
+\end{equation}
+or
 \begin{equation}
   \label{eq:heterotrophic_respiration_combined}
   R_h = r_0 C_s \left( \frac{C_a}{C_{a0}}\right)^{\mu}
@@ -172,13 +178,13 @@ Putting this all together leads to the following set of coupled differential equ
   \label{eq:imogen_deterministic}
   \begin{align}
     \dv{C_s}{t}     &= \Pi(C_a) - C_s r_0 \left(\frac{C_a}{C_{a0}}\right)^\mu \\
-    \dv{C_o}{t}     &= \mathrm{IMOGEN}(C_a,T_o,C_o) \\
+    \dv{C_o}{t}     &= I(C_a,\Delta T_o,C_o) \\
     C_a             &= \mathcal{C} - C_s - C_o \\
-    T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}
+    \Delta T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}.
   \end{align}
 \end{subequations}
-where $T_o$ is the ocean temperature which is related to the land temperature by the factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation,
-so both parameters will affect the bifurcation point.
+The function $I$ represents the IMOGEN model, $\Delta T_o$ is the change in ocean temperature which is related to the change in land temperature by the
+factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation, so both parameters will affect the bifurcation point.
 
 Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_{s0} = \Pi(C_{a0})/r_0$, $C_o = 0$, $T_o = 0$, corresponding to the pre-industrial equilibrium, which has been stable over the
 Holocene.
