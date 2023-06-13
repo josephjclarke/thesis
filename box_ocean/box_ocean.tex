@@ -146,7 +146,7 @@ It is assumed that $\Delta T_a$ depends logarithmically on temperature
 \end{equation}
 where $C_{a0}$ is a reference \ce{CO2} level, set at \SI{589}{\peta\gram\carbon}, which approximately the pre-industrial
 level of \ce{CO2}. The parameter $S$ is an NPP weighted climate sensitivity, as shown in
-\cref{chapter:global_bomb}. This can be combined \cref{eq:heterotrophic_respiration}
+\cref{chapter:global_bomb}. This could be larger than $\mathrm{ECS}$ by a factor of about $1.6$. This can be combined \cref{eq:heterotrophic_respiration}
 to give
 \begin{equation}
   R_h = r_0 C_s e^{\frac{\alpha S}{\log 2} \log \frac{C_a}{C_{a0}}} = r_0 C_s \exp\left(\log \left(\frac{C_a}{C_{a0}}\right)^{\frac{\alpha S}{\log 2}}\right)
@@ -191,8 +191,8 @@ Holocene.
 
 \subsection{Bifurcations in IMOGEN}
 \Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initialised close to equilibrium and then allowed to equilibrate over 5000 years.
-The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there appears to be a Hopf bifurcation which results
-in oscillatory behaviour. 
+The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there is a
+transition to osciallatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
@@ -200,8 +200,8 @@ in oscillatory behaviour.
   \label{fig:imogen_trajectories}
 \end{figure}
 
-To be more complete, I use this IMOGEN model to estimate the critical $S$ as a function of $Q_{10}$ and $C_{1/2}$, the parameter that controls the \ce{CO2} fertilisation effect. This
-is plotted in \cref{fig:imogen_bifurcation_plane}.
+To more fully scan the parameter space, this IMOGEN model was used to estimate the critical $S$ as a function of $Q_{10}$ and $C_{1/2}$,
+the parameter that controls the \ce{CO2} fertilisation effect. This is plotted in \cref{fig:imogen_bifurcation_plane}.
 
 \begin{figure}
   \centering
@@ -213,10 +213,10 @@ is plotted in \cref{fig:imogen_bifurcation_plane}.
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this does impose limits on the strength of their carbon cycle feedback. Furthermore, because some models are
 near this bifurcation point, they will be subject to critical slowing down and this will affect their variability, even if they are in the non-oscillatory branch of the carbon cycle.
 
-Despite the simplicity of this model, it is still too complex to analyse mathematically. In the next section I will develop simplified models to enable this bifurcation to be investigated further.
+Despite the simplicity of this model, it is still too complex to analyse mathematically. In the next section a simplified model will be developed to enable this bifurcation to be investigated further.
 
 \section{A Simpler Ocean Model}
-I will neglect temperature feedbacks on the ocean response and assume it behaves linearly to elevated \ce{CO2} levels. I will further assume that the ocean carbon carbon uptake
+This simpler model will neglect temperature feedbacks on the ocean response. Further assumed is that the ocean carbon carbon uptake
 can be viewed as $N$ non-interacting boxes which each respond over a timescale $\tau_i$ where $i$ indexes the boxes. A fraction $f_i$ of the total carbon
 flux will enter the $i$th box. These assumptions can be justified in that they represent a simplification of the IMOGEN model and can be used to fit the observed ocean carbon
 uptake, which is done in \cref{sec:ocean_uptake}.
@@ -254,7 +254,7 @@ is the impulse response function for the uptake of ocean carbon. This is similar
 ocean carbon.
 
 \section{One Box Ocean}
-The simplest possible ocean box model is a one box model. I will analyse this first to see if it can reproduce the results of the IMOGEN model.
+The simplest possible ocean box model is a one box model. This will be analysed first to see if it can reproduce the results of the IMOGEN model.
 
 The one box model can be written symbolically as through the following set of ODEs
 \begin{subequations}
@@ -268,7 +268,7 @@ The one box model can be written symbolically as through the following set of OD
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
 $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$.
 \subsection{The Stability of a fixed point}
-Here I give a summary of the conditions for an equilibrium to stable. Let
+The conditions for an equilibrium to stable are now summarised. Let
 \begin{equation}
   \label{eq:generic_system}
   \dv{\bm{x}}{t} = f(\bm{x})
@@ -298,12 +298,12 @@ The Jacobian of \cref{eq:one_box_ocean} is given by
   \end{equation}
 where $\Pi'(C_a)$ denotes there derivative of NPP with respect to atmospheric carbon.
   
-To finds the eigenvalues of the Jacobian, I must solve the characteristic polynomial $\det(\bm{J} - \gamma \bm{I})$ = 0, where $\gamma$ is an eigenvalue.
+To finds the eigenvalues of the Jacobian, the characteristic polynomial $\det(\bm{J} - \gamma \bm{I})$ = 0 must be solved, where $\gamma$ is an eigenvalue.
 
 This equation is quadratic and therefore has two roots. Solving it leads to a solution of the form:
 \begin{equation}
   \label{eq:eigenvalues_of_one_box_jac}
-  \gamma_{\pm} = \frac{B \pm \sqrt{\Delta}}{2\tau C_{a0}}
+  \gamma_{\pm} = \frac{B \pm \sqrt{D}}{2\tau C_{a0}}
 \end{equation}
 where
 \begin{equation}
@@ -313,11 +313,11 @@ where
 and
 \begin{equation}
   \label{eq:discriminant_from_one_box}
-  \Delta = \left(k \tau  C_{a0} +\Pi'\tau  C_{a0}+r_0 \tau  C_{a0}+C_{a0}-\mu  \Pi_0 \tau \right)^2-4 \left(k r_0 \tau ^2 C_{a0}^2+\Pi' \tau  C_{a0}^2-\mu  \Pi_0 \tau  C_{a0} +r_0 \tau  C_{a0}^2\right)
+  D = \left(k \tau  C_{a0} +\Pi'\tau  C_{a0}+r_0 \tau  C_{a0}+C_{a0}-\mu  \Pi_0 \tau \right)^2-4 \left(k r_0 \tau ^2 C_{a0}^2+\Pi' \tau  C_{a0}^2-\mu  \Pi_0 \tau  C_{a0} +r_0 \tau  C_{a0}^2\right)
 \end{equation}
-is the discriminant. I have used $\Pi_0 = r_0 C_{s0}$.
+is the discriminant and $\Pi_0 = r_0 C_{s0}$.
 
-The stability of this system is governed by $\Re \gamma$. This number is controlled by the sign of $\Delta$. If $\Delta > 0$, then $\Re \gamma = \gamma$, but if $\Delta < 0$, then
+The stability of this system is governed by $\Re \gamma$. This number is controlled by the sign of $D$. If $D > 0$, then $\gamma$ is purely real, but if $D < 0$, then
 $\Re \gamma = B / 2\tau C_{a0}$. 
 
 \subsection{Real Eigenvalues}
@@ -373,6 +373,7 @@ bifurcation point predicted by the IMOGEN model. This involves choosing $\tau = 
 This is the wrong sort of bifurcation and so motivates increasing the complexity of the ocean model slightly.
 
 \section{Two Box Model}
+\label{sec:two_box}
 To improve the realism of the model, I will now consider the two box ocean case. In order to do this \cref{eq:one_box_ocean} must be modified to include
 two ocean stores of carbon $C_1$ and $C_2$. Each box will have their own timescale $\tau$ and $\tau/\epsilon$ respectively. This notation is suggestive of
 $C_1$ being a fast box and $C_2$ being a slow box, although this restriction is not necessary.
