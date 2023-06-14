@@ -146,8 +146,8 @@ It is assumed that $\Delta T_a$ depends logarithmically on temperature
 \end{equation}
 where $C_{a0}$ is a reference \ce{CO2} level, set at \SI{589}{\peta\gram\carbon}, which approximately the pre-industrial
 level of \ce{CO2}. The parameter $S$ is an NPP weighted climate sensitivity, as shown in
-\cref{chapter:global_bomb}. This could be larger than $\mathrm{ECS}$ by a factor of about $1.6$. This can be combined \cref{eq:heterotrophic_respiration}
-to give
+\cref{chapter:global_bomb}. This could be larger than $\mathrm{ECS}$ by a factor of about $1.5$, estimates of $S/\mathrm{ECS}$ are given
+in \cref{tab:S_vs_ECS}. This can be combined \cref{eq:heterotrophic_respiration} to give
 \begin{equation}
   R_h = r_0 C_s e^{\frac{\alpha S}{\log 2} \log \frac{C_a}{C_{a0}}} = r_0 C_s \exp\left(\log \left(\frac{C_a}{C_{a0}}\right)^{\frac{\alpha S}{\log 2}}\right)
 \end{equation}
@@ -161,7 +161,40 @@ where
   \label{eq:mu}
   \mu = \frac{1}{\log 2} \alpha S.
 \end{equation}
+% \usepackage{booktabs}
 
+
+\begin{table}
+\centering
+\begin{tabular}{ll} 
+\toprule
+  Model                              & $S/\mathrm{ECS}$                  \\
+  \midrule
+BCC bcc-csm1-1                     & $1.1$                               \\
+BCC bcc-csm1-1-m                   & $1.4$                               \\
+BNU BNU-ESM                        & $1.4$                               \\
+CCCma CanESM2                      & $1.4$                               \\
+IPSL IPSL-CM5A-LR                  & $1.6$                               \\
+IPSL IPSL-CM5A-MR                  & $1.7$                               \\
+IPSL IPSL-CM5B-LR                  & $1.7$                               \\
+MIROC MIROC-ESM                    & $1.6$                               \\
+MOHC HadGEM2-ES                    & $1.3$                               \\
+MPI-M MPI-ESM-LR                   & $1.4$                               \\
+MPI-M MPI-ESM-MR                   & $1.5$                               \\
+MPI-M MPI-ESM-P                    & $1.6$                               \\
+NASA-GISS GISS-E2-H                & $1.5$                               \\
+NASA-GISS GISS-E2-R                & $1.6$                               \\
+NCAR CCSM4                         & $1.3$                               \\
+NCC NorESM1-M                      & $1.3$                               \\
+NOAA-GFDL GFDL-ESM2G               & $1.6$                               \\
+NOAA-GFDL GFDL-ESM2M               & $1.5$                               \\
+Ensemble Mean                      & $1.5 \pm 0.2$                       \\
+\bottomrule
+\end{tabular}
+\caption{Estimates of the ratio of $S$ to $\mathrm{ECS}$ for CMIP5 models, calculated by the methodology described in \cref{chapter:global_bomb}.
+The ensemble mean is given, where the uncertainty is given by one standard deviation.}
+\label{tab:S_vs_ECS}
+\end{table}
 
 Following \cite{Cox2006}, net primary productivity is modelled as
 \begin{equation}
