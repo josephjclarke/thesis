@@ -370,7 +370,9 @@ to the timescale of its response. Previously, $\chi_0$ was interpreted as a frac
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7}
-  \caption{Equilibrium Soil Carbon level as a function of $\mu$ for a fast ocean response}
+  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
+    calculated numerically. The ocean timescale is \SI{3.7}{\year}, which is in the fast ocean response regime.
+    The dashed line is the analytically calculated bifurcation point, \cref{eq:instability_condition_one_box_fast}.}
   \label{fig:fast_response_bf_diagram}
 \end{figure}
 
@@ -397,7 +399,10 @@ a Hopf bifurcation rather than a transcritical bifurcation.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_300.0}
-  \caption{Equilibrium Soil Carbon for a one box model as a function of $\mu$ with a slow ocean response.}
+  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
+    calculated numerically. The ocean timescale is \SI{300}{\year}, which is in the slow ocean response regime.
+    The dashed line is the analytically calculated bifurcation point, \cref{eq:instability_condition_one_box_slow}.
+  Solid black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.}
   \label{fig:slow_response_bf_diagram}
 \end{figure}
 For the case where $\tau = \SI{300}{\year}$ \cref{eq:one_box_ocean} was integrated numerically the equilibrium was found as a function of $\mu$,
@@ -512,13 +517,18 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
-  \caption{The eigenvalues of the two box Jacobian plotted in the complex plane. The colours correspond to the value of $\mu$. The colour scheme is chosen so that the colours change at $\mu = \mu_-$ }
+  \caption{The eigenvalues of the jacobian of the two box model \cref{eq:two_box_ocean} plotted in the complex plane as a function of $\mu$.  The colour of the eigenvalue is given
+    by the value of $\mu$. The colour scheme has been chosen so that the colours transition from blue to red at the bifurcation point $\mu_-$ given by
+  \cref{eq:mu_two_box}. This shows the eigenvalues crossing the imaginary axis at the predicted point, which is where the Hopf Bifurcation happens.}
   \label{fig:eigen_values_of_the_jacobian}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{two_box_model_soil_carbon_equilibrium}
-  \caption{The equilibrium values of soil carbon for the two box model. Where the equilibrium state is oscillatory, the minimum and maximum are plotted in red}
+  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the two box ocean model, \cref{eq:two_box_ocean},
+    calculated numerically. The ocean parameters are $\tau = \SI{0.45}{\year},\epsilon=0.004$ and $f = 0.5$.
+    The dashed line is the analytically calculated bifurcation point, $\mu_-$ given by \cref{eq:mu_two_box}.
+  Solid black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.}
   \label{fig:two_box_bf_diagram}
 \end{figure}
 Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
@@ -533,8 +543,10 @@ has bifurcations for large enough values of the climate sensitivity. In this nex
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_one_box_two_box}
-  \caption{A comparison of bifurcation diagrams across the models. Dots refer to IMOGEN, the ``+'' refers to the one box model and ``$\times$'' to the two box.
-  Equilibria are plotted in black and the minimum and maximum of any oscillations are in red.}
+  \caption{A comparison of the bifurcation diagrams of the IMOGEN, one box and two box models. Ocean parameters have been chosen so that the bifurcation happens at the same value of $S$.
+    $Q_{10}$ has been set to $2$. Black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.
+    The solid lines are the values for IMOGEN, the dotted lines are for the one box model and the dashed lines are for the two box model. IMOGEN and the two box model
+  undergo a Hopf bifurcation at $S \approx \SI{10.5}{\kelvin}$, whereas the one box model undergoes a transcritical bifurcation here.}
 \label{fig:imogen_one_box_two_box}
 \end{figure}
 The ocean parameters have been chosen so that the bifurcation occurs at the same point. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
@@ -563,7 +575,7 @@ for the two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The q
     $f_2$                         & $0$             & $0.1$                \\
     \bottomrule
   \end{tabular}
-  \caption{Parameter Estimates for one and two box ocean models}
+  \caption{Parameter Estimates for one and two box ocean models.}
   \label{tab:one_and_two_box_parameters}
 \end{table}
 Taking ocean carbon sink data and atmospheric \ce{CO2} data from the Global Carbon Budget \parencite{Friedlingstein2022} from the year 1781 onwards (which is
@@ -573,7 +585,9 @@ least squares fit was performed to the one and two box models giving the paramet
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{gcb_ocean_atmosphere_boxes}
-  \caption{The reconstructed ocean uptake using the one and two box models, with parameters from \cref{tab:one_and_two_box_parameters}}
+  \caption{The fit of \cref{eq:ocean_response} to the ocean carbon uptake estimated by the Global Carbon Budget using one and two box models. The fitted parameters are given in
+    \cref{tab:one_and_two_box_parameters} The driving atmospheric \ce{CO2} is plotted in the top panel, and the ocean uptake in the lower panel. Both one and two boxes give decent fits
+    to the data but the two box model gives a better fit.}
   \label{fig:fits_from_one_and_two}
 \end{figure}
 
