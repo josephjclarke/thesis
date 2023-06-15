@@ -2,13 +2,13 @@
 \label{chapter:conceptual_carbon_cycle}
 \graphicspath{{box_ocean/figs/}}
 
-In \cref{chapter:global_bomb}, I adapted a result of~\cite{Cox2006} which showed that there were conditions under which the preindustrial state of the carbon-climate
+In \cref{chapter:global_bomb}, I adapted a result of~\cite{Cox2006} which showed that there were conditions under which the pre-industrial state of the carbon-climate
 system was unstable. This instability was driven by the terrestrial carbon cycle. That analysis involved representing the effect of the ocean as taking up a fixed fraction,
 $\chi_0$, of carbon emissions to the atmosphere. This neglects any dynamical role of the ocean, including processes that occur on different timescales. Furthermore that analysis
 made inconsistent assumptions about the pre-industrial climate. This chapter will update~\cite{Cox2006}, by constructing a model of the climate-carbon system with a dynamical ocean component
 that is consistent about the pre-industrial state.
 
-I will neglect the role of biochecmical heating as \cref{chapter:global_bomb} found it a small effect at the global scale.
+I will neglect the role of biogeochemical heating as \cref{chapter:global_bomb} found it a small effect at the global scale.
 
 \section{Background}
 
@@ -75,7 +75,7 @@ Firstly, increasing $\ce{CO2}$ increases the amount of carbon available for plan
 $\ce{CO2}$ (as opposed to light or nutrients) then increases in \ce{CO2} will increase NPP \parencite{Wenzel2016}. This \emph{\ce{CO2} fertilisation effect} has been detected
 in models \parencite{Friedlingstein2006,Arora2020} and observationally \parencite{Ainsworth2007,KolbySmith2016}. It acts as a negative feedback
 on global warming as it tends to decrease the amount of \ce{CO2} in the atmosphere by increasing photosynthesis. This feedback is expected to weaken with increased $\ce{CO2}$ as
-fewer plants become limited by \ce{CO2}, there is some observational evidence of this occuring \parencite{Wang2020}.
+fewer plants become limited by \ce{CO2}, there is some observational evidence of this occurring \parencite{Wang2020}.
 
 Secondly, the decomposition of organic matter is a biochemical process that depends on temperature. In particular, increasing the temperature of the decomposition reaction
 will increase the rate of this reaction. Hence as $\ce{CO2}$ has a warming effect the amount of respiration will increase \parencite{Jenkinson1991}. This means there will be a larger flux of carbon to the
@@ -227,7 +227,7 @@ experienced only small variations over the (pre-industrial) Holocene.
 \subsection{Bifurcations in IMOGEN}
 \Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initialised close to equilibrium and then allowed to equilibrate over 5000 years.
 The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there is a
-transition to osciallatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation.
+transition to oscillatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
@@ -396,7 +396,7 @@ The value of $B$ will become positive when $\mu$ exceeds the following threshold
 \end{equation}
 This is similar to the conditions derived in \cref{eq:mu_infinity,eq:instability_condition_one_box_fast} except now $\chi_0 = k\tau\left(1 + \frac{1}{k\tau} \right) \frac{1}{r_0\tau} \approx k/r_0$
 where the approximation assumes $k \gg r_0$. This means the ``fraction absorbed by the oceans'' is now controlled by the ratio of the timescale of the ocean flux to the turnover time of the soil.
-Furthermore because $k > r_0$, then $\chi_0$ will be larger than $1$. This means that $\chi_0$ can't be interpretted as a fraction of carbon absorbed anymore.
+Furthermore because $k > r_0$, then $\chi_0$ will be larger than $1$. This means that $\chi_0$ can't be interpreted as a fraction of carbon absorbed any more.
 In addition, because $\gamma$ is complex, this bifurcation occurs when the complex conjugate eigenvalue pair crosses the imaginary axis. This means this bifurcation is
 a Hopf bifurcation rather than a transcritical bifurcation.
 \begin{figure}
@@ -409,7 +409,7 @@ a Hopf bifurcation rather than a transcritical bifurcation.
   \label{fig:slow_response_bf_diagram}
 \end{figure}
 For the case where $\tau = \SI{300}{\year}$ \cref{eq:one_box_ocean} was integrated numerically and the equilibrium was found as a function of $\mu$,
-which is plotted in \cref{fig:slow_response_bf_diagram}. Where the equilibrium is an osciallation rather than a steady state the plot shows the maximum and minimum of the
+which is plotted in \cref{fig:slow_response_bf_diagram}. Where the equilibrium is an oscillation rather than a steady state the plot shows the maximum and minimum of the
 oscillation in red. It can be seen that the agreement with the numerics is good.
 
 Based on the conditions derived in \cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow} the critical value of $\mu$ can be chosen to match the
@@ -520,7 +520,7 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
-  \caption{The eigenvalues of the jacobian of the two box model \cref{eq:two_box_ocean} plotted in the complex plane as a function of $\mu$.  The colour of the eigenvalue is given
+  \caption{The eigenvalues of the Jacobian of the two box model \cref{eq:two_box_ocean} plotted in the complex plane as a function of $\mu$.  The colour of the eigenvalue is given
     by the value of $\mu$. The colour scheme has been chosen so that the colours transition from blue to red at the bifurcation point $\mu_-$ given by
   \cref{eq:mu_two_box}. This shows the eigenvalues crossing the imaginary axis at the predicted point, which is where the Hopf Bifurcation happens.}
   \label{fig:eigen_values_of_the_jacobian}
@@ -541,7 +541,7 @@ parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_
 It can be seen therefore that the two box model is complex enough to reproduce the behaviour of the IMOGEN model but simple enough to be analytically tractable.
 
 \section{Model Comparison}
-In this chapter, the ocean component of the Earth's carbon cycle has been represented in three diferent ways: by a one-box, a two-box and as a more complex model. Each model suggests the carbon cycle
+In this chapter, the ocean component of the Earth's carbon cycle has been represented in three different ways: by a one-box, a two-box and as a more complex model. Each model suggests the carbon cycle
 has bifurcations for large enough values of the climate sensitivity. In this next figure, \cref{fig:imogen_one_box_two_box} the equilibria are plotted for each model.
 \begin{figure}
   \centering
