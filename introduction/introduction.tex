@@ -174,12 +174,47 @@ These climates are reconstructed using proxy data. For example, \ce{CO2} concent
 last $800,000$ years \parencite{Bereiter2014}. Other methods, for example using istopic data, can be used to reconstruct even older climates \parencite{Tierney2020}.
 
 When examining the time series these reconsructions generate, some abrupt shifts can be seen \parencite{Boers2022,Brovkin2021}. Although it is challegning to work out if these
-shifts represent tipping points or continuous change, there is evidence that some of these shifts are examples of tipping \parencite{Dakos2008}.
-
+shifts represent tipping points or continuous change, there is evidence that some of these shifts are examples of tipping \parencite{Dakos2008}. Three example abrupt shifts are considered here.
+The Snowball Earth is considered as an example of a global shift, Dansgaard-Oeschger events as an example of a rapid abrupt shift and the Green Sahara as an example of a abrupt shift in
+the biosphere.
 
 \subsubsection{Snowball Earth}
-\subsubsection{Dansgard Osgard Events (spelling)}
-\subsubsection{Saharah Greening}
+Budyko and Sellers \parencite{Budyko1969,Sellers1969} both investigated the role albedo feedbacks on the Earth's energy balance. This feedback is caused when the Earth cools leading to more
+ice formation which increases the albedo of the Earth, reflecting more energy to space leading to more cooling. An analogous process happens when the Earth warms. This means that the
+Earth can exist in two states, its curernt warmer state, and a much colder state known as `Snowball Earth' where much of the Earth is covered in ice \parencite{Ghil1976,Held1974}. 
+
+Taking a globally averaged view, the energy input to the Earth from the sun, $S_0$, should be balanced by the outgoing radiation \parencite{North1981,Andrews2010}
+\begin{equation}
+  \label{eq:energy_balance}
+  \frac{1}{4}S_0 \left(1 - \alpha\left(T\right)\right) = \epsilon \sigma T^4,
+\end{equation}
+where $T$ is the Earth's mean temperature, $\epsilon$ is the Earth's emissivity, $\alpha$ is the temperature dependent albedo and $1/4$ is a geometric factor. Suppose that the albedo has the following
+temperature dependence
+\begin{equation}
+  \label{eq:snowball_earth_albedo}
+  \alpha(T) =
+  \begin{cases}
+    \alpha_- ,                                                         & T < \SI{273}{\kelvin} \\
+    \alpha_+ + \frac{\alpha_+ - \alpha_-}{T_0 - 273} \left(T-T_0\right) & \SI{273}{\kelvin} \leq T \leq T_0 \\
+    \alpha_+ ,                                                         & T > T_0
+  \end{cases}
+\end{equation}
+This form means that the Earth's albedo transitions between the values of $\alpha_-$ to $\alpha_+$ and the parameter $T_0$ controls this transition. \Cref{eq:energy_balance} can be solved,
+revealing two possible states as shown in \cref{fig:energy_balance_solution}.
+\begin{figure}
+  \centering
+  \missingfigure{energy balance}
+  \caption{Possible stable states}
+  \label{fig:energy_balance_solution}
+\end{figure}
+
+This snowball state was predicted without empircal evidence, however decades after it was postulated evidence arose for its existence \parencite{Kirshvink1992,Hoffman2002}.
+This snowball state appears to have existed in the Neoproterozoic around \SI{650}{\mega\year\beforepresent}.
+During this time there appears to have been glaciers near the equator. It is not clear
+if the Earth was totally covered in ice, or if there was a think equatorial ocean, leading to a `slushball' Earth, rather than a `Hard Snowball' \parencite{Pierrehumbert2005,Pierrehumbert2011}.
+
+\subsubsection{Dansgaard-Oeschger Events}
+\subsubsection{Green Sahara}
 
 \section{A Typology of Tipping Points}
 \label{sec:tipping_typology}
