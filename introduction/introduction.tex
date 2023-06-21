@@ -251,8 +251,58 @@ transition.
 
 \section{A Typology of Tipping Points}
 \label{sec:tipping_typology}
-\subsection{Bifurcation}
-Poincare.
+Having demonstrated the relevence of tipping points to the past and future of the Earth system I will continue with a more theoretical look at tipping points. It is helpful
+to classify tipping according to a typology developed by~\cite{Ashwin2012}. They identified three types of tipping:
+\begin{description}
+\item[B-tipping] which refers to a tipping caused by a bifurcation in the underlying attractor of the system due to a change in a parameter of the system.
+\item[N-tipping] which refers to a tipping caused by noisey fluctuations driving the system  from one attractor to another.
+\item[R-tipping] which  refers to a tipping cauesd the system failing to track its continuously changing attractor. The `R' is for `rate' because the attractor is changing too
+  fast for the system to adapt to it.
+\end{description}
+
+Since then, other researchers have found it useful to consider additional types of tipping. For example,~\cite{Halekotte2020} introduced the concept of shock or S-tipping which is when a single large perturbation
+can push the system into a new state. When the system's attractor is not a steady state but is instead a limit cycle, the tipping can depend on the phase of the cycle, a phenomenon which has
+been dubbed P-tipping \parencite{Alkhayuon2021}. 
+
+A more detailed examination of B,N,R and S tipping will now be given.
+
+\subsection{B-Tipping}
+Consider a system with a state variable $\bm{x} \in \mathbb{R}^n$ described by the system of ordinary  differential equations
+\begin{equation}
+  \label{eq:generic_system}
+  \dv{\bm{x}}{t} = \bm{f}(\bm{x}).
+\end{equation}
+Suppose the system has a fixed point at $\bm{x}^*$ then the linear stability of the system \parencite{Strogatz2015} is characterised by the behaviour of a small perturbation
+$\bm{y}$ about this fixed point, where $\bm{y} = \bm{x} - \bm{x}^*$. Then the dynamics of $\bm{y}$ are governed by
+\begin{equation}
+  \label{eq:linearised_equation}
+  \dv{\bm{y}}{t} = J\bm{y} 
+\end{equation}
+where terms of order $\mathcal{O}\left(\left|\bm{y}\right|^2\right)$ or higher have been neglected and $J$ is a matrix called the Jacobian defined by
+\begin{equation}
+  \label{eq:jacobian}
+  J_{ij} = \eval{\pdv{\bm{f}_i}{\bm{x}_j}}_{\bm{x}=\bm{x}^*}.
+\end{equation}
+The solution to \cref{eq:linearised_equation} is
+\begin{equation}
+  \label{eq:solution_to_linearised_equation}
+  \bm{y} = e^{tJ}\bm{y}(0).
+\end{equation}
+Suppose $J$ has $n$ linearly independent eigenvectors (although similar conclusions will hold if it does not \parencite{Guckenheimer2013}). Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$
+then \cref{eq:solution_to_linearised_equation} can be written
+\begin{equation}
+  \label{eq:solution_to_linearised_equation_eigen}
+  \bm{y} = \sum_i c_i e^{t\lambda_i}\bm{v}_i
+\end{equation}
+where $\{c_i\}$ are a set of constants chosen to match the inital condition. It can be seen then that the long-time behaviour of $\bm{y}$ is $\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the
+eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$ whereas if it is negative $\bm{y}$ will approach $\bm{x}^*$.
+Due to the Hartman-Grobman theorem \parencite{Grobman1959,Hartman1960,Hartman1963} the trajectories of $\bm{y}$ will be topologically
+conjugate --- that is to say qualitatively the same --- in some neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{y}$,
+if $\bm{x}^*$ is a hyperbolic fixed point, which is the case if $J$ has no eigenvalue with zero real part. This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
+
+B- or Bifurcation-tipping refers to tipping which is driven in some sense by a bifurcation. A bifurcation concept from the mathematical theory of dynamical systems,
+introduced by~\cite{Poincare1885}.
+
 \subsubsection{Theory}
 If $\dot{x} = f(x)$, show that $f'(x_{tip}) = 0$. Normal forms
 \subsubsection{Stommel's AMOC Model}
