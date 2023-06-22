@@ -302,16 +302,17 @@ if $\bm{x}^*$ is a hyperbolic fixed point, which is the case if $J$ has no eigen
 linearly stable only when $J$ has eigenvalues with only negative real parts. The directions $\bm{v}_k$ with $\Re \lambda_k < 0$ are known as stable directions (as the flow is attracted to the
 fixed point along these directions), those with $\Re \lambda_k > 0$ are unstable directions.
 
-B- or Bifurcation-tipping refers to tipping which is driven by changes to the stability, or the loss alltogether, of these fixed points.  A bifurcation is a concept from the mathematical theory of dynamical systems,
+B- or Bifurcation-tipping refers to tipping which is driven by changes to the stability, or the loss alltogether, of these fixed points.
+A bifurcation is a concept from the mathematical theory of dynamical systems,
 introduced by~\cite{Poincare1885}. It is used to describe a situation where the fixed points of a system qualitatively change as a control parameter is varied.
 
-Consider a modification to \cref{eq:generic_system} where a control parameter $\bm{\mu} \in \mathbb{R}^k$ has been introduced
+Consider a modification to \cref{eq:generic_system} where a control parameter $\bm{\mu} \in \mathbb{R}$, which could be atmospheric $\ce{CO2}$ for example, has been introduced
 \begin{equation}
   \label{eq:generic_system_control_parameter}
-  \dv{\bm{x}}{t} = \bm{f}_{\bm{\mu}}(\bm{x}).
+  \dv{\bm{x}}{t} = \bm{f}_{\mu}(\bm{x}).
 \end{equation}
-The fixed points are described by $\bm{f}_{\bm{\mu}}(\bm{x}^*) = 0$. By the Implicit Function Theorem, $\bm{x}^*$ is a smooth function of $\bm{\mu}$ except at points where $J$ has a zero eigenvalue,
-these points in $(\bm{x},\bm{\mu})$ space are known as bifurcation points. Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases
+The fixed points are described by $\bm{f}_{\mu}(\bm{x}^*) = 0$. By the Implicit Function Theorem, $\bm{x}^*$ is a smooth function of $\mu$ except at points where $J$ has a zero eigenvalue,
+these points in $(\bm{x},\mu)$ space are known as bifurcation points. Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases
 an eigenvalue of $J$ must cross the imaginary axis, i.e.\ have zero real part\parencite{guckenheimer2013}.
 As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
 
@@ -354,7 +355,32 @@ with $\bm{z} = h(\bm{w})$, so that on the center manifold
 The next step is to make \cref{eq:dynamics_on_the_center_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_center_manifold}
 cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations.
 
-Center manifold theorem. Normal Forms. Saddle node. Stommel Example. Put Stommel in Normal form?
+Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
+further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$. Then using \cref{thm:center_manifold_theorem} a center manifold passing through
+$(\bm{0},0)$ can be found. If the trajectories are resitricted to the center manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
+bifurcation point) the the trajectories will be topologically equivalent to
+\begin{equation}
+  \label{eq:saddle_node}
+  \dv{x}{t}  = \mu - x^2.
+\end{equation}
+This type of bifurcation is known as a saddle-node or a fold bifurcation.
+This remarkable fact has simplified a very high dimensional dynamical system to a one-dimenionsonal one near the bifurcation point.
+
+The saddle-node bifurcation is very important as other bifurcation problems can be perturbed into a saddle-node bifurcation problem (as it is unusual for the transversality conditions
+not to be met). In this sense, saddle-nodes are to be expected in nature. However if the transversality conditions are not met other sorts of bifurcations can arise.
+
+If $\partial_{\mu}f=0$, then the bifurcation is equivalent to
+\begin{equation}
+  \label{eq:transcritical}
+  \dv{x}{t} = \mu x - x^2,
+\end{equation}
+which is a transcritical bifurcation. If $\partial_{xx}f=0$, the bifurcation is known as a pitchfork bifurcation with normal form
+\begin{equation}
+  \label{eq:pitchfork}
+  \dv{x}{t} = \mu x -x^3.
+\end{equation}
+
+
 \subsubsection{Theory}
 If $\dot{x} = f(x)$, show that $f'(x_{tip}) = 0$. Normal forms
 \subsubsection{Stommel's AMOC Model}
