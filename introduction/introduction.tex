@@ -298,7 +298,9 @@ where $\{c_i\}$ are a set of constants chosen to match the inital condition. It 
 eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$ whereas if it is negative $\bm{y}$ will approach $\bm{x}^*$.
 Due to the Hartman-Grobman theorem \parencite{Grobman1959,Hartman1960,Hartman1963} the trajectories of $\bm{y}$ will be topologically
 conjugate --- that is to say qualitatively the same --- in some neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{y}$,
-if $\bm{x}^*$ is a hyperbolic fixed point, which is the case if $J$ has no eigenvalue with zero real part. This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
+if $\bm{x}^*$ is a hyperbolic fixed point, which is the case if $J$ has no eigenvalue with zero real part. This means that $\bm{x}^*$ is
+linearly stable only when $J$ has eigenvalues with only negative real parts. The directions $\bm{v}_k$ with $\Re \lambda_k < 0$ are known as stable directions (as the flow is attracted to the
+fixed point along these directions), those with $\Re \lambda_k > 0$ are unstable directions.
 
 B- or Bifurcation-tipping refers to tipping which is driven by changes to the stability, or the loss alltogether, of these fixed points.  A bifurcation is a concept from the mathematical theory of dynamical systems,
 introduced by~\cite{Poincare1885}. It is used to describe a situation where the fixed points of a system qualitatively change as a control parameter is varied.
@@ -310,8 +312,47 @@ Consider a modification to \cref{eq:generic_system} where a control parameter $\
 \end{equation}
 The fixed points are described by $\bm{f}_{\bm{\mu}}(\bm{x}^*) = 0$. By the Implicit Function Theorem, $\bm{x}^*$ is a smooth function of $\bm{\mu}$ except at points where $J$ has a zero eigenvalue,
 these points in $(\bm{x},\bm{\mu})$ space are known as bifurcation points. Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases
-an eigenvalue of $J$ must cross the imaginary axis, i.e.\ have zero real part\parencite{guckenheimer2013}. As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be
-undertaken.
+an eigenvalue of $J$ must cross the imaginary axis, i.e.\ have zero real part\parencite{guckenheimer2013}.
+As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
+
+Fortunately, there are techniques to deal with this, using the Center Manifold Theorem, which can be stated loosely as
+\begin{theorem}[Center Manifold Theorem]
+  \label{thm:center_manifold_theorem}
+  The eigenvalues, $\lambda$, of $J$ are split into three sets $\spec J = \sigma_s \cup \sigma_u \cup \sigma_c$ according to
+  \begin{align*}
+    \sigma_s &= \{\lambda : \Re \lambda < 0\} \\
+    \sigma_u &= \{\lambda : \Re \lambda > 0\} \\
+    \sigma_c &= \{\lambda : \Re \lambda = 0\}.
+  \end{align*}
+  Let their respective eigenspaces be $E_s$,$E_u$ and $E_c$. Then there are stable and unstable invariant manifolds $W_s,W_u$ tangent to $E_s,E_u$ at $\bm{x}^{*}$,
+  and a center manifold $W_c$ tangent to $E_c$ at $\bm{x}^*$.
+\end{theorem}
+The upshot of this theorem is that the dynamics are now controlled by the center manifold. Suppose that the unstable manifold is empty (the most relevent case for tipping point research)
+then \cref{thm:center_manifold_theorem} implies that the dynamics are topologically conjugate to
+\begin{subequations}
+  \label{eq:center_manifold_topological_equivalence}
+  \begin{align}
+  \dv{\bm{u}}{t} &= g(\bm{u}) \\
+  \dv{\bm{v}}{t} &= -\bm{v}
+  \end{align}
+\end{subequations}
+with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the center manifold. In order to calculate $g$, suppose that
+$\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
+\begin{subequations}
+  \label{eq:block_diagonal}
+  \begin{align}
+    \dv{\bm{w}}{t} &= A\bm{w} + p(\bm{w},\bm{z}) \\
+    \dv{\bm{z}}{t} &= B\bm{z} + q(\bm{w},\bm{z})
+  \end{align}
+\end{subequations}
+where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are at least quadratic. Then the center manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
+with $\bm{z} = h(\bm{w})$, so that on the center manifold
+\begin{equation}
+  \label{eq:dynamics_on_the_center_manifold}
+  \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
+\end{equation}
+The next step is to make \cref{eq:dynamics_on_the_center_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_center_manifold}
+cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations.
 
 Center manifold theorem. Normal Forms. Saddle node. Stommel Example. Put Stommel in Normal form?
 \subsubsection{Theory}
