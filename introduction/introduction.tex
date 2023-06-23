@@ -273,8 +273,8 @@ Consider a system with a state variable $\bm{x} \in \mathbb{R}^n$ described by t
   \label{eq:generic_system}
   \dv{\bm{x}}{t} = \bm{f}(\bm{x}).
 \end{equation}
-Suppose the system has a fixed point at $\bm{x}^*$, such that $\bm{f}(\bm{x}^*)=0$ then the linear stability of the system \parencite{Strogatz2015} is characterised by the behaviour of a small perturbation
-$\bm{y}$ about this fixed point, where $\bm{y} = \bm{x} - \bm{x}^*$. Then the dynamics of $\bm{y}$ are governed by
+Suppose the system has a fixed point at $\bm{x}^*$, such that $\bm{f}(\bm{x}^*)=0$ then the linear stability of the system \parencite{Strogatz2015} is characterised by
+the behaviour of a small perturbation $\bm{y}$ about this fixed point, where $\bm{y} = \bm{x} - \bm{x}^*$. Then the dynamics of $\bm{y}$ are governed by
 \begin{equation}
   \label{eq:linearised_equation}
   \dv{\bm{y}}{t} = J\bm{y} 
@@ -289,35 +289,35 @@ The solution to \cref{eq:linearised_equation} is
   \label{eq:solution_to_linearised_equation}
   \bm{y} = e^{tJ}\bm{y}(0).
 \end{equation}
-Suppose $J$ has $n$ linearly independent eigenvectors (although similar conclusions will hold if it does not \parencite{guckenheimer2013}). Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$
-then \cref{eq:solution_to_linearised_equation} can be written
+Suppose $J$ has $n$ linearly independent eigenvectors (although similar conclusions will hold if it does not \parencite{guckenheimer2013}).
+Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$ then \cref{eq:solution_to_linearised_equation} can be written
 \begin{equation}
   \label{eq:solution_to_linearised_equation_eigen}
   \bm{y} = \sum_i c_i e^{t\lambda_i}\bm{v}_i
 \end{equation}
-where $\{c_i\}$ are a set of constants chosen to match the inital condition. It can be seen then that the long-time behaviour of $\bm{y}$ is $\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the
-eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$ whereas if it is negative $\bm{y}$ will approach $\bm{x}^*$.
-Due to the Hartman-Grobman theorem \parencite{Grobman1959,Hartman1960,Hartman1963} the trajectories of $\bm{y}$ will be topologically
-conjugate --- that is to say qualitatively the same --- in some neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{y}$,
-if $\bm{x}^*$ is a hyperbolic fixed point, which is the case if $J$ has no eigenvalue with zero real part. This means that $\bm{x}^*$ is
-linearly stable only when $J$ has eigenvalues with only negative real parts. The directions $\bm{v}_k$ with $\Re \lambda_k < 0$ are known as stable directions (as the flow is attracted to the
-fixed point along these directions), those with $\Re \lambda_k > 0$ are unstable directions.
+where $\{c_i\}$ are a set of constants chosen to match the inital condition. It can be seen then that the long-time behaviour of $\bm{y}$ is
+$\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$ whereas
+if it is negative $\bm{y}$ will approach $\bm{x}^*$. Suppose $\bm{x}^*$ is a hyperbolic fixed point, which means that $J$ has no eigenvalues with zero real part. Then the Hartman-Grobman theorem
+\parencite{Grobman1959,Hartman1960,Hartman1963} guarantees that the trajectories of $\bm{y}$ will be topologically conjugate --- that is to say qualitatively the same --- in some
+neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{y}$.  This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
+The directions $\bm{v}_k$ with $\Re \lambda_k < 0$ are known as stable directions (as the flow is attracted to the fixed point along these directions),
+those with $\Re \lambda_k > 0$ are unstable directions \parencite{Strogatz2015}.
 
-B- or Bifurcation-tipping refers to tipping which is driven by changes to the stability, or the loss alltogether, of these fixed points.
-A bifurcation is a concept from the mathematical theory of dynamical systems,
-introduced by~\cite{Poincare1885}. It is used to describe a situation where the fixed points of a system qualitatively change as a control parameter is varied.
+B- or Bifurcation-tipping refers to tipping which is driven by changes to the stability, or the loss altogether, of these fixed points.
+A bifurcation is a concept from the mathematical theory of dynamical systems, introduced by~\cite{Poincare1885}.
+It is used to describe a situation where the fixed points of a system qualitatively change as a control parameter is varied.
 
-Consider a modification to \cref{eq:generic_system} where a control parameter $\bm{\mu} \in \mathbb{R}$, which could be atmospheric $\ce{CO2}$ for example, has been introduced
+Consider a modification to \cref{eq:generic_system} where a control parameter $\bm{\mu} \in \mathbb{R}$, which could for example be atmospheric $\ce{CO2}$, has been introduced
 \begin{equation}
   \label{eq:generic_system_control_parameter}
   \dv{\bm{x}}{t} = \bm{f}_{\mu}(\bm{x}).
 \end{equation}
-The fixed points are described by $\bm{f}_{\mu}(\bm{x}^*) = 0$. By the Implicit Function Theorem, $\bm{x}^*$ is a smooth function of $\mu$ except at points where $J$ has a zero eigenvalue,
-these points in $(\bm{x},\mu)$ space are known as bifurcation points. Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases
-an eigenvalue of $J$ must cross the imaginary axis, i.e.\ have zero real part\parencite{guckenheimer2013}.
-As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
+The fixed points are described by $\bm{f}_{\mu}(\bm{x}^*) = 0$. By the Implicit Function Theorem \parencite{Spivak1965}, $\bm{x}^*$ is a smooth
+function of $\mu$ except at points where $J$ has a zero eigenvalue, these points in $(\bm{x},\mu)$ space are known as bifurcation points.
+Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases an eigenvalue of $J$ must cross the imaginary
+axis, i.e.\ have zero real part\parencite{guckenheimer2013}. As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
 
-Fortunately, there are techniques to deal with this, using the Center Manifold Theorem, which can be stated loosely as
+Fortunately, there are techniques to deal with this, using the Center Manifold Theorem \parencite{Morris1977}, which can be stated loosely as
 \begin{theorem}[Center Manifold Theorem]
   \label{thm:center_manifold_theorem}
   The eigenvalues, $\lambda$, of $J$ are split into three sets $\spec J = \sigma_s \cup \sigma_u \cup \sigma_c$ according to
@@ -338,7 +338,8 @@ then \cref{thm:center_manifold_theorem} implies that the dynamics are topologica
   \dv{\bm{v}}{t} &= -\bm{v}
   \end{align}
 \end{subequations}
-with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the center manifold. In order to calculate $g$, suppose that
+with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the center manifold
+\parencite{guckenheimer2013}. In order to calculate $g$, suppose that
 $\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
 \begin{subequations}
   \label{eq:block_diagonal}
@@ -354,19 +355,19 @@ with $\bm{z} = h(\bm{w})$, so that on the center manifold
   \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
 \end{equation}
 The next step is to make \cref{eq:dynamics_on_the_center_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_center_manifold}
-cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations.
+cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
 
 Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
 further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$ where $J$ has a simple zero eigenvalue.
 Then using \cref{thm:center_manifold_theorem} a center manifold passing through
 $(\bm{0},0)$ can be found. If the trajectories are resitricted to the center manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
-bifurcation point) the the trajectories will be topologically equivalent to
+bifurcation point) the the trajectories will be topologically equivalent \parencite{guckenheimer2013} to
 \begin{equation}
   \label{eq:saddle_node}
   \dv{x}{t}  = \mu - x^2.
 \end{equation}
 This type of bifurcation is known as a saddle-node or a fold bifurcation.
-This remarkable fact has simplified a very high dimensional dynamical system to a one-dimenionsonal one near the bifurcation point.
+This remarkable fact has simplified a very high dimensional dynamical system to a one-dimenionsonal one near the bifurcation point \parencite{Glendinning1994}.
 
 The saddle-node bifurcation is very important as other bifurcation problems can be perturbed into a saddle-node bifurcation problem (as it is unusual for the transversality conditions
 not to be met). In this sense, saddle-nodes are to be expected in nature. However if the transversality conditions are not met other sorts of bifurcations can arise.
@@ -379,17 +380,17 @@ If $\partial_{\mu}f=0$, then the bifurcation is equivalent to
 which is a transcritical bifurcation. If $\partial_{\mu}f = 0$ and $\partial_{xx}f=0$ with $\partial_{xxx}f \neq 0$ the bifurcation is known as a pitchfork bifurcation with normal form
 \begin{equation}
   \label{eq:pitchfork}
-  \dv{x}{t} = \mu x -x^3.
+  \dv{x}{t} = \mu x - x^3.
 \end{equation}
 
 Another important sort of bifurcation is a Hopf bifurcation. In this bifurcation a complex conjugate eigenvalue pair become purely imaginary, $\lambda = \pm i\omega$.
-As there are no zero eigenvalues the Implicit Function
-Theorem implies no new equilibria will be created. However it will lead to a change in the dimensions of the stable and unstable manifolds, leading to a qualitative change in the behaviour of the system.
-It can be shown that there is a center manifold on which a limit cycle can exist. In other words, these bifurcations lead to the creation of periodic oscillatory behaviour. These bifurcations
-can occur only in systems of dimension two or higher. The normal form of this bifurcation is best expressed as a differential equation involving the complex variable $z = x + iy$
+As there are no zero eigenvalues the Implicit Function Theorem implies no new equilibria will be created. However it will lead to a change in the dimensions of the
+stable and unstable manifolds, leading to a qualitative change in the behaviour of the system. It can be shown that there is a center manifold on which a limit cycle can exist
+\parencite{guckenheimer2013}. In other words, these bifurcations lead to the creation of periodic oscillatory behaviour. These bifurcations
+can occur only in systems of dimension two or higher. The normal form of this bifurcation \parencite{guckenheimer2013} can be expressed as a differential equation involving the complex variable $z = x + iy$
 \begin{equation}
   \label{eq:hopf}
-  \dv{z}{t} = (\mu + i \omega) z + z|z|^2
+  \dv{z}{t} = (\mu + i \omega) z - z|z|^2.
 \end{equation}
 
 \subsubsection{Example}
