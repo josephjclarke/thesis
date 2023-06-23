@@ -267,6 +267,7 @@ been dubbed P-tipping \parencite{Alkhayuon2021}.
 A more detailed examination of B,N,R and S tipping will now be given.
 
 \subsection{B-Tipping}
+\subsubsection{Theory}
 Consider a system with a state variable $\bm{x} \in \mathbb{R}^n$ described by the system of ordinary  differential equations
 \begin{equation}
   \label{eq:generic_system}
@@ -356,7 +357,8 @@ The next step is to make \cref{eq:dynamics_on_the_center_manifold} as simple as 
 cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations.
 
 Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
-further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$. Then using \cref{thm:center_manifold_theorem} a center manifold passing through
+further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$ where $J$ has a simple zero eigenvalue.
+Then using \cref{thm:center_manifold_theorem} a center manifold passing through
 $(\bm{0},0)$ can be found. If the trajectories are resitricted to the center manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
 bifurcation point) the the trajectories will be topologically equivalent to
 \begin{equation}
@@ -374,16 +376,51 @@ If $\partial_{\mu}f=0$, then the bifurcation is equivalent to
   \label{eq:transcritical}
   \dv{x}{t} = \mu x - x^2,
 \end{equation}
-which is a transcritical bifurcation. If $\partial_{xx}f=0$, the bifurcation is known as a pitchfork bifurcation with normal form
+which is a transcritical bifurcation. If $\partial_{\mu}f = 0$ and $\partial_{xx}f=0$ with $\partial_{xxx}f \neq 0$ the bifurcation is known as a pitchfork bifurcation with normal form
 \begin{equation}
   \label{eq:pitchfork}
   \dv{x}{t} = \mu x -x^3.
 \end{equation}
 
+Another important sort of bifurcation is a Hopf bifurcation. In this bifurcation a complex conjugate eigenvalue pair become purely imaginary, $\lambda = \pm i\omega$.
+As there are no zero eigenvalues the Implicit Function
+Theorem implies no new equilibria will be created. However it will lead to a change in the dimensions of the stable and unstable manifolds, leading to a qualitative change in the behaviour of the system.
+It can be shown that there is a center manifold on which a limit cycle can exist. In other words, these bifurcations lead to the creation of periodic oscillatory behaviour. These bifurcations
+can occur only in systems of dimension two or higher. The normal form of this bifurcation is best expressed as a differential equation involving the complex variable $z = x + iy$
+\begin{equation}
+  \label{eq:hopf}
+  \dv{z}{t} = (\mu + i \omega) z + z|z|^2
+\end{equation}
 
-\subsubsection{Theory}
-If $\dot{x} = f(x)$, show that $f'(x_{tip}) = 0$. Normal forms
-\subsubsection{Stommel's AMOC Model}
+\subsubsection{Example}
+As an example of B-tipping, consider Stommel's AMOC model \parencite{STOMMEL1961}, which after a rescaling \parencite{Dijkstra2011} can be written as:
+\begin{subequations}
+  \label{eq:stommel_amoc}
+  \begin{align}
+    \dv{T}{t} &= \eta_1 - T\left(1 - \left|\Psi\right|\right) \\
+    \dv{S}{t} &= \eta_2 - S\left(\eta_3 + \left|\Psi\right|\right) \\
+    \Psi      &= T - S
+  \end{align}
+\end{subequations}
+where $T$ and $S$ are (dimensionless) equator to pole temperature differences. The flux $\Psi = T - S$ is the strength of the AMOC. The parameters $\eta_1,\eta_2,\eta_3$ represent
+thermal forcing, freshwater forcing and the ratio of their timescales respectively.
+
+As $\eta_2$ is increased the strength of the AMOC decreases until it reaches a saddle-node bifurcation point
+at $\eta_2^*  \approx 1.2$ where the AMOC abruptly transitions to a weaker state with flow in the opposite direction,
+this is shown in \cref{fig:stommel_amoc}. Near the bifurcation point, the flux behaves like $\Psi \sim \sqrt{\eta_2^*-\eta_2}$,
+which reflects the normal form \cref{eq:saddle_node}. If $\eta_2$ were to be decreased with the AMOC in the other state, $\eta_2$ would have to be decreased below
+$\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{stommel}
+  \caption[The Stommel Model of the AMOC]{The equilibrium states of the Stommel model, \cref{eq:stommel_amoc} as a function of $\eta_2$. The stable states are given in solid lines,
+    the unstable is given as a dashed line. As $\eta_2$ is increased, the AMOC transitions from a strong poleward flow to a weaker equatorward state. Note that near the
+    bifurcation point around $\eta_2 \approx 1.2$ the stable states seem to behave like the square root of the control parameter. This reflects the normal form of
+    the bifurcation. The parameters were set to $\eta_1 = 3,\eta_3=0.3$.}
+  \label{fig:stommel_amoc}
+\end{figure}
 \subsection{Noise}
 \subsubsection{Theory}
 Derive Kramers rate?
