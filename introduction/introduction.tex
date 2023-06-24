@@ -434,8 +434,33 @@ or resulting from unresolved processes \parencite{Palmer2009}. Certain paleoclim
 Stochastic differential equations can be written \parencite{Jacobs2010} as
 \begin{equation}
   \label{eq:general_sde}
-  \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}
+  \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t),
 \end{equation}
+where a physicists notation has been used. The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
+$\bm{\eta}(t)$ is the source of the stochasticity. It has mean zero and is `delta correlated' in time, by which is meant
+\begin{equation}
+  \label{eq:eta_correlation}
+  \E\left(\bm{\eta}_i(t)\bm{\eta}_j(t')\right) = \delta_{ij}\delta(t-t')
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function.
+
+Viewing individual solutions of \cref{eq:general_sde}, or sample paths, is one approach  to analysing stochastic systems. Another useful approach is to calculate the probability density function
+(pdf), $p(\bm{x},t)$ of $\bm{x}$ and how it evolves in time. The tool to do this is the Fokker-Planck equation \parencite{Fokker1914,Planck1917}, given by
+\begin{equation}
+  \label{eq:fokker_planck}
+  \pdv{p}{t} = - \sum_i \partial_i \bm{F}_i p + \sum_i\sum_j \partial_i\partial_j D_{ij} p
+\end{equation}
+where $D = GG^\intercal/2$.
+
+Often a very simple one-dimensional model is used instead
+\begin{equation}
+  \label{eq:simple_sde}
+  \dv{x}{t} = -\dv{U}{x} + \sigma \eta(t).
+\end{equation}
+This is an example of a potential system because it assumes the deterministic dynamics can be written as the gradient of a potential. This can be done for any one dimensional system but is not
+always the case for a higher dimensional system. Furthermore, the noise is assumed to be `white', with constant variance $\sigma^2$. It is known as white noise because in the fequency domain, all
+frequencies are excited with equal amplitude. This is a questionable assumption for the Earth System, where the sprectrum is not white \parencite{Mithcell1976,VonderHeydt2021} and may
+change due to climate change \parencite{Huntingford2013}.
 \subsubsection{Theory}
 \begin{figure}
   \centering
