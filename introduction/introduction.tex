@@ -423,6 +423,19 @@ $\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
   \label{fig:stommel_amoc}
 \end{figure}
 \subsection{Noise}
+If a system with multiple stable states is subject to stochastic forcing, then it will perform transitions between these states after a long enough time. This
+phenomenon is called N- or noise-tipping. This has an important difference to B-tipping. In B-tipping an external driver changes a control parameter, causing a system to tip
+but in N-tipping the natural variability of the system causes it to tip.
+
+The role of noise in the climate system was identified by~\cite{Hasselmann1976}. He viewed the `slow' components of the earth system (the ocean, the vegetation and the ice sheets) as being
+deterministic and the `fast' components (the atmosphere) as being essentially stochastic. This stochasticity may be viewed as an effective model for chaotic systems \parencite{Lorenz1963}
+or resulting from unresolved processes \parencite{Palmer2009}. Certain paleoclimate abrupt shifts, such as the Dansgaard-Oeschger events, have been viewed a N-tipping \parencite{Ditlevsen1999}.
+
+Stochastic differential equations can be written \parencite{Jacobs2010} as
+\begin{equation}
+  \label{eq:general_sde}
+  \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + \bm{G}(\bm{x})
+\end{equation}
 \subsubsection{Theory}
 \begin{figure}
   \centering
