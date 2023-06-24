@@ -546,7 +546,23 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 \subsubsection{Theory}
 3 diagrams unstable manifold
 \subsubsection{Compost Bomb}
+
+
 \subsection{S-tipping}
+A more recent addition to the tipping points typology is that of S- or shock-tipping. This refers to a situation where a single large perturbation
+can push a system from one state to another \parencite{Halekotte2020,Feudel2023}, such as an extreme weather event on an ecosystem.
+In this sense it is closesly related to ideas of resilience introduced by~\cite{Holling1973}.
+
+It is related to N-tipping but should be differentiated from it in the following sense. If $\bm{x}^*$ is a fixed point, with a basin of attraction $\mathcal{B}$ then the
+smallest perturbation required to push the system into a new state is given by
+\begin{equation}
+  \label{eq:smallest_perturbation}
+  \bm{\Delta} = \argmin \{ |\bm{x}'|^2 : \bm{x}^* + \bm{x}' \notin \mathcal{B}\}.
+\end{equation}
+If the system is a potential system, then this is equal in magnitude to the distance to the nearest maximum, $|x_{max} - x_{min}$. This should be compared to Kramer's formula,
+\cref{eq:kramers}, which is a function of the difference in potential $U(x_{max}) - U(x_{min})$. In other words, S-tipping depends on the distance to the potential barrier, but N-tipping depends on
+the height of that barrier.
+
 \subsubsection{Theory}
 Calculate the distance to the boundary for a general fixed point. Suppose $x^*$ is a fixed point with basin $\mathcal{B}$. Let $d(a,b)$ be the distance from
 $a$ to $b$ .Then $\Delta = \inf \{d(x,x^*) : x \in \partial\mathcal{B}\}$.
