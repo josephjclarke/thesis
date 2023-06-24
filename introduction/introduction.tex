@@ -457,10 +457,26 @@ Often a very simple one-dimensional model is used instead
   \label{eq:simple_sde}
   \dv{x}{t} = -\dv{U}{x} + \sigma \eta(t).
 \end{equation}
-This is an example of a potential system because it assumes the deterministic dynamics can be written as the gradient of a potential. This can be done for any one dimensional system but is not
+This is an example of a potential system because it assumes the deterministic dynamics can be written as the gradient of a potential, $U(x)$. This can be done for any one dimensional system but is not
 always the case for a higher dimensional system. Furthermore, the noise is assumed to be `white', with constant variance $\sigma^2$. It is known as white noise because in the fequency domain, all
-frequencies are excited with equal amplitude. This is a questionable assumption for the Earth System, where the sprectrum is not white \parencite{Mithcell1976,VonderHeydt2021} and may
+frequencies are excited with equal amplitude. This is a questionable assumption for the Earth System, where the sprectrum is not white \parencite{Mitchell1976,VonderHeydt2021} and may
 change due to climate change \parencite{Huntingford2013}.
+
+\Cref{eq:simple_sde} has an assossiated Fokker-Planck equation
+\begin{equation}
+  \label{eq:fokker_planck_one_d}
+  \pdv{p}{t} = \pdv{x} \dv{U}{x}p + \frac{1}{2}\sigma^2 \pdv[2]{p}{x},
+\end{equation}
+which can also be written in the form of a continuity equation
+\begin{equation}
+  \label{eq:fokker_planck_continuity}
+  \pdv{p}{t} + \pdv{J}{x} = 0
+\end{equation}
+where $J$ is the probability current given by
+\begin{equation}
+  \label{eq:probability_current}
+  J(x) = -\dv{U}{x}p - \frac{1}{2}\sigma^2 \pdv{p}{x}.
+\end{equation}
 \subsubsection{Theory}
 \begin{figure}
   \centering
