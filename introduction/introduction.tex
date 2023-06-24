@@ -563,27 +563,31 @@ If the system is a potential system, then this is equal in magnitude to the dist
 \cref{eq:kramers}, which is a function of the difference in potential $U(x_{max}) - U(x_{min})$. In other words, S-tipping depends on the distance to the potential barrier, but N-tipping depends on
 the height of that barrier.
 
-\subsubsection{Theory}
-Calculate the distance to the boundary for a general fixed point. Suppose $x^*$ is a fixed point with basin $\mathcal{B}$. Let $d(a,b)$ be the distance from
-$a$ to $b$ .Then $\Delta = \inf \{d(x,x^*) : x \in \partial\mathcal{B}\}$.
-\subsubsection{An Example}
-Consider the Allee Effect \parencite{Allee1932,Stephens1999}.
+\subsubsection{Example}
+Consider a population growing via logistic growth with carrying capacity $k$ that is subject to the Allee Effect \parencite{Allee1932,Stephens1999}, which reduces growth rates
+at low population densities. A simple model of this is
 \begin{equation}
   \label{eq:allee_effect}
-  \dot{x} = x\left(x-1\right)\left(1-\frac{x}{k}\right).
+  \dv{x}{t} = x\left(x-1\right)\left(1-\frac{x}{k}\right),
 \end{equation}
-Assume $k > 1$. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. If the system is
-initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
-this magnitude or greater then the system will transition to the extinction state.
+where $k > 1$ and $x$ is a population density. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. $x_1$ corresponds to an extinct
+state and $x_3$ to the `desired' state of the system.
+
+If the system is initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
+this magnitude or greater then the system will transition to the extinction state. In \cref{fig:shock_tipping}, \cref{eq:allee_effect} is integrated with $k = 2.0$ and given perturbations of
+magnitude $0.99$ and $1.01$ at times $25.0$ and $50.0$. The first perturbation is not large enough to push the system across the boundary of the basin of attraction, yet the second one is
+which is why the population undergoes S-tipping after the second perturbation.
 
 \begin{figure}
   \centering
   \includegraphics{shock}
-  \caption{An example of shock-tipping}
+  \caption{An example of shock-tipping. The system given by \cref{eq:allee_effect} recieves a perturbation of $0.99$ at time $25.0$. This is not large enough to make it cross the basin boundary
+    (given by the dotted line) and so the system recovers. However at time $50.0$ a perturbation of $1.01$ is given which is enough to make it cross the basin boundary and thus to make the
+  population go extinct.}
   \label{fig:shock_tipping}
 \end{figure}
 
-%Phase tipping?
+Summary
 
 \section{Early Warning Signals}
 Systems behaving 1D. Critical Slowing Down. Use of variance and
