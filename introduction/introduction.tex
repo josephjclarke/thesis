@@ -422,7 +422,7 @@ $\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
     the bifurcation. The parameters were set to $\eta_1 = 3,\eta_3=0.3$.}
   \label{fig:stommel_amoc}
 \end{figure}
-\subsection{Noise}
+\subsection{N-tipping}
 If a system with multiple stable states is subject to stochastic forcing, then it will perform transitions between these states after a long enough time. This
 phenomenon is called N- or noise-tipping. This has an important difference to B-tipping. In B-tipping an external driver changes a control parameter, causing a system to tip
 but in N-tipping the natural variability of the system causes it to tip.
@@ -477,28 +477,76 @@ where $J$ is the probability current given by
   \label{eq:probability_current}
   J(x) = -\dv{U}{x}p - \frac{1}{2}\sigma^2 \pdv{p}{x}.
 \end{equation}
-\subsubsection{Theory}
+
+If \cref{eq:simple_sde} has multiple stable states, then and estimate of the transition rate between these states can be made. This estimate known
+as the Kramers Rate \parencite{Kramers1940}. This derivation follows~\cite{Risken1984}.
+
 \begin{figure}
   \centering
   \includegraphics{potential_to_escape}
-  \caption{An example potential.}
+  \caption{An example of a potential with a stable state at $x_{min}$ from which a system can escape over the potential barrier at $x_{max}$ to a new state neat $x_3$.
+  The precise locations of $x_1,x_2,x_3$ do not matter at the level of approximation Kramer's escape rate formula works at.}
   \label{fig:potential_to_escape}
 \end{figure}
+
+Suppose that $U$ has the form given by \cref{fig:potential_to_escape}, which has a stable state at $x_{min}$, an unstable state at $x_{max}$ and the rate at which the system
+transitions from near $x_{min}$ in the region between $x_1$ and $x_2$ to near $x_3$ is to be determined. Assuming the system is in a near steady state, \cref{eq:fokker_planck_continuity}
+implies that $J$ is approximately constant. Noting that $J$ can we put into the form
 \begin{equation}
-  \label{eq:kramers_law}
+  \label{eq:probability_current_other_form}
+  J = -\frac{1}{2}\sigma^2 e^{-\frac{2U(x)}{\sigma^2}} \pdv{x} \left( p(x) e^{\frac{2U(x)}{\sigma^2}}\right),
 \end{equation}
-\subsubsection{D.O. Events}
+which can then be integrated from $x_{min}$ to $x_3$ give
+\begin{equation}
+  \label{eq:integrated_J}
+  J = \frac{1}{2} \left(p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} - p(x_3)e^{\frac{2U(x_{3})}{\sigma^2}}\right)\left(\int_{x_{min}}^{x_{3}} e^{\frac{2U(x)}{\sigma^2}} \dd{x}\right)^{-1}.
+\end{equation}
+As it will be rare to find the system at $x_3$, $p(x_3)$ is negligible. To estimate $p(x_{min})$, assume this is given by the equilibrium distribution which can be found by setting $J$ to
+a constant. This constant can be chosen to be the value of $J$ at $x_{min}$, giving the following expression for the equilibrium pdf, $p_{eq}$,
+\begin{equation}
+  \label{eq:equilibrium_pdf}
+  p_{eq}(x) = p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}}e^{-\frac{2U(x)}{\sigma^2}}.
+\end{equation}
+The probability of finding the system near $x_{min}$ is therefore
+\begin{equation}
+  \label{eq:p_near_xmin}
+  \mathbb{P} = \int_{x_1}^{x_2} p_{eq}(x) \dd{x} = p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} \int_{x_1}^{x_2} e^{-\frac{2U(x)}{\sigma^2}} \dd{x}.
+\end{equation}
+The escape rate is $r = J/\mathbb{P}$ which becomes
+\begin{equation}
+  \label{eq:escape_rate_integrals}
+  r^{-1} = \frac{2}{\sigma^2} \int_{x_1}^{x_2} e^{-\frac{2U(x)}{\sigma^2}} \dd{x} \int_{x_{min}}^{x_3} e^{-\frac{2U(x)}{\sigma^2}} \dd{x}.
+\end{equation}
+Each integral can be asymptotically evaluated using Laplace's Method \parencite{Bender1978} to give Kramers escape rate
+\begin{equation}
+  \label{eq:kramers}
+  r^{-1} \sim \frac{2\pi}{\sqrt{U''(x_{min})|U''(x_{max})|}} e^{\frac{2}{\sigma^2}\left(U(x_{max})-U(x_{min})\right)},
+\end{equation}
+for $ \sigma \rightarrow 0$.
+
+\subsubsection{Example}
+As an example consider the potential
+\begin{equation}
+  \label{eq:example_potential}
+  U(x) = -\frac{1}{2}x^2 + \frac{1}{2}x^4
+\end{equation}
+which has symmetric stable states at $x = \pm \sqrt{3}$. There is a potential barrier at $x = 0$. Assuming that $\sigma = 0.75$, Kramer's rate predicts a transition
+timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitions happening on this timescale.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{noise_trans}
+  \caption[An example of N-tipping]{A timeseries showing transitions between two stable states (indicated by a dotted line). Kramers formula, \cref{eq:kramers} predicts a
+    transition timescale of about $65$ time units. The time series shows transitions happening on this timescale.}
+  \label{fig:ntipping}
+\end{figure}
 
 
-
-
-
-
-\subsection{Rate}
+\subsection{R-tipping}
 \subsubsection{Theory}
 3 diagrams unstable manifold
 \subsubsection{Compost Bomb}
-\subsection{Shock}
+\subsection{S-tipping}
 \subsubsection{Theory}
 Calculate the distance to the boundary for a general fixed point. Suppose $x^*$ is a fixed point with basin $\mathcal{B}$. Let $d(a,b)$ be the distance from
 $a$ to $b$ .Then $\Delta = \inf \{d(x,x^*) : x \in \partial\mathcal{B}\}$.
