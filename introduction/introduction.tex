@@ -592,7 +592,35 @@ If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions head towards it. Ho
 is a critical rate, $r_c = 4$ above which R-tipping occurs.
 
 \subsubsection{Example}
+The paradigmatic example of R-tipping is the Compost Bomb instability \parencite{Luke2011,Wieczorek2011,Clarke2021,OSullivan2022arxiv}, which is an thermal
+instability in the soil. This phenomenon is caused by microbial respiration warming the soil, which in turn increases the soil temperature. However, this respiration decreases the supply
+of soil carbon and thus decreases the amount of respiration and thus heating in the soil. Due to the differences between the (rapid) timescale of heating and the (slow) timescale of soil
+carbon decrease there is the possibility for a dramatic increase in soil temperature.~\cite{Luke2011} found that if the air temperature raised faster than a critical rate then the
+compost bomb instability would be caused. Their model was 
+\begin{subequations}
+  \label{eq:compost_bomb}
+  \begin{align}
+    \mu\dv{T_s}{t} &= -\lambda \left(T_s - T_a\right) + Ar_0 C_s e^{\alpha T_s} \\
+    \dv{C_s}{t}    &= \Pi - r_0 C_s e^{\alpha T_s} \\
+    \dv{T_a}{t}    &= \dot{T}_a
+  \end{align}
+\end{subequations}
+where $T_s$ is the soil temperature, $T_a$ is the air temperature and $C_s$ is the soil carbon. The parameters, taken from~\cite{Wieczorek2011}, are a heat capacity
+$\mu = \SI{2.5E6}{\joule\per\meter\squared\per\kelvin}$, a thermal coupling $\lambda = \SI{5.049E6}{\joule\per\year\per\meter\squared\per\kelvin}$, a heat of
+respiration $A = \SI{3.9E7}{\joule\per\kilo\gram\carbon}$, a specific respiration $r_0 = \SI{0.01}{\per\year}$, a temperature dependence of respiration $\alpha = \SI{0.09}{\per\kelvin}$
+and a net primary productivity $\Pi = \SI{1.055}{\kilo\gram\carbon\per\meter\squared\per\year}$. When the rate of increase in temperature was increased above a critical rate,
+$\dot{T}_a \approx \SI{0.08}{\kelvin\per\year}$ the instability is triggered.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{cbomb}
+  \caption[Compost Bomb]{A plot of soil temperature relative to air temperature with two different rates of warming, calculated from \cref{eq:compost_bomb}. Note the spike in temperatures
+  for high enough rates of warming---an example of R-tipping.}
+  \label{fig:compost_bomb_example}
+\end{figure}
+
+\Cref{fig:compost_bomb_example} shows two time seris of \cref{eq:compost_bomb} with $\dot{T}_a = \SI{0.05}{\kelvin\per\year}$ and $\dot{T}_a = \SI{0.1}{\kelvin\per\year}$. For the larger
+rate of warming there is a clear spike in the soil temperatures.
 
 \subsection{S-tipping}
 A more recent addition to the tipping points typology is that of S- or shock-tipping. This refers to a situation where a single large perturbation
