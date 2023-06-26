@@ -267,6 +267,7 @@ been dubbed P-tipping \parencite{Alkhayuon2021}.
 A more detailed examination of B,N,R and S tipping will now be given.
 
 \subsection{B-Tipping}
+\label{sec:btipping}
 \subsubsection{Theory}
 Consider a system with a state variable $\bm{x} \in \mathbb{R}^n$ described by the system of ordinary  differential equations
 \begin{equation}
@@ -543,6 +544,51 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 
 
 \subsection{R-tipping}
+A useful example, taken from~\cite{Ashwin2012}, will now be considered. The system is
+\begin{subequations}
+  \label{eq:rtipping_example}
+  \begin{align}
+    \dv{x}{t}   &= \left(x + \mu\right)^2 - 4 \label{eq:rtipping_example_x} \\
+    \dv{\mu}{t} &= r.                          \label{eq:rtipping_example_r} 
+  \end{align}
+\end{subequations}
+These equations can be interpretted as a system with state $x$ and a parameter $\mu$ that changes at some finite rate, $r$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{rate}
+  \caption[R-tipping mechanism]{Panels showing the state space of a system, \cref{eq:rtipping_example}, undergoing R-tipping.
+    From left to right, the figures show the system below the critical rate, at the critical rate and above the critical rate. In the left panel, with $r=3.2$ the lines
+    $x^{\mathrm{PB}}_{\pm}$ exist and are separated. In the center panel with $r = r_c = 4$, $x^{\mathrm{PB}}_{\pm}$ exist and have collided into one line. In the right panel,
+    $r = 4.8$ and therefore $x^{\mathrm{PB}}_{\pm}$ do not exist. As a result trajectories diverge as the system has undergone R-tipping. Note that for all values of $r$, the
+    quasi-static equilibria exist.}
+  \label{fig:rate_tipping}
+\end{figure}
+
+Consider the `frozen system' \parencite{W?}.
+This is \cref{eq:rtipping_example_x} with $\mu$ constant --- this describes the dynamics in the case where the environment is unchanging. It has equilibria at
+$x^*_{\pm} = \pm 2 - \mu$. The stability of these equilibria can be found in the matter descibed in \cref{sec:btipping}, which in this case amounts to evaluating
+the derivative of \cref{eq:rtipping_example_x} with respect to $x$ at $x^*_{\pm}$. It can be shown that $x_-$ is stable for all $\mu$ values, and $x_+$ is
+unstable for all $\mu$ values. These quasi-static equilibria are shown as grey lines in \cref{fig:rate_tipping}, where the stable quasi-static equilibria is shown in
+solid grey and the unstable quasi-static equilibria is shown as a dashed line. As a result a naive B-tipping analysis would suggest this system cannot tip, however it can undergo R-tipping.
+
+
+
+To see this, make a change of coordinates into a co-moving frame by setting $y = x + \mu$. Then the system becomes
+\begin{equation}
+  \label{eq:rtipping_co_moving}
+  \dv{y}{t} = y^2 + r - 4.
+\end{equation}
+This equation has a stable fixed point at $-\sqrt{4-r}$ and an unstable fixed point at $\sqrt{4-r}$. Returning to the $x$ coordinates these solutions correspond to the
+pullback attractor and repellor of the system, $x^{\mathrm{PB}}_{\pm} = \pm \sqrt{4 - r} - \mu$. These lines are plotted in black in \cref{fig:rate_tipping} where the solid line
+is the stable state and the dashed line is unstable. It is to $x_-^{\mathrm{PB}}$ rather than $x_-$ that the solutions of \cref{eq:rtipping_example} are attracted to, plotted in red
+in \cref{fig:rate_tipping}.
+
+If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions head towards it. However if $r > 4$ then $x_-^{\mathrm{PB}}$ does not exist and so solutions diverge to infinity. As a result there
+is a critical rate, $r_c = 4$ above which R-tipping occurs.
+
+
+
 \subsubsection{Theory}
 3 diagrams unstable manifold
 \subsubsection{Compost Bomb}
