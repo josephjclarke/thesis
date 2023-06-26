@@ -171,7 +171,7 @@ To demonstrate that these events can occur, I will give some examples of abrupt 
 \subsection{Evidence of Tipping Points from Paleoclimate}
 The Earth is about four and a half billion years old \parencite{Dalrymple2001}, and over that time the Earth has experiened many different climates \parencite{Alley2003}.
 These climates are reconstructed using proxy data. For example, \ce{CO2} concentrations found in Antarctic ice cores can be used to estimate atmospheric \ce{CO2} levels for the
-last $800,000$ years \parencite{Bereiter2014}. Other methods, for example using istopic data, can be used to reconstruct even older climates \parencite{Tierney2020}.
+last $800,000$ years \parencite{Bereiter2015}. Other methods, for example using istopic data, can be used to reconstruct even older climates \parencite{Tierney2020}.
 
 When examining the time series these reconsructions generate, some abrupt shifts can be seen \parencite{Boers2022,Brovkin2021}. Although it is challegning to work out if these
 shifts represent tipping points or continuous change \parencite{Brovkin2008}, there is evidence that some of these shifts are examples of tipping \parencite{Dakos2008}. Three example abrupt shifts are considered here.
@@ -211,7 +211,7 @@ revealing two possible states as shown in \cref{fig:energy_balance_solution}.
   \label{fig:energy_balance_solution}
 \end{figure}
 
-This snowball state was predicted without empircal evidence, however decades after it was postulated evidence arose for its existence \parencite{Kirshvink1992,Hoffman2002}.
+This snowball state was predicted without empircal evidence, however decades after it was postulated evidence arose for its existence \parencite{Kirschvink1992,Hoffman2002}.
 This snowball state appears to have existed in the Neoproterozoic around \SI{650}{\mega\year\beforepresent}.
 During this time there appears to have been glaciers near the equator. It is not clear
 if the Earth was totally covered in ice, or if there was a think equatorial ocean, leading to a `slushball' Earth, rather than a `Hard Snowball' \parencite{Pierrehumbert2005,Pierrehumbert2011}.
@@ -437,7 +437,7 @@ Stochastic differential equations can be written \parencite{Jacobs2010} as
   \label{eq:general_sde}
   \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t),
 \end{equation}
-where a physicists notation has been used. The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
+where a physicist's notation has been used. The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
 $\bm{\eta}(t)$ is the source of the stochasticity. It has mean zero and is `delta correlated' in time, by which is meant
 \begin{equation}
   \label{eq:eta_correlation}
@@ -545,8 +545,8 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 
 \subsection{R-tipping}
 A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-tipping refers to
-a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not. This type of tipping
-can only occur in nonautonomous dynamical systems (a nonautonomous system depends explicitly on time).
+a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not \parencite{Perryman2014a}.
+This type of tipping can only occur in nonautonomous dynamical systems, which is a system with explicit time dependence \parencite{Ashwin2017a}.
 
 This sort of tipping is best explained through an example, taken from~\cite{Ashwin2012}. The system is
 \begin{subequations}
@@ -569,14 +569,13 @@ These equations can be interpretted as a system with state $x$ in a changing env
   \label{fig:rate_tipping}
 \end{figure}
 
-Consider the `frozen system' \parencite{W?}.
-This is \cref{eq:rtipping_example_x} with $\mu$ constant --- this describes the dynamics in the case where the environment is unchanging. It has equilibria at
-$x^*_{\pm} = \pm 2 - \mu$. The stability of these equilibria can be found in the matter descibed in \cref{sec:btipping}, which in this case amounts to evaluating
+Consider the `frozen system' \parencite{Wieczorek2021}, which is \cref{eq:rtipping_example_x} with $\mu$ constant --- this describes the dynamics
+in the case where the environment is unchanging. It has equilibria at
+$x^*_{\pm} = \pm 2 - \mu$. The stability of these equilibria can be found in the manner descibed in \cref{sec:btipping}, which in this case amounts to evaluating
 the derivative of \cref{eq:rtipping_example_x} with respect to $x$ at $x^*_{\pm}$. It can be shown that $x_-$ is stable for all $\mu$ values, and $x_+$ is
-unstable for all $\mu$ values. These quasi-static equilibria are shown as grey lines in \cref{fig:rate_tipping}, where the stable quasi-static equilibria is shown in
-solid grey and the unstable quasi-static equilibria is shown as a dashed line. As a result a naive B-tipping analysis would suggest this system cannot tip, however it can undergo R-tipping.
-
-
+unstable for all $\mu$ values. These quasi-static equilibria are shown as grey lines in \cref{fig:rate_tipping}, where the stable quasi-static equilibria are shown in
+solid grey and the unstable quasi-static equilibria are shown as a dashed line. As a result a na{\"i}ve B-tipping analysis would suggest this system cannot tip. However, as will be shown,
+this system can undergo R-tipping.
 
 To see this, make a change of coordinates into a co-moving frame by setting $y = x + \mu$. Then the system becomes
 \begin{equation}
@@ -584,15 +583,16 @@ To see this, make a change of coordinates into a co-moving frame by setting $y =
   \dv{y}{t} = y^2 + r - 4.
 \end{equation}
 This equation has a stable fixed point at $-\sqrt{4-r}$ and an unstable fixed point at $\sqrt{4-r}$. Returning to the $x$ coordinates these solutions correspond to the
-pullback attractor and repellor of the system, $x^{\mathrm{PB}}_{\pm} = \pm \sqrt{4 - r} - \mu$. These lines are plotted in black in \cref{fig:rate_tipping} where the solid line
+pullback attractor and repellor of the system, $x^{\mathrm{PB}}_{\pm} = \pm \sqrt{4 - r} - \mu$. These pullback objects are the appropriate generalisation of attractors and repellors to the
+nonautonomous case \parencite{Ghil2020a}. They are plotted in black in \cref{fig:rate_tipping} where the solid line
 is the stable state and the dashed line is unstable. It is to $x_-^{\mathrm{PB}}$ rather than $x_-$ that the solutions of \cref{eq:rtipping_example} are attracted to, plotted in red
 in \cref{fig:rate_tipping}.
 
-If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions head towards it. However if $r > 4$ then $x_-^{\mathrm{PB}}$ does not exist and so solutions diverge to infinity. As a result there
-is a critical rate, $r_c = 4$ above which R-tipping occurs.
+If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions evolve towards it. However if $r > 4$ then $x_-^{\mathrm{PB}}$ does not exist and so solutions diverge to infinity. As a result there
+is a critical rate, $r_c = 4$, above which R-tipping occurs.
 
 \subsubsection{Example}
-The paradigmatic example of R-tipping is the Compost Bomb instability \parencite{Luke2011,Wieczorek2011,Clarke2021,OSullivan2022arxiv}, which is an thermal
+The paradigmatic example of R-tipping is the Compost Bomb instability \parencite{Luke2011,Wieczorek2011,Clarke2021,OSullivan2022arxiv}, which is a thermal
 instability in the soil. This phenomenon is caused by microbial respiration warming the soil, which in turn increases the soil temperature. However, this respiration decreases the supply
 of soil carbon and thus decreases the amount of respiration and thus heating in the soil. Due to the differences between the (rapid) timescale of heating and the (slow) timescale of soil
 carbon decrease there is the possibility for a dramatic increase in soil temperature.~\cite{Luke2011} found that if the air temperature raised faster than a critical rate then the
