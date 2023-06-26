@@ -544,7 +544,11 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 
 
 \subsection{R-tipping}
-A useful example, taken from~\cite{Ashwin2012}, will now be considered. The system is
+A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-tipping refers to
+a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not. This type of tipping
+can only occur in nonautonomous dynamical systems (a nonautonomous system depends explicitly on time).
+
+This sort of tipping is best explained through an example, taken from~\cite{Ashwin2012}. The system is
 \begin{subequations}
   \label{eq:rtipping_example}
   \begin{align}
@@ -552,7 +556,7 @@ A useful example, taken from~\cite{Ashwin2012}, will now be considered. The syst
     \dv{\mu}{t} &= r.                          \label{eq:rtipping_example_r} 
   \end{align}
 \end{subequations}
-These equations can be interpretted as a system with state $x$ and a parameter $\mu$ that changes at some finite rate, $r$.
+These equations can be interpretted as a system with state $x$ in a changing environment represeted by parameter $\mu$ that changes at some finite rate, $r$.
 
 \begin{figure}
   \centering
@@ -587,11 +591,7 @@ in \cref{fig:rate_tipping}.
 If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions head towards it. However if $r > 4$ then $x_-^{\mathrm{PB}}$ does not exist and so solutions diverge to infinity. As a result there
 is a critical rate, $r_c = 4$ above which R-tipping occurs.
 
-
-
-\subsubsection{Theory}
-3 diagrams unstable manifold
-\subsubsection{Compost Bomb}
+\subsubsection{Example}
 
 
 \subsection{S-tipping}
