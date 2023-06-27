@@ -365,7 +365,7 @@ $(\bm{0},0)$ can be found. If the trajectories are restricted to the center mani
 bifurcation point) the the trajectories will be topologically equivalent \parencite{guckenheimer2013} to
 \begin{equation}
   \label{eq:saddle_node}
-  \dv{x}{t}  = \mu - x^2.
+  \dv{x}{t}  = \mu + x^2.
 \end{equation}
 This type of bifurcation is known as a saddle-node or a fold bifurcation.
 This remarkable fact has simplified a very high dimensional dynamical system to a one-dimensional one near the bifurcation point \parencite{Glendinning1994}.
@@ -676,7 +676,7 @@ Although real tipping points may have multiple characteristics it is still often
 Given the large impact a climate tipping point would have \parencite{}, it would be useful to know at what level of climate forcing they would be triggered.
 However models show little agreement about the level of forcing required to cause them \parencite{Drijfhout2015}. The processes of interest are by their nature
 nonlinear and often involve interactions between the physical climate and the biosphere, where the `correct' equations are inherently uncertain. Furthermore,
-some tipping behaviour may depend on subgrid scale processes as in the case of fire \parencute{}. As a result a precise determination of the dangerous level of climate
+some tipping behaviour may depend on subgrid scale processes as in the case of fire \parencite{}. As a result a precise determination of the dangerous level of climate
 forcing is challenging at present.
 
 Instead, a theory of \emph{early warning signals} (EWS), sometimes known as  \emph{early warning indicators} (EWI), has emerged. These techniques attempt to use certain
@@ -688,9 +688,27 @@ will not be useful in these cases. For the case of rate tipping, there has been 
 for bifurcation tipping where statistics can be calculated as a function of a slowly evolving parameter.
 
 \subsection{The basic idea}
+The basic idea of early warning signals is that of \emph{critical slowing down}. Critical opalescence etc?
+
+Suppose there is a system
+\begin{equation}
+  \label{eq:system}
+  \dv{x}{t} = f(x,\mu)
+\end{equation}
+which has a stable state for $\mu < \mu_c$ at $x^*$ and undergoes a bifurcation when $\mu=\mu_c$. Then before the bifurcation, the system can be linearised about this steady state
+to give
+\begin{equation}
+  \label{eq:linearised_about_steady_state}
+  \dv{y}{t} = -\lambda y
+\end{equation}
+where $y = x -x^*$ and $\lambda = -f'(x^*,\mu)$. As the bifurcation is approached, $\lambda \rightarrow 0$ so any method that detects changes in $\lambda$ can act as an early warning
+signal, in a quite generic way, for B-tipping. $\lambda$ is an inverse timescale, so as $\lambda \rightarrow 0$, this timescale approaches infinity, hence the name critical slowing down.
+
+
+
 \subsection{Variance and Autocorrelation}
 \subsection{Other EWS}
-System specific.
+System specific. Critical speeding up
 \subsection{Ecological Resiliance}
 Noise tipping.
 \subsection{The Use of EWS}
