@@ -705,8 +705,52 @@ where $y = x -x^*$ and $\lambda = -f'(x^*,\mu)$. As the bifurcation is approache
 signal, in a quite generic way, for B-tipping. $\lambda$ is an inverse timescale, so as $\lambda \rightarrow 0$, this timescale approaches infinity, hence the name critical slowing down.
 
 
-
 \subsection{Variance and Autocorrelation}
+A very common way to approach early warning signals is to assume that the system of interest can be modeled as a one dimensional system subject to additive gaussian white noise. The first
+of these assumptions is defensible on the grounds that near a bifurcation point, generic systems behave qualitatively like \cref{eq:saddle_node}. The second assumption is more suspect
+as systems are generally subject to time correlated noise, such as red noise. However in the case of red noise, as long as the dynamics are considered over long enough timescales, then the
+noise can be approximated as white. This assumption amounts to analysing the Langevin equation \parencite{Langevin1908}
+\begin{equation}
+  \label{eq:stochastic_system}
+  \dv{x}{t} = f(x) + \sigma \eta(t) 
+\end{equation}
+where $\eta$ is a standard wiener process and $\sigma^2$ is the variance of the noise. This system can then be linearised to give
+\begin{equation}
+  \label{eq:ou_process}
+  \dv{y}{t} = -\lambda y + \sigma \eta(t)
+\end{equation}
+where $y$ and $\lambda$ are defined as in \cref{eq:linearised_about_steady_state}. This is the equation that defines an Ornstein-Uhlenbeck process \parencite{Uhlenbeck1930} and its statistical
+properties are well known. The Fluctuation-Dissipation Theorem \parencite{Marconi2008,Kubo1966,Leith1975,Einstein1905}
+provides a link between the variability of a system and its response to
+forcing, i.e. $\lambda$.
+
+In this case the important statisitcs are
+\begin{align}
+  \sigma^2_y &= \frac{\sigma^2}{2\lambda} \label{eq:y_var}\\
+  \alpha_1   &= e^{-\lambda} \label{eq:y_ac}
+\end{align}
+where $\sigma^2_y$ is the variance of $y$ and $\alpha_1$ is the autocorrelation of $y$ at lag 1. As $\lambda \rightarrow 1$
+\begin{align}
+  \sigma_y^2 &\rightarrow \infty \\
+  \alpha_1    &\rightarrow 1.
+\end{align}
+This means that as a system with state $x$ approaches a B-tipping point, then its fluctuations about equilibrium, given by $y$, should have their variance diverge and their autocorrelation
+tend to unity.
+
+The question remains how to extract $y$ from a time series of $x$. If $x^*$, the equilibrium, was known then this could be directly subtracted from $x$ to give $y$. However if the equlibrium was known
+then there would be no need for early warning signals as the bifurcation point could be calculated explicitly. Instead it is usually assumed that by subtracting a (possibly nonlinear) trend
+off of $x$ what remains will approximate $y$.
+
+This leads to the following method to generate early warning signals from a time series:
+\begin{enumerate}
+\item Split the time series of $x$ into rolling windows of length $\tau_w$. Let $x_i$ refer to the $x$ values in window $i$.
+\item Detrend the time series $x_i$ to get $y_i$.
+\item Calculate the variance $\sigma^2_{y_i}$ and autocorrelation $\alpha_{1}$ of $y_i$.
+\item Perform statistical tests to detect if $\sigma^2_{y_i}$ and  $\alpha_{1}$ are increasing.
+\item If they are increasing, then this can be taken as an early warning of an approaching B-tipping.
+\end{enumerate}
+
+Timescales? Statistical tests?
 \subsection{Other EWS}
 System specific. Critical speeding up
 \subsection{Ecological Resiliance}
