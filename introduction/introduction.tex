@@ -673,24 +673,23 @@ Although real tipping points may have multiple characteristics it is still often
 
 \section{Early Warning Signals}
 \subsection{Why do we need early warning signals? And when can we expect them?}
-Given the large impact a climate tipping point would have \parencite{}, it would be useful to know at what level of climate forcing they would be triggered.
+Given the large impact a climate tipping point would have \parencite{Lenton2019a}, it would be useful to know at what level of climate forcing they would be triggered.
 However models show little agreement about the level of forcing required to cause them \parencite{Drijfhout2015}. The processes of interest are by their nature
 nonlinear and often involve interactions between the physical climate and the biosphere, where the `correct' equations are inherently uncertain. Furthermore,
-some tipping behaviour may depend on subgrid scale processes as in the case of fire \parencite{}. As a result a precise determination of the dangerous level of climate
+some tipping behaviour may depend on subgrid scale processes, such as in the case of fire \parencite{Mangeon2016}. As a result a precise determination of the dangerous level of climate
 forcing is challenging at present.
 
-Instead, a theory of \emph{early warning signals} (EWS), sometimes known as  \emph{early warning indicators} (EWI), has emerged. These techniques attempt to use certain
-generic statistical features of tipping points to provide an indication as to whether a system is moving towards a tipping point. This is closely related to ideas about normal
-forms developed in \cref{sec:btipping}.
+Instead, a theory of \emph{early warning signals} (EWS), sometimes known as  \emph{early warning indicators} (EWI), has emerged \parencite{Dakos2008,Scheffer2009,Lenton2011,Williamson2015}.
+These techniques attempt to use certain generic statistical features of tipping points to provide an indication as to whether a system is
+moving towards a tipping point. This is closely related to ideas about normal forms developed in \cref{sec:btipping}.
 
-However not all types of tipping will give good early warning signals. Noise and shock tipping are not driven by an external factor and so early warning signals (in the conventional sense)
-will not be useful in these cases. For the case of rate tipping, there has been some work on early warning signals \parencite{Paul's paper, others?}. However most of the work has been done
+However not all types of tipping will give good early warning signals. Noise and shock tipping are not driven by a continuously changing external factor and
+so early warning signals (in the conventional sense) will not be useful in these cases. For the case of rate tipping, there has been some work on
+early warning signals \parencite{Ritchie2016}. However most of the work has been done
 for bifurcation tipping where statistics can be calculated as a function of a slowly evolving parameter.
 
 \subsection{The basic idea}
-The basic idea of early warning signals is that of \emph{critical slowing down}. Critical opalescence etc?
-
-Suppose there is a system
+The basic idea of early warning signals is that of \emph{critical slowing down} \parencite{Dakos2008}. Suppose there is a system
 \begin{equation}
   \label{eq:system}
   \dv{x}{t} = f(x,\mu)
@@ -724,7 +723,7 @@ properties are well known. The Fluctuation-Dissipation Theorem \parencite{Marcon
 provides a link between the variability of a system and its response to
 forcing, i.e. $\lambda$.
 
-In this case the important statisitcs are
+In this case the important statistics are
 \begin{align}
   \sigma^2_y &= \frac{\sigma^2}{2\lambda} \label{eq:y_var}\\
   \alpha_1   &= e^{-\lambda} \label{eq:y_ac}
@@ -746,11 +745,21 @@ This leads to the following method to generate early warning signals from a time
 \item Split the time series of $x$ into rolling windows of length $\tau_w$. Let $x_i$ refer to the $x$ values in window $i$.
 \item Detrend the time series $x_i$ to get $y_i$.
 \item Calculate the variance $\sigma^2_{y_i}$ and autocorrelation $\alpha_{1}$ of $y_i$.
-\item Perform statistical tests to detect if $\sigma^2_{y_i}$ and  $\alpha_{1}$ are increasing.
-\item If they are increasing, then this can be taken as an early warning of an approaching B-tipping.
+\item Perform statistical tests to detect if $\sigma^2_{y_i}$ and  $\alpha_{1}$ are increasing. Statistical tests, such as the Mann-Kendall test \parencite{Wilks2019} or a phase
+  surrogate approach \parencite{Boettner2022} are commonly used.
+\item If they are increasing, then this can be taken as an early warning of an approaching B-tipping. 
 \end{enumerate}
 
-Timescales? Statistical tests?
+In order for this technique to work, a particular assumption about timescales must be satisfied \parencite{Thompson2011b}. This is that
+\begin{equation}
+  \label{eq:timescale_separation}
+  \tau_{\mathrm{drift}} \gg \tau_{\mathrm{crit}} \gg \tau_{\mathrm{stab}},
+\end{equation}
+which are the timescales of the long term drift of the system, the timescale of the critical direction of the system (which is the one being destabalised) and the other timescales of the stable directions
+respectively. The first inequality is needed so that $\mu$ can be assumed to be constant in each sliding window. The second is needed so that the timescale being detected is the timescale corresponding
+to the critical direction. It should be noted that $\tau_{\mathrm{crit}} \rightarrow \infty$ at the bifurcation and so will
+violate inequality \ref{eq:timescale_separation} eventually. Furthermore anthropogenic climate change is happening on fast
+timescales so it may be the case that $\tau_{\mathrm{drift}} \approx \tau_{\mathrm{crit}}$ or even $\tau_{\mathrm{drift}} \ll \tau_{\mathrm{crit}}$.
 
 \subsubsection{Example}
 In \cref{fig:ews} early warning signals are calculated for the system
@@ -778,11 +787,27 @@ good agreement and a clear early warning signal before the bifurcation.
 \end{figure}
 
 \subsection{Other EWS}
-System specific. Critical speeding up
-\subsection{Ecological Resiliance}
-Noise tipping.
-\subsection{The Use of EWS}
+These indicators have been generalised to higher dimensional and periodically forced systems \parencite{Williamson2015,Williamson2016}. Attempts have also been made to estimate
+$\lambda$, the inverse timescale directly \parencite{Boettner2022,Boers2021} The idea to look at
+changes in timescale of fluctuations has been investigated using Detrended Fluctuation Analysis \parencite{Livina2007} where it was used to anticipate the warming at the
+end of the Younger Dryas. Changes in these timscales can also lead to spectral reddening \parencite{Kleinen2003}. Higher order moments have prooved useful too, such as the
+skewness \parencite{Guttal2008} and kurtosis \parencite{Xie2019}. The phenomenon of flickering \parencite{Wang2012}, in which systems `flicker' back and forth between alternative stable
+states can also be used to detect upcoming transitions. More recently, machine learning techniques have had success in giving early warning for modelled transitions \parencite{Bury2021}.
+Any measure of resilience of an ecosystem can function as an early warning indicator, see~\cite{Krakovska2023} for example of ecological resilience.
 
+
+Methods which calculate the early warning statistics over space rather than over time have also been used \parencite{Donangelo2010,Guttal2009}. Changes in spatial
+patterns, for example of vegetation, have also been suggested as early warning indicators \parencite{Kefi2007,Kefi2014} although introducing spatial dynamics can complicate the analysis
+of tipping points \parencite{Rietkerk2021}.
+
+Whilst these indicators generally try to be generic --- in that they are applicable to many different systems --- there is no reason why early warning indicators cannot be designed for specific systems.
+~\cite{Parry2022} found that the seasonal cycle in temperature was a potential early warning system for Amazon dieback.
+
+System specific. Critical speeding up. Robustness.
+\subsection{Ecological Resiliance}
+Noise tipping. NBP.
+\subsection{The Use of EWS}
+Beatrice.
 
 Systems behaving 1D. Critical Slowing Down. Use of variance and
 autocorrelation. Other methods. Fluctuation dissipation theorem.
