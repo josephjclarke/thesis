@@ -752,12 +752,31 @@ This leads to the following method to generate early warning signals from a time
 
 Timescales? Statistical tests?
 
+\subsubsection{Example}
+In \cref{fig:ews} early warning signals are calculated for the system
+\begin{equation}
+  \label{eq:ews_system}
+  \dv{x}{t} = x - \frac{1}{3}x^3 - \mu + \sigma \eta(t)
+\end{equation}
+where $\mu = \epsilon t$, $\sigma = 0.025$ and $\epsilon = 1\times 10^{-4}$. The value of $\epsilon$ has been chosen to be small to enable an autonomous analysis. The system has a bifurcation when $\mu = 2/3$.
+The value of $\lambda$ can be calulated by taking a derivative:
+\begin{equation}
+  \label{eq:ews_lambda}
+  \lambda = \left(x^*\right)^2 - 1 
+\end{equation}
+where $x^*$ is the equilibrium. The variance and autocorrelation are calculated as is the variance and autocorrelation calculated through \cref{eq:y_var,eq:y_ac}. It can be seen there is a
+good agreement and a clear early warning signal before the bifurcation.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{ews}
-  \caption[An example of an early warning signal]{An example of using early warning signals to detect an approaching tipping point. In the top left is the original time series. The top right shows the time series detrended using a cubic polynomial. The bottom left shows the variance and the bottom right shows the autocorrlation.}
+  \caption[An example of an early warning signal]{An example of using early warning signals to detect an approaching tipping point. In the top left is the original time series in black, obtained
+    from integrating \cref{eq:ews_system} with a timestep of $0.1$. Also shown in grey are the quasi-static equilibria, where the unstable equilibria are shown with a dotted line.
+    The top right shows the time series detrended using a cubic polynomial in windows of length 500 time units.
+    The bottom left shows the variance of the detrened time series with the variance calculated through \cref{eq:y_var} in red. The bottom right shows the autocorrlation of the detrended time series
+    with the autocorrelation calculated by \cref{eq:y_ac} shown in red. There is a clear early warning signal of rising variance and autocorrelation before the bifurcation.}
   \label{fig:ews}
 \end{figure}
+
 \subsection{Other EWS}
 System specific. Critical speeding up
 \subsection{Ecological Resiliance}
