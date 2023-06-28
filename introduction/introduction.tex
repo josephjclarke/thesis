@@ -54,9 +54,86 @@ been found in a range of ecosystems \parencite{Scheffer2001,Dakos2019}. The tran
 Notions of multiple equilibria and the ability to transition between them has been used to explain patterns seen in nature. This was introduced by Turing \parencite{Turing1952} to explain
 patterns found in certain plants and animals. Since then, it has been used to explain patterns in ecosystems \parencite{Rietkerk2008}.
 
+\section{The Climate-Carbon System}
+
+Whilst part of this thesis is applicable to many systems, the focus of this work has been on applications to the Earth system. Therefore in this section I will give an outline in
+how the climate-carbon system operates.
+
+The fundamental idea in climate science is that of energy balance \parencite{North1981}. The Earth recieves radiation from the Sun and then reradiates it to space.
+In order to reach a steady state, the energy absorbed from the Sun must equal the radiation emitted from the Earth \parencite{Peixoto1992}. It is this process
+that ultimately drives all weather \parencite{Lucarini?}.
+
+The solar constant, $S_0 \approx \SI{1300}{\watt\per\meter\squared}$ \parencite{} is the amount of radiation receieved by the Earth per unit area.  A fraction of this,
+called the albedo $\alpha \approx 30\%$, is reflected back to space. The rest is absorbed, mostly by the Earth's surface \parencite{}. The Earth then radiates an amount of radiation
+$F$ per unit area. The Earth absorbes energy in a disk of radius $R$, the Earth's radius, and reradiates over the entire surface of the Earth. By energy balance this leads to
+\begin{equation}
+  \pi R^2 S_0 (1-\alpha) = 4 \pi R^2 F
+\end{equation}
+or
+
+\begin{equation}
+  \label{eq:energy_balance}
+  F = \frac{1}{4} S_0 \left(1 - \alpha\right).
+\end{equation}
+Assuming the Earth radiates as a black body with temperature $T$, $F = \sigma T^4$ then $T = \SI{255}{\kelvin}$, not far from the true temperature of \SI{288}{\kelvin}.
+It is however the effective emission temperature of the Earth.
+The difference between this and the true temperature is due to the Greenhouse effect. This is when certain atmospheric gases,
+such as \ce{CO2} and \ce{H2O}, absorb outgoing radiation from the Earth's surface
+but reradiate it back to space. As temperatures in the atmosphere decrease with height this lowers the effective emmision temperature of the Earth and so the Earth's surface must be
+warmer than it would be in the absence of greenhouse gases to maintain energy balance. \parencite{}.
+
+\subsection{Climate Response to Radiative Forcing}
+When greenhouse gases are emitted into the atmosphere they reduce the amount of outgoing radiation. As less radiation is now
+emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it of energy
+radiates until it reaches equilibrium \parencite{Pierrehumbert2010}. 
+
+The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. Let $T$ be
+the global mean temperature and assume that $N$, the net radiation received by the Earth, depends on $T$. After emitting a greenhouse gas
+the change in the top of atmosphere energy flux can split \parencite{Gregory2004} into a forcing term, $\Delta Q$, and feedback term, $\lambda \Delta T$
+\begin{equation}
+  \label{eq:deltaN}
+  \Delta N = \Delta Q - \lambda \Delta T.
+\end{equation}
+
+The climate responds to the forcing by changing its temperature so that $\Delta N$ is zero. Hence the change in global mean temperatures is
+\begin{equation}
+  \label{eq:response_to_radiative_forcing}
+  \Delta T = \frac{\Delta Q}{\lambda}.
+\end{equation}
+The quantity
+\begin{equation}
+  \label{eq:climate_sensitivity}
+  \lambda = -\pdv{N}{T}
+\end{equation}
+known as the \emph{climate sensitivity} determines the amount of warming experienced for a given radiative forcing. This quantity is measured
+in units \si{\watt\per\square\meter\per\kelvin} but it has become common to discuss $\lambda$ in terms of a given radiative forcing, $Q_{2\times}$,
+the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atmosphere, giving rise to
+\begin{equation}
+  \label{eq:definition_of_ECS}
+  \mathrm{ECS} = \frac{Q_{2\times}}{\lambda}
+\end{equation}
+known as \emph{Equilibrium Climate Sensitivity} which is measured in \si{\kelvin} \parencite{Charney1979}.
+
+Implicit in this definition is the idea that $Q_{2\times}$ is well defined. It is an empirical fact that over a range of concentrations the radiative forcing
+of $\ce{CO2}$ varies to a good approximation with the logarithm of its concentration \parencite{Pierrehumbert2010}, and so the notion of a radiative forcing due to doubling is well defined.
+It is also usually assumed that $\mathrm{ECS}$ is a constant independent of background climate state. Whilst this appears to be a good approximation, some authors
+have investigated its state dependence \parencite{Ashwin2019,Caballero2013}.
+
+The value of $\mathrm{ECS}$ is uncertain. State of the art climate models (CMIP6) do not agree on its value, and give a range of
+\SIrange{1.8}{5.6}{\kelvin} \parencite{Zelinka2020}, which represents an increase in uncertainty from CMIP5, although some authors have suggested that ECS could be even
+larger \parencite{Stainforth2005}.
+However, these estimates should be combined with other observational estimates, such as~\cite{Cox2018}, as well as paleoclimate records, like~\cite{Hargreaves2012}, as done by~\cite{Sherwood2020}.
+This analysis of multiple lines of evidence lead the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin} \parencite{AR6}.
+
+\subsection{Carbon Cycle}
+
+\subsubsection{Terrestrial Carbon Cycle}
+\subsubsection{Ocean Carbon Cycle}
+
+
 \section{Tipping Points in the Earth System}
-Whilst part of this thesis is applicable to many systems, the focus of this work has been on applications to the Earth system. In this section I want to give some background on these tipping
-points, including outlining some mechanisms. I will focus on a few key sub subsystems. I will then discuss some of the evidence for tipping behaviour in the Earth's past.
+In this section I want to give some background on Earth system points, including outlining some mechanisms.
+I will focus on a few key sub subsystems. I will then discuss some of the evidence for tipping behaviour in the Earth's past.
 
 The most recent IPCC report \parencite{AR6} finds it `unequivocal that human influence has warmed the atmosphere, ocean and land'. Humans have done this through the release of greenhouse
 gases, most importantly carbon dioxide (\ce{CO2}), and also through land use change. This has led to observable changes in the Earth's climate. Most obvious is the changes in global mean surface
