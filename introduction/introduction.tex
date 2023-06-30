@@ -60,32 +60,32 @@ Whilst part of this thesis is applicable to many systems, the focus of this work
 how the climate-carbon system operates.
 
 The fundamental idea in climate science is that of energy balance \parencite{North1981}. The Earth recieves radiation from the Sun and then reradiates it to space.
-In order to reach a steady state, the energy absorbed from the Sun must equal the radiation emitted from the Earth \parencite{Peixoto1992}. It is this process
-that ultimately drives all weather \parencite{Lucarini?}.
+In order to reach a steady state, the energy absorbed from the Sun must equal the radiation emitted from the Earth \parencite{Peixoto1992}. The need for energy balance, combined with the
+latitudinally dependent absorbtion and emission of radiation, that ultimately drives all weather and climate \parencite{Lorenz1967}.
 
-The solar constant, $S_0 \approx \SI{1300}{\watt\per\meter\squared}$ \parencite{} is the amount of radiation receieved by the Earth per unit area.  A fraction of this,
-called the albedo $\alpha \approx 30\%$, is reflected back to space. The rest is absorbed, mostly by the Earth's surface \parencite{}. The Earth then radiates an amount of radiation
-$F$ per unit area. The Earth absorbes energy in a disk of radius $R$, the Earth's radius, and reradiates over the entire surface of the Earth. By energy balance this leads to
+The solar constant, $S_0 \approx \SI{1360}{\watt\per\meter\squared}$ \parencite{Johnson1954} is the amount of radiation receieved by the Earth per unit area.  A fraction of this,
+called the albedo $\alpha \approx 30\%$, is reflected back to space \parencite{Goode2021}. The rest is absorbed, mostly by the Earth's surface \parencite{Trenberth2009}.
+
+Let the amount of radiation the Earth emits per unit area be $F$. The Earth absorbes energy in a disk of radius $R$, the Earth's radius, and reradiates
+over the entire surface of the Earth. By energy balance this leads to
 \begin{equation}
   \pi R^2 S_0 (1-\alpha) = 4 \pi R^2 F
 \end{equation}
 or
-
 \begin{equation}
   \label{eq:energy_balance}
   F = \frac{1}{4} S_0 \left(1 - \alpha\right).
 \end{equation}
-Assuming the Earth radiates as a black body with temperature $T$, $F = \sigma T^4$ then $T = \SI{255}{\kelvin}$, not far from the true temperature of \SI{288}{\kelvin}.
-It is however the effective emission temperature of the Earth.
-The difference between this and the true temperature is due to the Greenhouse effect. This is when certain atmospheric gases,
+Assuming the Earth radiates as a black body with temperature $T$, $F = \sigma T^4$ then $T = \SI{255}{\kelvin}$, not far from the true temperature of about \SI{287}{\kelvin} \parencite{Jones1999}.
+It is however the effective emission temperature of the Earth. The difference between this and the true temperature is due to the Greenhouse effect. This is when certain atmospheric gases,
 such as \ce{CO2} and \ce{H2O}, absorb outgoing radiation from the Earth's surface
 but reradiate it back to space. As temperatures in the atmosphere decrease with height this lowers the effective emmision temperature of the Earth and so the Earth's surface must be
-warmer than it would be in the absence of greenhouse gases to maintain energy balance. \parencite{}.
+warmer than it would be in the absence of greenhouse gases to maintain energy balance. \parencite{Pierrehumbert2010}.
 
 \subsection{Climate Response to Radiative Forcing}
 When greenhouse gases are emitted into the atmosphere they reduce the amount of outgoing radiation. As less radiation is now
 emitted to space the Earth's climate responds to restore equilibrium. It does this by warming up to increase the amount it of energy
-radiates until it reaches equilibrium \parencite{Pierrehumbert2010}. 
+radiates until it reaches equilibrium \parencite{Manabe1967,Pierrehumbert2010}. 
 
 The amount that a greenhouse gas decreases the outgoing radiation to space by is known as its radiative forcing. Let $T$ be
 the global mean temperature and assume that $N$, the net radiation received by the Earth, depends on $T$. After emitting a greenhouse gas
@@ -117,7 +117,7 @@ known as \emph{Equilibrium Climate Sensitivity} which is measured in \si{\kelvin
 Implicit in this definition is the idea that $Q_{2\times}$ is well defined. It is an empirical fact that over a range of concentrations the radiative forcing
 of $\ce{CO2}$ varies to a good approximation with the logarithm of its concentration \parencite{Pierrehumbert2010}, and so the notion of a radiative forcing due to doubling is well defined.
 It is also usually assumed that $\mathrm{ECS}$ is a constant independent of background climate state. Whilst this appears to be a good approximation, some authors
-have investigated its state dependence \parencite{Ashwin2019,Caballero2013}. %Jonah!
+have investigated its state dependence \parencite{Ashwin2019,Caballero2013,Bloch-Johnson2021}.
 
 The value of $\mathrm{ECS}$ is uncertain. State of the art climate models (CMIP6) do not agree on its value, and give a range of
 \SIrange{1.8}{5.6}{\kelvin} \parencite{Zelinka2020}, which represents an increase in uncertainty from CMIP5, although some authors have suggested that ECS could be even
@@ -126,7 +126,7 @@ However, these estimates should be combined with other observational estimates, 
 This analysis of multiple lines of evidence lead the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin} \parencite{AR6}.
 
 \subsection{Carbon Cycle}
-Of all the \ce{CO2} emitted by humans by burning fossil fuels, only around half remains in the atmosphere \parencite{}. This is because of the terrestrial and ocean sinks of carbon.
+Of all the \ce{CO2} emitted by humans by burning fossil fuels, only around half remains in the atmosphere \parencite{Friedlingstein2022}. This is because of the terrestrial and ocean sinks of carbon.
 The response of the carbon cycle can be partitioned into a carbon-concentration feedback and a carbon-climate feedback \parencite{Friedlingstein2006}. The carbon-concentration feedback
 gives the change in the carbon cycle due to increases in \ce{CO2} before temperature changes are accounted for. THe carbon-climate feedback gives the changes in carbon stores due to increases
 in temperature. In CMIP6 \parencite{Arora2020} the carbon-concentration feedback is $\SI{0.97\pm0.40}{\peta\gram\carbon\per\ppm}$ over land and $\SI{0.79\pm 0.07}{\peta\gram\carbon\per\ppm}$ over ocean.
