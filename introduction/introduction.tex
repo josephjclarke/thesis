@@ -767,19 +767,19 @@ smallest perturbation required to push the system into a new state is given by
   \label{eq:smallest_perturbation}
   \bm{\Delta} = \argmin \{ |\bm{x}'|^2 : \bm{x}^* + \bm{x}' \notin \mathcal{B}\}.
 \end{equation}
-If the system is a potential system, then this is equal in magnitude to the distance to the nearest maximum, $|x_{max} - x_{min}$. This should be compared to Kramer's formula,
+If the system is the potential system \cref{eq:simple_sde}, then this is equal in magnitude to the distance to the nearest maximum, $|x_{max} - x_{min}|$. This should be compared to Kramer's formula,
 \cref{eq:kramers}, which is a function of the difference in potential $U(x_{max}) - U(x_{min})$. In other words, S-tipping depends on the distance to the potential barrier, but N-tipping depends on
 the height of that barrier.
 
 \subsubsection{Example}
-Consider a population growing via logistic growth with carrying capacity $k$ that is subject to the Allee Effect \parencite{Allee1932,Stephens1999}, which reduces growth rates
-at low population densities. A simple model of this is
+Consider a population growing via logistic growth with carrying capacity $k$ that is subject to the Allee Effect \parencite{Allee1932,Stephens1999}, which is an effect that reduces
+growth rates at low population densities. A simple model of this is
 \begin{equation}
   \label{eq:allee_effect}
   \dv{x}{t} = x\left(x-1\right)\left(1-\frac{x}{k}\right),
 \end{equation}
 where $k > 1$ and $x$ is a population density. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. $x_1$ corresponds to an extinct
-state and $x_3$ to the `desired' state of the system.
+state and $x_3$ to a populated state.
 
 If the system is initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
 this magnitude or greater then the system will transition to the extinction state. In \cref{fig:shock_tipping}, \cref{eq:allee_effect} is integrated with $k = 2.0$ and given perturbations of
@@ -799,8 +799,8 @@ which is why the population undergoes S-tipping after the second perturbation.
 This typology has given the impression that individual tipping phenomena can be easily assigned to the categories of B,N,R or S-tipping. However this is not the case as any
 real tipping point will have aspects of many of the different tipping types. For example, If a control parameter is changing such that the system is approaching a B-tipping point,
 then Kramer's formula \cref{eq:kramers} implies that the system is more likely to undergo N-tipping. Furthermore a system nearing a tipping point will be more likely to undergo S-tipping as
-$\Delta$, defined by \cref{eq:smallest_perturbation}, is be smaller as the basin of attraction will be smaller. If a system is experiencing a shock, it is also likely that its parameters will
-be changing quickly as so this tipping will have an R-tipping character too.
+$\Delta$, defined by \cref{eq:smallest_perturbation}, is smaller as the basin of attraction shrinks. If a system is experiencing a shock, it is also likely that its parameters will
+be changing quickly as well so this tipping will have an R-tipping character too.
 
 Although real tipping points may have multiple characteristics it is still often possible and, more importantly, still useful to categorise the tipping into one of the above categories.
 
