@@ -680,7 +680,7 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 \subsection{R-tipping}
 A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-tipping refers to
 a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not \parencite{Perryman2014a}.
-This type of tipping can only occur in nonautonomous dynamical systems, which is a system with explicit time dependence \parencite{Ashwin2017a}.
+This type of tipping occurs in nonautonomous dynamical systems, which is a system with explicit time dependence \parencite{Ashwin2017a}.
 
 This sort of tipping is best explained through an example, taken from~\cite{Ashwin2012}. The system is
 \begin{subequations}
@@ -706,10 +706,10 @@ These equations can be interpreted as a system with state $x$ in a changing envi
 Consider the `frozen system' \parencite{Wieczorek2021}, which is \cref{eq:rtipping_example_x} with $\mu$ constant --- this describes the dynamics
 in the case where the environment is unchanging. It has equilibria at
 $x^*_{\pm} = \pm 2 - \mu$. The stability of these equilibria can be found in the manner described in \cref{sec:btipping}, which in this case amounts to evaluating
-the derivative of \cref{eq:rtipping_example_x} with respect to $x$ at $x^*_{\pm}$. It can be shown that $x_-$ is stable for all $\mu$ values, and $x_+$ is
-unstable for all $\mu$ values. These quasi-static equilibria are shown as grey lines in \cref{fig:rate_tipping}, where the stable quasi-static equilibria are shown in
-solid grey and the unstable quasi-static equilibria are shown as a dashed line. As a result a na{\"i}ve B-tipping analysis would suggest this system cannot tip. However, as will be shown,
-this system can undergo R-tipping.
+the derivative of \cref{eq:rtipping_example_x} with respect to $x$ at $x^*_{\pm}$. These quasi-static equilibria are shown as grey lines in \cref{fig:rate_tipping}, where
+the stable quasi-static equilibria are shown in solid grey and the unstable quasi-static equilibria are shown as a dashed line.
+It can be shown that $x_-$ is stable for all $\mu$ values, and $x_+$ is unstable for all $\mu$ values. As a result a na{\"i}ve B-tipping analysis
+would suggest this system cannot tip. However, as will be shown, this system can undergo R-tipping.
 
 To see this, make a change of coordinates into a co-moving frame by setting $y = x + \mu$. Then the system becomes
 \begin{equation}
