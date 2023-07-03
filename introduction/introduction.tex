@@ -50,14 +50,14 @@ patterns found in certain plants and animals. Since then, it has been used to ex
 Whilst some of this thesis is applicable to many systems, the focus of this work has been on applications to the Earth system. Therefore in this section I will give an outline in
 how the climate-carbon system operates.
 
-The fundamental idea in climate science is that of energy balance \parencite{North1981}. The Earth recieves radiation from the Sun and then reradiates it to space.
+The fundamental idea in climate science is that of energy balance \parencite{North1981}. The Earth receives radiation from the Sun and then re-radiates it to space.
 In order to reach a steady state, the energy absorbed from the Sun must equal the radiation emitted from the Earth \parencite{Peixoto1992}. The need for energy balance, combined with the
-latitudinally dependent absorbtion and emission of radiation, that ultimately drives all weather and climate \parencite{Lorenz1967}.
+latitudinally dependent absorption and emission of radiation, that ultimately drives all weather and climate \parencite{Lorenz1967}.
 
-The solar constant, $S_0 \approx \SI{1360}{\watt\per\meter\squared}$ \parencite{Johnson1954} is the amount of radiation receieved by the Earth per unit area.  A fraction of this,
+The solar constant, $S_0 \approx \SI{1360}{\watt\per\meter\squared}$ \parencite{Johnson1954} is the amount of radiation received by the Earth per unit area.  A fraction of this,
 called the albedo, $\alpha \approx 30\%$, is reflected back to space \parencite{Goode2021}. The rest is absorbed, mostly by the Earth's surface \parencite{Trenberth2009}.
 
-Let the amount of radiation the Earth emits per unit area be $F$. The Earth, with radius $R$, absorbes energy over a disk, and reradiates
+Let the amount of radiation the Earth emits per unit area be $F$. The Earth, with radius $R$, absorbs energy over a disk, and re-radiates
 over its entire surface. By energy balance this leads to
 \begin{equation}
   \pi R^2 S_0 (1-\alpha) = 4 \pi R^2 F
@@ -67,7 +67,7 @@ or
   \label{eq:energy_balance}
   F = \frac{1}{4} S_0 \left(1 - \alpha\right).
 \end{equation}
-Assuming the Earth radiates as a black body with temperature $T$, then $F = \sigma T^4$ where $\sigma$ is the Steffan-Boltzmann constant  so that $T = \SI{255}{\kelvin}$.
+Assuming the Earth radiates as a black body with temperature $T$, then $F = \sigma T^4$ where $\sigma$ is the Stefan-Boltzmann constant  so that $T = \SI{255}{\kelvin}$.
 This is not far from the true temperature of about \SI{287}{\kelvin} \parencite{Jones1999}.
 This black body temperature is however the effective emission temperature the Earth has to radiate at to maintain energy balance. Due to the presence of gases in the atmosphere which absorb
 infrared radiation, principally \ce{CO2} and \ce{H2O}, the radiation that escapes to space is emitted from higher in the atmosphere. An effective emission height can be defined which
@@ -145,8 +145,8 @@ However as the Earth warms and the permafrost thaws it could represent a carbon 
 
 There are important feedbacks on the land carbon cycle.
 Increasing the amount of \ce{CO2} in the atmosphere increases the amount of carbon that diffuses through a plant's stomata where it can be used in photosynthesis \parencite{Farquhar1980}.
-Furthermore, plants will partially close their stomata at higher \ce{CO2} levels \parencite{DeKauwe2013} which reduces the water lost through transpiration. This can be quanitified in terms of the
-water use efficency (the ratio of carbon gained to water lost) \parencite{Drake1997}. This can increase the growing season in drier ecosystems \parencite{Frank2015}.
+Furthermore, plants will partially close their stomata at higher \ce{CO2} levels \parencite{DeKauwe2013} which reduces the water lost through transpiration. This can be quantified in terms of the
+water use efficiency (the ratio of carbon gained to water lost) \parencite{Drake1997}. This can increase the growing season in drier ecosystems \parencite{Frank2015}.
 These effects mean that at higher \ce{CO2} levels NPP is expected to increase.
 
 This \emph{\ce{CO2} fertilisation effect} has been detected in models \parencite{Friedlingstein2006,Arora2020,Wenzel2016} and observationally \parencite{Ainsworth2007,KolbySmith2016}.
@@ -161,7 +161,7 @@ It is generally thought that $Q_{10} \approx 2$ \parencite{Jones2001}.
 
 \subsubsection{Ocean Carbon Cycle}
 
-The ocean carbon cycle operates by different mechanisms to the terrestrial carbon cycle. Some carbon enters through runoff from the land but most of the carbon flux to the ocean comes
+The ocean carbon cycle operates by different mechanisms to the terrestrial carbon cycle. Some carbon enters through run-off from the land but most of the carbon flux to the ocean comes
 from diffusion from the atmosphere to the ocean \parencite{Devries2022}. This diffusion depends on the solubility of \ce{CO2} in water and
 the difference in partial pressure of \ce{CO2} between the atmosphere and the ocean \parencite{Wanninkhof1992}.
 The \ce{CO2} reacts with seawater to form two other species of dissolved inorganic carbon, or DIC:\@ \ce{HCO3-} and \ce{CO3^{2-}} \parencite{Dickson1987}.
@@ -173,7 +173,7 @@ will make its way to the deeper ocean where it is released as DIC into the deep 
 
 
 The ocean carbon cycle will be affected by climate change. Most of these changes are related to the physical and
-chemcial components of the ocean carbon cycle rather than the biological components \parencite{AR6}. As a result there is much less uncertainty about future changes in the
+chemical components of the ocean carbon cycle rather than the biological components \parencite{AR6}. As a result there is much less uncertainty about future changes in the
 ocean carbon cycle relative to the terrestrial carbon cycle \parencite{Arora2020}. As more \ce{CO2} is added to the ocean, the amount of \ce{CO3^{2-}} will decrease which leads to
 more \ce{CO2} remaining in its dissolved form which reduces the uptake of carbon \parencite{Egleston2010}. Furthermore the solubility of \ce{CO2} decreases with
 temperature so warming which thus reduces the strength of the ocean sink \parencite{Weiss1974}. Additionally the ocean is expected to become more
@@ -837,7 +837,7 @@ this timescale approaches infinity, hence the name critical slowing down.
 
 
 \subsection{Variance and Autocorrelation}
-A very common way to approach early warning signals is to assume that the system of interest can be modeled as a one dimensional system subject to additive gaussian white noise. The first
+A very common way to approach early warning signals is to assume that the system of interest can be modelled as a one dimensional system subject to additive Gaussian white noise. The first
 of these assumptions is defensible on the grounds that near a bifurcation point, generic systems behave qualitatively like \cref{eq:saddle_node}. The second assumption is more suspect
 as systems are generally subject to time correlated noise, such as red noise. However in the case of red noise, as long as the dynamics are considered over long enough timescales, then the
 noise can be approximated as white. This assumption amounts to analysing the Langevin equation \parencite{Langevin1908}
@@ -868,7 +868,7 @@ where $\sigma^2_y$ is the variance of $y$ and $\alpha_1$ is the autocorrelation 
 This means that as a system with state $x$ approaches a B-tipping point, then its fluctuations about equilibrium, given by $y$, should have their variance diverge and their autocorrelation
 tend to unity.
 
-The question remains how to extract $y$ from a time series of $x$. If $x^*$, the equilibrium, was known then this could be directly subtracted from $x$ to give $y$. However if the equlibrium was known
+The question remains how to extract $y$ from a time series of $x$. If $x^*$, the equilibrium, was known then this could be directly subtracted from $x$ to give $y$. However if the equilibrium was known
 then there would be no need for early warning signals as the bifurcation point could be calculated explicitly. Instead it is usually assumed that by subtracting a (possibly nonlinear) trend
 off of $x$ what remains will approximate $y$.
 
@@ -887,9 +887,9 @@ In order for this technique to work, a particular assumption about timescales mu
   \label{eq:timescale_separation}
   \tau_{\mathrm{drift}} \gg \tau_{\mathrm{crit}} \gg \tau_{\mathrm{stab}},
 \end{equation}
-which are the timescales of the long term drift of the system, the timescale of the critical direction of the system (which is the one being destabalised) and the other timescales of the stable directions
+which are the timescales of the long term drift of the system, the timescale of the critical direction of the system (which is the one being destabilised) and the other timescales of the stable directions
 respectively. The first inequality is needed so that $\mu$ can be assumed to be constant in each sliding window. The second is needed so that the timescale being detected is the timescale corresponding
-to the critical direction. It should be noted that $\tau_{\mathrm{crit}} \rightarrow \infty$ as the bifurcation is approached and so inequality \ref{eq:timescale_separation}
+to the critical direction. It should be noted that $\tau_{\mathrm{crit}} \rightarrow \infty$ as the bifurcation is approached and so inequality~\ref{eq:timescale_separation}
 will be violated eventually. Furthermore anthropogenic climate change is happening on fast
 timescales so it may be the case that $\tau_{\mathrm{drift}} \approx \tau_{\mathrm{crit}}$ or even $\tau_{\mathrm{drift}} \ll \tau_{\mathrm{crit}}$.
 
@@ -900,7 +900,7 @@ In \cref{fig:ews} early warning signals are calculated for the system
   \dv{x}{t} = x - \frac{1}{3}x^3 - \mu + \sigma \eta(t)
 \end{equation}
 where $\mu = \epsilon t$, $\sigma = 0.025$ and $\epsilon = 1\times 10^{-4}$. The value of $\epsilon$ has been chosen to be small to enable an autonomous analysis. The system has a bifurcation when $\mu = 2/3$.
-The value of $\lambda$ can be calulated by taking a derivative:
+The value of $\lambda$ can be calculated by taking a derivative:
 \begin{equation}
   \label{eq:ews_lambda}
   \lambda = \left(x^*\right)^2 - 1 
@@ -913,7 +913,7 @@ good agreement and a clear early warning signal before the bifurcation.
   \caption[An example of an early warning signal]{An example of using early warning signals to detect an approaching tipping point. In the top left is the original time series in black, obtained
     from integrating \cref{eq:ews_system} with a timestep of $0.1$. Also shown in grey are the quasi-static equilibria, where the unstable equilibria are shown with a dotted line.
     The top right shows the time series detrended using a cubic polynomial in windows of length 500 time units.
-    The bottom left shows the variance of the detrened time series with the variance calculated through \cref{eq:y_var} in red. The bottom right shows the autocorrlation of the detrended time series
+    The bottom left shows the variance of the detrended time series with the variance calculated through \cref{eq:y_var} in red. The bottom right shows the autocorrelation of the detrended time series
     with the autocorrelation calculated by \cref{eq:y_ac} shown in red. There is a clear early warning signal of rising variance and autocorrelation before the bifurcation.}
   \label{fig:ews}
 \end{figure}
@@ -922,7 +922,7 @@ good agreement and a clear early warning signal before the bifurcation.
 These indicators have been generalised to higher dimensional and periodically forced systems \parencite{Williamson2015,Williamson2016}. Attempts have also been made to estimate
 $\lambda$, the inverse timescale directly \parencite{Boettner2022,Boers2021a} The idea to look at
 changes in timescale of fluctuations has been investigated using Detrended Fluctuation Analysis \parencite{Livina2007} where it was used to anticipate the warming at the
-end of the Younger Dryas. Changes in these timscales can also lead to spectral reddening \parencite{Kleinen2003}. Higher order moments have prooved useful too, such as the
+end of the Younger Dryas. Changes in these timescales can also lead to spectral reddening \parencite{Kleinen2003}. Higher order moments have proved useful too, such as the
 skewness \parencite{Guttal2008} and kurtosis \parencite{Xie2019}. The phenomenon of flickering \parencite{Wang2012}, in which systems `flicker' back and forth between alternative stable
 states can also be used to detect upcoming transitions. More recently, machine learning techniques have had success in giving early warning for modelled transitions \parencite{Bury2021}.
 Any measure of resilience of an ecosystem can function as an early warning indicator, see~\cite{Krakovska2023} for examples of ecological resilience.
@@ -938,13 +938,13 @@ towards the tipping point.
 
 \subsection{The Use of Early Warning Signals}
 Early Warning Signals have been applied to the Earth system. For example~\cite{Dakos2008} applied them to a variety of abrupt shifts and found that they were preceded by rises in autocorrelation,
-although some of these trends could have occured by chance. They have also been used to provide evidence for the subpolar gyre circulation detstabalising prior to the
+although some of these trends could have occurred by chance. They have also been used to provide evidence for the subpolar gyre circulation destabilising prior to the
 Little Ice Age \parencite{Arellano-Nava2022}. Furthermore their presence has been
 used to argue that Dansgaard-Oeschger events are B-tipping \parencite{Boers2018a} and their absence has been used to argue that Dansgaard-Oeschger events are N-tipping \parencite{Ditlevsen2010}.
 These contradictory findings
 are related to differences in the way the ice core data is processed.
 
-Early Warning Signals have been investigated for the Greenland ice sheet \parencite{Boers2021}. This study suggeted the ice sheet was close to a tipping point.
+Early Warning Signals have been investigated for the Greenland ice sheet \parencite{Boers2021}. This study suggested the ice sheet was close to a tipping point.
 However given the slow response of the ice sheet and
 the fast change of the climate, inequality~\ref{eq:timescale_separation} is likely to be violated with the timescale of the drift to be much faster than the timescale of the dynamics.
 Further more the analysis is of melt rates
@@ -954,11 +954,11 @@ which would suggest the ice sheet is approaching a tipping point.
 Later that year, another paper~\cite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance.
 Other work \parencite{Ditlevsen2022arxiv} went as far
 as to suggest that most likely year for the AMOC to tip is 2067. Although the dynamics of the AMOC are faster than that of the ice sheets \parencite{ArmstrongMcKay2022}, it is still not clear if
-inequaltiy~\ref{eq:timescale_separation} is satisfied but early warning signals have been used in complex models to detect AMOC shutdown \parencite{Boulton2014}.
+inequality~\ref{eq:timescale_separation} is satisfied but early warning signals have been used in complex models to detect AMOC shut-down \parencite{Boulton2014}.
 Furthermore, the analysis was not based on the AMOC strength directly but on `fingerprints' derived from sea surface temperature and salinity data.
 
 Recent work \parencite{Boulton2022} found increases in the autocorrelation in  the Vegetation Optical Depth (a satellite measure of vegetation biomass) in the Amazon,
-which is consistent with a loss of resiliance in that
+which is consistent with a loss of resilience in that
 ecosystem. The results for changes in variance were more equivocal. Whilst the Amazon is a relatively fast tipping point \parencite{Ritchie2021}, some complex models do not show
 generic early warning signals before the
 tipping point \parencite{Boulton2013}. Other work \parencite{Fernandez-Martinez2023}, which examined global datasets of net biome productivity, did not find increasing autocorrelation
