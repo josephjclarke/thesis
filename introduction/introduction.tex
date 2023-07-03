@@ -14,44 +14,38 @@ will tip over.
 
 \subsection{Definitions}
 
-Although it can be a vague term, the concept of a small nudge leading to a large change generally forms a part of most formal definitions of tipping points.
-For example,~\cite{Lenton2008} defines the occurrence of a tipping
-point as when a control parameter, there is a critical value $\rho_{\mathrm{crit}}$ of a control parameter, $\rho$, above which any significant variation, $\delta \rho > 0$ leads to a qualitative change
-$\hat{F}$ of a system feature $F$, after some observation time $T > 0$. They write this mathematically as
+Although it can be a vague term, the concept of a small perturbation leading to a large change generally forms a part of most formal definitions of tipping points.
+For example,~\cite{Lenton2008} and~\cite{ArmstrongMcKay2022} define the occurrence of a tipping
+point as when there is a control parameter,$\rho$, with a critical value $\rho_{\mathrm{crit}}$, above which any significant variation, $\delta \rho > 0$
+leads to a qualitative change $\hat{F}$ of a system feature $F$, after some observation time $T > 0$. They write this mathematically as
 \begin{equation}
   \label{eq:lenton_tipping_definition}
-  |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho|T)| \geq \hat{F} > 0.
+  |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho_{\mathrm{crit}} | T)| \geq \hat{F} > 0.
 \end{equation}
-More recently,~\cite{ArmstrongMcKay2022} updated this definition by requiring $\delta \rho$ to be within the natural variability of the system. They also require that changes become self perpetuating
-beyond $\rho_{\mathrm{crit}}$ as a result of the asymmetry of relevant feedbacks and that the tipping leads to `substantial' impacts. The IPCC \parencite{AR6} defines tipping differently still
-as `a level of change in system properties beyond which a system reorganises, often in a nonlinear manner, and does not return to the initial state even if the drivers of the change are abated'.
-Others, such as~\cite{Wang2023}, inspired by~\cite{Kopp2016}, insist that tipping points should occur on fast time scales.
+The IPCC \parencite{AR6} defines a tipping point differently as `A critical threshold beyond which a system reorganizes, often abruptly and/or irreversibly'. Others,
+such as~\cite{Wang2023} and~\cite{Kopp2016}, insist that tipping points should occur on fast time scales.
 
-Each of these definitions are deficient in their own way. The IPCC definition allows for linear behaviour, although tipping is a fundamentally nonlinear phenomenon. It also insists on \emph{hysteresis},
-which is the property that the system does not return to its initial state after abating the drivers, although not all examples of tipping --- including boiling water --- experience this.
-The complex definition in~\cite{Lenton2008} views tipping in terms of changes in parameters of a system, and not something a system can do spontaneously, which excludes certain types of
-tipping (see \cref{sec:tipping_typology}). The third definition, that of~\cite{ArmstrongMcKay2022}, suffers from the problems of~\cite{Lenton2008} and also requires `substantial' impacts, which
-artificially restricts the abrupt shifts that can be investigated. Finally,the requirement of~\cite{Wang2023} that tipping points be realised quickly is problematic for Earth System investigations
-as some of the tipping points of interest will be realised slowly.
+Each of these definitions are deficient in their own way. The IPCC definition views tipping in terms of thresholds which excludes certain types of tipping (see \cref{sec:tipping_typology}).
+The definition in~\cite{Lenton2008} is over complex and that of~\cite{Wang2023} suffers from the problem that many timescales in the Earth system are slow.
 
-In this thesis, I will use the term tipping point in the sense that a system undergoes a tipping point when it experiences a qualitative change in its properties. Although this is a vague definition,
-it enables the term tipping point to include all dynamics of interest. I am adopting Potter Stewart's philosophy that although a tipping point might be hard to define,
-`I know it when I see it' \parencite{Stewart1964}.
+The multiple different definitions in the literature reflect the vagueness of the notion of tipping points. In a sense, this is an advantage as it encourages research across a wide variety
+of phenomena. With this in mind, I will define a tipping point in a way that is closest in style to the IPCC as 
+something that a system undergoes when it experiences a qualitative change in its properties.
 
 \subsection{Examples of Tipping}
 
-These sorts of nonlinear changes have long fascinated scientists. Physicists have investigated phase changes not just in terms of the boiling and freezing of substances but also
+Nonlinear changes have long fascinated scientists. Physicists have investigated phase changes not just in terms of the boiling and freezing of substances but also
 in magnetic materials \parencite{Ising1925,Onsager1944}, superconductivity \parencite{Landau1965} and percolation theory \parencite{Flory1941}. Each of these are different processes, but it is a
-remarkable fact that near the phase transition different systems can be dynamically very similar, a phenomenon known as universality \parencite{Wilson1983}. This sort of idea --- that different examples
-of tipping points across totally different systems can share many common features as been an important driving force in the theory of tipping points. 
+remarkable fact that near the phase transition different systems can be dynamically very similar, a phenomenon known as universality \parencite{Wilson1983}. This idea --- that different examples
+of tipping points across totally different systems can share features will be a theme commonly returned to.
 
 Tipping points are also important in biology. In medicine, tipping point theory has been used to help understand asthma attacks \parencite{Donovan2022} and sleeping dynamics \parencite{Skeldon2014}.
 Tipping points have proven very important in ecology. In an influential article, \parencite{May1976}, the ecologist Robert May noted that even very simple nonlinear models have rich dynamics and are capable
-of experiencing tipping points (although he did use that term).~\cite{Holling1973} introduced the idea of resilience which is to do with the ability of a system to resist tipping. Tipping points have
+of experiencing tipping points (although he did use that term).~\cite{Holling1973} introduced the idea of resilience which is related to the ability of a system to resist tipping. Tipping points have
 been found in a range of ecosystems \parencite{Scheffer2001,Dakos2019}. The transition to turbid state in lakes \parencite{Scheffer1993} and the collapse of plant-pollinator communities
-\parencite{Lever2014} are both examples of ecological tipping points, however other studies \parencite{Hillebrand2020} have challenged this.
+\parencite{Lever2014} are both examples of ecological tipping points, however other studies \parencite{Hillebrand2020} have challenged how widespread tipping effects are.
 
-Notions of multiple equilibria and the ability to transition between them has been used to explain patterns seen in nature. This was introduced by Turing \parencite{Turing1952} to explain
+Notions of multiple equilibria and the ability to transition between them has been used to explain patterns seen in nature. This was introduced by~\cite{Turing1952} to explain
 patterns found in certain plants and animals. Since then, it has been used to explain patterns in ecosystems \parencite{Rietkerk2008}.
 
 \section{The Climate-Carbon System}
