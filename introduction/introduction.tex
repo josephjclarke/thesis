@@ -558,7 +558,7 @@ $\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
   \label{fig:stommel_amoc}
 \end{figure}
 \subsection{N-tipping}
-If a system with multiple stable states is subject to stochastic forcing, then it will perform transitions between these states after a long enough time. This
+If a system with multiple stable states is subject to stochastic forcing, then it will perform transitions between these states if observed for long enough. This
 phenomenon is called N- or noise-tipping. This has an important difference to B-tipping. In B-tipping an external driver changes a control parameter, causing a system to tip
 but in N-tipping the natural variability of the system causes it to tip.
 
@@ -585,14 +585,15 @@ Viewing individual solutions of \cref{eq:general_sde}, or sample paths, is one a
   \label{eq:fokker_planck}
   \pdv{p}{t} = - \sum_i \partial_i \bm{F}_i p + \sum_i\sum_j \partial_i\partial_j D_{ij} p
 \end{equation}
-where $D = GG^\intercal/2$.
+where $D = GG^T/2$.
 
-Often a very simple one-dimensional model is used instead
+\subsection{Kramer's Escape Rate}
+Often a very simple one-dimensional model is used in studies of N-tipping
 \begin{equation}
   \label{eq:simple_sde}
   \dv{x}{t} = -\dv{U}{x} + \sigma \eta(t).
 \end{equation}
-This is an example of a potential system because it assumes the deterministic dynamics can be written as the gradient of a potential, $U(x)$. This can be done for any one dimensional system but is not
+This is an example of a potential system because it gives the deterministic dynamics as the gradient of a potential, $U(x)$. This can be done for any one dimensional system but is not
 always the case for a higher dimensional system. Furthermore, the noise is assumed to be `white', with constant variance $\sigma^2$. It is known as white noise because in the frequency domain, all
 frequencies are excited with equal amplitude. This is a questionable assumption for the Earth System, where the spectrum is not white \parencite{Mitchell1976,VonderHeydt2021} and may
 change due to climate change \parencite{Huntingford2013}.
@@ -619,14 +620,14 @@ as the Kramers Rate \parencite{Kramers1940}. This derivation follows~\cite{Riske
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{potential_to_escape}
-  \caption{An example of a potential with a stable state at $x_{min}$ from which a system can escape over the potential barrier at $x_{max}$ to a new state neat $x_3$.
+  \caption{An example of a potential with a stable state at $x_{min}$ from which a system can escape over the potential barrier at $x_{max}$ to a new state near $x_3$.
   The precise locations of $x_1,x_2,x_3$ do not matter at the level of approximation Kramer's escape rate formula works at.}
   \label{fig:potential_to_escape}
 \end{figure}
 
 Suppose that $U$ has the form given by \cref{fig:potential_to_escape}, which has a stable state at $x_{min}$, an unstable state at $x_{max}$ and the rate at which the system
 transitions from near $x_{min}$ in the region between $x_1$ and $x_2$ to near $x_3$ is to be determined. Assuming the system is in a near steady state, \cref{eq:fokker_planck_continuity}
-implies that $J$ is approximately constant. Noting that $J$ can we put into the form
+implies that $J$ is approximately constant. Noting that $J$ can be put into the form
 \begin{equation}
   \label{eq:probability_current_other_form}
   J = -\frac{1}{2}\sigma^2 e^{-\frac{2U(x)}{\sigma^2}} \pdv{x} \left( p(x) e^{\frac{2U(x)}{\sigma^2}}\right),
@@ -634,7 +635,7 @@ implies that $J$ is approximately constant. Noting that $J$ can we put into the 
 which can then be integrated from $x_{min}$ to $x_3$ give
 \begin{equation}
   \label{eq:integrated_J}
-  J = \frac{1}{2} \left(p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} - p(x_3)e^{\frac{2U(x_{3})}{\sigma^2}}\right)\left(\int_{x_{min}}^{x_{3}} e^{\frac{2U(x)}{\sigma^2}} \dd{x}\right)^{-1}.
+  J = \frac{\sigma^2}{2} \left(p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} - p(x_3)e^{\frac{2U(x_{3})}{\sigma^2}}\right)\left(\int_{x_{min}}^{x_{3}} e^{\frac{2U(x)}{\sigma^2}} \dd{x}\right)^{-1}.
 \end{equation}
 As it will be rare to find the system at $x_3$, $p(x_3)$ is negligible. To estimate $p(x_{min})$, assume this is given by the equilibrium distribution which can be found by setting $J$ to
 a constant. This constant can be chosen to be the value of $J$ at $x_{min}$, giving the following expression for the equilibrium pdf, $p_{eq}$,
@@ -663,7 +664,7 @@ for $ \sigma \rightarrow 0$.
 As an example consider the potential
 \begin{equation}
   \label{eq:example_potential}
-  U(x) = -\frac{1}{2}x^2 + \frac{1}{2}x^4
+  U(x) = -\frac{1}{2}x^2 + \frac{1}{12}x^4
 \end{equation}
 which has symmetric stable states at $x = \pm \sqrt{3}$. There is a potential barrier at $x = 0$. Assuming that $\sigma = 0.75$, Kramer's rate predicts a transition
 timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitions happening on this timescale.
