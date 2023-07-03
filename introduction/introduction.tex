@@ -806,12 +806,11 @@ Although real tipping points may have multiple characteristics it is still often
 
 
 \section{Early Warning Signals}
-\subsection{Why do we need early warning signals? And when can we expect them?}
 Given the large impact a climate tipping point would have \parencite{Lenton2019a}, it would be useful to know at what level of climate forcing they would be triggered.
 However models show little agreement about the level of forcing required to cause them \parencite{Drijfhout2015}. The processes of interest are by their nature
 nonlinear and often involve interactions between the physical climate and the biosphere, where the `correct' equations are inherently uncertain. Furthermore,
 some tipping behaviour may depend on subgrid scale processes, such as in the case of fire \parencite{Mangeon2016}. As a result a precise determination of the dangerous level of climate
-forcing is challenging at present.
+forcing is challenging.
 
 Instead, a theory of \emph{early warning signals} (EWS), sometimes known as  \emph{early warning indicators} (EWI), has emerged \parencite{Dakos2008,Scheffer2009,Lenton2011,Williamson2015}.
 These techniques attempt to use certain generic statistical features of tipping points to provide an indication as to whether a system is
@@ -822,7 +821,7 @@ so early warning signals (in the conventional sense) will not be useful in these
 early warning signals \parencite{Ritchie2016}. However most of the work has been done
 for bifurcation tipping where statistics can be calculated as a function of a slowly evolving parameter.
 
-\subsection{The basic idea}
+\subsection{Critical Slowing Down}
 The basic idea of early warning signals is that of \emph{critical slowing down} \parencite{Dakos2008}. Suppose there is a system
 \begin{equation}
   \label{eq:system}
@@ -835,7 +834,15 @@ to give
   \dv{y}{t} = -\lambda y
 \end{equation}
 where $y = x -x^*$ and $\lambda = -f'(x^*,\mu)$. As the bifurcation is approached, $\lambda \rightarrow 0$ so any method that detects changes in $\lambda$ can act as an early warning
-signal, in a quite generic way, for B-tipping. $\lambda$ is an inverse timescale, so as $\lambda \rightarrow 0$, this timescale approaches infinity, hence the name critical slowing down.
+signal, in a quite generic way, for B-tipping.
+
+Solving \cref{eq:linearised_about_steady_state} gives
+\begin{equation}
+  \label{eq:solved_linaer}
+  y = e^{\lambda t} y(0)
+\end{equation}
+and so $\lambda^{-1}$ gives the timescale for perturbations to relax to equilibrium. This means that as $\lambda \rightarrow 0$,
+this timescale approaches infinity, hence the name critical slowing down.
 
 
 \subsection{Variance and Autocorrelation}
@@ -847,7 +854,7 @@ noise can be approximated as white. This assumption amounts to analysing the Lan
   \label{eq:stochastic_system}
   \dv{x}{t} = f(x) + \sigma \eta(t) 
 \end{equation}
-where $\eta$ is a standard wiener process and $\sigma^2$ is the variance of the noise. This system can then be linearised to give
+where $\eta$ is delta correlated noise and $\sigma^2$ is the variance of the noise. This system can then be linearised to give
 \begin{equation}
   \label{eq:ou_process}
   \dv{y}{t} = -\lambda y + \sigma \eta(t)
@@ -891,8 +898,8 @@ In order for this technique to work, a particular assumption about timescales mu
 \end{equation}
 which are the timescales of the long term drift of the system, the timescale of the critical direction of the system (which is the one being destabalised) and the other timescales of the stable directions
 respectively. The first inequality is needed so that $\mu$ can be assumed to be constant in each sliding window. The second is needed so that the timescale being detected is the timescale corresponding
-to the critical direction. It should be noted that $\tau_{\mathrm{crit}} \rightarrow \infty$ at the bifurcation and so will
-violate inequality \ref{eq:timescale_separation} eventually. Furthermore anthropogenic climate change is happening on fast
+to the critical direction. It should be noted that $\tau_{\mathrm{crit}} \rightarrow \infty$ as the bifurcation is approached and so inequality \ref{eq:timescale_separation}
+will be violated eventually. Furthermore anthropogenic climate change is happening on fast
 timescales so it may be the case that $\tau_{\mathrm{drift}} \approx \tau_{\mathrm{crit}}$ or even $\tau_{\mathrm{drift}} \ll \tau_{\mathrm{crit}}$.
 
 \subsubsection{Example}
@@ -920,14 +927,14 @@ good agreement and a clear early warning signal before the bifurcation.
   \label{fig:ews}
 \end{figure}
 
-\subsection{Other EWS}
+\subsection{Other Early Warning Signals}
 These indicators have been generalised to higher dimensional and periodically forced systems \parencite{Williamson2015,Williamson2016}. Attempts have also been made to estimate
 $\lambda$, the inverse timescale directly \parencite{Boettner2022,Boers2021a} The idea to look at
 changes in timescale of fluctuations has been investigated using Detrended Fluctuation Analysis \parencite{Livina2007} where it was used to anticipate the warming at the
 end of the Younger Dryas. Changes in these timscales can also lead to spectral reddening \parencite{Kleinen2003}. Higher order moments have prooved useful too, such as the
 skewness \parencite{Guttal2008} and kurtosis \parencite{Xie2019}. The phenomenon of flickering \parencite{Wang2012}, in which systems `flicker' back and forth between alternative stable
 states can also be used to detect upcoming transitions. More recently, machine learning techniques have had success in giving early warning for modelled transitions \parencite{Bury2021}.
-Any measure of resilience of an ecosystem can function as an early warning indicator, see~\cite{Krakovska2023} for example of ecological resilience.
+Any measure of resilience of an ecosystem can function as an early warning indicator, see~\cite{Krakovska2023} for examples of ecological resilience.
 
 
 Methods which calculate the early warning statistics over space rather than over time have also been used \parencite{Donangelo2010,Guttal2009}. Changes in spatial
@@ -938,22 +945,30 @@ Whilst these indicators generally try to be generic --- in that they are applica
 \cite{Parry2022} found that the seasonal cycle in temperature was a potential early warning system for Amazon dieback and~\cite{Boulton2013} found the sensitivity of net ecosystem productivity to temperature decreases
 towards the tipping point.
 
-\subsection{The Use of EWS}
+\subsection{The Use of Early Warning Signals}
 Early Warning Signals have been applied to the Earth system. For example~\cite{Dakos2008} applied them to a variety of abrupt shifts and found that they were preceded by rises in autocorrelation,
-although some of these trends could have occured by chance. They have also been used to provide evidence for the subpolar gyre circulation \parencite{Arellano-Nava2022}. Furthermore their presence has been
-used to argue that Dansgaard-Oeschger events are B-tipping \parencite{Boers2018a} and their absence has been used to argue that Dansgaard-Oeschger events are N-tipping \parencite{Ditlevsen2010}. These contradictory findings
+although some of these trends could have occured by chance. They have also been used to provide evidence for the subpolar gyre circulation detstabalising prior to the
+Little Ice Age \parencite{Arellano-Nava2022}. Furthermore their presence has been
+used to argue that Dansgaard-Oeschger events are B-tipping \parencite{Boers2018a} and their absence has been used to argue that Dansgaard-Oeschger events are N-tipping \parencite{Ditlevsen2010}.
+These contradictory findings
 are related to differences in the way the ice core data is processed.
 
-Early Warning Signals have been investigated for the Greenland ice sheet \parencite{Boers2021}. This study suggeted the ice sheet was close to a tipping point. However given the slow response of the ice sheet and
-the fast change of the climate, inequality~\ref{eq:timescale_separation} is likely to be violated with the timescale of the drift to be much faster than the timescale of the dynamics. Further more the analysis is of melt rates
-rather than a state variable which describes the ice sheet itself. However they can relate the observed fluctuations to a physically motivated simple nonlinear model which would suggest the ice sheet is approaching a tipping point.
+Early Warning Signals have been investigated for the Greenland ice sheet \parencite{Boers2021}. This study suggeted the ice sheet was close to a tipping point.
+However given the slow response of the ice sheet and
+the fast change of the climate, inequality~\ref{eq:timescale_separation} is likely to be violated with the timescale of the drift to be much faster than the timescale of the dynamics.
+Further more the analysis is of melt rates
+rather than a state variable which describes the ice sheet itself. However the researchers could relate the observed fluctuations to a physically motivated simple nonlinear model of the ice sheet,
+which would suggest the ice sheet is approaching a tipping point.
 
-Later that year, another paper~\cite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance. Other work \parencite{Ditlevsen2022arxiv} went as far
+Later that year, another paper~\cite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance.
+Other work \parencite{Ditlevsen2022arxiv} went as far
 as to suggest that most likely year for the AMOC to tip is 2067. Although the dynamics of the AMOC are faster than that of the ice sheets \parencite{ArmstrongMcKay2022}, it is still not clear if
 inequaltiy~\ref{eq:timescale_separation} is satisfied but early warning signals have been used in complex models to detect AMOC shutdown \parencite{Boulton2014}.
 Furthermore, the analysis was not based on the AMOC strength directly but on `fingerprints' derived from sea surface temperature and salinity data.
 
-Recent work \parencite{Boulton2022} found increases in the autocorrelation in  the Vegetation Optical Depth (a satellite measure of vegetation biomass) in the Amazon, which is consistent with a loss of resiliance in that
-ecosystem. The results for changes in variance were more equivocal. Whilst the Amazon is a relatively fast tipping point \parencite{Ritchie2021}, some complex models do not show generic early warning signals before the
-tipping point \parencite{Boulton2013}. Other work \parencite{Fernandez-Martinez2023}, which examined global datasets of net biome productivity, did not find increasing autocorrelation over the Amazon however net biosphere
-productivity is a flux not a state variable.
+Recent work \parencite{Boulton2022} found increases in the autocorrelation in  the Vegetation Optical Depth (a satellite measure of vegetation biomass) in the Amazon,
+which is consistent with a loss of resiliance in that
+ecosystem. The results for changes in variance were more equivocal. Whilst the Amazon is a relatively fast tipping point \parencite{Ritchie2021}, some complex models do not show
+generic early warning signals before the
+tipping point \parencite{Boulton2013}. Other work \parencite{Fernandez-Martinez2023}, which examined global datasets of net biome productivity, did not find increasing autocorrelation
+over the Amazon. However net biosphere productivity is a flux, not a state variable.
