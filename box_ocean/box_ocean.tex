@@ -307,29 +307,13 @@ The one box model can be written symbolically through the following set of ODEs
 \end{subequations}
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
 $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$.
-\subsection{The Stability of a fixed point}
-The conditions for an equilibrium to stable are now summarised. Let
-\begin{equation}
-  \label{eq:generic_system}
-  \dv{\bm{x}}{t} = f(\bm{x})
-\end{equation}
-with $\bm{x} \in \mathbb{R}^n$ and $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$. Suppose there is a fixed point at $\bm{x}^*$, so $f(\bm{x}^*) = \bm{0}$. Then linearising around this
-fixed point gives
-\begin{equation}
-  \label{eq:generic_system_linearised}
-  \dv{\bm{y}}{t} = J\bm{y}
-\end{equation}
-where $\bm{y} = \bm{x} - \bm{x}^*$ and $J$ is the Jacobian defined by
-\begin{equation}
-  \label{eq:generic_jacobian}
-  J_{ij} = \pdv{f_i}{x_j}.
-\end{equation}
-This fixed point is stable if no eigenvalues of $J$, denoted $\gamma$, have positive real part.
+
 \subsection{Stability of One Box}
+As shown in \cref{sec:btipping}, a fixed point of a system is unstable when the Jacobian, $J$, of that system evaluated at the fixed point has an eigenvalue, $\gamma$, with a positive real part.
 The Jacobian of \cref{eq:one_box_ocean} is given by
 \begin{equation}
   \label{eq:jacobian_of_one_box}
-    \bm{J} = 
+    J = 
     \begin{pmatrix}
     r_0 \left( \mu \frac{C_{s0}}{C_{a0}} - 1\right) - \Pi'(C_{a0}) & 
     \mu \frac{C_{s0}}{C_{a0}} - \Pi'(C_{a0}) \\
@@ -338,7 +322,12 @@ The Jacobian of \cref{eq:one_box_ocean} is given by
   \end{equation}
 where $\Pi'(C_a)$ denotes the derivative of NPP with respect to atmospheric carbon.
   
-To find the eigenvalues of the Jacobian, the characteristic polynomial $\det(\bm{J} - \gamma \bm{I})$ = 0 must be solved, where $\gamma$ is an eigenvalue.
+To find the eigenvalues of the Jacobian, the characteristic polynomial
+\begin{equation}
+  \label{eq:char_poly}
+  \det(J - \gamma I) = 0
+\end{equation}
+must be solved for $\gamma$.
 
 This equation is quadratic and therefore has two roots. Solving it leads to a solution of the form:
 \begin{equation}
