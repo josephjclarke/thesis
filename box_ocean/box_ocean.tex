@@ -13,11 +13,29 @@ I will neglect the role of biogeochemical heating as \cref{chapter:global_bomb} 
 \section{Background}
 
 \subsection{Climate Response to Radiative Forcing}
+As was outlined in \cref{sec:introduction}, the climate system responds to increasing levels of greenhouse gases in the atmosphere by increasing in temperature. The radiative forcing
+forcing and associated temperature rise caused by doubling the concentration of \ce{CO2} in the atmosphere is generally assumed to be state independent. The amount of warming
+in the global mean caused by doubling \ce{CO2} is known as the equilibrium climate sensitivity, $\mathrm{ECS}$, and is
+\SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin} \parencite{AR6,Sherwood2020}.
+However latest generation CMIP6 climate models have climate sensitivities up to \SI{5.6}{\kelvin} \parencite{Zelinka2020} and some climate models can give sensitivities of over
+\SI{11}{\kelvin} \parencite{Stainforth2005}.
+
+It should also be noted that the warming is not globally uniform, with land warming more than the oceans \parencite{Morice2021} and higher latitudes warming more than the tropics \parencite{Serreze2011}.
+This enhanced warming in the Arctic is known as `Arctic amplification'. A common approximation is `pattern scaling' which related the spatially dependent warming, $\Delta T(\bm{r},t)$
+to the change in global mean surface temperature $\Delta T(t)$ by a time invariant pattern of warming, $f(\bm{r})$,
+through $\Delta T(\bm{r},t) = f(\bm{r}) \Delta T(t)$ \parencite{Huntingford2000a}.
+
 
 
 \subsection{Terrestrial Carbon Cycle Response to \ce{CO2}}
 Whilst the above discussion of $\mathrm{ECS}$ treats the amount of $\ce{CO2}$ in the atmosphere as a given quantity, in reality it is also affected by the climate
 system, which determines the fluxes of carbon into and out of the atmosphere through biogeochemical cycles \parencite{Rothman2014}.
+
+One important feedback is the so-called Jenkinson effect \parencite{Jenkinson1991} which is enhanced heterotrophic respiration due to elevated surface temperatures. This
+tends to increase the amount of \ce{CO2} in the atmosphere and so it is a positive feedback on climate change.
+
+At higher levels of \ce{CO2}, the net primary productivity (NPP) of vegetation increases, this effect is called the \ce{CO2} fertilisation effect \parencite{Wenzel2016}.
+This tends to decrease the levels of \ce{CO2} in the atmosphere and is thus a negative feedback on climate change.
 
 The net effect of these two feedbacks is that the terrestrial response to \ce{CO2} is uncertain as the sign of the response depends on the relative magnitude of these effects. Overall it
 is thought that \ce{CO2} fertilisation dominates at lower \ce{CO2} levels, which is consistent with the observed carbon sink, however at higher \ce{CO2} levels the Jenkinson effect
@@ -25,7 +43,7 @@ dominates \parencite{Cox2000,Friedlingstein2006,Arora2020}.
 
 \subsection{Potential For Instability}
 Combining these two sensitivities gives the potential for an instability. Consider the following situation. Suppose some carbon is transferred from the land to the atmosphere. Then the Earth
-will warm. As the feedback from the land is positive more carbon will be released into the atmosphere leading to further warming and more carbon released. This cycle could continue until all the
+will warm. Due to positive feedbacks from the land more carbon will be released into the atmosphere leading to further warming and more carbon released. This cycle could continue until all the
 carbon from the land has been released into the atmosphere. However, because of the negative feedbacks in the system (principally \ce{CO2} fertilisation) these positive feedbacks would have to be
 sufficiently strong in order for this to happen.
 
