@@ -204,10 +204,13 @@ so that the window length is $\tau_w = 1/(2\epsilon)$. Detrending was accomplish
 To stand a chance of getting good early warning
 signals in time it is required that $\epsilon < 1/\tau_w$, which is always satisfied.
 Systems are initialised in equilibrium and spun up for 1000 time steps.
+
 \subsection{Two Limits}
-Before fully exploring the effect of $\epsilon$ and $D$ on early warning signals, we will look at two important limits.    
+Before determining the reliability of the early warning signals as a function of $\epsilon$ and $D$, two important limits will be investigated. They are the uncoupled ($D = 0$)
+and slowly forced ($\epsilon \ll 1$) limits.
+
 \subsubsection{Uncoupled Limit}
-We will  begin by examining the case when $D = 0$, for large and small values of $\epsilon$. Consider \cref{fig:uncoupled_timeseries}.
+First the case  when $D = 0$ is investigated, for large and small values of $\epsilon$. Consider \cref{fig:uncoupled_timeseries}.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{uncoupled_variance}
@@ -218,149 +221,158 @@ We will  begin by examining the case when $D = 0$, for large and small values of
                 are 0.6 and 0.04 for the slow and fast case respectively.}
   \label{fig:uncoupled_timeseries}
 \end{figure}
- The left column shows the small $\epsilon$ case. This is the case
-    where we expect temporal early warning signals to work well. For this value of $\epsilon$ the system
-    transitions to its new state near the time of the bifurcation and its variance calculated over
-    space or calculated over time both clearly increase near the bifurcation point. Furthermore
-    calculating the statistics for each the individual grid points shows that most grid points 
-    experience a rise in variance over time as well.
+The left column shows the small $\epsilon$ case. This is the case
+where temporal early warning signals are expected to work well. For this value of $\epsilon$ the system
+transitions to its new state near the time of the bifurcation and its variance calculated over
+space and calculated over time both clearly increase near the bifurcation point. Furthermore
+calculating the statistics for each the individual grid points shows that most grid points 
+experience a rise in variance over time as well.
 
-    For the larger $\epsilon$ case the results are different. The system has not yet transitioned to
-    its new state even by the end of the simulation. We do not see a clear rise in $\sigma_t^2$ near the bifurcation point. Furthermore looking at the individual grid points
-    we do not see a coherent warning of the upcoming transition. However there is a very clear rise in $\sigma_s^2$ before the bifurcation, demonstrating that spatial early warning
-    signals are superior in this case.
+For the larger $\epsilon$ case the results are different. The system has not yet transitioned to
+its new state even by the end of the simulation. A clear rise in $\sigma_t^2$ cannot be seen near the bifurcation point. Furthermore looking at the individual grid points,
+no coherent warning of the upcoming transition is given. However there is a very clear rise in $\sigma_s^2$ before the bifurcation, demonstrating that spatial early warning
+signals are superior in this case.
 
-    \subsubsection{Slowly Forced Limit}
-    \Cref{fig:coupled_timeseries} is similar to \cref{fig:uncoupled_timeseries} expect we now work in the limit of slow forcing ($\epsilon = 0.01$) but
-    a non-zero coupling in space. We choose $D = 1$ and $D = 10^5$. For low $D$ and slow forcing we expect early warning signals to work both when calculated spatially or
-    temporally. At higher $D$ we expect the correlations between the grid points to be so great that there will no longer be any variability between them, and so no detection
-    of spatial early warning signals should be possible. This is precisely what we see in \cref{fig:coupled_timeseries} where for $D=10^5$ the system acts like a single grid point.
-    \begin{figure}
-      \centering
-      \includegraphics[width=\textwidth,keepaspectratio]{coupled_variance}
-      \caption[Early Warning Signals in the slowly forced limit]{Early warning signals when $\epsilon = 0.01$. The left column shows 
-                the weakly coupled case, the right shows what happens in the strongly coupled (large $D$) case. 
-                The top row shows the quasi-static equilibria (black) the individual
-                trajectories of the grid boxes (grey) and the domain average (green).
-			      The variance is plotted in the second row, calculated over space 
-                (black) and over time (red). The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
-              \label{fig:coupled_timeseries}
-    \end{figure}
-    \subsection{Exploring the $\epsilon$ and $D$ parameter space}
-    Now that we have examined the two limits, it will be worthwhile to more explore the parameter space more fully.
-    We will investigate points in the parameter plane defined by $(\epsilon,D) \in [10^{-2},10^1] \times [10^{-7},10^{7}]$.
-    We sample 50 points in each direction, geometrically spaced, giving $2500$ total points.
+\subsubsection{Slowly Forced Limit}
+\Cref{fig:coupled_timeseries} is similar to \cref{fig:uncoupled_timeseries} expect it now examines the limit of slow forcing ($\epsilon = 0.01$) but
+but with a non-zero coupling in space. $D$ values of $D = 1$ and $D = 10^5$ were chosen. For low $D$ and slow forcing early warning signals are expected to work both when calculated spatially or
+temporally. At higher $D$ the correlations between the grid points will be so great that there will no longer be any variability between different grid points, and so no detection
+of spatial early warning signals should be possible. This is precisely what we see in \cref{fig:coupled_timeseries} where for $D=10^5$ the system acts like a single grid point.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{coupled_variance}
+  \caption[Early Warning Signals in the slowly forced limit]{Early warning signals when $\epsilon = 0.01$. The left column shows 
+    the weakly coupled case, the right shows what happens in the strongly coupled (large $D$) case. 
+    The top row shows the quasi-static equilibria (black) the individual
+    trajectories of the grid boxes (grey) and the domain average (green).
+    The variance is plotted in the second row, calculated over space 
+    (black) and over time (red). The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
+  \label{fig:coupled_timeseries}
+\end{figure}
 
-    We can determine if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
-    A positive value implies an increasing trend \parencite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
-    experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
-    (SNR), defined as the ratio of the mean to the standard deviation, is smaller than 1 we cannot reliably expect and early warning.
+\subsection{Exploring the $\epsilon$ and $D$ parameter space}
+Now that the two limits have been investigated, the parameter space can be explored more fully.
+Early warning signals will be investigated in the region of the parameter plane defined by $(\epsilon,D) \in [10^{-2},10^1] \times [10^{-7},10^{7}]$.
+50 points are sampled in each direction, geometrically spaced, giving $2500$ total points.
 
-    We calculate this signal-to-noise ratio in \cref{fig:parameter_plane} for temporal and spatial early warning statistics. We see that only for
-    certain regions of the parameter plane do we get an early warning of the upcoming tipping point. We note that there is a complementarity between spatial
-    and temporal early warning signals. We see that for rapidly forced systems we get good early warning signals in space as long the
-    the coupling in space is not too strong. Conversely, for strongly coupled systems we get 
-    a good early warning in time as long the forcing is slow enough. We observe the strongly
-    coupled and rapidly forced region does not give good early warning signals with either method.
+It can be determined if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
+A positive value implies an increasing trend \parencite{Wilks2011}. The reliability of the warning can be assessed by repeating the numerical
+experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
+(SNR) of the distribution of $\tau$ values, defined as the ratio of the mean to the standard deviation, is smaller than 1 a reliable early warning cannot be expected.
 
-    \begin{figure}
-      \centering
-      \includegraphics[width=\textwidth,keepaspectratio]{parameter_plane}
-      \caption[The quality of early warning signals in the $\epsilon$ and $D$ plane]{Red indicates regions of parameter space where the EWS are reliable, blue
-        where they are not. In the dashed and dotted lines we plot the lines $D=L^2$ and
-        $\epsilon(1+\frac{4\pi^2}{L^2} D) = 1$.}
-      \label{fig:parameter_plane}
-    \end{figure}
-    \section{Scaling Arguments}
-    \label{sec:scaling_arguments}
+This signal-to-noise ratio is calculated in \cref{fig:parameter_plane} for temporal and spatial early warning statistics. Only for
+certain regions of the parameter plane are early warning signals of the upcoming tipping point reliable. It can be noted that there is a complementarity between spatial
+and temporal early warning signals. For rapidly forced systems good early warning signals in space are obtained as long the
+the coupling in space is not too strong. Conversely, for strongly coupled systems there are good early warning in time as long the forcing is slow enough. It is important to note that
+the strongly coupled and rapidly forced region does not give good early warning signals with either method.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{parameter_plane}
+  \caption[The quality of early warning signals in the $\epsilon$ and $D$ plane]{Red indicates regions of parameter space where the Early warning signals are reliable, blue
+    where they are not. In the dashed and dotted lines we plot the lines $D=L^2$ and
+    $\epsilon(1+\frac{4\pi^2}{L^2} D) = 1$.}
+  \label{fig:parameter_plane}
+\end{figure}
+
+
+\section{Scaling Arguments}
+\label{sec:scaling_arguments}
     
-    In this section we will explain why the early warning signals only work in certain regions of \cref{fig:parameter_plane}.
-    \subsection{Temporal Early Warning Signals}
-    Consider the equilibrium solution to \cref{eq:spatial_system_y_variational} (i.e.\ at fixed $\mu$). This will correspond to a minimum
-    of \cref{eq:spatial_system_energy}. Noting that \cref{eq:spatial_system_energy} is a strictly increasing function of $\pdv*{y}{x}$ it must be the case
-    that the equilibrium solution is uniform in $x$ and hence independent of $D$.
+In this section an attempt to explain why the early warning signals only work in certain regions of the parameter plane plotted in \cref{fig:parameter_plane} will be made.
 
-    This motivates setting $y = y_{\mathrm{eq}} + z$ where $y_{\mathrm{eq}}$ is the equilibrium solution to \cref{eq:spatial_system_y_variational}. Temporal
-    early warning signals are based on $\langle y \rangle$ so we will compute its evolution equation by averaging \cref{eq:spatial_system} in space.
-    This gives
-    \begin{align*}
-      \dv{\langle y \rangle}{t} &= \langle y \rangle - \frac{1}{3} \left\langle y^3 \right\rangle - \mu + D \left\langle \pdv[2]{y}{x} \right\rangle + \sigma \eta \\
-                               &= \langle y \rangle - \frac{1}{3} \left\langle y^3 \right\rangle - \mu + \sigma \eta
-    \end{align*}
-    where $\eta$ is white noise in time only and the diffusive term vanishes due to the periodic boundary conditions. Although there is no explicit dependence on $D$ here,
-    this equation still implicitly depends on $D$ through the nonlinear averaged term $\left\langle y^3 \right\rangle$.
+\subsection{Temporal Early Warning Signals}
+Consider the equilibrium solution to \cref{eq:spatial_system_y_variational} (i.e.\ at fixed $\mu$). This will correspond to a minimum
+of \cref{eq:spatial_system_energy}. Noting that \cref{eq:spatial_system_energy} is a strictly increasing function of $\pdv*{y}{x}$ it must be the case
+that the equilibrium solution is uniform in $x$ and hence independent of $D$.
 
-    We can now determine the evolution equation for $z = y - y_{\mathrm{eq}}$  as
-    \begin{equation}
-      \label{eq:averaged_linear_perturbation_evolution}
-      \dv{\langle z\rangle}{t} = \left(1 - y_{\mathrm{eq}}^2\right)\left\langle z \right \rangle + \sigma \eta  + \mathcal{O}\left(z^2 \right)
-  \end{equation}
-  where we have used the fact that $y_{\mathrm{eq}}$ satisfies \cref{eq:spatial_system_y} and Taylor expanded to first order in $z$. This has no dependence on
-  $D$ and hence we expect the temporal early warning signals to be independent of $D$.
+This motivates setting $y = y_{\mathrm{eq}} + z$ where $y_{\mathrm{eq}}$ is the equilibrium solution to \cref{eq:spatial_system_y_variational}. Temporal
+early warning signals are based on $\langle y \rangle$ so its evolution equation will be determined by averaging \cref{eq:spatial_system} in space.
+This gives
+\begin{align*}
+  \dv{\langle y \rangle}{t} &= \langle y \rangle - \frac{1}{3} \left\langle y^3 \right\rangle - \mu + D \left\langle \pdv[2]{y}{x} \right\rangle + \sigma \eta \\
+                            &= \langle y \rangle - \frac{1}{3} \left\langle y^3 \right\rangle - \mu + \sigma \eta
+\end{align*}
+where $\eta$ is noise delta correlated in time only. The diffusive term has vanished due to the periodic boundary conditions. Although there is no explicit dependence on $D$ here,
+this equation still implicitly depends on $D$ through the nonlinear averaged term $\left\langle y^3 \right\rangle$.
 
-  To get good early warning signals we shall require $\langle z\rangle$ to be small so that the linearisation in
-  \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$ \parencite{Berglund2006},
-  we expect good temporal early warning signals when $\epsilon^{1/3} \ll 1$.
+The evolution equation for $z = y - y_{\mathrm{eq}}$  can be written, to first order in $z$, as
+\begin{equation}
+  \label{eq:averaged_linear_perturbation_evolution}
+  \dv{\langle z\rangle}{t} = \left(1 - y_{\mathrm{eq}}^2\right)\left\langle z \right \rangle + \sigma \eta  + \mathcal{O}\left(z^2 \right)
+\end{equation}
+where the fact that $y_{\mathrm{eq}}$ satisfies \cref{eq:spatial_system_y} has been used. This has no dependence on
+$D$ and hence we expect the temporal early warning signals to be independent of $D$.
 
-  \subsection{Spatial Early Warning Signals}
-  Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
-  model \parencite{goldenfeld1992}, where
-  $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
+To get good early warning signals it is required $\langle z\rangle$ to be small so that the linearisation in
+\cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$ \parencite{Berglund2006},
+good temporal early warning signals can only be expected when $\epsilon^{1/3} \ll 1$.
 
-  This theory gives the correlation length as $\xi = \sqrt{D}$. In order to get good statistics, we need to be sampling over a region
-  large compared to $\xi$. Hence we only expect to get good early warnings when $D \ll L^2$, where $L$ is the size of the domain.
+\subsection{Spatial Early Warning Signals}
+Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
+model \parencite{goldenfeld1992}, where $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
 
-    Furthermore, the spatial dimension introduces extra timescales into the system, associated with
-    fluctuations of a particular spatial scale. Upon linearising \cref{eq:spatial_system_y} and Fourier decomposing, we find
-    $\pdv*{z_k}{t} = -z_k/\tau_k + \sigma\eta_k$ where $z_k$ refers to the Fourier mode of the fluctuation $z$ associated with wavenumber $k$ and 
-    these fluctuations relax towards 
-    equilibrium on a timescale $\tau_k$. The inverse relaxation time
-    for modes with wavenumber $k$ is $\tau_k^{-1} = 1 + Dk^2$. It is these fluctuations that will ultimately
-    give us early warning signals, so they cannot be too short lived. Hence requiring that 
-    $\tau_k \gg \epsilon$\todo{(do I buy this?)}
-    for all $k$ up to the scale of the simulation ($k = 2\pi/L$) implies
-    that we need $\epsilon(1+\frac{4\pi^2}{L^2} D)\ll 1$. Hence we see that for $D$ small enough, we 
-    expect early warnings in space for larger values of $\epsilon$ than for early warnings in time.
+The correlation between two different points in the domain $\E\left(y(x_1)y(x_2)\right)$ can be shown to scale as $\exp\left(-\frac{|x_1 - x_2|}{\xi}\right)$, where
+$\xi$ is the correlation length. Landau theory can be used to show that the correlation length is $\xi = \sqrt{D}$.
+In order to get good statistics, the region needs to be sampled over distances large compared to $\xi$.
+Hence good early warnings can only be expected when $D \ll L^2$, where $L$ is the size of the domain.
 
-    \subsection{Comparison With Numerical Experiments}
-    \Cref{fig:parameter_plane} implies the critical $\epsilon$ above which temporal early warning signals fail is $\epsilon_c \approx 0.04$.
-    Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with our theory that which requires that
-    $\epsilon^{1/3} \ll 1$. We also plot the lines $D = L^2$ and $\epsilon\left(1 + 4\pi^2 D/L^2\right) = 1$ onto \cref{fig:parameter_plane}.
-    These lines bound the region where spatial early warning signals work and so these results are compatible with our theory.
-    \section{Discussion}
-     We have seen that calculating early warning signals over space allows the user to get reliable
-    signals in a previously inaccessible parameter regime (for larger values of $\epsilon$).  As well
-    as having this advantage we note further that calculating early warning signals over space avoids 
-    the problems of detrending which are inherent to the method of calculating early warning signals over
-    space.
+Furthermore, the spatial dimension introduces extra timescales into the system, associated with
+fluctuations of a particular spatial scale. Upon Fourier decomposing the linearisation of \cref{eq:spatial_system_y}  to get
+\begin{equation}
+  \label{eq:fourier_decomp}
+  \dv{z_k}{t} = -z_k + k^2 D z_k + \sigma \eta_k
+\end{equation}
+where $z_k$ is the mode of wavenumber $k$ assossiated with the fluctuation $z$. These fluctuations relax to equilibrium on a timescale
+\begin{equation}
+  \label{eq:tau_k}
+  \tau_k = \frac{1}{1 + Dk^2}
+\end{equation}
+It is these fluctuations that are resoponsible for early warning signals. Assuming that these fluctuations cannot be too short lived, the hypothesis can be made that 
+$\tau_k \gg \epsilon$ for all $k$ up to the scale of the simulation ($k = 2\pi/L$). This implies that $\epsilon(1+\frac{4\pi^2}{L^2} D)\ll 1$ for good early warning signals.
+Hence it can be observed that for $D$ small enough, then early warnings in space will be more reliable for larger values of $\epsilon$ than for early warnings in time.
 
-    There is a nice complementarity however between early warnings in space and time. For fast forcing
-    and weak coupling in space, early warnings in space work but those in time do not. For slow forcing
-    but strong spatial coupling then early warnings in time work but those in space do not. If the
-    coupling is weak but the forcing is slow both methods work. There is still an inaccessible parameter
-    region, for fast forcing and strong spatial coupling. This is illustrated schematically in figure
-    \cref{fig:idealised_plot}.
-    \begin{figure}
-      \centering
-      \includegraphics[width=\textwidth,keepaspectratio]{idealised_plot}
-      \caption[A schematic showing the complementarity of spatial and temporal early warning signals]{Figure 4: A schematic illustrating the complementarity of early warning signals in space and time.
-        The lines are drawn according to the scalings given in \cref{sec:scaling_arguments}}
-        \label{fig:idealised_plot}
-    \end{figure}
+\subsection{Comparison With Numerical Experiments}
+\Cref{fig:parameter_plane} implies the critical $\epsilon$ above which temporal early warning signals fail is $\epsilon_c \approx 0.04$.
+Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with the theory which requires that
+$\epsilon^{1/3} \ll 1$. Also plotted in \cref{fig:parameter_plane} are the lines $D = L^2$ and $\epsilon\left(1 + 4\pi^2 D/L^2\right) = 1$.
+These lines bound the region where spatial early warning signals are reliable and so these results are compatible with our theory.
+
+\section{Discussion}
+It has been shown that calculating early warning signals over space allows the user to get reliable
+signals in a previously inaccessible parameter regime (for larger values of $\epsilon$).  As well
+as having this advantage it is also noted further that calculating early warning signals over space avoids 
+the problems of detrending. These problems are inherent to the method of calculating early warning signals over
+time.
+
+There is a interesting complementarity however between early warnings in space and time. For fast forcing
+and weak coupling in space, early warnings in space are reliable but those in time are not. For slow forcing
+but strong spatial coupling then early warnings in time are reliable but those in space are not. If the
+coupling is weak but the forcing is slow both methods are reliable. There is still an inaccessible parameter
+region, for fast forcing and strong spatial coupling. This is illustrated schematically in figure
+\cref{fig:idealised_plot}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{idealised_plot}
+  \caption[A schematic showing the complementarity of spatial and temporal early warning signals]{Figure 4: A schematic illustrating the complementarity of early warning signals in space and time.
+    The lines are drawn according to the scalings given in \cref{sec:scaling_arguments}}
+  \label{fig:idealised_plot}
+\end{figure}
 
 \section{Conclusion}
 
-Temporal early warning signals for tipping points are challenging, not least because we are often interested in rapidly forced systems. In this chapter
-we have advanced the hypothesis that spatial early warning signals may be useful in these more rapidly forced systems.
-We have found that spatial early warning signals can be used for more rapidly forced systems, as \cref{fig:uncoupled_timeseries,fig:parameter_plane}
+Obtaining temporal early warning signals for tipping points are challenging, not least because they are often used in rapidly forced systems.
+In this chapter the hypothesis has been advanced that spatial early warning signals may be useful in these more rapidly forced systems.
+It has been found that spatial early warning signals can be used for more rapidly forced systems, as \cref{fig:uncoupled_timeseries,fig:parameter_plane}
 illustrate.
 
-We have found that their usefulness decreases as the spatial interactions increase\todo{Can we estimate these parameters for real systems?}.
-In particular we see a dichotomy between temporal early warning signals (which work well in strongly spatially coupled and slowly temporally forced systems)
+It has been shown that their usefulness decreases as the spatial interactions increase.
+In particular there is a dichotomy between temporal early warning signals (which work well in strongly spatially coupled and slowly temporally forced systems)
 and spatial early warning signals (which work well in weakly spatially coupled and strongly temporally forced systems).
 
-We note that there is still an inaccessible parameter region --- systems forced strongly in time and strongly coupled in space. There are also further limitations
-to our approach.  We have only considered one functional form of coupling, but others are possible. Secondly, we have made
-assumptions that space is homogeneous, but if $D$ is itself a function of $x$ then this could introduce problems.
+It is noted that there is still an inaccessible parameter region --- systems forced strongly in time and strongly coupled in space. There are also further limitations
+to this approach.  Only considered one functional form of coupling has been considered, but others are possible. Secondly, a strong assumption has been made that space is isotropic,
+but if, for example, $D$ is itself a function of $x$ then this will introduce challenges.
 
-Overall we feel that spatial early warning signals, used in conjunction with temporal ones, can provide a useful tool to detect upcoming tipping points.
+There is no reason for only one method calculating early warning signal to be used. It is likely that using spatial early warning signals in conjunction with
+temporal ones could provide a useful tool to detect approaching tipping points.
