@@ -108,24 +108,104 @@ This system can be viewed variationally\footnote{A brief review of the concepts 
 To do this define the `energy' of the system as
 \begin{equation}
   \label{eq:spatial_system_energy}
-  \mathscr{E} = \int_0^L -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + \frac{1}{2}D\left(\pdv{y}{x}\right)^2\,\mathrm{d}{x}.
+  \mathcal{E} = \int_0^L -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + \frac{1}{2}D\left(\pdv{y}{x}\right)^2\,\mathrm{d}{x}.
 \end{equation}
 
-This gives further justification for using a diffusive coupling in the following sense. Suppose a general $\mathscr{E}$ was written as a power series
+This gives further justification for using a diffusive coupling in the following sense. Suppose a general $\mathcal{E}$ was written as a power series
 \begin{equation}
   \label{eq:energy_power_series}
-  \mathscr{E} = \int_0^L  -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + b_1 \pdv{y}{x} + b_2 y \pdv{y}{x} + b_3 \left(\pdv{y}{x}\right)^2 + \ldots \dd{x}.
+  \mathcal{E} = \int_0^L  -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + b_1 \pdv{y}{x} + b_2 y \pdv{y}{x} + b_3 \left(\pdv{y}{x}\right)^2 + \ldots \dd{x}.
 \end{equation}
 Suppose that the spatial coupling should be isotropic in space, then $b_1 = b_2 = 0$, so to lowest order \cref{eq:energy_power_series} reduces to
 \cref{eq:spatial_system_energy}.
 
-Given $\mathscr{E}$ \cref{eq:spatial_system_y} can be rewritten as
+Given $\mathcal{E}$ \cref{eq:spatial_system_y} can be rewritten as
 \begin{equation}
   \label{eq:spatial_system_y_variational}
-    \pdv{y}{t} = -\fdv{\mathscr{E}}{y(x)}  + \sigma\zeta, 
+    \pdv{y}{t} = -\fdv{\mathcal{E}}{y(x)}  + \sigma\zeta, 
 \end{equation}
 which is a Time Dependent Ginzburg Landau equation which describes the mean field dynamics of systems like the Ising model \parencite{goldenfeld1992}.
 
+\section{The Effect of Diffusion on Critical Slowing Down}
+In \cref{sec:introduction} it was shown how critical slowing down leads temporal early warning signals. In this section, I will show that early warning signals are still expected
+to manifest themselves when viewed spatially.
+
+To begin, consider the limit of no coupling in space, so $D = 0$. Furthermore, assume $\epsilon$ is small enough so that $\mu$ can be taken to be a parameter of the system. Then linearising the
+system about an equilibrium, $y^*$ gives
+\begin{equation}
+  \label{eq:linearised_spatial}
+  \dv{z}{t} = -\lambda z + \sigma \zeta
+\end{equation}
+where $z = y - y^*$ and $\lambda = (y^*)^2 - 1$. Calculating the statistics of this system over space are equivalent to viewing each point in space as a seperate realisation of the system.
+In this case, the Fokker-Planck equation,
+\cref{eq:fokker_planck}, can be used to calculate the statistics. The Fokker-Planck equation for assossiated with \cref{eq:linearised_spatial} is
+\begin{equation}
+  \label{eq:fokker_planck_linearised_spatial}
+  \pdv{p}{t} = \pdv{z}\lambda z p + \frac{1}{2}\sigma^2 \pdv[2]{p}{z}
+\end{equation}
+where $p$ is the pdf for the system. The steady state solution, assuming $p$ and its derivatives vanish as $z\rightarrow \pm\infty$ is
+\begin{equation}
+  \label{eq:solution_to_fokker_planck}
+  p(z) = \frac{1}{Z} e^{-\frac{1}{\sigma^2}\lambda z^2}.
+\end{equation}
+The normalisation factor $Z$ is given by
+\begin{equation}
+  \label{eq:partition_function}
+  Z = \int_{-\infty}^{\infty} e^{-\frac{1}{\sigma^2}\lambda z^2} \dd{z} = \frac{\sigma}{\sqrt{\lambda}} \sqrt{\pi}.
+\end{equation}
+Note that the variance of $z$ is
+\begin{equation}
+  \label{eq:var_z}
+  \sigma_z^2 = -\sigma^2 \pdv{\log Z}{\lambda} = \frac{\sigma^2}{ 2\lambda}
+\end{equation}
+so that as $\lambda \rightarrow 0$ at the bifurcation $\sigma_z^2$ diverges. It follows from the Fluctuation-Dissipation Theorem \parencite{Marconi2008} that
+the autocorrelation at lag-$t$ is $\alpha(t) = e^{-\lambda t}$ and so $\alpha \rightarrow 1$ at the bifurcation. This is evidently the same behaviour as in the non-spatial case.
+
+If $D \neq 0$, then \cref{eq:linearised_spatial} becomes
+\begin{equation}
+  \label{eq:linearised_spatial_D}
+  \pdv{z}{t} = -\lambda z + D \pdv[2]{z}{x} + \sigma\zeta = -\fdv{\mathcal{H}}{z} + \sigma \zeta,
+\end{equation}
+where
+\begin{equation}
+  \label{eq:linearised_energy}
+  \mathcal{H} = \int_0^L \frac{1}{2}\lambda z^2 + \frac{1}{2}D\left(\pdv{z}{x}\right)^2 \dd{x}.
+\end{equation}
+\Cref{eq:linearised_spatial_D} can be decomposed via a fourier series
+\begin{equation}
+  \label{eq:fourier}
+  z(x) = \frac{1}{L} \sum_k z_k e^{ikx}
+\end{equation}
+to give
+\begin{equation}
+  \label{eq:linearised_spatial_D_modes}
+  \dv{z_k}{t} = -\lambda z - Dk^2 z + \sigma \zeta_k
+\end{equation}
+Each mode with wavenumber $k$ relaxes to equilibrium on a timescale
+\begin{equation}
+  \label{eq:equilirium_timescale}
+  \tau_k = \frac{1}{\lambda + Dk^2}.
+\end{equation}
+As $\lambda \rightarrow 0$, then $\tau_k$ increases, so critcal slowing down is still to be expected. Suppose however that only large $k$ modes were resolved, which corresponds to
+viewing the system at too small a scale. In this case $\tau_k \sim 1/Dk^2$ so critical slowing down would not be observed until $\lambda$ becomes small enough, which would hamper early
+warning signals.
+
+To investigate the effects of critical slowing down on variance and autocorrelation, the pdf of \cref{eq:linearised_spatial_D} must be calculated. This system has its own
+form of the Fokker-Planck equation for the pdf, $p[z,t]$ which is now a functional of $z$,
+\begin{equation}
+  \label{eq:fokker_planck_functional}
+  \pdv{p}{t} = \int \fdv{z(x')} \left( \pdv{\mathcal{H}}{z(x')} p + \frac{1}{2}\sigma^2 \fdv{p}{z(x')}\right) \dd{x'}.
+\end{equation}
+Again, this has an equilibrium solution
+\begin{equation}
+  \label{eq:fokker_planck_functional_equilibrium}
+  p[z,t] = \frac{1}{Z} e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:partition_functional}
+  Z = \int e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}\,\mathcal{D}z.
+\end{equation}
 \section{Statistics}
 The autocorrelation and variance of \cref{eq:spatial_system} will be compared when calculated over space and over time. These two different ways of calculating the statistics  will now
 be defined. For a summary see \cref{tab:ews_space_time_definition}.
