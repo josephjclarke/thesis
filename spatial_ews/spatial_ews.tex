@@ -2,69 +2,88 @@
 \label{chapter:spatial_ews}
 \graphicspath{{spatial_ews/figs}}
 
-Earlier in \cref{chapter:continuous_compost_bomb,chapter:global_bomb} we looked at specific examples of tipping points.
-It would be useful to have motitoring systems to determine how close we are to triggering these tipping points. One way to do this is
-with Early Warning Signals. These signals assume the system is forced slowly compared to its timescale. However in the case of soil carbon and
-antropogenic global warming the forcing is fast. In this chapter we investigate Early Warning Signals appropropriate to this case.
+Earlier in this thesis, specific examples of tipping points were examined.
+There is much interest in creating motitoring systems to determine how close these and other tipping points are to being triggered.
+One proposed way to do this is with Early Warning Signals. These Early Warning Signals assume the system is forced slowly compared to its timescale.
+However in the case of many systems of interest, the forcing (climate change) is fast relative to the system's own dynamics.
+In this chapter I will try to produce Early Warning Signals more appropropriate to this case.
 
 \section{Fast and Slow Tipping Elements}
-An open question in the theory of Early Warning Signals is how to make use of them when the control parameter
-changes quickly relative to the timescale of the system\parencite{VanderBolt2021}\todo{I should read this paper properly}.
-To be more formal about this, consider the system
+An open question in the theory of Early Warning Signals is how to modify them to be appropriate to the case when the control parameter of a system
+changes quickly relative to the timescale of the system \parencite{VanderBolt2021}. To formalise what is meant by a control parameter changing rapidly relative
+to the system, consider the system
 \begin{equation}
   \label{eq:system_with_a_timescale}
   \dv{y}{t} = \frac{f(y,rt)}{T}
 \end{equation}
 where $y$ is the system state, $T$ is a characteristic timescale of the system and $r$ is the rate the system is linearly forced
-at. Suppose further than there is a tipping point at time $t = t^*$ (i.e.\ when the forcing reaches a magnitude of $rt^*$). By considering
-the ratio of the system to forcing timescale we can define a parameter $\epsilon = rT$ and introduce a rescaling of time $t=Ts$
+at. There is an assosiated frozen system
+\begin{equation}
+  \label{eq:system_with_a_timescale_frozen}
+  \dv{y}{t} = \frac{f(y,\mu)}{T}
+\end{equation}
+where $\mu$ is a constant control parameter. Suppose further than there is a bifurcation in the frozen system when
+$\mu = \mu^*$, which corresponds to a tipping point in \cref{eq:system_with_a_timescale} at time $t = t^*$ (i.e.\ when the forcing reaches a magnitude of $rt^* = \mu^*$).
+By considering the ratio of the system's timescale $T$, to forcing timescale, $1/r$,  the parameter $\epsilon = rT$ can be defined. Time can be rescaled through $t=Ts$
 so that \cref{eq:system_with_a_timescale} becomes
 \begin{equation}
   \label{eq:system_with_a_timescale_rescaled}
   \dv{y}{s} = f(y,\epsilon s).
 \end{equation}
 
-There is an important limit to be considered here. Suppose $r$ is very small --- in other words the system is forced very slowly --- so that we
-can take $\epsilon\rightarrow 0$ in such a way that $\epsilon s \rightarrow \mu$ where $\mu$ is a constant. We can now view this as a bifurcation
-problem and can then apply all the usual tools to detect approaching tipping points\parencite{scheffer2009}.
+Alternatively this can be rewritten autonomously as
+\begin{subequations}
+  \label{eq:system_with_a_timescale_rescaled_autonomous}
+  \begin{align}
+    \dv{y}{s} &= f(y,\mu) \\
+    \dv{\mu}{s} &= \epsilon.
+  \end{align}
+\end{subequations}
 
-This limit of slow forcing can also be viewed as the limit of a system with a very rapid timescale. Hence the tipping point associated to the system
-this limit applies to (whether because it is slowly forced or rapidly responding) is known as a \emph{fast tipping point}.
+An important limit  is the small $\epsilon$ limit. This corresponds to small $r$, which means the system is forced very slowly, or equivalently to
+large $T$ --- which means the system responds very slowly to forcing. In this limit \cref{eq:system_with_a_timescale_rescaled_autonomous} is a
+fast-slow system \parencite{Kuehn2011} and the usual tools of bifurcation theory can be applied without too much difficulty. In this case,
+rises in the autocorrelation and variance of fluctuatations about the equilibria are to be expected as the tipping point is approached  \parencite{Scheffer2009}.
 
-Alternatively we can look at so called \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good early warning signals
-using the temporal variance and autocorrelation\parencite{VanderBolt2021}. Unfortunately these sorts of systems are widespread in climate change science.
-Recall that the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century\parencite{Osborn2021}, a rate unprecedented in at least
-the last 2000 years\parencite{AR6}. Many important tipping elements have timescales of centuries or longer\parencite{Lenton2008}.
-This implies that for contemporary climate change $\epsilon$ is unlikely to be small. This motivates the development of techniques that enable
-larger values of $\epsilon$ to be probed.
+In the case of climate change, systems to which this small $\epsilon$ limit applies are known as \emph{fast tipping elements}. An example of a fast tipping element is
+the Amazon rainforest \parencite{Ritchie2020}.
 
-Part of the problem with these slow tipping elements is that the forcing changes appreciably over the window used to calculate early warning signals.
-To get around this we might try to make `instantaneous' measurements of its variance and autocorrelation. One way to do this would be to calculate these
-statistics over space instead of over time.
+There also exists the corresponding \emph{slow tipping elements} in which $\epsilon$ is not small. It is difficult to get good early warning signals
+using the variance and autocorrelation techniques \parencite{VanderBolt2021}. Unfortunately these systems which respond slowly to forcing, such as the Greenland ice
+sheet \parencite{Richie2020}, are common in the Earth system.
+
+This is because the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century \parencite{Osborn2021}, which is a rate unprecedented in at least
+the last 2000 years \parencite{AR6}. Many important tipping elements have timescales of centuries or longer \parencite{Lenton2008,ArmstrongMcKay2022}.
+This implies that for tipping elements subject to anthropogenic climate change $\epsilon$ is unlikely to be small. This motivates the development of Early Warning Signals that are reliable
+for systems with larger values of $\epsilon$. \todo{A table?}
+
+One way to understand the problems with Early Warning Signals for slow tipping elements is to recognise the the equilibrium implied by the changing forcing is changing
+significantly over the sliding windows used to calculate the Early Warning Indicators. Although it may be possible to make the sliding window shorter, this will
+increase the uncertainties on any statistical estimate and in any case the sliding window must be large enough to resolve the critical dynamics of the system.
+A potential way to avoid this problem is to try to make `instantaneous' measurements of the variance and autocorrelation of the fluctuations about equilibrium.
+This could be done by calculating these statistics over space instead of over time.
 
 Spatial early warning signals have been studied before. \parencite{Donangelo2010} compared spatial and temporal early warning signals, finding that the spatial variance
-can give a better early warning than the temporal variance. Another study\parencite{Kefi2014} found rising memory, variability and changes to patchiness were all
-spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems\parencite{Carpenter2010,Dakos2011,Guttal2009}.
-Spatial early warning signals have even been applied to observational data\parencite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
-the earth system have all involved temporal rather than spatial indicators\parencite{Boulton2022,Boers2021,Boers2021a}.\todo{I should read these studies\ldots}
+can give an earlier early warning than the temporal variance. Another study \parencite{Kefi2014} found rising memory, variability and changes to patchiness were all
+spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems \parencite{Carpenter2010,Dakos2011,Guttal2009}.
+Spatial early warning signals have even been applied to observational data \parencite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
+the earth system \parencite{Boulton2022,Boers2021,Boers2021a} have all involved temporal rather than spatial indicators, even though spatial resolved data was used.
 
 \section{The System}
-In order to investigate spatial early warning signals we will investigate a specific system. We will choose this system
-to be generic enough that broader conclusions can be drawn. We will make the system as simple as possible to make it more
-likely to give understandable results.
+In order to investigate spatial early warning signals a specific system will be examined. This system will be chosen
+to be generic enough that broader conclusions can be drawn. The system will be made as simple as possible to aid in the analysis.
 
-Making the hypothesis that near a tipping point many systems are governed by coherent dynamics leads us to introduce one dependent
-variable $y$. In one dimension there is only one generic type of bifurcation\parencite{Thompson1994}, the saddle node. Furthermore
-near a saddle node bifurcation, all systems show qualitatively similar behaviour\parencite{guckenheimer2013} so the dynamics of $y$ should
-involve the lowest order terms which give a saddle node, namely $\dot{y} = y - y^3/3 - \mu$, where $\mu$ is a control parameter.
+As outlined in \cref{sec:btipping} near a B-tipping point many systems are governed by similar one-dimensional dynamics, which motivates the introduction of one dependent
+variable $y$. In one dimension there is only one generic type of bifurcation \parencite{Thompson1994}, the saddle node. The saddle node normal form is
+$\dot{y} = \mu - y^2$, however $y$ diverges for $\mu < 0$. Therefore to keep $y$ finite and the dynamics simple, the system to be investigated will contain only the lowest order terms
+which give a saddle node and bounded dynamics, namely $\dot{y} = y - y^3/3 - \mu$, where $\mu$ is a control parameter.
 
-We need to take into account the spatial nature of the problem. We will restrict attention to a 1 dimensional
-periodic domain. To couple in space we use the well studied diffusive coupling which acts to smooth out the value of $y$.
-Such a form has found numerous uses in climate and ecological models.
-For example, it has been used in energy balance models for the global temperature\parencite{Ghil1976}, ecosystem pattern formation\parencite{Gowda2014}
-and in continuum models of the compost bomb\parencite{Clarke2021}.
+To take into account the spatial nature of the problem a coupling in space must be considered. Attention will be restricted to a 1 dimensional
+periodic domain of length $L$. To couple in space the well studied diffusive coupling is used; this acts to smooth out the value of $y$ over the domain.
+Such a diffusive form has found numerous uses in climate and ecological models. For example, it has been used in energy balance models for
+the global temperature \parencite{Ghil1976}, ecosystem pattern formation \parencite{Gowda2014,Bastiaansen2018} and in continuum models of the compost bomb \parencite{Clarke2021}.
 
-We will introduce noise into the system and assume the control parameter changes linearly with time. These considerations combine to motivate studying
+Noise will be introduced into the system and the control parameter,$\mu$,  will change linearly with time. These considerations combine to motivate studying
 \begin{subequations}
 \label{eq:spatial_system}
   \begin{align}
@@ -72,65 +91,75 @@ We will introduce noise into the system and assume the control parameter changes
     \dv{\mu}{t}&= \epsilon \label{eq:spatial_system_mu}
   \end{align}
 \end{subequations}
-where $\zeta$ is a white noise with mean $\E \left[\zeta\left(x,t\right)\right] = 0$ and covariance $\E \left[\zeta\left(x,t\right)\zeta(x',t')\right] = \delta(x-x')\delta(t-t')$.
-It therefore follows that $\sigma$ is the magnitude of the noise.
+where $\zeta$ is delta-correlated noise with mean
+\begin{equation}
+  \label{eq:delta_mean}
+  \E \left[\zeta\left(x,t\right)\right] = 0 
+\end{equation}
+and covariance
+\begin{equation}
+  \label{eq:delta_cov}
+  \E \left[\zeta\left(x,t\right)\zeta(x',t')\right] = \delta(x-x')\delta(t-t') 
+\end{equation}
+The parameter $\sigma^2$ is the variance of the noise, and $D$ gives the strength of the spatial coupling.
+The variable $\mu$ linearly increases between $\mu = 0$ and $\mu = 1$ and so the system will undergo a saddle node bifurcation at $\mu = 2/3$. \todo{Do a nice plot?}
 
-We set the size of the domain to be $L$. The variable $\mu$ linearly increases between $\mu = 0$ and $\mu = 1$ and so the system will undergo a saddle node
-bifurcation at $\mu = 2/3$.
-
-Alternatively, we can view the system variationally\footnote{A brief review of the concepts of the variational derivative are presented in \cref{appendix:variational_calculus}.}.
-To do this we introduce the `energy'
+This system can be viewed variationally\footnote{A brief review of the concepts of the variational derivative are presented in \cref{appendix:variational_calculus}.}.
+To do this define the `energy' of the system as
 \begin{equation}
   \label{eq:spatial_system_energy}
   \mathscr{E} = \int_0^L -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + \frac{1}{2}D\left(\pdv{y}{x}\right)^2\,\mathrm{d}{x}.
 \end{equation}
 
-This gives further justification for using a diffusive coupling in the following sense. The lowest order term that one could include in $\mathscr{E}$ involving
-$y$ and its derivatives that is isotropic in space and invariant under $y \rightarrow -y$ is the derivative term in \cref{eq:spatial_system_energy}. In that sense a diffusive term is the simplest
-and, if spatial gradients are not too strong, the most relevant form of spatial coupling.
+This gives further justification for using a diffusive coupling in the following sense. Suppose a general $\mathscr{E}$ was written as a power series
+\begin{equation}
+  \label{eq:energy_power_series}
+  \mathscr{E} = \int_0^L  -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + b_1 \pdv{y}{x} + b_2 y \pdv{y}{x} + b_3 \left(\pdv{y}{x}\right)^2 + \ldots \dd{x}.
+\end{equation}
+Suppose that the spatial coupling should be isotropic in space, then $b_1 = b_2 = 0$, so to lowest order \cref{eq:energy_power_series} reduces to
+\cref{eq:spatial_system_energy}.
 
-Armed with $\mathscr{E}$ we can rewrite \cref{eq:spatial_system_y} as
+Given $\mathscr{E}$ \cref{eq:spatial_system_y} can be rewritten as
 \begin{equation}
   \label{eq:spatial_system_y_variational}
     \pdv{y}{t} = -\fdv{\mathscr{E}}{y(x)}  + \sigma\zeta, 
 \end{equation}
-which is a Time Dependent Ginzburg Landau equation\parencite{goldenfeld1992}.
+which is a Time Dependent Ginzburg Landau equation which describes the mean field dynamics of systems like the Ising model \parencite{goldenfeld1992}.
 
 \section{Statistics}
-We will compare the autocorrelation and variance of \cref{eq:spatial_system} calculated over space and over time. We will now
-make precise what that means. For a summary see \cref{tab:ews_space_time_definition}.
+The autocorrelation and variance of \cref{eq:spatial_system} will be compared when calculated over space and over time. These two different ways of calculating the statistics  will now
+be defined. For a summary see \cref{tab:ews_space_time_definition}.
 
 \subsection{Spatial Statistics}
 
-We will define the average of a quantity calculated from \cref{eq:spatial_system}, $A(t) = A(y(x,t),x)$ in the obvious way
+The average of a quantity,$A$ calculated over space is defined to be
 \begin{equation}
   \label{eq:definition_of_average}
   \langle A \rangle = \frac{1}{L}\int_0^L A(y(x,t),x) \,\mathrm{d}x.
 \end{equation}
-We can now define the spatial variance of $y$ at time $t$ as
+The spatial variance of $y$ at time $t$ is then
 \begin{equation}
   \label{eq:spatial_variance}
-  \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle^2.
+  \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle^2,
 \end{equation}
-We will define the autocorrelation over space as
+and the autocorrelation over space is defined as
 \begin{equation}
   \label{eq:spatial_autocorrelation}
   \alpha_s(t) = \frac{\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle }{\sigma_s(t)^2}.
 \end{equation}
 The quantity $\Delta t$ is the lag of the autocorrelation. However \cref{eq:spatial_system} will ultimately be solved numerically and
-in everything that follows we will set $\Delta t$ to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
+in everything that follows $\Delta t$ to the timestep will be set to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
 
 \subsection{Temporal Statistics}
-When working over time, we will convert the spatio-temporal data to temporal data by first averaging in space to get $\left\langle y \right\rangle$.
-To calculate the early warning indicators over time, we must define averaging in time. Consider the quantity $B(t)$. We will
-define the temporal average as
+When working over time, the spatio-temporal data will be converted to temporal data by first averaging in space to get $\left\langle y \right\rangle$.
+Averaging in time is defined as follows. Consider the quantity $B(t)$. The temporal average is
 \begin{equation}
   \label{eq:definition_of_temporal_average}
   \overline{B} = \frac{1}{T_w}\int_0^{T_w}B(t)\,\mathrm{d}t
 \end{equation}
 where the average is taken over some suitable window of length $T_w$.
 
-When computing early warning indicators, we must first `detrend' the time series. We denote the detrended time series of $\langle y \rangle$ as $z$.
+When computing early warning indicators over time, the timeseries must first be `detrended'. The detrended timeseries of $\langle y \rangle$ is denoted by $z$.
 The the variance and autocorrelation, defined over a window of length $\tau_w$ are
 \begin{equation}
   \label{eq:temporal_variance}
@@ -162,18 +191,18 @@ and
 
 \section{Numerical Results}
 \subsection{Numerical Method}
-To solve \cref{eq:spatial_system}, we discretise the domain into $N = 100$ grid
+To solve \cref{eq:spatial_system}, the domain is discretised into $N = 100$ grid
 points and 
-calculate the diffusive term with finite differences. We denote the value of $y$ at the $k$th gridpoint by $y_k$. We integrate forward in time by 
-using an implicit Euler method, where we solve the resulting nonlinear equation using 
-MINPACK's HYBRD method accessed through SciPy\parencite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
-we set the timestep $\delta t = 0.001/\epsilon$ and integrate until $t=1/\epsilon$. We
-calculate all early warning signals from $\epsilon t=0$ until $\epsilon t=2/3$, which is the 
-time of the tipping point. When working over time, we choose our window size to 
+the diffusive term is calculated with finite differences. The value of $y$ at the $k$th gridpoint is $y_k$. Integration forward in time was accomplished by 
+using an implicit Euler method, where the resulting nonlinear equation was solved using 
+MINPACK's HYBRD method accessed through SciPy \parencite{Virtanen2020}. To avoid excessively long integrations when $\epsilon$ is small,
+the timestep was set to $\delta t = 0.001/\epsilon$ and the system was integrated until $t=1/\epsilon$. Early warning signals were calculated
+from $\epsilon t=0$ until $\epsilon t=2/3$, which is the 
+time of the tipping point. When working over time, the window size was choosen to 
 contain 500 data points (i.e.\ half the time series),
-so that the window length is $\tau_w = 1/(2\epsilon)$. We perform a quadratic detrend in these windows.
+so that the window length is $\tau_w = 1/(2\epsilon)$. Detrending was accomplished removing a fitted quadratic polynomial from these windows.
 To stand a chance of getting good early warning
-signals in time we require that $\epsilon < 1/\tau_w$, which is always satisfied.
+signals in time it is required that $\epsilon < 1/\tau_w$, which is always satisfied.
 Systems are initialised in equilibrium and spun up for 1000 time steps.
 \subsection{Two Limits}
 Before fully exploring the effect of $\epsilon$ and $D$ on early warning signals, we will look at two important limits.    
@@ -223,7 +252,7 @@ We will  begin by examining the case when $D = 0$, for large and small values of
     We sample 50 points in each direction, geometrically spaced, giving $2500$ total points.
 
     We can determine if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
-    A positive value implies an increasing trend\parencite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
+    A positive value implies an increasing trend \parencite{Wilks2011}. We can assess the reliability of the warning by repeating the numerical
     experiment 100 times (with different realisations of the noise) and calculating a distribution of Kendall's $\tau$. If the signal-to-noise ratio
     (SNR), defined as the ratio of the mean to the standard deviation, is smaller than 1 we cannot reliably expect and early warning.
 
@@ -270,12 +299,12 @@ We will  begin by examining the case when $D = 0$, for large and small values of
   $D$ and hence we expect the temporal early warning signals to be independent of $D$.
 
   To get good early warning signals we shall require $\langle z\rangle$ to be small so that the linearisation in
-  \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$\parencite{Berglund2006},
+  \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$ \parencite{Berglund2006},
   we expect good temporal early warning signals when $\epsilon^{1/3} \ll 1$.
 
   \subsection{Spatial Early Warning Signals}
   Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
-  model\parencite{goldenfeld1992}, where
+  model \parencite{goldenfeld1992}, where
   $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
 
   This theory gives the correlation length as $\xi = \sqrt{D}$. In order to get good statistics, we need to be sampling over a region
