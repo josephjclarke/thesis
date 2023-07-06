@@ -190,8 +190,9 @@ As $\lambda \rightarrow 0$, then $\tau_k$ increases, so critcal slowing down is 
 viewing the system at too small a scale. In this case $\tau_k \sim 1/Dk^2$ so critical slowing down would not be observed until $\lambda$ becomes small enough, which would hamper early
 warning signals.
 
-To investigate the effects of critical slowing down on variance and autocorrelation, the pdf of \cref{eq:linearised_spatial_D} must be calculated. This system has its own
-form of the Fokker-Planck equation for the pdf, $p[z,t]$ which is now a functional of $z$,
+To investigate the effects of critical slowing down on variance and autocorrelation, the probability distribution, $p[z,t]$ which is now a function of $z$,
+of \cref{eq:linearised_spatial_D} must be calculated. This system has its own
+form of the Fokker-Planck equation which describes the evolution of $p[z,t]$,
 \begin{equation}
   \label{eq:fokker_planck_functional}
   \pdv{p}{t} = \int \fdv{z(x')} \left( \pdv{\mathcal{H}}{z(x')} p + \frac{1}{2}\sigma^2 \fdv{p}{z(x')}\right) \dd{x'}.
@@ -206,6 +207,24 @@ where
   \label{eq:partition_functional}
   Z = \int e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}\,\mathcal{D}z.
 \end{equation}
+
+In order to find the variance, consider the two-point correlation function
+\begin{equation}
+  \label{eq:two_point_corr}
+  G(x_1 - x_2) = \E z(x_i)z(x_j).
+\end{equation}
+This function can be obtained by differentiation. After introducing the extra term $-B(x)z(x)$ into the integral in \cref{eq:linearised_energy}, the two point correlation function
+can be shown to be equal to
+\begin{equation}
+  \label{eq:two_point_from_partition}
+  G(x_1-x_2) = \frac{\sigma^2}{4}\fdv{B(x_1)}\fdv{\log Z}{B(x_2)} \eval_{B=0}
+\end{equation}
+or
+\begin{equation}
+  \label{eq:two_point_correlation_actual}
+  G(x) = \frac{1}{2} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
+\end{equation}
+where $\xi = \sqrt{D/\lambda}$ is the correlation length. The variance is thus $G(0) = 1/\sqrt{4\lambda D}$, which diverges as the bifurcation is approached.
 \section{Statistics}
 The autocorrelation and variance of \cref{eq:spatial_system} will be compared when calculated over space and over time. These two different ways of calculating the statistics  will now
 be defined. For a summary see \cref{tab:ews_space_time_definition}.
