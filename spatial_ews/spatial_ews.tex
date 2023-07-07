@@ -321,7 +321,7 @@ and
 
 \section{Numerical Results}
 \subsection{Numerical Method}
-To solve \cref{eq:spatial_system}, the domain is discretised into $N = 100$ grid
+To solve \cref{eq:spatial_system}, the domain, of length $L = 2\pi$, was discretised into $N = 100$ grid
 points and 
 the diffusive term is calculated with finite differences. The value of $y$ at the $k$th gridpoint is $y_k$. Integration forward in time was accomplished by 
 using an implicit Euler method, where the resulting nonlinear equation was solved using 
@@ -382,7 +382,7 @@ of spatial early warning signals should be possible. This is precisely what is s
 
 \subsection{Exploring the $\epsilon$ and $D$ parameter space}
 Now that the two limits have been investigated, the parameter space can be explored more fully.
-Early warning signals will be investigated in the region of the parameter plane defined by $(\epsilon,D) \in [10^{-2},10^1] \times [10^{-7},10^{7}]$.
+Early warning signals will be investigated in the region of the parameter plane defined by $(\epsilon,\left(\frac{N}{L}\right)^2 D) \in [10^{-2},10^1] \times [10^{-7}, 10^{7}]$.
 50 points are sampled in each direction, geometrically spaced, giving $2500$ total points.
 
 It can be determined if an early warning indicator is increasing or decreasing by calculating the Kendall's $\tau$ for the data.
