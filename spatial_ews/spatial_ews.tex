@@ -127,18 +127,19 @@ Given $\mathcal{E}$ \cref{eq:spatial_system_y} can be rewritten as
 which is a Time Dependent Ginzburg Landau equation which describes the mean field dynamics of systems like the Ising model \parencite{goldenfeld1992}.
 
 \section{The Effect of Diffusion on Critical Slowing Down}
+\label{sec:spatial_csd}
 In \cref{sec:introduction} it was shown how critical slowing down leads temporal early warning signals. In this section, I will show that early warning signals are still expected
 to manifest themselves when viewed spatially.
 
-To begin, consider the limit of no coupling in space, so $D = 0$. Furthermore, assume $\epsilon$ is small enough so that $\mu$ can be taken to be a parameter of the system. Then linearising the
-system about an equilibrium, $y^*$ gives
+To begin, consider the limit of no coupling in space, which means $D = 0$. Furthermore, assume $\epsilon$ is small enough so that $\mu$ can be taken to be a parameter of the system.
+Then linearising the system about an equilibrium, $y^*$ gives
 \begin{equation}
   \label{eq:linearised_spatial}
   \dv{z}{t} = -\lambda z + \sigma \zeta
 \end{equation}
 where $z = y - y^*$ and $\lambda = (y^*)^2 - 1$. Calculating the statistics of this system over space are equivalent to viewing each point in space as a seperate realisation of the system.
-In this case, the Fokker-Planck equation,
-\cref{eq:fokker_planck}, can be used to calculate the statistics. The Fokker-Planck equation for assossiated with \cref{eq:linearised_spatial} is
+In this case, the Fokker-Planck equation, \cref{eq:fokker_planck}, can be used to calculate the statistics \parencite{Risken1984}.
+The Fokker-Planck equation for assossiated with \cref{eq:linearised_spatial} is
 \begin{equation}
   \label{eq:fokker_planck_linearised_spatial}
   \pdv{p}{t} = \pdv{z}\lambda z p + \frac{1}{2}\sigma^2 \pdv[2]{p}{z}
@@ -159,7 +160,7 @@ Note that the variance of $z$ is
   \sigma_z^2 = -\sigma^2 \pdv{\log Z}{\lambda} = \frac{\sigma^2}{ 2\lambda}
 \end{equation}
 so that as $\lambda \rightarrow 0$ at the bifurcation $\sigma_z^2$ diverges. It follows from the Fluctuation-Dissipation Theorem \parencite{Marconi2008} that
-the autocorrelation at lag-$t$ is $\alpha(t) = e^{-\lambda t}$ and so $\alpha \rightarrow 1$ at the bifurcation. This is evidently the same behaviour as in the non-spatial case.
+the autocorrelation at lag-$t$ is $\alpha(t) = e^{-\lambda t}$ and so $\alpha \rightarrow 1$ at the bifurcation. This is the same behaviour as in the non-spatial case.
 
 If $D \neq 0$, then \cref{eq:linearised_spatial} becomes
 \begin{equation}
@@ -171,17 +172,19 @@ where
   \label{eq:linearised_energy}
   \mathcal{H} = \int_0^L \frac{1}{2}\lambda z^2 + \frac{1}{2}D\left(\pdv{z}{x}\right)^2 \dd{x}.
 \end{equation}
-\Cref{eq:linearised_spatial_D} can be decomposed via a fourier series
+\Cref{eq:linearised_spatial_D} can be analysed by performing a Fourier series decomposition \parencite{riley2006}, where a function $q(x,t)$ can be split
+into oscillatory modes in space with amplitude $q_k(t)$ for wavenumber $k$ defined through
 \begin{equation}
   \label{eq:fourier}
-  z(x) = \frac{1}{L} \sum_k z_k e^{ikx}
+  q(x,t) = \frac{1}{L} \sum_k q_k(t) e^{ikx}
 \end{equation}
-to give
+where $q_k = q_{-k}^*$ to ensure that $q(x,t) \in \mathbb{R}$.
+Performing this decomposition gives an equation for each mode
 \begin{equation}
   \label{eq:linearised_spatial_D_modes}
-  \dv{z_k}{t} = -\lambda z - Dk^2 z + \sigma \zeta_k
+  \dv{z_k}{t} = -\lambda z_k - Dk^2 z_k + \sigma \zeta_k
 \end{equation}
-Each mode with wavenumber $k$ relaxes to equilibrium on a timescale
+Each mode with wavenumber $k$ therefore relaxes to equilibrium on a timescale
 \begin{equation}
   \label{eq:equilirium_timescale}
   \tau_k = \frac{1}{\lambda + Dk^2}.
@@ -190,9 +193,9 @@ As $\lambda \rightarrow 0$, then $\tau_k$ increases, so critcal slowing down is 
 viewing the system at too small a scale. In this case $\tau_k \sim 1/Dk^2$ so critical slowing down would not be observed until $\lambda$ becomes small enough, which would hamper early
 warning signals.
 
-To investigate the effects of critical slowing down on variance and autocorrelation, the probability distribution, $p[z,t]$ which is now a function of $z$,
+To investigate the effects of critical slowing down on variance and autocorrelation, the probability distribution, $p[z,t]$ which is now a functional of $z$,
 of \cref{eq:linearised_spatial_D} must be calculated. This system has its own
-form of the Fokker-Planck equation which describes the evolution of $p[z,t]$,
+form of the Fokker-Planck equation \parencite{Goldenfeld1992} which describes the evolution of $p[z,t]$,
 \begin{equation}
   \label{eq:fokker_planck_functional}
   \pdv{p}{t} = \int \fdv{z(x')} \left( \pdv{\mathcal{H}}{z(x')} p + \frac{1}{2}\sigma^2 \fdv{p}{z(x')}\right) \dd{x'}.
@@ -211,10 +214,10 @@ where
 In order to find the variance, consider the two-point correlation function
 \begin{equation}
   \label{eq:two_point_corr}
-  G(x_1 - x_2) = \E z(x_i)z(x_j).
+  G(x_1 - x_2) = \E \left(z\left(x_i\right)z\left(x_j\right)\right).
 \end{equation}
-This function can be obtained by differentiation. After introducing the extra term $-B(x)z(x)$ into the integral in \cref{eq:linearised_energy}, the two point correlation function
-can be shown to be equal to
+This function can be obtained by differentiation. After introducing the extra term $-B(x)z(x)$ inside the integral in \cref{eq:linearised_energy}, the two point correlation function
+can be shown \parencite{Goldenfeld1992} to be equal to
 \begin{equation}
   \label{eq:two_point_from_partition}
   G(x_1-x_2) = \frac{\sigma^2}{4}\fdv{B(x_1)}\fdv{\log Z}{B(x_2)} \eval_{B=0}
@@ -369,8 +372,7 @@ the strongly coupled and rapidly forced region does not give good early warning 
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{parameter_plane}
   \caption[The quality of early warning signals in the $\epsilon$ and $D$ plane]{Red indicates regions of parameter space where the Early warning signals are reliable, blue
-    where they are not. In the dashed and dotted lines are plotted the lines $D=L^2$ and
-    $\epsilon(1+\frac{4\pi^2}{L^2} D) = 1$ respectively.}
+    where they are not. The dashed line is the line $\sqrt{D} + 40\epsilon\sqrt{D} = L$.}
   \label{fig:parameter_plane}
 \end{figure}
 
@@ -405,37 +407,31 @@ $D$ and hence it can be expected that the temporal early warning signals are ind
 
 To get good early warning signals it is required $\langle z\rangle$ to be small so that the linearisation in
 \cref{eq:averaged_linear_perturbation_evolution} is valid, but as $z$ is $\mathcal{O}\left(\epsilon^{1/3}\right)$ \parencite{Berglund2006},
-good temporal early warning signals can only be expected when $\epsilon^{1/3} \ll 1$.
+good temporal early warning signals can only be expected therefore when $\epsilon^{1/3} \ll 1$.
 
 \subsection{Spatial Early Warning Signals}
-Analysing the system spatially is aided by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for the Ising
-model \parencite{goldenfeld1992}, where $y$ can be viewed as a spin and $\mu$ as an external applied magnetic field.
+It was shown in \cref{sec:spatial_csd} that by recognising the connection between \cref{eq:spatial_system_variational} and Landau theory for phase transitions, the two point
+correlation function could be computed at the correlation length $\xi = \sqrt{D}/\sqrt{\lambda}$ computed. In order to detect any spatial variabiity the system must be sampled over
+scales large compared to the correlation length, which means $L \gg \xi$.
 
-The correlation between two different points in the domain $\E\left(y(x_1)y(x_2)\right)$ can be shown to scale as $\exp\left(-\frac{|x_1 - x_2|}{\xi}\right)$, where
-$\xi$ is the correlation length. Landau theory can be used to show that the correlation length is $\xi = \sqrt{D}$.
-In order to get good statistics, the region needs to be sampled over distances large compared to $\xi$.
-Hence good early warnings can only be expected when $D \ll L^2$, where $L$ is the size of the domain.
+The shortest correlation length occurs when $\lambda$ is largest, which occurs at $t = 0$ when $\lambda = 1$. Therefore in order to get good early
+warning signals in space we need $D \ll L^2$ where $L$ is the size of the domain.
 
-Furthermore, the spatial dimension introduces extra timescales into the system, associated with
-fluctuations of a particular spatial scale. Upon Fourier decomposing the linearisation of \cref{eq:spatial_system_y}  to get
-\begin{equation}
-  \label{eq:fourier_decomp}
-  \dv{z_k}{t} = -z_k + k^2 D z_k + \sigma \eta_k
-\end{equation}
-where $z_k$ is the mode of wavenumber $k$ assossiated with the fluctuation $z$. These fluctuations relax to equilibrium on a timescale
-\begin{equation}
-  \label{eq:tau_k}
-  \tau_k = \frac{1}{1 + Dk^2}
-\end{equation}
-It is these fluctuations that are resoponsible for early warning signals. Assuming that these fluctuations cannot be too short lived, the hypothesis can be made that 
-$\tau_k \gg \epsilon$ for all $k$ up to the scale of the simulation ($k = 2\pi/L$). This implies that $\epsilon(1+\frac{4\pi^2}{L^2} D)\ll 1$ for good early warning signals.
-Hence it can be observed that for $D$ small enough, then early warnings in space will be more reliable for larger values of $\epsilon$ than for early warnings in time.
+If $\epsilon \neq 0$, then the correlation length will change dynamically. To estimate this change, note that $\dot{\xi} = -\frac{1}{2}\sqrt{D}\lambda^{-3/2} \dot{\lambda}$, so that at time $t$
+we have $\xi \approx \sqrt{D} + \frac{1}{2}\sqrt{D}\lambda^{-3/2} \left|\dot{\lambda}\right|t$. Assuming that $\dot{\lambda} = \mathcal{O}(\epsilon)$ when $t=\mathcal{O}(1)$ then it might be expected
+that $\xi \approx \sqrt{D} + F \epsilon \sqrt{D}$, where $F$ is a constant, after a short interval of time. In order to get good early warning signals it should be required that $\xi$ does not reach the
+size of the domain too quickly so early warning signals should only be expected when $D \ll L^2 \left(1 + F \epsilon\right)^{-1}$.
+
+In order to view the dynamics as oscillations about equilibrium, it must be the case that the forcing timescale is, $1/\epsilon$, is small compared to the timescale
+of the dynamics $\tau_k$. As $\tau_k$ is an increasing function of $k$, It is necessary that $\epsilon \tau_0 \ll 1$. If this is to hold at the start of the simulation where
+$\tau_0 = 1$, spatial early warning signals cannot be expected when $\epsilon = \mathcal{O}(1)$.
 
 \subsection{Comparison With Numerical Experiments}
 \Cref{fig:parameter_plane} implies the critical $\epsilon$ above which temporal early warning signals fail is $\epsilon_c \approx 0.04$.
-Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with the theory which requires that
-$\epsilon^{1/3} \ll 1$. Also plotted in \cref{fig:parameter_plane} are the lines $D = L^2$ and $\epsilon\left(1 + 4\pi^2 D/L^2\right) = 1$.
-These lines bound the region where spatial early warning signals are reliable and so these results are compatible with our theory.
+Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with the theory which requires that $\epsilon^{1/3} \ll 1$.
+Also plotted in \cref{fig:parameter_plane} is the  line $D = L^2 \left(1 + F \epsilon\right)^{-1}$ with $F = 40$.
+This  line bounds the region where spatial early warning signals are reliable as long as $\epsilon$ is not too large.
+For large enough $\epsilon$ no early warnings are possible, as expected, as the timescale of forcing relative to the dynamics becomes too fast.
 
 \section{Discussion}
 It has been shown that calculating early warning signals over space allows the user to get reliable
