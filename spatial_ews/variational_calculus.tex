@@ -1,9 +1,9 @@
 \chapter{Variational Calculus}
 \label{appendix:variational_calculus}
 
-In this appendix, we give a brief summary of some of the results involving the \emph{functional} or \emph{variational} derivative.
-There are no original results in this appendix and it draws on \parencite{Lancaster2014,goldenfeld1992}. Both for reasons of clarity and because we are not
-working rigorously we will adopt the notation favoured by physicists.
+Some of results involving the \emph{functional} or \emph{variational} derivative will be summarised in this section.
+This section largely follows~\cite{Lancaster2014,goldenfeld1992}. The notation adopted here will be the one used by physicists
+both for reasons of clarity and also to emphasise the non-rigorous presentation.
 
 \section{Functionals}
 A function is a map between numbers. For example the function $f\colon \mathbb{R} \rightarrow \mathbb{R}$
@@ -13,23 +13,21 @@ A function is a map between numbers. For example the function $f\colon \mathbb{R
 \end{equation}
 associates the input number $2$ to the output number $4$.
 
-However \emph{functionals} associate functions to numbers. They are ubiquitous in mathematics and physics. For example
+However \emph{functionals} associate functions to numbers, they are often denoted with square brackets. For example
 the definite integral
 \begin{equation}
   \label{eq:example_functional_definite_integral}
   I[f] = \int_{-\infty}^{\infty} f(x) \, \mathrm{d}x
 \end{equation}
 is a functional of $f$. It associates the function $e^{-x^2}$ to the number $\sqrt{\pi}$.
-So too is the evaluation functional
-\begin{equation}
-  \label{eq:example_functional_evaluation}
-  E_y[f] = f(y).
-\end{equation}
-Most famous of all is the \emph{action} of a system
+
+An important functional is the action of a system
 \begin{equation}
   \label{eq:example_functional_action}
   S[q] = \int_0^t L(q(t'),\dot{q}(t'),t')\,\mathrm{d}t'.
 \end{equation}
+where $L$ is known as the Lagrangian.
+
 
 \section{Derivatives}
 The definition of a derivative is well known:
@@ -42,33 +40,33 @@ The definition of a derivative is well known:
   \end{equation}
   if the limit exists.
 \end{definition}
-In other words, the derivative measures how much a function changes when its input changes `a little bit'.
+More intuitively, the derivative measures how much a function changes when its input changes by a small quantity.
 
-Similarly, we can ask what happens to a functional when its input is changed `a little bit'. We can therefore
-define the functional derivative (also known as a variational derivative) as follows.
+Similarly, it can be interesting to know what happens to a functional when its input is changed by a small quantiity.
+The functional derivative (also known as a variational derivative) can be defined as follows.
 \begin{definition}[Functional Derivative]
   \label{definition:functional_derivative}
   Let $J$ be a functional of $f$ which is in turn a function of $x \in \mathbb{R}$. Then the functional derivative is
   \begin{equation}
     \label{eq:definition_of_functional_derivative}
-    \fdv{J}{f(x)} = \lim_{\epsilon\rightarrow 0} \frac{J[f(x') + \epsilon \delta(x - x')] - J[f(x')]}{\epsilon}
+    \fdv{J[f(x)]}{f(x')} = \lim_{\epsilon\rightarrow 0} \frac{J[f(x) + \epsilon \delta(x - x')] - J[f(x)]}{\epsilon}
   \end{equation}
   if the limit exists. Here, $\delta(x)$ is the Dirac Delta function.
 \end{definition}
 
-As an example, consider the functional derivative of \cref{eq:example_functional_definite_integral}. From \cref{definition:functional_derivative}
+For example, consider the functional derivative of \cref{eq:example_functional_definite_integral}. From \cref{definition:functional_derivative}
 we have
 \begin{equation*}
-  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_{-\infty}^{\infty} f(x') + \epsilon \delta\left(x-x'\right)\,\mathrm{d}x' 
-      - \int_{-\infty}^{\infty} f(x')\,\mathrm{d}x'\right),
+  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_{-\infty}^{\infty} f(x) + \epsilon \delta\left(x-x'\right)\,\mathrm{d}x 
+      - \int_{-\infty}^{\infty} f(x)\,\mathrm{d}x\right),
 \end{equation*}
 which can be simplified to give
 \begin{equation*}
-  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0}\frac{1}{\epsilon}\int_{-\infty}^{\infty} \epsilon \delta(x-x')\,\mathrm{d}x' = 1.
+  \fdv{I}{f(x)} = \lim_{\epsilon\rightarrow 0}\frac{1}{\epsilon}\int_{-\infty}^{\infty} \epsilon \delta(x-x')\,\mathrm{d}x = 1.
 \end{equation*}
 
 \section{Useful Results}
-We now prove two chain rule type results for functional derivatives.
+Two useful results related to the chain rule will now be proven.
 \begin{theorem}
   \label{theorem:chain_rules}
   Let $f,g\colon\mathbb{R}\rightarrow\mathbb{R}$ be suitable functions. Then
@@ -84,7 +82,7 @@ We now prove two chain rule type results for functional derivatives.
   where conventional derivatives have been denoted with primes.
 \end{theorem}
 \begin{proof}
-  We define
+  Define
   \begin{equation*}
     J[f] = \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y
   \end{equation*}
@@ -95,7 +93,7 @@ We now prove two chain rule type results for functional derivatives.
     &=  \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(f(y)\right) + \epsilon \delta\left(y-x\right)g'\left(f\left(y\right)\right)\,\mathrm{d}y
                                                                      - \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y\right)
   \end{align*}
-  where the function $g$ has been Taylor expanded to first order. We ignore the second order terms as they will vanish in the limit.
+  where the function $g$ has been Taylor expanded to first order. The second order terms will vanish in the limit and can therefore be ignored.
   Taking the limit gives
   \begin{align*}
     \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y &= \int_a^b \delta(y - x) g'(f(y))\,\mathrm{d}y \\
@@ -105,7 +103,7 @@ We now prove two chain rule type results for functional derivatives.
   \begin{equation*}
     J[f] =  \int_a^b g\left(f'\left(y\right)\right)\,\mathrm{d}y,
   \end{equation*}
-  we proceed similarly for the second claim:
+  the proof of \cref{eq:chain_rule_derivatives_functional} proceed similarly for the second claim:
   \begin{align*}
     \fdv{J}{f(x)}  &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g\left(\pdv{y}\left(f(y) + \epsilon \delta (y-x)\right)\right)\, \mathrm{d}y- \int_a^b g \left( f' \left( y \right) \right)\mathrm{d}y\right)       \\
                                                                     &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g(f'(y)) + \epsilon \delta' (y-x)\dv{g(f'(y))}{f'}\, \mathrm{d}y- \int_a^b g(f'(y))\,\mathrm{d}y\right) \\
@@ -118,6 +116,6 @@ We now prove two chain rule type results for functional derivatives.
 An important special case of \cref{theorem:chain_rules} is
 \begin{equation}
   \label{eq:derivative_of_squared_derivative}
-  \fdv{f(x)}\int_a^b \left(\pdv{f}{y}\right)^2\,\mathrm{d}y = - 2 \pdv[2]{f}{x}.
+  \pdv[2]{f}{x} = -\fdv{f(x)}\int_a^b \frac{1}{2}\left(\pdv{f}{y}\right)^2\,\mathrm{d}y,
 \end{equation}
-Note the minus sign.
+which explains the sign in \cref{eq:spatial_system_energy}.
