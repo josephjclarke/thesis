@@ -87,7 +87,7 @@ which for given $\Pi$ and $T_a$ determines the evolution of $C_s$.
 
 The implied equilibrium value for $C_s$ occurs when \cref{eq:soil_carbon_evolution} is zero which occurs when
 \begin{equation}
-  \label{eq:equilibirum_soil_carbon}
+  \label{eq:equilibrium_soil_carbon}
   C_s^{\mathrm{eq}} = \frac{\Pi}{r_0} e^{-\alpha T_a} e^{-\Pi/\Pi_c}.
 \end{equation}
 The no biogeochemcial heating case can be recovered by sending $\Pi_c \rightarrow \infty$ which gives $C_s^{\mathrm{eq}} = \frac{\Pi}{r_0}$.
@@ -147,26 +147,25 @@ of $\mu$ for different values of $\Pi_c$. It can be seen that there is a transcr
 \end{figure}
 
 \subsection{Computation of Bifurcation Point}
-We can make analytic progress too. To find the bifurcation we therefore just have to calculate where
+By construction, there is always an equilibrium at $C_s = C_s^{\mathrm{eq}}$. Its stability is determined by the jacobian of \cref{eq:global_soil_carbon}, which in this case amounts to
+taking the derivative of the righthand side of \cref{eq:global_soil_carbon} when $C_s = C_s^{\mathrm{eq}}$. The system will transition from being stable to unstable when
 \begin{equation*}
-  \dv{\dot{C_s}}{C_s} = 0,
+  \dv{\dot{C_s}}{C_s} = 0.
 \end{equation*}
-we will make use of
+In order to calculate the derivative the identity
 \begin{equation}
   \label{eq:derivative_of_lambert_W}
-  W'(x) = \frac{W(x)}{x\left(1 + W\left(x\right)\right)}.
+  W'(x) = \frac{W(x)}{x\left(1 + W\left(x\right)\right)}
 \end{equation}
+will be useful, which follows from taking the derivative of \cref{eq:lambert_W}.
 
-
-
-
-Taking a derivative of the right hand side of \cref{eq:global_soil_carbon} and setting it to zero in equilibrium gives
+If the derivative of the right hand side of \cref{eq:global_soil_carbon} is taken and set to zero, 
 \begin{equation}
   \label{eq:soil_carbon_lambda}
   \dv{\Pi}{C_a}\dv{C_a}{C_s} + \frac{\Pi_c}{C_s^{\mathrm{eq}}} \frac{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)} \left(
     1 + \mu \frac{C_s^{\mathrm{eq}}}{C_{a0}} \dv{C_a}{C_s}\right) = 0
 \end{equation}
-so
+is obtained. This can be rearranged for $\mu$ to give
 \begin{equation}
   \label{eq:critical_mu}
   \mu = -\frac{C_{a0}}{C_{s}^{\mathrm{eq}}}\dv{C_s}{C_a}\left(\dv{\Pi}{C_a}\dv{C_a}{C_s} \frac{C_s^{\mathrm{eq}}}{\Pi_c}\frac{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)} + 1 \right)
@@ -177,39 +176,38 @@ which simplifies to
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}\frac{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}\dv{\Pi}{C_a}.
 \end{equation}
-This can be further reduced to
+This can be further reduced, by using \cref{eq:equilibrium_soil_carbon}, to
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}
   \frac{1+W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}
   {W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}\dv{\Pi}{C_a} 
 \end{equation*}
-and even more to give
+and then by using the definition of the $W$ function, \cref{eq:lambert_W}, to give
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}
   \frac{1-\frac{\Pi_0}{\Pi_c}}{-\frac{\Pi_0}{\Pi_c}}\dv{\Pi}{C_a}.
 \end{equation*}
-Cleaning this up gives the final form.
+This can then be cleaned up to give a final form for the critical $\mu$ value, notated at $\mu^*$, which seperates stable from unstable soil
+carbon states. $\mu^*$ is therefore
 \begin{equation}
   \label{eq:critical_mu_simple_ocean_in_terms_of_npp}
   \mu^* = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
   \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} - \frac{C_{a0}}{\Pi_c}\dv{\Pi}{C_a}.
 \end{equation}
-We remark that taking the limit where $\Pi_c \rightarrow \infty$ gives
+It is instructive to take the $\Pi_c \rightarrow \infty$ limit, which gives the behaviour in the no biogeochemical heating case:
 \begin{equation}
   \label{eq:mu_infinity}
   \mu^*_{\infty} =\left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} +
   \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a}.
 \end{equation}
-This corresponds to the limit where biogeochemcial heating does not occur.
-
-% We note this implies a minimum allowed \ce{CO2} fertilization effect for a given $\mu$ (as we need $\mu < \mu_\infty^*$)
-% \begin{equation}
-%   \label{eq:minimum_allowed_co2_fertilization}
-%   \dv{\Pi}{C_a} > \frac{\Pi_0\mu}{C_{a0}} - \frac{1+\chi_0}{C_s^{\mathrm{eq}}}\Pi_0
-% \end{equation}
-
+Therefore the effect of biogeochemical heating is the reduce the critical $\mu$ value for which an instability occurs by the amount
+\begin{equation}
+  \label{eq:reduction_in_stability_due_to_biogeochemical}
+  \frac{C_{a0}}{\Pi_c}\dv{\Pi}{C_a}.
+\end{equation}
+When $\Pi_c \rightarrow 0$ this reduction becomes infinite and no stable soil carbon state is possible.
 
 We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable and unstable region.
 
