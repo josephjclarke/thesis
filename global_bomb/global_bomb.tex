@@ -9,7 +9,9 @@ surpress the compost bomb. That analysis was local ---  the modeling was done at
 what a globally-averaged model that included biogeochemical heating would predict. Work by~\cite{Cox2006} suggested that the terrestrial carbon cycle is stable
 only for certain parameter ranges. I will begin by investigating what effect biogeochemical heating has on this.
 
+\section{Compost Bomb Bifurcation Analysis}
 
+\subsection{Dynamical Equations}
 The compsot bomb equations, introduced by~\cite{Luke2011}, are
 \begin{subequations}
   \label{eq:compost_bomb_equations}
@@ -57,72 +59,84 @@ where $W(x)$ is the Lambert $W$ function \parencite{Corless1996}. The Lambert $W
       \addplot[domain=-1:2] (x * exp(x), x);
     \end{axis}
   \end{tikzpicture}
-  \caption[The Lambert $W$ function]{The Lambert $W$ function, for $x in [-1,4]$. The minimum value of $x$ for which $W$ is defined is $-1/e$. For $x < 0$, $W(x)$ is
+  \caption[The Lambert $W$ function]{The Lambert $W$ function, for $x \in [-1,4]$. The minimum value of $x$ for which $W$ is defined is $-1/e$. For $x < 0$, $W(x)$ is
   multivalued.}
   \label{fig:lambert_W}
 \end{figure}
+\todo{This figure should have conventionally positioned axes}
 
-Defining
+After noting that the argument of $W$ should be dimensionless, and that $r_0C_s$ has units of Net Primary Productivity, the quantity 
 \begin{equation}
   \label{eq:critical_npp}
   \Pi_c = \frac{\kappa}{\alpha A}
 \end{equation}
-we can rewrite \cref{eq:soil_temperature_equilibrium} as
+can be defined, which measures the influence of biogeochemical heating. No biogeochemical heating occurs for $A = 0$ or equivalently $\Pi_c = \infty$. Similarly
+biogeochemical heating is strongest for $A \rightarrow \infty$ or again equivalently fpr $\Pi_c = 0$.
+
+\Cref{eq:soil_temperature_equilibrium} can now be rewritten as
 \begin{equation}
   \label{eq:soil_temperature_equilibrium_nppc}
   T_s = T_a - \frac{1}{\alpha} W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
 \end{equation}
-We should therefore insert \cref{eq:soil_temperature_equilibrium_nppc} in \cref{eq:compost_bomb_soil_carbon}
-to give
+\Cref{eq:soil_temperature_equilibrium_nppc} can now be inserted into \cref{eq:compost_bomb_soil_carbon} to give
 \begin{equation}
   \label{eq:soil_carbon_evolution}
   \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
 \end{equation}
-This implies the equilibrium value of $C_s$ is
+which for given $\Pi$ and $T_a$ determines the evolution of $C_s$.
+
+The implied equilibrium value for $C_s$ occurs when \cref{eq:soil_carbon_evolution} is zero which occurs when
 \begin{equation}
   \label{eq:equilibirum_soil_carbon}
   C_s^{\mathrm{eq}} = \frac{\Pi}{r_0} e^{-\alpha T_a} e^{-\Pi/\Pi_c}.
 \end{equation}
-Note that we recover the no biogeochemcial heating case by sending $\Pi_c \rightarrow \infty$.
+The no biogeochemcial heating case can be recovered by sending $\Pi_c \rightarrow \infty$ which gives $C_s^{\mathrm{eq}} = \frac{\Pi}{r_0}$.
 
-
-Recognising that
+\subsection{Closing the System}
+It has been stated that $T_a$ and $\Pi$ are functions of atmospheric carbon, so to determine their behaviours requires specifying the behaviour of the rest of the carbon
+cycle. The total carbon in the carbon cycle is conserved and so
 \begin{equation}
-  \label{eq:atmospheric_temperatures}
-  T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}} 
+  \label{eq:carbon_conservation}
+  C_s + C_a + C_o = C_s^{\mathrm{eq}} + C_{a0} + C_{o0}
 \end{equation}
-leads, upon substituting \cref{eq:atmospheric_temperatures} into \cref{eq:soil_carbon_evolution},
-\begin{equation}
-  \label{eq:global_soil_carbon}
-  \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s}{\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right),
-\end{equation}
-where
-\begin{equation}
-  \label{eq:mu}
-  \mu = \frac{\alpha S}{\log 2}.
-\end{equation}
-
-
-We chose the temperature anomaly so that $T_a = 0$ corresponds to an equilibrium. We can then set
-$r_0 = \frac{\Pi_0}{C_s^{\mathrm{eq}}}e^{-\Pi_0/\Pi_c}$, where $\Pi_0 = \Pi\left(C_{a0}\right)$.
-
-To
-numerically compute the equilibria of \cref{eq:global_soil_carbon} we need to define the dependence of $\Pi$ on
-$C_a$  and the dependence of $C_a$ on $C_s$. We set NPP to
-\begin{equation}
-  \label{eq:npp_fertilization}
-  \Pi(C_a) = \frac{\Pi_{\infty} C_a}{C_a + C_{a_{1/2}}}.
-\end{equation}
-This is an increasing function of $C_a$, which saturates to $\Pi_{\infty}$ for $C_a \gg C_{a_{1/2}}$.
-We will assume  that a fixed fraction $\chi_0$ of atmospheric emissions reaches the ocean, meaning
+where $C_a$ and $C_o$ are atmospheric and oceanic carbon and the quanitities on the righthand side are the equilibrium values.
+Following~\cite{Cox2006}, it will be assumed that a fixed fraction, $\chi_0$, of atmospheric emissions reaches the ocean, meaning
 \begin{equation}
   \label{eq:simple_ocean}
   C_a = C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}}).
   %C_s = C_{s}^{\mathrm{eq}} - (1 + \chi_0)(C_a - C_{a0}.
 \end{equation}
-It is now straightforward to compute the bifurcation diagram, which we do in \todo{bifurcation diagram!} 
+
+Making the further assumption that atmospheric temperatures scale logarithmically with atmospheric \ce{CO2} \parencite{Pierrehumbert2010} gives
+\begin{equation}
+  \label{eq:atmospheric_temperatures}
+  T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}} 
+\end{equation}
+where $S$ is the effective climate sensitivity experienced by the soils. Substituting \cref{eq:atmospheric_temperatures} into \cref{eq:soil_carbon_evolution} 
+leads to
+\begin{equation}
+  \label{eq:global_soil_carbon}
+  \dv{C_s}{t} = \Pi(C_a) + \Pi_c W\left(-\frac{r_0C_s}{\Pi_c} \left(\frac{C_a}{C_{a0}}\right)^\mu \right),
+\end{equation}
+\begin{equation}
+  \label{eq:mu}
+  \mu = \frac{\alpha S}{\log 2}
+\end{equation}
+and $C_a$ is determined through \cref{eq:simple_ocean}. By assumption, $C_s = C_s^{\mathrm{eq}}$ when $T_a = 0$ which means that 
+$r_0 = \frac{\Pi_0}{C_s^{\mathrm{eq}}}e^{-\Pi_0/\Pi_c}$, where $\Pi_0 = \Pi\left(C_{a0}\right)$.
+
+To numerically compute the equilibria of \cref{eq:global_soil_carbon}, the dependence of $\Pi$ on
+$C_a$  must be set. It is chosen to be
+\begin{equation}
+  \label{eq:npp_fertilization}
+  \Pi(C_a) = \frac{\Pi_{\infty} C_a}{C_a + C_{a_{1/2}}}.
+\end{equation}
+This is an increasing function of $C_a$, which saturates to $\Pi_{\infty}$ for $C_a \gg C_{a_{1/2}}$.
+
+It is now straightforward to compute the bifurcation diagram, which is plotted in \todo{bifurcation diagram!} 
 \missingfigure{Bifurcation Diagram of \cref{eq:global_soil_carbon}}
 
+\subsection{Computation of Bifurcation Point}
 We can make analytic progress too. To find the bifurcation we therefore just have to calculate where
 \begin{equation*}
   \dv{\dot{C_s}}{C_s} = 0,
