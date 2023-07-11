@@ -213,37 +213,7 @@ We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable an
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}[
-    /pgf/declare function={
-      chi0 = 0.25;
-      npp = 55.0;
-      Ca0 = 589.0;
-      Cseq = 1500.0;
-    }
-    ]
-    \begin{axis}[
-      legend pos=outer north east,
-      % enlargelimits=false
-      xlabel={$\Pi_c$},
-      ylabel={$\mu$},
-      xmin=20,
-      xmax=500,
-      ymin=0.0
-      ]
-      \addplot[
-      domain=20:500,
-      samples=100,
-      color=red]
-      {(1+chi0)*Ca0/Cseq + 0.07 * ((Ca0/npp)  - (Ca0/x))};
-      \addplot[
-      domain=20:500,
-      samples=100,
-      color=red,
-      dashed]
-      {(1+chi0)*Ca0/Cseq + 0.07 * ((Ca0/npp))};
-      \addlegendentry{$\dv*{\Pi}{C_a} = 0.07$}
-    \end{axis}
-  \end{tikzpicture}
+  \includegraphics[width=\textwidth,keepaspectratio]{bifurcation_parameter_plane}
   \caption{The parameter plane}
   \label{fig:critical_mu_vs_pic}
 \end{figure}
