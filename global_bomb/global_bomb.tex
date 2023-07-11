@@ -209,17 +209,21 @@ Therefore the effect of biogeochemical heating is the reduce the critical $\mu$ 
 \end{equation}
 When $\Pi_c \rightarrow 0$ this reduction becomes infinite and no stable soil carbon state is possible.
 
-We can plot \cref{eq:critical_mu} to devide the parameter plane into a stable and unstable region.
+\Cref{eq:critical_mu_simple_ocean_in_terms_of_npp} can be plotted, as has been done in \cref{fig:critical_mu_vs_pic}, to divide the $(\mu,\Pi_c)$ parameter plane
+into stable and unstable regions, for a range of $\dv*{\Pi}{C_a}$ values. For a $33\%$ increase in NPP due to doubling \ce{CO2}
+\parencite{Wenzel2016}, then $\dv*{\Pi}{C_a}\approx \SI{0.05}{\per\year}$.
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{bifurcation_parameter_plane}
-  \caption{The parameter plane}
+  \caption[The ($\mu$,$\Pi_c)$ parameter plane]{A plot of the $(\mu,\Pi_c)$ parameter plane, where the lines are drawn according to \cref{eq:critical_mu_simple_ocean_in_terms_of_npp}
+    for a range of different $\dv*{\Pi}{C_a}$ values. The lines separate the stable and unstable regions. The other parameters are $\chi_0 = 0.25$,$\Pi_0 =\SI{55}{\peta\gram\carbon\per\year}$,
+    $C_{a0} = \SI{589}{\peta\gram\carbon}$ and $C_{s}^{\mathrm{eq}} = \SI{1500}{\peta\gram\carbon}$.}
   \label{fig:critical_mu_vs_pic}
 \end{figure}
 
-
-\section{What is $S$?}
+\section{Determining the Parameters}
+\subsection{What is $S$?}
 \todo[inline]{Can also look at respiration directly}
 Ignoring the effects of biogeochemical heating, we can write spatially resolved soil carbon equations:
 \begin{equation}
@@ -253,7 +257,7 @@ After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle
 \end{equation}
 In words, $S$ is given by an NPP weighted average of global temperatures.
 Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
-\section{What is $\Pi_c$?}
+\subsection{What is $\Pi_c$?}
 \todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
 To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
 We take $A$ from biochemistry to be \SI{3.9E7}{\joule\per\kilo\gram\carbon}. To estimate $\kappa$, we neglect biogeochemical heating
@@ -269,23 +273,3 @@ and then move to the frequency domain by fourier transforming to get power spect
     \end{equation}
 Estimates of $\kappa$ and $\mu$ can therefore be extracted from timeseries of global $T_a$ and $T_s$ giving $\kappa$ to be \SI{0.27}{\watt\per\meter}\todo{check units}
 and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
-
-\section{Variability and Autocorrelation}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{co2_std_ac}
-  \caption[Atmospheric Carbon Variability]{Standard Deviation and Autocorrelation of atmospheric carbon}
-  \label{fig:co2_std_ac}
-  \end{figure}\todo{do this instead with more complex model}
-  \begin{figure}
-  \centering
-  \includegraphics{co2stdcontour}
-  \caption{CO2 standard deviation}
-  \label{fig:co2_std_Q10_S}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics{co2accontour}
-  \caption{CO2 AC}
-  \label{fig:co2_ac_Q10_S}
-\end{figure}
