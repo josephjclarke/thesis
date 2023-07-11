@@ -223,40 +223,67 @@ into stable and unstable regions, for a range of $\dv*{\Pi}{C_a}$ values. For a 
 \end{figure}
 
 \section{Determining the Parameters}
-\subsection{What is $S$?}
-\todo[inline]{Can also look at respiration directly}
-Ignoring the effects of biogeochemical heating, we can write spatially resolved soil carbon equations:
+\subsection{The Effective Climate Sensitivity, $S$}
+A first guess to the value of $S$ may be the Equilibrium Climate Sensitivity, ECS, namely the increase in global mean surface temperatures when atmospheric \ce{CO2} concentrations
+are doubled. However, the pattern of warming is spatially heterogeneous, with more warming happening over land than over oceans \parencite{Morice2021}. As soil carbon is found on land not
+in the oceans, it may be better to view $S$ as the climate sensitivity over land.
+
+In order to determine what $S$ should be, the soil carbon balance will be considered at every point on the Earth's surface. There will be a spatially varying amount of warming which will
+lead to a change in global soil carbon. This will then be compared to what level of spatially uniform warming would be required to give the same change in soil carbon. By setting the spatially varying
+pattern of warming to the pattern of warming caused by doubling \ce{CO2}, the resulting effective warming will be $S$.
+
+Ignoring the effects of biogeochemical heating, the spatially resolved soil carbon balance can be written as:
 \begin{equation}
   \label{eq:spatially_resolved_soil_carbon}
-  \pdv{C_s(\bm{r},t)}{t} = \Pi(\bm{r},t) - r_0(\bm{r},t)C_s(\bm{r},t)e^{\alpha T(\bm{r},t)}
+  \pdv{C_s(\bm{r},t)}{t} = \Pi(\bm{r},t) - r_0(\bm{r},t)C_s(\bm{r},t)e^{\alpha T_a(\bm{r},t)},
 \end{equation}
-Averaging gives
+where $\bm{r}$ is the position on the Earth's surface and $\Pi$, $r_0$ and $C_s$ are allowed to vary across. It is assumed that $\alpha$ is constant and that there is no
+horizontal transport of soil carbon.
+
+\Cref{eq:spatially_resolved_soil_carbon} can be averaged over space. Denoting spatial averages with $\langle \bullet \rangle$, this gives
 \begin{equation}
   \label{eq:spatially_averaged_soil_carbon}
-  \dv{\left\langle C_s\right\rangle}{t} = \left\langle \Pi \right \rangle - \left\langle r_0 C_s e^{\alpha T} \right \rangle
+  \dv{\left\langle C_s\right\rangle}{t} = \left\langle \Pi \right \rangle - \left\langle r_0 C_s e^{\alpha T_a} \right \rangle.
 \end{equation}
-Expanding:
+Assuming the warming is small, the exponential can be expanded to first order using $e^x \approx 1 + x$ leading to
 \begin{align*}
-  \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s + r_0 C_s \alpha T \right \rangle \\
-                                        &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s\right \rangle - \alpha \left \langle r_0C_s T\right\rangle \\
-                                        &=\approx - \alpha \left \langle \Pi T\right\rangle,
+  \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s + r_0 C_s \alpha T_a \right \rangle \\
+                                        &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s\right \rangle - \alpha \left \langle r_0C_s T_a\right\rangle.
 \end{align*}
-where we have used $\Pi = r_0C_s$ in equilibrium. Introducting an effective temperature $T_{\mathrm{eff}}$ we get
-\begin{equation*}
-  - \alpha \left \langle \Pi T \right\rangle = - \alpha \left \langle \Pi \right\rangle T_{\mathrm{eff}}
-\end{equation*}
-so that
+Globally averaged respiration must balance globally averaged NPP in equilibrium, so $\langle \Pi \rangle = \langle r_0 C_s \rangle$. This means that
+\begin{equation}
+  \label{eq:soil_carbon_linearised}
+  \dv{\langle C_s\rangle}{t} \approx -\alpha \langle \Pi T_a \rangle.
+\end{equation}
+Introducting an effective temperature $T_{\mathrm{eff}}$, defined so that
+\begin{equation}
+  \label{eq:motivation_of_effective_temperature}
+  - \alpha \left \langle \Pi T_a \right\rangle = - \alpha \left \langle \Pi \right\rangle T_{\mathrm{eff}}
+\end{equation}
+which implies
 \begin{equation}
   \label{eq:definition_of_effective_temperature}
-  T_{\mathrm{eff}} = \frac{\left \langle \Pi T \right\rangle}{\left \langle \Pi \right\rangle}.
+  T_{\mathrm{eff}} = \frac{\left \langle \Pi T_s \right\rangle}{\left \langle \Pi \right\rangle}.
 \end{equation}
-After a double of \ce{CO2} we have $T_{\mathrm{eff}} = S$ and $\langle T \rangle = \mathrm{ECS}$ so that
+After a doubling of \ce{CO2}, $T_{\mathrm{eff}} = S$ and $\langle T_a \rangle = \mathrm{ECS}$ which means that
 \begin{equation}
   \label{eq:S_vs_ECS}
-  \frac{S}{\mathrm{ECS}} = \frac{\left \langle \Pi T \right\rangle}{\left \langle \Pi \right\rangle \left \langle T \right \rangle}.
+  \frac{S}{\mathrm{ECS}} = \frac{\left \langle \Pi T_a \right\rangle}{\left \langle \Pi \right\rangle \left \langle T_a \right \rangle}.
 \end{equation}
-In words, $S$ is given by an NPP weighted average of global temperatures.
-Based on HADGEM2-ES CMIP5 abrupt $4\times\ce{CO2}$ runs, we get $S/\mathrm{ECS} \approx 1.6$.
+In words, this means $S$ is given by an NPP weighted average of global temperatures. A simple estimate of this ratio can be made by noting that $\Pi$ is zero over ocean.
+Assuming that over land the correlation between NPP and $T_a$ is weak then
+\begin{equation}
+  \label{eq:S_vs_ECS_land_ocean}
+  \frac{S}{\mathrm{ECS}}
+  = \frac{\left\langle \Pi\right\rangle_{\mathrm{land}} \left\langle T_a \right\rangle_{\mathrm{land}}}{\left \langle \Pi \right\rangle_{\mathrm{land}} \left \langle T_a \right \rangle_{\mathrm{global}}}
+  = \frac{\left\langle T\right\rangle_{\mathrm{land}}}{\left\langle T \right\rangle_{\mathrm{global}}}
+\end{equation}
+which means that $S$ is the climate sensitivity over land, as predicted by the rought guess. The IPCC find that there has been about $1.5$ times more warming over land than over the globe
+\parencite{AR6}.
+
+\Cref{eq:S_vs_ECS} can be used with abrupt-4xCO2 CMIP runs \parencite{Eyring2016} to estimate $S$. Taking $\Pi$ to be the inital NPP in these simulations gives an estimate of $S$ of around $1.5$,
+as will be shown in \cref{tab:S_vs_ECS}.
+
 \subsection{What is $\Pi_c$?}
 \todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
 To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
