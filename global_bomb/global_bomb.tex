@@ -4,23 +4,30 @@
 
 \todo[inline]{This is basically just going to be equations for now}
 
+In \cref{chapter:continuous_compost_bomb}, I introduced a vertical dimension into a model of the compost bomb. It was shown that this doesn't
+surpress the compost bomb. That analysis was local ---  the modeling was done at a single point on the Earth's surface. It would be interesting to see
+what a globally-averaged model that included biogeochemical heating would predict. Work by~\cite{Cox2006} suggested that the terrestrial carbon cycle is stable
+only for certain parameter ranges. I will begin by investigating what effect biogeochemical heating has on this.
 
-In \cref{chapter:continuous_compost_bomb} we saw how introducing a vertical dimension can affect the compost bomb.
-We can also introduce horizontal dimensions into the problem. We therefore need to decide at what horizontal scale we
-should work. We will work at the global-averaged scale motivated by work \parencite{Cox2006} which suggests a instability in the global
-carbon cycle in certain parameter regimes. How does biogeochemical feedback affect this instability?
 
-Following \cite{Luke2011}, we have the compost bomb equations
+The compsot bomb equations, introduced by~\cite{Luke2011}, are
 \begin{subequations}
   \label{eq:compost_bomb_equations}
   \begin{align}
     \mu \dv{T_s}{t} &= - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_temperature} \\
-    \dv{C_s}{t} &= \Pi - r_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_carbon}
+    \dv{C_s}{t} &= \Pi - r_0C_se^{\alpha T_s}, \label{eq:compost_bomb_soil_carbon}
   \end{align}
 \end{subequations}
+where $T_s$ and $C_s$ are soil temperature and carbon, $T_a$ is the atmospheric temperature, $\alpha = 0.1\log Q_{10}$ is the sensitivity of
+temperature to respiration, $\Pi$ is Net Primary Productivity, $A$ is the heat released by respiration, $\kappa$ is a heat transfer coefficent,
+$\mu$ is a heat capacity and $r_0$ is the specific rate of respiration.
 
-Noting the obvious timescale seperation in \cref{eq:compost_bomb_equations} we can put \cref{eq:compost_bomb_soil_temperature} into
-equilibrium to get
+While the analysis in~\cite{Luke2011} was local, it will be assumed that \cref{eq:compost_bomb_equations} hold at the global scale too, where quanities are
+replaced by their global value. It will also be assumed that Net Primary Productivity, $\Pi$, is an increasing function of atmospheric \ce{CO2}, as is $T_a$. 
+
+There is a timescale separation in \cref{eq:compost_bomb_equations}. The dynamic of soil carbon are relatively slow, with a soil turn over time measured in the decades \parencite{Varney2022},
+whereas the dynamics of soil temperature are much faster, reaching an equilibrium with the air temperature on the time scale of a day \parencite{Best2005}. With this in mind, the soil
+temperature can be set to equilibrium by setting \cref{eq:compost_bomb_soil_temperature} equal to zero. This gives
 \begin{equation*}
   0 = - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s}
 \end{equation*}
@@ -29,7 +36,7 @@ which can be solved for the soil temperature to  give
   \label{eq:soil_temperature_equilibrium}
   T_s = T_a - \frac{1}{\alpha} W\left(-\frac{Ar_0C_s \alpha e^{\alpha T_a}}{\kappa} \right),
 \end{equation}
-where $W(x)$ is the Lambert $W$ function. The Lambert $W$ function, plotted in \cref{fig:lambert_W}, is defined as the solution to the equation
+where $W(x)$ is the Lambert $W$ function \parencite{Corless1996}. The Lambert $W$ function, plotted in \cref{fig:lambert_W}, is defined as the solution to the equation
 \begin{equation}
   \label{eq:lambert_W}
   W(x)e^{W(x)} = x.
@@ -50,7 +57,8 @@ where $W(x)$ is the Lambert $W$ function. The Lambert $W$ function, plotted in \
       \addplot[domain=-1:2] (x * exp(x), x);
     \end{axis}
   \end{tikzpicture}
-  \caption{The Lambert $W$ function}
+  \caption[The Lambert $W$ function]{The Lambert $W$ function, for $x in [-1,4]$. The minimum value of $x$ for which $W$ is defined is $-1/e$. For $x < 0$, $W(x)$ is
+  multivalued.}
   \label{fig:lambert_W}
 \end{figure}
 
