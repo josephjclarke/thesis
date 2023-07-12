@@ -48,18 +48,21 @@ where $W(x)$ is the Lambert $W$ function \parencite{Corless1996}. The Lambert $W
   \centering
   \begin{tikzpicture}
     \begin{axis}[
-      xmin=-1,
-      xmax=4,
-      enlarge y limits=false,
-      axis lines=left,
+      %xmin=-1,
+      %xmax=4,
+      enlarge y limits=true,
+      enlarge x limits=true,
+      axis lines=middle,
       xlabel=$x$,
+      xlabel style={xshift=0.5cm, yshift=-0.2cm},
       ylabel=$W(x)$,
-      samples=50]
-      \addplot[domain=-5:-1] (x * exp(x), x);
-      \addplot[domain=-1:2] (x * exp(x), x);
+      ylabel style={xshift=-0.5cm, yshift=0.6cm},
+      samples=500]
+      \addplot[domain=-4.2:-1,color=black] (x * exp(x), x);
+      \addplot[domain=-1:1,color=black] (x * exp(x), x);
     \end{axis}
   \end{tikzpicture}
-  \caption[The Lambert $W$ function]{The Lambert $W$ function, for $x \in [-1,4]$. The minimum value of $x$ for which $W$ is defined is $-1/e$. For $x < 0$, $W(x)$ is
+  \caption[The Lambert $W$ function]{The Lambert $W$ function, for $x \in [-1/e,e]$. The minimum value of $x$ for which $W(x)$ is real is $-1/e$. For $x < 0$, $W(x)$ is
   multivalued.}
   \label{fig:lambert_W}
 \end{figure}
