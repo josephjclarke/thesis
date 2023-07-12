@@ -16,13 +16,13 @@ The compsot bomb equations, introduced by~\cite{Luke2011}, are
 \begin{subequations}
   \label{eq:compost_bomb_equations}
   \begin{align}
-    \mu \dv{T_s}{t} &= - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_temperature} \\
+    c \dv{T_s}{t} &= - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s} \label{eq:compost_bomb_soil_temperature} \\
     \dv{C_s}{t} &= \Pi - r_0C_se^{\alpha T_s}, \label{eq:compost_bomb_soil_carbon}
   \end{align}
 \end{subequations}
 where $T_s$ and $C_s$ are soil temperature and carbon, $T_a$ is the atmospheric temperature, $\alpha = 0.1\log Q_{10}$ is the sensitivity of
 temperature to respiration, $\Pi$ is Net Primary Productivity, $A$ is the heat released by respiration, $\kappa$ is a heat transfer coefficent,
-$\mu$ is a heat capacity and $r_0$ is the specific rate of respiration.
+$c$ is a heat capacity and $r_0$ is the specific rate of respiration.
 
 While the analysis in~\cite{Luke2011} was local, it will be assumed that \cref{eq:compost_bomb_equations} hold at the global scale too, where quanities are
 replaced by their global value. It will also be assumed that Net Primary Productivity, $\Pi$, is an increasing function of atmospheric \ce{CO2}, as is $T_a$. 
@@ -284,19 +284,32 @@ which means that $S$ is the climate sensitivity over land, as predicted by the r
 \Cref{eq:S_vs_ECS} can be used with abrupt-4xCO2 CMIP runs \parencite{Eyring2016} to estimate $S$. Taking $\Pi$ to be the inital NPP in these simulations gives an estimate of $S$ of around $1.5$,
 as will be shown in \cref{tab:S_vs_ECS}.
 
-\subsection{What is $\Pi_c$?}
+\subsection{The influence of biogeochemical heating, $\Pi_c$}
 \todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
-To get a reasonable estimate of $\Pi_c$, we need $\alpha$, $A$ and $\kappa$. With a value of $Q_{10} \approx 2$, we find $\alpha \approx 0.03$.
-We take $A$ from biochemistry to be \SI{3.9E7}{\joule\per\kilo\gram\carbon}. To estimate $\kappa$, we neglect biogeochemical heating
-in \cref{eq:compost_bomb_soil_temperature} to get
+The quantity $\Pi_c$, which measures the role of biogeochemical heating on the global carbon cycle depends on the sensitivity of heterotrophic respiration to
+temperature, the heat released by respiration and the conducivity between the land and the atmosphere.
+
+The first of these, $\alpha$, is reasonably well known. In terms of $Q_{10}$ it is $\alpha = 0.1 \log Q_{10}$. $Q_{10}$ is usually taken to be about $2$
+\parencite{Jones2001,Clark2011}. This means that $\alpha \approx 0.07$.
+
+The second quantity, $A$, can be estimated biochemically. Its value is taken to be $A = \SI{3.9E7}{\joule\per\kilo\gram\carbon}$ \parencite{Luke2011}.
+
+The final quanity to estimate is the conductivity between the land and the atmosphere. This varies from region to region, depending on the land surface cover
+\parencite{Beringer2001}, the soil hydrology \parencite{Dharssi2009} and the soil type \parencite{Best2011}. As such an effective conductivity will be required.
+It can be obtained using ERA5 data \parencite{Hersbach2020}. To do this, first take the  energy balance at the surface \parencite{Hartmann2015}, which can be written as
 \begin{equation}
-  \label{eq:soil_temp_no_biogeo}
-  \mu \dot{T_s} = -\kappa \left( T_s -T_a \right)
+  \label{eq:surface_energy_balance}
+  G = R - H - LE
 \end{equation}
-and then move to the frequency domain by fourier transforming to get power spectrum of $T_s$ in terms of $T_a$
+where $G$ is the soil heat flux, $R$ the net radiation, and $H$ and $LE$ are the sensible and latent heat fluxes. Then as the skin temperature $T_*$ is related to the soil
+temperature \parencite{Best2005} of the top layer, $T_1$, by
 \begin{equation}
-  \label{eq:power_spectrum_of_Ts}
-  \left| \tilde{T}_s\left(\omega\right)\right|^2 = \frac{\kappa^2 \left| \tilde{T}_a\left(\omega\right)\right|^2}{\omega^2 \mu^2 + \kappa^2}.
-    \end{equation}
-Estimates of $\kappa$ and $\mu$ can therefore be extracted from timeseries of global $T_a$ and $T_s$ giving $\kappa$ to be \SI{0.27}{\watt\per\meter}\todo{check units}
-and so $\Pi_c \approx$ \SI{300}{\kilo\gram\carbon\per\year}\todo{check}
+  \label{eq:skin_temp}
+  T_* = T_1 + \frac{1}{\kappa} G
+\end{equation}
+an estimate of $\kappa$ can be made using the variables $R,L,LE,T_*$ and $T_1$ which are all avaliable from ERA5. Taking annual averages over land of these variables for the period 2000 to 2020
+gives a value of $\kappa = \SI{2.3}{\watt\per\square\meter\per\kelvin}$, which implies a value of $\Pi_c \approx \SI{4000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
+values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
+and as such the biogeochemical heating may still be important regionally.
+
+\section{Rate Dependent and Transient Effects}
