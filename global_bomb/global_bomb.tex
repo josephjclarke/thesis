@@ -315,3 +315,12 @@ values of NPP and so this biogeochemical heating effect must be small at the glo
 and as such the biogeochemical heating may still be important regionally.
 
 \section{Rate Dependent and Transient Effects}
+\begin{subequations}
+  \label{eq:compost_bomb_equations_scaled}
+  \begin{align}
+    \tau\dv{\theta}{t} &= -\left(\theta - \mu \log \frac{C_a}{C_{a0}}\right) + \frac{C_s}{C_s^{\mathrm{eq}}} \frac{\Pi_0}{\Pi_c} e^{-\frac{\Pi_0}{\Pi_c}} e^{\theta} \\
+    \dv{C_s}{t}      &= \Pi(C_a) - \frac{C_s}{C_s^{\mathrm{eq}}} \Pi_0 e^{-\frac{\Pi_0}{\Pi_c}} e^{\theta} \\
+    C_a           &= C_{a0} - \frac{C_s - C_s^{\mathrm{eq}}}{1+\chi_0} + \frac{rt}{1+\chi_0}
+  \end{align}
+\end{subequations}
+where $\theta = \alpha T_s$ and $\tau = c/\kappa$.
