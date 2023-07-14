@@ -298,21 +298,31 @@ The second quantity, $A$, can be estimated biochemically. Its value is taken to 
 
 The final quanity to estimate is the conductivity between the land and the atmosphere. This varies from region to region, depending on the land surface cover
 \parencite{Beringer2001}, the soil hydrology \parencite{Dharssi2009} and the soil type \parencite{Best2011}. As such an effective conductivity will be required.
-It can be obtained using ERA5 data \parencite{Hersbach2020}. To do this, first take the  energy balance at the surface \parencite{Hartmann2015}, which can be written as
+% It can be obtained using ERA5 data \parencite{Hersbach2020}. To do this, first take the  energy balance at the surface \parencite{Hartmann2015}, which can be written as
+% \begin{equation}
+%   \label{eq:surface_energy_balance}
+%   G = R - H - LE
+% \end{equation}
+% where $G$ is the soil heat flux, $R$ the net radiation, and $H$ and $LE$ are the sensible and latent heat fluxes. Then as the skin temperature $T_*$ is related to the soil
+% temperature \parencite{Best2005} of the top layer, $T_1$, by
+% \begin{equation}
+%   \label{eq:skin_temp}
+%   T_* = T_1 + \frac{1}{\kappa} G
+% \end{equation}
+% an estimate of $\kappa$ can be made using the variables $R,L,LE,T_*$ and $T_1$ which are all avaliable from ERA5. Taking annual averages over land of these variables for the period 2000 to 2020
+% gives a value of $\kappa = \SI{85.0}{\watt\per\square\meter\per\kelvin}$, which implies a value of $\Pi_c \approx \SI{15000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
+% values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
+% and as such the biogeochemical heating may still be important regionally.
+The heat transfer coeffeicent can be estimated from the conductivity via
 \begin{equation}
-  \label{eq:surface_energy_balance}
-  G = R - H - LE
+  \label{eq:conductivity_via_heat_transfer}
+  \kappa = \frac{2\lambda}{\Delta z}
 \end{equation}
-where $G$ is the soil heat flux, $R$ the net radiation, and $H$ and $LE$ are the sensible and latent heat fluxes. Then as the skin temperature $T_*$ is related to the soil
-temperature \parencite{Best2005} of the top layer, $T_1$, by
-\begin{equation}
-  \label{eq:skin_temp}
-  T_* = T_1 + \frac{1}{\kappa} G
-\end{equation}
-an estimate of $\kappa$ can be made using the variables $R,L,LE,T_*$ and $T_1$ which are all avaliable from ERA5. Taking annual averages over land of these variables for the period 2000 to 2020
-gives a value of $\kappa = \SI{85.0}{\watt\per\square\meter\per\kelvin}$, which implies a value of $\Pi_c \approx \SI{15000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
+where $\Delta z$ is a soil thickness and $\lambda$ is the conductivity. Taking $\Delta z = \SI{0.1}{\meter}$ and $\lambda = \SI{0.227}{\watt\per\meter\per\kelvin}$
+\parencite{Cox1999} gives a value of $\kappa = \SI{4.5}{\watt\per\meter\squared\per\kelvin}$ and a value of $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
 values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
 and as such the biogeochemical heating may still be important regionally.
+
 
 \section{Rate Dependent and Transient Effects}
 \begin{subequations}
