@@ -324,7 +324,7 @@ values of NPP and so this biogeochemical heating effect must be small at the glo
 and as such the biogeochemical heating may still be important regionally.
 
 
-\section{What should I call this section?}
+\section{Rate Dependence and Transient Behaviour}
 \begin{subequations}
   \label{eq:compost_bomb_equations_scaled}
   \begin{align}
@@ -354,7 +354,30 @@ in atmospheric \ce{CO2} between the two cases were calculated.
 
 The case when $C_{1/2} = \SI{280}{\ppm}$ is shown as a contour plot in \cref{fig:biogeochem_atmos}. It shows that as the role of biogeochemical heating is increased (corresponding to decreasing
 $\Pi_c$) more \ce{CO2} accumulates in the atmosphere. It also shows that as $\mu$ is increased, corresponding to increasing climate sensitivity or increasing $Q_{10}$, initially the amount of extra
-\ce{CO2} increases, but beyond a certain level of $\mu$ this amount decreases but remains positive. This can be explained in the following. For $\mu = 0$, ignoring \ce{CO2} fertilisation effects,
+\ce{CO2} increases, but beyond a certain level of $\mu$ this amount decreases but remains positive.
+
+This can be explained as follows. For $\mu = 0$, ignoring \ce{CO2} fertilisation effects,
 both of the biogeochemical and non-biogeochemical cases will experience no changes in soil carbon and so should see little differences in the amount of $\ce{CO2}$ in the atmosphere. 
 When is very $\mu$ is large, both cases can lose all the soil carbon leading to the same overall change in atmospheric carbon. It is therefore for intermediate $\mu$ values that biogeochemical
 heating makes the biggest difference to climate change.
+
+\begin{figure}
+  \centering
+  \subfloat[\centering $C_{1/2} = \SI{0}{\ppm}$]{{\includegraphics[width=0.5\textwidth,keepaspectratio]{extra_co2_due_to_bgc_no_fert}}\label{fig:no_co2_fert}}
+  \subfloat[\centering $C_{1/2} = \SI{1000}{\ppm}$]{{\includegraphics[width=0.5\textwidth,keepaspectratio]{extra_co2_due_to_bgc_with_fert}}\label{fig:with_co2_fert}}
+  \caption[The role of \ce{CO2} fertilsation in the effect of biogeochemical heating on atmospheric \ce{CO2}]{
+    \Cref{fig:no_co2_fert} shows a similar parameter plane to \cref{fig:biogeochem_atmos}, except the \ce{CO2} fertilisation effect has been turned off. \Cref{fig:with_co2_fert} shows
+    the case with a strong \ce{CO2} fertilisation effect. The hatched region again shows regions of the parameter plane where there is no stable state.}
+  \label{fig:biogeochem_co2_fert}
+\end{figure}
+
+\Cref{fig:biogeochem_co2_fert} helps illustrate the role the \ce{CO2} fertilisation effect plays in this extra amount of \ce{CO2} that reaches the atmosphere due to biogeochemical heating.
+Both panels show a similar qualitative behaviour to \cref{fig:biogeochem_atmos}. However the magnitude is different. In particular the stronger the \ce{CO2} fertilisation effect, the bigger a
+difference biogeochemical heating makes to climate change. This is because a stronger \ce{CO2} fertilisation effect leads to a larger input of carbon to the soil and thus a larger amount
+of soil respiration which through biogeochemical heating leads to even more respiration and thus a larger amount of atmospheric \ce{CO2}.
+
+For a $\mu$ vale of around $0.5$, and $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$, then biogeochemical heating contributes somewhere between $\SIrange{3}{4}{\peta\gram\carbon}$
+to climate change over this 100 year period, assuming $C_{1/2} = \SI{280}{\ppm}$. In other words, if humanity makes no changes to its emission rates, then biogeochemical alone
+would contribute as much to global warming in the next hundred years as humanity did in one year in the late 1960s \parencite{Friedlingstein2022}.
+
+\section{Conclusions}
