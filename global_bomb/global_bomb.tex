@@ -324,7 +324,7 @@ values of NPP and so this biogeochemical heating effect must be small at the glo
 and as such the biogeochemical heating may still be important regionally.
 
 
-\section{Rate Dependent and Transient Effects}
+\section{What should I call this section?}
 \begin{subequations}
   \label{eq:compost_bomb_equations_scaled}
   \begin{align}
@@ -334,3 +334,27 @@ and as such the biogeochemical heating may still be important regionally.
   \end{align}
 \end{subequations}
 where $\theta = \alpha T_s$ and $\tau = c/\kappa$.
+
+\subsection{The Effect of biogeochemical heating on atmospheric \ce{CO2}}
+To investigate the contribution of biogeochemical heating to global warming, it is necessary to determine how much carbon reaches the atmosphere compared to the case where there is no
+biogeochemical heating. In order to do this, \cref{eq:compost_bomb_equations_scaled} were integrated for 100 years with $r = \SI{10.0}{\peta\gram\carbon\per\year}$. This roughly
+corresponds to recent emission rates \parencite{Friedlingstein2022}.
+
+These integratations where performed for a range of parameter values. The range of $\mu$ was \SIrange{0.1}{1.2}{}, the range of $C_{1/2}$ was \SIrange{0.0}{1000.0}{\ppm} and
+the range of $\Pi_c$ was \SIrange{100}{10000}{\peta\gram\carbon\per\year}. The results were then compared to simulations with $\Pi_c = \infty$, the no biogeochemical heating case and the difference
+in atmospheric \ce{CO2} between the two cases were calculated.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{extra_co2_due_to_bgc}
+  \caption[The effect of biogeochemical heating on atmospheric \ce{CO2}]{The difference, in $\SI{}{\peta\gram\carbon\per\year}$, between atmospheric \ce{CO2} in a simulation
+    with biogeochemical heating and without biogeochemical heating. The hatched regions show the unstable region of parameter space as determined
+    by \cref{eq:critical_mu_simple_ocean_in_terms_of_npp}. The value of $C_{1/2}$ here is \SI{280}{\ppm}.}
+  \label{fig:biogeochem_atmos}
+\end{figure}
+
+The case when $C_{1/2} = \SI{280}{\ppm}$ is shown as a contour plot in \cref{fig:biogeochem_atmos}. It shows that as the role of biogeochemical heating is increased (corresponding to decreasing
+$\Pi_c$) more \ce{CO2} accumulates in the atmosphere. It also shows that as $\mu$ is increased, corresponding to increasing climate sensitivity or increasing $Q_{10}$, initially the amount of extra
+\ce{CO2} increases, but beyond a certain level of $\mu$ this amount decreases but remains positive. This can be explained in the following. For $\mu = 0$, ignoring \ce{CO2} fertilisation effects,
+both of the biogeochemical and non-biogeochemical cases will experience no changes in soil carbon and so should see little differences in the amount of $\ce{CO2}$ in the atmosphere. 
+When is very $\mu$ is large, both cases can lose all the soil carbon leading to the same overall change in atmospheric carbon. It is therefore for intermediate $\mu$ values that biogeochemical
+heating makes the biggest difference to climate change.
