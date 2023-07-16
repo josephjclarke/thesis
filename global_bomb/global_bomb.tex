@@ -343,6 +343,12 @@ where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emis
 
 \subsection{R-Tipping}
 
+To investigate the ability to undergo R-tipping, \cref{eq:compost_bomb_equations_scaled} were solved, with initial conditions representing an equilibrium state
+for a range of values of $\mu,\Pi_c,C_{1/2}$ and $r$. The equations were solved over a time interval of \SI{250}{\year} and R-tipping was deemed to occur when
+the non dimensional soil temperature, $theta$ exceeded the non dimensional air temperature, $S \log\left(C_a/C_{10}\right)$ by $1.5$, which in dimensional units
+corresponds to the soil temperature exceeding the air temperature by around \SI{20}{\kelvin}. The critical rate was found by a bisection method and plotted
+in \cref{fig:global_bomb_critical_rates}.
+
 \begin{figure}
   \centering
   \subfloat[\centering A cross section at $C_{1/2} = \SI{280}{\ppm}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_pic}\label{fig:mu_pic}}
@@ -354,6 +360,14 @@ where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emis
     $(\mu,\Pi_c,C_{1/2})$ space. \Cref{fig:mu_pic} shows the $(\mu,\Pi_c)$ plane, \cref{fig:mu_ca05} shows the $(\mu,\Pi_c)$ plane and \cref{fig:pic_ca05} shows the
     $(\Pi_c,C_{1/2})$ plane. In each case the hatched region shows the region of parameter space where no stable state exists.}\label{fig:global_bomb_critical_rates}
 \end{figure}
+
+The first thing to note about \cref{fig:global_bomb_critical_rates} is that the critical rates are very large except when $\Pi_c$ is very small. Given anthropogenic emissions
+are $\mathcal{O}(\SI{10}{\peta\gram\carbon\per\year})$ this analysis suggests therefore that humanity is unlikely to trigger a compost bomb at the global scale.
+
+Of more interest is the dependence on parameters. The strongest control is the amount of biogeochemical heating with the critical rates increasing strongly with $\Pi_c$.
+Also important is the climate-carbon system sensitivity, $\mu$, larger $\mu$ values imply lower critical rates. Finally, the level of \ce{CO2} fertilisation, $C_{1/2}$ plays a weaker role,
+with higher levels of \ce{CO2} fertilisation leading to smaller critical rates.
+
 
 \subsection{The Effect of biogeochemical heating on atmospheric \ce{CO2}}
 To investigate the contribution of biogeochemical heating to global warming, it is necessary to determine how much carbon reaches the atmosphere compared to the case where there is no
@@ -401,3 +415,16 @@ to climate change over this 100 year period, assuming $C_{1/2} = \SI{280}{\ppm}$
 would contribute as much to global warming in the next hundred years as humanity did in one year in the late 1960s \parencite{Friedlingstein2022}.
 
 \section{Conclusions}
+In this chapter, I have investigated the role of biogeochemical heating at the global scale. I have shown how the terrestrial carbon cycle is only stable
+for a certain parameter range, and that biochemical heating reduces the maximum carbon-climate system sensitivity compatible with a stable carbon cycle.
+I also calculated critical \ce{CO2} emission rates that would lead to a global scale compost bomb.
+For realistic amounts of biogeochemical heating, the effects at the global scale are small and the critical emission rates very large.
+
+I determined the extra carbon emissions caused by biogeochemcial heating and again found them small. However, an interesting result is that the extra emissions
+are largest for intermediate, and more plausible, values of $\mu$. Furthermore, the \ce{CO2} fertilisation effect was found to make emissions stemming from biogeochemical heating
+larger. This contrasts with the `usual' role of \ce{CO2} fertilisation, which is to act as a negative feedback on climate change.
+
+There are a number of deficencies with this modelling approach. Firstly, the representation of the ocean is very simple and does not capture any dynamic features of the ocean carbon
+cycle. This is an issue taken up in \cref{chapter:conceptual_carbon_cycle}. Furthermore, this chapter only looks at the compost bomb at the global scale, whereas it is
+more likely to be important regionally where $\kappa$ and thus $\Pi_c$ values may be substantially smaller. However there is no reason to believe the dependencies
+on climate-carbon system sensitivity and the \ce{CO2} fertilisation effect would not hold at the regional as well as the global scale.  
