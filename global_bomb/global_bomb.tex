@@ -339,9 +339,21 @@ in terms of these new parameters, giving
     C_a           &= C_{a0} - \frac{C_s - C_s^{\mathrm{eq}}}{1+\chi_0} + \frac{rt}{1+\chi_0}
   \end{align}
 \end{subequations}
-where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emissions have been included here and are set to be linear with a rate $r$.
+where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emissions have been included here and are set to be linear in time with a rate $r$.
 
 \subsection{R-Tipping}
+
+\begin{figure}
+  \centering
+  \subfloat[\centering A cross section at $C_{1/2} = \SI{280}{\ppm}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_pic}\label{fig:mu_pic}}
+  
+  \subfloat[\centering A cross section at $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_ca05}\label{fig:mu_ca05}}
+  
+  \subfloat[\centering A cross section at $\mu = 0.5$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_pic_ca05}\label{fig:pic_ca05}}
+  \caption[Critical rates for a global compost bomb]{The critical rate, in \SI{}{\peta\gram\carbon\per\year} required to trigger a compost bomb. Each panel shows a different plane in
+    $(\mu,\Pi_c,C_{1/2})$ space. \Cref{fig:mu_pic} shows the $(\mu,\Pi_c)$ plane, \cref{fig:mu_ca05} shows the $(\mu,\Pi_c)$ plane and \cref{fig:pic_ca05} shows the
+    $(\Pi_c,C_{1/2})$ plane. In each case the hatched region shows the region of parameter space where no stable state exists.}\label{fig:global_bomb_critical_rates}
+\end{figure}
 
 \subsection{The Effect of biogeochemical heating on atmospheric \ce{CO2}}
 To investigate the contribution of biogeochemical heating to global warming, it is necessary to determine how much carbon reaches the atmosphere compared to the case where there is no
