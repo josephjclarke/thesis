@@ -2,8 +2,6 @@
 \label{chapter:global_bomb}
 \graphicspath{{global_bomb/figs/}}
 
-\todo[inline]{This is basically just going to be equations for now}
-
 In \cref{chapter:continuous_compost_bomb}, I introduced a vertical dimension into a model of the compost bomb. It was shown that this doesn't
 surpress the compost bomb. That analysis was local ---  the modeling was done at a single point on the Earth's surface. It would be interesting to see
 what a globally-averaged model that included biogeochemical heating would predict. Work by~\cite{Cox2006} suggested that the terrestrial carbon cycle is stable
@@ -29,11 +27,11 @@ replaced by their global value. It will also be assumed that Net Primary Product
 
 There is a timescale separation in \cref{eq:compost_bomb_equations}. The dynamic of soil carbon are relatively slow, with a soil turn over time measured in the decades \parencite{Varney2022},
 whereas the dynamics of soil temperature are much faster, reaching an equilibrium with the air temperature on the time scale of a day \parencite{Best2005}. With this in mind, the soil
-temperature can be set to equilibrium by setting \cref{eq:compost_bomb_soil_temperature} equal to zero. This gives
+temperature can be set to equilibrium, as calculated by putting \cref{eq:compost_bomb_soil_temperature} equal to zero. This gives
 \begin{equation*}
   0 = - \kappa \left(T_s - T_a\right) + Ar_0C_se^{\alpha T_s}
 \end{equation*}
-which can be solved for the soil temperature to  give
+which can be solved for the soil temperature
 \begin{equation}
   \label{eq:soil_temperature_equilibrium}
   T_s = T_a - \frac{1}{\alpha} W\left(-\frac{Ar_0C_s \alpha e^{\alpha T_a}}{\kappa} \right),
@@ -43,7 +41,7 @@ where $W(x)$ is the Lambert $W$ function \parencite{Corless1996}. The Lambert $W
   \label{eq:lambert_W}
   W(x)e^{W(x)} = x.
 \end{equation}
-
+This function is multivalues, and the larger (less negative) of the two possible values should be taken, which corresponds to the stable solution.
 \begin{figure}
   \centering
   \begin{tikzpicture}
@@ -67,47 +65,49 @@ where $W(x)$ is the Lambert $W$ function \parencite{Corless1996}. The Lambert $W
   \label{fig:lambert_W}
 \end{figure}
 
-After noting that the argument of $W$ should be dimensionless, and that $r_0C_s$ has units of Net Primary Productivity, the quantity 
+After noting that the argument of $W$ is dimensionless, and that $r_0C_s$ has units of Net Primary Productivity, the quantity 
 \begin{equation}
   \label{eq:critical_npp}
   \Pi_c = \frac{\kappa}{\alpha A}
 \end{equation}
-can be defined, which measures the influence of biogeochemical heating. No biogeochemical heating occurs for $A = 0$ or equivalently $\Pi_c = \infty$. Similarly
-biogeochemical heating is strongest for $A \rightarrow \infty$ or again equivalently fpr $\Pi_c = 0$.
+can be defined, which measures the influence of biogeochemical heating. No biogeochemical heating occurs for $A = 0$ or, equivalently, for $\Pi_c = \infty$. Similarly
+biogeochemical heating is strongest for $A \rightarrow \infty$ or, again equivalently, for $\Pi_c = 0$.
 
 \Cref{eq:soil_temperature_equilibrium} can now be rewritten as
 \begin{equation}
   \label{eq:soil_temperature_equilibrium_nppc}
   T_s = T_a - \frac{1}{\alpha} W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
 \end{equation}
-\Cref{eq:soil_temperature_equilibrium_nppc} can now be inserted into \cref{eq:compost_bomb_soil_carbon} to give
+\Cref{eq:soil_temperature_equilibrium_nppc} was then inserted into \cref{eq:compost_bomb_soil_carbon} to give
 \begin{equation}
   \label{eq:soil_carbon_evolution}
   \dv{C_s}{t} = \Pi + \Pi_c W\left(-\frac{r_0C_s e^{\alpha T_a}}{\Pi_c} \right).
 \end{equation}
 which for given $\Pi$ and $T_a$ determines the evolution of $C_s$.
 
-The implied equilibrium value for $C_s$ occurs when \cref{eq:soil_carbon_evolution} is zero which occurs when
+The implied equilibrium value for $C_s$ occurs when \cref{eq:soil_carbon_evolution} is zero. The value of $C_s$ for which this is true is
 \begin{equation}
   \label{eq:equilibrium_soil_carbon}
   C_s^{\mathrm{eq}} = \frac{\Pi}{r_0} e^{-\alpha T_a} e^{-\Pi/\Pi_c}.
 \end{equation}
-The no biogeochemcial heating case can be recovered by sending $\Pi_c \rightarrow \infty$ which gives $C_s^{\mathrm{eq}} = \frac{\Pi}{r_0}$.
+The no biogeochemcial heating case can be recovered by sending $\Pi_c \rightarrow \infty$ which gives $C_s^{\mathrm{eq}} = \Pi/r_0$.
 
 \subsection{Closing the System}
-It has been stated that $T_a$ and $\Pi$ are functions of atmospheric carbon, so to determine their behaviours requires specifying the behaviour of the rest of the carbon
+It has been stated that $T_a$ and $\Pi$ are functions of atmospheric carbon, so determining their behaviours requires specifying the behaviour of the rest of the carbon
 cycle. The total carbon in the carbon cycle is conserved and so
 \begin{equation}
   \label{eq:carbon_conservation}
   C_s + C_a + C_o = C_s^{\mathrm{eq}} + C_{a0} + C_{o0}
 \end{equation}
 where $C_a$ and $C_o$ are atmospheric and oceanic carbon and the quanitities on the righthand side are the equilibrium values.
-Following~\cite{Cox2006}, it will be assumed that a fixed fraction, $\chi_0$, of atmospheric emissions reaches the ocean, meaning
+Following~\cite{Cox2006}, it will be assumed that a fixed fraction, $\chi_0$, of atmospheric emissions reach the ocean, meaning
 \begin{equation}
   \label{eq:simple_ocean}
   C_a = C_{a0} -\frac{1}{1+\chi_0} (C_s - C_{s}^{\mathrm{eq}}).
   %C_s = C_{s}^{\mathrm{eq}} - (1 + \chi_0)(C_a - C_{a0}.
 \end{equation}
+In the rest of this chapter it will be assumed that $\chi_0 = 1/4$, on the grounds that roughly half of atmospheric emissions remain in the atmosphere \parencite{Jones2005}
+with the other half split approxmately evenly between the land and the ocean \parencite{Friedlingstein2022}.
 
 Making the further assumption that atmospheric temperatures scale logarithmically with atmospheric \ce{CO2} \parencite{Pierrehumbert2010} gives
 \begin{equation}
@@ -125,31 +125,16 @@ where
   \label{eq:mu}
   \mu = \frac{\alpha S}{\log 2}
 \end{equation}
-and $C_a$ is determined through \cref{eq:simple_ocean}. By assumption, $C_s = C_s^{\mathrm{eq}}$ when $T_a = 0$ which means that 
-$r_0 = \frac{\Pi_0}{C_s^{\mathrm{eq}}}e^{-\Pi_0/\Pi_c}$, where $\Pi_0 = \Pi\left(C_{a0}\right)$.
+and $C_a$ is determined through \cref{eq:simple_ocean}. By assumption, $C_s = C_s^{\mathrm{eq}}$ when $T_a = 0$ which requires that 
 
-To numerically compute the equilibria of \cref{eq:global_soil_carbon}, the dependence of $\Pi$ on
-$C_a$  must be set. It is chosen to be
 \begin{equation}
-  \label{eq:npp_fertilization}
-  \Pi(C_a) = \frac{\Pi_{\infty} C_a}{C_a + C_{a_{1/2}}}.
+  r_0 = \frac{\Pi_0}{C_s^{\mathrm{eq}}}e^{-\Pi_0/\Pi_c}, 
 \end{equation}
-This is an increasing function of $C_a$, which saturates to $\Pi_{\infty}$ for $C_a \gg C_{a_{1/2}}$.
+where $\Pi_0 = \Pi\left(C_{a0}\right)$.
 
-It is now straightforward to compute the bifurcation diagram, which is plotted in \cref{fig:compost_bomb_bif}. The figure shows the equilibrium soil carbon as a function
-of $\mu$ for different values of $\Pi_c$. It can be seen that there is a transcritical bifurcation at a certain value of $\mu$. This value of $\mu$ decreases with decreasing $\Pi_c$.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,keepaspectratio]{compost_bomb_global_bifurcation}
-  \caption[Global Compost Bomb Bifurcation Diagram]{The equilibrium state of \cref{eq:global_soil_carbon} for two values of $\Pi_c$ as a function of $\mu$.
-    The two values of $\Pi_c$ represent a no biogeochemical heating case ($\Pi_c = \infty$) and a biogeochemical heating case ($\Pi_c = \SI{308}{\peta\gram\carbon\per\year}$).
-    The other parameters were set to $\chi_0 = 0.25$, $\Pi_0 =\SI{55}{\peta\gram\carbon\per\year}$, $C_{1/2} = \SI{593.6}{\peta\gram\carbon}$, $C_{a0} = \SI{589}{\peta\gram\carbon}$,
-    $C_{s}^{\mathrm{eq}} = \SI{1500}{\peta\gram\carbon}$.}
-  \label{fig:compost_bomb_bif}
-\end{figure}
 
 \subsection{Computation of Bifurcation Point}
-By construction, there is always an equilibrium at $C_s = C_s^{\mathrm{eq}}$. Its stability is determined by the jacobian of \cref{eq:global_soil_carbon}, which in this case amounts to
+The stability of the equilibrium at $C_s = C_s^{\mathrm{eq}}$ is determined by the jacobian of \cref{eq:global_soil_carbon}, which in this case amounts to
 taking the derivative of the righthand side of \cref{eq:global_soil_carbon} when $C_s = C_s^{\mathrm{eq}}$. The system will transition from being stable to unstable when
 \begin{equation*}
   \dv{\dot{C_s}}{C_s} = 0.
@@ -185,13 +170,13 @@ This can be further reduced, by using \cref{eq:equilibrium_soil_carbon}, to
   \frac{1+W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}
   {W\left(-\frac{\Pi_0}{\Pi_c}\exp\left(-\frac{\Pi_0}{\Pi_c}\right)\right)}\dv{\Pi}{C_a} 
 \end{equation*}
-and then by using the definition of the $W$ function, \cref{eq:lambert_W}, to give
+and then by using the definition of the Lambert $W$ function, \cref{eq:lambert_W}, to give
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}
   \frac{1-\frac{\Pi_0}{\Pi_c}}{-\frac{\Pi_0}{\Pi_c}}\dv{\Pi}{C_a}.
 \end{equation*}
-This can then be cleaned up to give a final form for the critical $\mu$ value, notated at $\mu^*$, which seperates stable from unstable soil
+This can then be cleaned up to give a final form for the critical $\mu$ value, notated as $\mu^*$, which seperates stable from unstable soil
 carbon states. $\mu^*$ is therefore
 \begin{equation}
   \label{eq:critical_mu_simple_ocean_in_terms_of_npp}
@@ -224,10 +209,36 @@ into stable and unstable regions, for a range of $\dv*{\Pi}{C_a}$ values. For a 
   \label{fig:critical_mu_vs_pic}
 \end{figure}
 
+
+\subsection{Numerical Determination of Bifurcation Diagram}
+
+To numerically compute the equilibria of \cref{eq:global_soil_carbon}, the dependence of $\Pi$ on
+$C_a$  must be set. It is chosen to be
+\begin{equation}
+  \label{eq:npp_fertilization}
+  \Pi(C_a) = \frac{\Pi_{\infty} C_a}{C_a + C_{1/2}},
+\end{equation}
+which is the same choice as~\cite{Cox2006}. The parameter $C_{1/2}$ determined the strength of the \ce{CO2} fertilisation effect, and then the value of $\Pi_{\infty}$
+can be set to give a desired $\Pi_0$.
+
+
+It is now straightforward to compute the bifurcation diagram, which is plotted in \cref{fig:compost_bomb_bif}. The figure shows the equilibrium soil carbon as a function
+of $\mu$ for different values of $\Pi_c$. It can be seen that there is a transcritical bifurcation at a certain value of $\mu$. This value of $\mu$ decreases with decreasing $\Pi_c$.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{compost_bomb_global_bifurcation}
+  \caption[Global Compost Bomb Bifurcation Diagram]{The equilibrium state of \cref{eq:global_soil_carbon} for two values of $\Pi_c$ as a function of $\mu$.
+    The two values of $\Pi_c$ represent a no biogeochemical heating case ($\Pi_c = \infty$) and a biogeochemical heating case ($\Pi_c = \SI{308}{\peta\gram\carbon\per\year}$).
+    The other parameters were set to $\chi_0 = 0.25$, $\Pi_0 =\SI{55}{\peta\gram\carbon\per\year}$, $C_{1/2} = \SI{593.6}{\peta\gram\carbon}$, $C_{a0} = \SI{589}{\peta\gram\carbon}$,
+    $C_{s}^{\mathrm{eq}} = \SI{1500}{\peta\gram\carbon}$.}
+  \label{fig:compost_bomb_bif}
+\end{figure}
+
 \section{Determining the Parameters}
 \subsection{The Effective Climate Sensitivity, $S$}
 A first guess to the value of $S$ may be the Equilibrium Climate Sensitivity, ECS, namely the increase in global mean surface temperatures when atmospheric \ce{CO2} concentrations
-are doubled. However, the pattern of warming is spatially heterogeneous, with more warming happening over land than over oceans \parencite{Morice2021}. As soil carbon is found on land not
+are doubled \parencite{Sherwood2020}. However, the pattern of warming is spatially heterogeneous, with more warming happening over
+land than over oceans \parencite{Morice2021}. As soil carbon is found on land not
 in the oceans, it may be better to view $S$ as the climate sensitivity over land.
 
 In order to determine what $S$ should be, the soil carbon balance will be considered at every point on the Earth's surface. There will be a spatially varying amount of warming which will
@@ -249,7 +260,7 @@ horizontal transport of soil carbon.
 \end{equation}
 Assuming the warming is small, the exponential can be expanded to first order using $e^x \approx 1 + x$ leading to
 \begin{align*}
-  \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s + r_0 C_s \alpha T_a \right \rangle \\
+  \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle  + \left\langle r_0 C_s + r_0 C_s \alpha T_a \right \rangle \\
                                         &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s\right \rangle - \alpha \left \langle r_0C_s T_a\right\rangle.
 \end{align*}
 Globally averaged respiration must balance globally averaged NPP in equilibrium, so $\langle \Pi \rangle = \langle r_0 C_s \rangle$. This means that
@@ -280,39 +291,24 @@ Assuming that over land the correlation between NPP and $T_a$ is weak then
   = \frac{\left\langle \Pi\right\rangle_{\mathrm{land}} \left\langle T_a \right\rangle_{\mathrm{land}}}{\left \langle \Pi \right\rangle_{\mathrm{land}} \left \langle T_a \right \rangle_{\mathrm{global}}}
   = \frac{\left\langle T\right\rangle_{\mathrm{land}}}{\left\langle T \right\rangle_{\mathrm{global}}}
 \end{equation}
-which means that $S$ is the climate sensitivity over land, as predicted by the rought guess. The IPCC find that there has been about $1.5$ times more warming over land than over the globe
-\parencite{AR6}.
+which means that $S$ is the climate sensitivity over land, as predicted by the rough guess. The IPCC find that there has been about $1.5$ times more warming over land than over the globe
+as a whole \parencite{AR6}.
 
 \Cref{eq:S_vs_ECS} can be used with abrupt-4xCO2 CMIP runs \parencite{Eyring2016} to estimate $S$. Taking $\Pi$ to be the inital NPP in these simulations gives an estimate of $S$ of around $1.5$,
 as will be shown in \cref{tab:S_vs_ECS}.
 
 \subsection{The influence of biogeochemical heating, $\Pi_c$}
-\todo[inline]{Do with Physically based --- with Penman Monteith - this is giving me a constraint on the ratio?}
 The quantity $\Pi_c$, which measures the role of biogeochemical heating on the global carbon cycle depends on the sensitivity of heterotrophic respiration to
-temperature, the heat released by respiration and the conducivity between the land and the atmosphere.
+temperature, the heat released by respiration and the heat transfer coefficent between the land and the atmosphere.
 
 The first of these, $\alpha$, is reasonably well known. In terms of $Q_{10}$ it is $\alpha = 0.1 \log Q_{10}$. $Q_{10}$ is usually taken to be about $2$
 \parencite{Jones2001,Clark2011}. This means that $\alpha \approx 0.07$.
 
 The second quantity, $A$, can be estimated biochemically. Its value is taken to be $A = \SI{3.9E7}{\joule\per\kilo\gram\carbon}$ \parencite{Luke2011}.
 
-The final quanity to estimate is the conductivity between the land and the atmosphere. This varies from region to region, depending on the land surface cover
-\parencite{Beringer2001}, the soil hydrology \parencite{Dharssi2009} and the soil type \parencite{Best2011}. As such an effective conductivity will be required.
-% It can be obtained using ERA5 data \parencite{Hersbach2020}. To do this, first take the  energy balance at the surface \parencite{Hartmann2015}, which can be written as
-% \begin{equation}
-%   \label{eq:surface_energy_balance}
-%   G = R - H - LE
-% \end{equation}
-% where $G$ is the soil heat flux, $R$ the net radiation, and $H$ and $LE$ are the sensible and latent heat fluxes. Then as the skin temperature $T_*$ is related to the soil
-% temperature \parencite{Best2005} of the top layer, $T_1$, by
-% \begin{equation}
-%   \label{eq:skin_temp}
-%   T_* = T_1 + \frac{1}{\kappa} G
-% \end{equation}
-% an estimate of $\kappa$ can be made using the variables $R,L,LE,T_*$ and $T_1$ which are all avaliable from ERA5. Taking annual averages over land of these variables for the period 2000 to 2020
-% gives a value of $\kappa = \SI{85.0}{\watt\per\square\meter\per\kelvin}$, which implies a value of $\Pi_c \approx \SI{15000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
-% values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
-% and as such the biogeochemical heating may still be important regionally.
+The final quanity to estimate is the heat transfer coefficent between the land and the atmosphere. This varies from region to region, depending on the land surface cover
+\parencite{Beringer2001}, the soil hydrology \parencite{Dharssi2009} and the soil type \parencite{Best2011}. As such an effective heat transfer coeffecient will be required.
+
 The heat transfer coeffeicent can be estimated from the conductivity via
 \begin{equation}
   \label{eq:conductivity_via_heat_transfer}
@@ -321,7 +317,7 @@ The heat transfer coeffeicent can be estimated from the conductivity via
 where $\Delta z$ is a soil thickness and $\lambda$ is the conductivity. Taking $\Delta z = \SI{0.1}{\meter}$ and $\lambda = \SI{0.227}{\watt\per\meter\per\kelvin}$
 \parencite{Cox1999} gives a value of $\kappa = \SI{4.5}{\watt\per\meter\squared\per\kelvin}$ and a value of $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$. This value is much larger than typical
 values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
-and as such the biogeochemical heating may still be important regionally.
+and as such the biogeochemical heating may still be significant regionally.
 
 
 \section{Rate Dependence and Transient Behaviour}
@@ -340,12 +336,14 @@ in terms of these new parameters, giving
   \end{align}
 \end{subequations}
 where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emissions have been included here and are set to be linear in time with a rate $r$.
+The value of $\tau$ is set to \SI{0.4}{\days}, following~\cite{Luke2011}.
 
 \subsection{R-Tipping}
 
 To investigate the ability to undergo R-tipping, \cref{eq:compost_bomb_equations_scaled} were solved, with initial conditions representing an equilibrium state
-for a range of values of $\mu,\Pi_c,C_{1/2}$ and $r$. The equations were solved over a time interval of \SI{250}{\year} and R-tipping was deemed to occur when
-the non dimensional soil temperature, $theta$ exceeded the non dimensional air temperature, $S \log\left(C_a/C_{10}\right)$ by $1.5$, which in dimensional units
+for a range of values of $\mu,\Pi_c,C_{1/2}$ and $r$. The range of $\mu$ was \SIrange{0.1}{1.2}{}, the range of $C_{1/2}$ was \SIrange{0.0}{1000.0}{\ppm} and
+the range of $\Pi_c$ was \SIrange{100}{10000}{\peta\gram\carbon\per\year}. The equations were solved over a time interval of \SI{250}{\year} and R-tipping was deemed to occur when
+the non dimensional soil temperature, $\theta$ exceeded the non dimensional air temperature, $S \log\left(C_a/C_{10}\right)$ by $1.5$, which in dimensional units
 corresponds to the soil temperature exceeding the air temperature by around \SI{20}{\kelvin}. The critical rate was found by a bisection method and plotted
 in \cref{fig:global_bomb_critical_rates}.
 
@@ -356,26 +354,27 @@ in \cref{fig:global_bomb_critical_rates}.
   \subfloat[\centering A cross section at $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_ca05}\label{fig:mu_ca05}}
   
   \subfloat[\centering A cross section at $\mu = 0.5$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_pic_ca05}\label{fig:pic_ca05}}
-  \caption[Critical rates for a global compost bomb]{The critical rate, in \SI{}{\peta\gram\carbon\per\year} required to trigger a compost bomb. Each panel shows a different plane in
+  \caption[Critical rates for a global compost bomb]{The critical rates of anthropogenic emissions, in \SI{}{\peta\gram\carbon\per\year} required to trigger a
+    compost bomb. Each panel shows a different plane in
     $(\mu,\Pi_c,C_{1/2})$ space. \Cref{fig:mu_pic} shows the $(\mu,\Pi_c)$ plane, \cref{fig:mu_ca05} shows the $(\mu,\Pi_c)$ plane and \cref{fig:pic_ca05} shows the
     $(\Pi_c,C_{1/2})$ plane. In each case the hatched region shows the region of parameter space where no stable state exists.}\label{fig:global_bomb_critical_rates}
 \end{figure}
 
 The first thing to note about \cref{fig:global_bomb_critical_rates} is that the critical rates are very large except when $\Pi_c$ is very small. Given anthropogenic emissions
-are $\mathcal{O}(\SI{10}{\peta\gram\carbon\per\year})$ this analysis suggests therefore that humanity is unlikely to trigger a compost bomb at the global scale.
+are $\mathcal{O}(\SI{10}{\peta\gram\carbon\per\year})$ \parencite{Friedlingstein2022} this analysis suggests therefore that humanity is unlikely to trigger a compost bomb at the global scale.
 
 Of more interest is the dependence on parameters. The strongest control is the amount of biogeochemical heating with the critical rates increasing strongly with $\Pi_c$.
 Also important is the climate-carbon system sensitivity, $\mu$, larger $\mu$ values imply lower critical rates. Finally, the level of \ce{CO2} fertilisation, $C_{1/2}$ plays a weaker role,
 with higher levels of \ce{CO2} fertilisation leading to smaller critical rates.
 
 
-\subsection{The Effect of biogeochemical heating on atmospheric \ce{CO2}}
+\subsection{The Effect of Biogeochemical Heating on Atmospheric \ce{CO2}}
 To investigate the contribution of biogeochemical heating to global warming, it is necessary to determine how much carbon reaches the atmosphere compared to the case where there is no
-biogeochemical heating. In order to do this, \cref{eq:compost_bomb_equations_scaled} were integrated for 100 years with $r = \SI{10.0}{\peta\gram\carbon\per\year}$. This roughly
-corresponds to recent emission rates \parencite{Friedlingstein2022}.
+biogeochemical heating. In order to do this, \cref{eq:compost_bomb_equations_scaled} were integrated for 100 years with $r = \SI{10.0}{\peta\gram\carbon\per\year}$, which approximately
+corresponds to recent emission rates.
 
-These integratations where performed for a range of parameter values. The range of $\mu$ was \SIrange{0.1}{1.2}{}, the range of $C_{1/2}$ was \SIrange{0.0}{1000.0}{\ppm} and
-the range of $\Pi_c$ was \SIrange{100}{10000}{\peta\gram\carbon\per\year}. The results were then compared to simulations with $\Pi_c = \infty$, the no biogeochemical heating case and the difference
+These integratations where performed for a range of parameter values. The ranges were the same as in the R-tipping experiment.
+The results were then compared to simulations with $\Pi_c = \infty$, the no biogeochemical heating case and the difference
 in atmospheric \ce{CO2} between the two cases were calculated.
 \begin{figure}
   \centering
@@ -392,7 +391,7 @@ $\Pi_c$) more \ce{CO2} accumulates in the atmosphere. It also shows that as $\mu
 
 This can be explained as follows. For $\mu = 0$, ignoring \ce{CO2} fertilisation effects,
 both of the biogeochemical and non-biogeochemical cases will experience no changes in soil carbon and so should see little differences in the amount of $\ce{CO2}$ in the atmosphere. 
-When is very $\mu$ is large, both cases can lose all the soil carbon leading to the same overall change in atmospheric carbon. It is therefore for intermediate $\mu$ values that biogeochemical
+When is very $\mu$ is large, both cases can lose essentially all the soil carbon leading to the same overall change in atmospheric carbon. It is therefore for intermediate $\mu$ values that biogeochemical
 heating makes the biggest difference to climate change.
 
 \begin{figure}
@@ -411,9 +410,7 @@ difference biogeochemical heating makes to climate change. This is because a str
 of soil respiration which through biogeochemical heating leads to even more respiration and thus a larger amount of atmospheric \ce{CO2}.
 
 For a $\mu$ vale of around $0.5$, and $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$, then biogeochemical heating contributes somewhere between $\SIrange{3}{4}{\peta\gram\carbon}$
-to climate change over this 100 year period, assuming $C_{1/2} = \SI{280}{\ppm}$. In other words, if humanity makes no changes to its emission rates, then biogeochemical alone
-would contribute as much to global warming in the next hundred years as humanity did in one year in the late 1960s \parencite{Friedlingstein2022}.
-
+to climate change over this 100 year period, assuming $C_{1/2} = \SI{280}{\ppm}$. 
 \section{Conclusions}
 In this chapter, I have investigated the role of biogeochemical heating at the global scale. I have shown how the terrestrial carbon cycle is only stable
 for a certain parameter range, and that biochemical heating reduces the maximum carbon-climate system sensitivity compatible with a stable carbon cycle.
