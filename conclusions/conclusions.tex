@@ -4,6 +4,33 @@
 A brief introduction
 
 \section{Research Conclusions}
+In \cref{chapter:continuous_compost_bomb} I investigated the the effect of adding a vertical spatial dimension to the compost bomb instability.
+The purpose of this was twofold. \todo{was it?}
+Firstly, I was interested to see if the instability still existed in a more realistic model.
+Secondly, I wanded to know if certain wildfires could be caused by biogeochemical heating and in order to do this more realistic physics was desirable.
+
+In order to investigate this, I created a partial differential equation model of soil temperature which included biogeochemical heating. I made the assumption
+that soil carbon could be viewed as being time invariant, which placed the model into the `compost bomb limit' of~\cite{Luke2011}. This came at the cost of preventing
+R-tipping so the potential for B-tipping was investigated. Furthermore the effect of a large seasonal cycle in atmospheric temperatures on the soil was investigated.
+
+It was shown that for sufficently large atmospheric temperatures the model had no steady state. This meant that the soil temperatures had diverged and that a compost bomb
+had occured. If, as in the real world, soil carbon were allowed to evolve dynamically then the amount of soil carbon would decrease which would prevent the soil temperatures from diverging;
+instead they would simply reach a large value.
+
+It was also shown that a sufficently large seasonal cycle --- which could be realised by a summer heat wave --- would be enough to trigger a compost bomb.
+Furthermore, the size of the seasonal cycle was not dissimilar to the seasonal cycles observed in parts of Siberia (as shown in \cref{fig:seasonal_cycle_maps}).
+
+\begin{figure}
+  \centering
+  \missingfigure{A map of seasonal cycles}
+  \caption[Map of Seasonal Cycles]{The largest observed seaonsonal cycle in the ERA5 reanalysis \parencite{ERA5} over the period 1940-2022.
+    The magnitude of the seasonal cycle is defined as half the difference between the maximum and minimum monthy averaged \SI{2.0}{\meter} air temperatures.}
+  \label{fig:seasonal_cycle_maps}
+\end{figure}
+
+
+Although this was an example of B-tipping, it is reasonable to assume that the vertical diffusion of heat would not be a barrier to
+R-tipping, as long as the atmospheric temperatures were raised rapidly compared to the soil carbon timescale, following the logic of~\cite{Luke2011}.
 \section{Outlook}
 
 A graceful landing?
