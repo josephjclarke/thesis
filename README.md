@@ -18,7 +18,7 @@ and build for printing with
 make print
 ```
 There are also ```debug``` and ```draftprint``` for interactive error messages and draft mode enabled for two sided printing respectively.
-
+Use ```make doublespacing``` to build in single sided draft mode with double line spacing. 
 
 ## Cleaning
 Use 
