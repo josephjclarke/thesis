@@ -4,7 +4,7 @@
 A brief introduction
 
 \section{Research Conclusions}
-%\subsubsection{\nameref{chapter:continuous_compost_bomb}}
+\subsubsection{\nameref{chapter:continuous_compost_bomb}}
 
 In \cref{chapter:continuous_compost_bomb} I investigated the the effect of adding a vertical spatial dimension to the compost bomb instability.
 The purpose of this was twofold. 
@@ -48,6 +48,35 @@ since been studied by~\cite{OSullivan2023} for the model of~\cite{Luke2011}. The
 To summarise, in \cref{chapter:continuous_compost_bomb} I managed to show that adding in the vertical diffusion of heat does not suppress the compost bomb. This therefore increases the confidence
 that the effect is real. Furthermore I also showed that a hot summer, as modeled by a large seasonal cycle of temperature, could cause compost bombs, which has applications to the
 problem of Siberian wildfires.
+
+\subsubsection{\nameref*{chapter:global_bomb}}
+
+The investigation into the role of biogeochemical heating was continued in \cref{chapter:global_bomb}. Instead of looking at the local effect of biogeochemical heating,
+the effect at the global scale was considered. This was motivated by the fact that the extra carbon released by biogeochemical heating would increase atmospheric temperatures,
+further increasing respiration. This positive feedback therefore increases the chances of triggereing a compost bomb, and it is thus important to quantify.\todo{I can write this better}
+
+In order to do this, the model of~\cite{Luke2011} was assumed to hold at the global scale, meaning quanitites could be replaced with their globally averaged values. The air temperature
+was set to scale logarithmically with atmospheric \ce{CO2}, which in turn was calculated through carbon conservation. The additional effect of \ce{CO2} fertilisation was considered,
+by assuming Net Primary Productivity was a saturating function of atmospheric carbon. The role of the ocean was accounting for very simply, by assuming that a fixed fraction of
+carbon emissions become ocean carbon, which is equivalent to scaling down the flux from the land to the atmosphere by a fixed amount.
+
+The stability of this model was investigated first. To do this its bifurcation diagram was computed and it was found that there was a bifurcation if the climate sensitivity was large enough
+or the biogeochemical heating was strong enough. The model was simple enough that the location of the bifurcation point could be computed analytically. The effect of linearly increasing
+atmospheric carbon was then investigated, where it was shown numerically that R-tipping could occur and contribution to atmospheric \ce{CO2} from biogeochemical heating was quantified.
+
+It was found that for realistic amounts of biogeochemical heating, only a small difference to the stability of the system was made. It was however striking, that when there was no
+\ce{CO2} fertilisation, the system was unstable at comparatively low levels of climate sensitivity. These levels are low enough to be in the range of CMIP models. It is therefore interesting to note
+that without \ce{CO2} fertilisation the Earth's carbon and thus climate system may not be stable.
+
+The critical rates of emissions required to trigger a compost bomb in this system was also determined. It was found that these critical rates far exceeded anything humanity was likely to be able
+to emit. Furthermore contribution to atmospheric \ce{CO2} was found to be small. It was however interesting to note that \ce{CO2} decreased these critical rates and increased the impact of
+biogeochemical heating on carbon emissions to the atmosphere. Furthermore, it was found that there was an `optimal' climate sensitivity which maximised the impact of biogeochemical heating
+on carbon emissions at that this optimum occured at plausible values of the climate sensitivity.
+
+\todo[inline]{Problems with this approach}
+\todo[inline]{What can be concluded?}
+
+
 \section{Outlook}
 
 A graceful landing?
