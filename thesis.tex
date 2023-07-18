@@ -22,15 +22,13 @@
 %\includeonly{symbols}
 %\includeonly{preface}
 \includeonly{conclusions/conclusions,bibliography/bibliography}
+%\includeonly{bibliography/bibliography}
 
 \begin{document}
 \listoftodos{}
 \frontmatter{}
 \pagenumbering{arabic}
-\ifdraft{
-  \input{todolist.tex}
-  DOUBLESPACING
-}{}
+\ifdraft{\input{todolist.tex}DOUBLESPACING}{}
 
 \include{titlepage}
 \addtocounter{page}{1}
