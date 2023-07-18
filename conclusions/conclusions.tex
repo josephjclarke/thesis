@@ -92,6 +92,46 @@ necessarily imply a smaller flux of carbon to the atmosphere due to biogeochemic
 
 \subsubsection{\nameref*{chapter:conceptual_carbon_cycle}}
 
+In \cref{chapter:global_bomb}, it was noted that the Earth's terrestrial carbon cycle was stable for only some values of the climate-carbon sensitivity and that at low
+\ce{CO2} fertilisation this critical sensitivity was very low. \Cref{chapter:conceptual_carbon_cycle} took these ideas further to investigate which parameter combinations
+were compatible with the reconstructed behaviour of atmospheric \ce{CO2} in the the pre-industrial Holocene epoch. During this epoch, \ce{CO2} showed little variability
+and appeared be following a slowly changing equilibrium. \todo{How much variability?}
+
+In order to constrain the parameters a better ocean model was required than was used in \cref{chapter:global_bomb}. In \cref{chapter:conceptual_carbon_cycle}
+the ocean carbon cycle from the IMOGEN model was used in addition to simplified box models. Biogeochemical heating was also not accounted for on the grounds
+that \cref{chapter:global_bomb} had found the effect weak at the global scale.
+
+Using the IMOGEN ocean carbon cycle model, it was found that there was a critical value of cliamte sensitivity beyond which the carbon cycle would become unstable.
+The bifurcation appeared to be a Hopf bifurcation. The oscillations after the bifurcation had a large amplitude and are incompatible with the observed bahviour of the
+carbon cycle.
+
+Using a two box model, these results could be recreated. Furthermore, that the bifurcation was a Hopf bifurcation could be confirmed and the bifurcation point
+could analytically be determined. The two box model could give a Hopf bifurcation at the same point in parameter space as the IMOGEN model.
+
+A one box model was also formulated, which could show a bifurcation of various types depending on the choice of the timescale of the box.
+For a fast timescale, this was a transcritical bifurcation, similar to the system analysed in \cref{chapter:global_bomb}. Furthermore, because the bifurcation
+point could be analytically computed, this can be compared to the bifurcation point derived in \cref{chapter:global_bomb} to give an interpretation to the
+ocean model in that chapter. It was found that the ocean model in \cref{chapter:global_bomb} was self-consistent only when the ocean timescale was very short.
+If the timescales were longer, the bifurcation was a Hopf bifurcation, however the bifurcation point was at a different point in parameter space to that of IMOGEN.
+
+The critical climate sensitivities found using the IMOGEN model were, for realistic values of \ce{CO2} fertilisation, around \SI{10}{\kelvin} which could be
+related to equilibrium climate sensitivities around \SI{6}{\kelvin}. These values are not significantly larger than those found in CMIP6 \parencite{Zelinka2020}.
+This raises the possibility that when performing coupled climate-carbon simulation some of these models may not be able to simulate a stable pre-industrial
+period. Furthermore those models which have low enough climate sensitivity to not cross the bifurcation may still have unrealistic levels of \ce{CO2} variability
+due to the phenomenon of critical slowing down. As climate models increase the complexity of their carbon cycle representations by including, for example,
+nutrient limitation, the magnitude of the \ce{CO2} fertilisation effect may decrease \parencite{Wiltshire2021}, which would make these models more likely to be unstable.
+
+The analysis in \cref{chapter:conceptual_carbon_cycle} ignored certain effects. It ignored the climate effect on net primary producticity, which is likely to weaken
+net primary productivity in the tropics and strengthen it in the high latitudes \todo{Cite this}.
+However, this effect is small relative to the effect of \ce{CO2} fertilisation \parencite{Arora2020}.
+It also made the same assumptions about the instantaneous temperature equilibration to atmospheric \ce{CO2} as did \cref{chapter:global_bomb}.
+Whilst this may effect the behaviour of the carbon cycle beyond the bifurcation when \ce{CO2} is changing;
+it is unlikely to effect the position of the bifurcation much as the system as \ce{CO2} levels are constant before the bifurcation and thus the equilibrium assumption is more reasonable.
+
+In summary, \cref{chapter:conceptual_carbon_cycle} showed that certain parameter regemes were not compatible with the behaviour of \ce{CO2} over the Holocene.
+This behaviour could be recreated using a two box model, suggesting the importance of two timescales. Furthermore the critical parameter values identified are close to those in
+some CMIP6 models suggesting that they would not be able to give a stable Holocene if run in a coupled climate-carbon configuration.
+
 \subsubsection{\nameref*{chapter:spatial_ews}}
 
 \subsubsection{\nameref*{chapter:rosa}}
