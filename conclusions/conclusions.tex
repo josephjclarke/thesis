@@ -189,5 +189,38 @@ where the method did perform well.
 
 
 \section{Outlook}
+One obvious future research direction would be to consider the effect of biogeochemical heating in a complex land surface model, such as JULES.
+This would enable a more precise quantification of this process, taking into account the effect of spatially heterogeneuos soil properties such as
+soil moisture and changes in conductivity. Conductivity in particular was shown to have a significant control on the magnitude of the effect of biogeochemical heating.
+
+Furthermore, the use of JULES, combined with forcing data sets would enable an investigation into Siberian wildfires. For example, 2020 was a year of unusually widespread
+Siberian fires \parencite{Witze2020}. `Zombie' fires were identified as a possible cause, which is relevent beacuse these fires have similarities to those caused by biogeochemical heating.
+Furthermore, using future projections of climate change the changing probability of biogeochemical heating driven fires could be quantified.
+
+It was noted that the investigation in \cref{chapter:global_bomb} could not capture the regional effects of biogeochemical heating. One way this investigation could be easily extended without
+resorting to a complex land surface model is by considering a `two-region' model of soil carbon:
+\begin{subequations}
+  \label{eq:two_region_model}
+  \begin{align}
+    \dv{C_1}{t} &= \Pi_1(C_a) + \Pi_{c1} W\left(-\frac{r_1C_1}{\Pi_{c1}} \left(\frac{C_a}{C_{a0}}\right)^{\mu_1} \right) \\
+    \dv{C_2}{t} &= \Pi_2(C_a) + \Pi_{c2} W\left(-\frac{r_2C_2}{\Pi_{c2}} \left(\frac{C_a}{C_{a0}}\right)^{\mu_2} \right) \\
+  \end{align}
+\end{subequations}
+where $C_i$ are the soil carbon levels in region $i$, $\Pi_{ci}$ quantify the amount of biogeochemical heating and $\mu_i$ the climate-carbon sensitivity in that region. By assuming
+$\Pi_{c1} \ll \Pi_{c2}$ this then models a region where biogeochemical heating is important, such as high latitude peatlands, and a region where biogeochemical heating is less important.
+
+However, JULES could still be used to determine the bifurcation point which separates stable from unstable carbon cycles. To do this, it could be paired with IMOGEN to emulate both the
+ocean carbon cycle as well as the effect of changes in atmospheric \ce{CO2} on surface temperatures. It seems likely that this JULES-IMOGEN combination would still experience the sort of
+bifurcation described in \cref{chapter:conceptual_carbon_cycle}. This is because JULES has, at each grid square, essentially the same soil carbon dynamics as in \cref{chapter:conceptual_carbon_cycle}
+and the ocean carbon cycle as simulated by IMOGEN will be same. However, changing the representation of ocean temperatures in IMOGEN may change the position of the bifurcation.
+ 
+To extend the investigation into spatial early warning signals, more complex spatial coupling forms could be considered. Furthermore, the investigation was done in 1 dimension, it
+would be interesting to look at the two and three dimensional case as the behaviour of spatial systems near the bifurcation point is known to be strongly dependent
+on dimension \parencite{Goldenfeld1992}. The ROSA method could also be extended by considering the multidimensional case in terms of both state and noise.
+
+As \cref{chapter:spatial_ews} showed, for very rapidly forced systems early warning signals, even when calculated spatially, are not reliable. It would be useful therefore to
+establish early warning signals for this regeme. Indeed, given the possiblility for the overshoot of tipping points \parencite{Ritchie2021}, it would be useful to create warning signals that could
+indicated when a system has passed the tipping point but not yet transitioned to the new state. As this is a nonautonomous regeme, few generic properties can be assumed. It may therefore be
+most useful to investigate system specific early warning signals in this case.
 
 \section{Synthesis}
