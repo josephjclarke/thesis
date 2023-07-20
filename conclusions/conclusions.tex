@@ -162,6 +162,31 @@ Given the vast quantity of remotely sensed spatial data avaliable \parencite{Cam
 
 \subsubsection{\nameref*{chapter:rosa}}
 
+In \cref{chapter:rosa}, I investigated the role of the assumptions made about the stochastic components of the forcing in early warning signals. The typical
+assumption made is that the noise is white noise --- which means it has no temporal correlations. However when a system is forced over short timescales relative
+to its own time scale, which is of relevence to climate change, temporal correlations become more important. Furthermore, there is no guarantee that these temporal
+correlations are constant --- the stochastic process may not be stationary.
+
+I investigated the effect of temporal correlations in the noise process by comparing early warning signals for a simple system, which could undergo a bifurcation, when subject to
+white and red noise. It was found that in the presence of red noise the early warning signals were worse than in the case of white noise.
+
+I then showed how, if there was some estimate of the noise, early warning signals could still be obtained for arbitrary noise processes. This could be done by moving to the frequency domain
+where the effect of the noise process could be easily removed. I could verify numerically that the early warning signals obtainded this way worked well for red and white noise processes.
+Furthermore, in the case where the noise was not stationary, this method could still give good early warning signals.
+
+I also applied this to the case of local Amazon dieback in CMIP6 models. It was found that the new method could give more early warning signals for abrupt transitions in Amazonia
+when compared to more conventional early warning signals. The noise process was assumed to be given by the \SI{2}{\meter} air temperature; this gives evidence, along with
+other work \parencite{Parry2022,Ritchie2022}, of the role air temperature plays in giving early warning signals about Amazon dieback.
+
+The most obvious problem with this method is that it assumes the noise process is known. The correct choice of noise is not in necessarily known for all
+tippng elements and as such relies on the scientific understanding of the problem. It also requires that the noise has been measured, thus requiring extra data compared to
+conventional early warning signals. Additionally, it assumes a single noise source, whereas in reality the noise is likely to be a combination of multiple components.
+
+\Cref{chapter:rosa} set out to investigate the role of temporal correlations play in early warning signals. It was able to demonstrate the importance of uncorrelated noise
+for conventional early warning signals. Furthermore it was able to offer a way to avoid these problems, even in the case where the noise was non-stationary.
+Whilst in some situations it may not be posssible to use the method developed in \cref{chapter:rosa}, its usefulness was demonstrated in the case of Amazon dieback
+where the method did perform well.
+
 \subsubsection{Synthesis}
 
 \section{Outlook}
