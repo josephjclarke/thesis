@@ -153,7 +153,7 @@ where
      Ensemble Mean      & $1.5 \pm 0.2$    & Ensemble Mean   & $1.4\pm0.2$         \\
      \bottomrule
    \end{tabular}
-\caption{Estimates of the ratio of $S$ to $\mathrm{ECS}$ for CMIP5 and CMIP6 models, calculated by the methodology described in \cref{chapter:global_bomb}.
+\caption[Estimates of $S/\mathrm{ECS}$ for CMIP models]{Estimates of the ratio of $S$ to $\mathrm{ECS}$ for CMIP5 and CMIP6 models, calculated by the methodology described in \cref{chapter:global_bomb}.
   The ensemble mean is given plus or minus one standard deviation.}
 \label{tab:S_vs_ECS}
 \end{table}
@@ -191,7 +191,8 @@ transition to oscillatory behaviour. In \cref{sec:two_box} this will be shown to
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
-  \caption{Atmospheric carbon calculated with the IMOGEN model given by \cref{eq:imogen_deterministic} for a range of $S$ values,
+  \caption[Using IMOGEN to find the behaviour of atmospheric \ce{CO2} for various values of $S$]{Atmospheric carbon calculated with the IMOGEN model
+    given by \cref{eq:imogen_deterministic} for a range of $S$ values,
     with $Q_{10} = 2$. Overlaid are measurements of early Holocene (\SIrange{10000}{5000}{\year\beforepresent}) \ce{CO2} levels, taken from~\cite{Bereiter2015}.
   Note that large $S$ values lead to behaviour incompatible with the observed atmospheric \ce{CO2} record.}
   \label{fig:imogen_trajectories}
@@ -203,7 +204,8 @@ the parameter that controls the \ce{CO2} fertilisation effect. This is plotted i
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
-  \caption{A contour plot showing the value of $S$ as a function of $Q_{10}$ (the temperature dependence of respiration) and $C_{1/2}$ (the strength of the \ce{CO2} fertilisation
+  \caption[The dependence of the critical values of $S$ on $Q_{10}$ and $C_{1/2}$]{A contour plot showing the value of $S$ as a function of $Q_{10}$ (the temperature dependence of respiration)
+    and $C_{1/2}$ (the strength of the \ce{CO2} fertilisation
     feedback) at which the bifurcation occurs in \cref{eq:imogen_deterministic}.
     Values of $S$ larger than  this are incompatible with the observed behaviour of the carbon cycle.}
   \label{fig:imogen_bifurcation_plane}
@@ -322,7 +324,7 @@ to the timescale of its response. Previously, $\chi_0$ was interpreted as a frac
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_3.7}
-  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
+  \caption[One box soil carbon equilibrium]{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
     calculated numerically. The ocean timescale is \SI{3.7}{\year}, which is in the fast ocean response regime.
     The dashed line is the analytically calculated bifurcation point, \cref{eq:instability_condition_one_box_fast}.}
   \label{fig:fast_response_bf_diagram}
@@ -351,7 +353,7 @@ a Hopf bifurcation rather than a transcritical bifurcation.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{one_box_model_soil_carbon_equilibrium_tau_300.0}
-  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
+  \caption[One box soil carbon equilibrium]{Equilibrium levels of soil carbon as a function of $\mu$ for the one box ocean model, \cref{eq:one_box_ocean},
     calculated numerically. The ocean timescale is \SI{300}{\year}, which is in the slow ocean response regime.
     The dashed line is the analytically calculated bifurcation point, \cref{eq:instability_condition_one_box_slow}.
   Solid black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.}
@@ -468,7 +470,8 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{complex_plane_two_box_eig}
-  \caption{The eigenvalues of the Jacobian of the two box model \cref{eq:two_box_ocean} plotted in the complex plane as a function of $\mu$.  The colour of the eigenvalue is given
+  \caption[Eigenvalues of the two box Jacobian]{The eigenvalues of the Jacobian of the two box model \cref{eq:two_box_ocean} plotted in the complex plane as a
+    function of $\mu$.  The colour of the eigenvalue is given
     by the value of $\mu$. The colour scheme has been chosen so that the colours transition from blue to red at the bifurcation point $\mu_-$ given by
   \cref{eq:mu_two_box}. This shows the eigenvalues crossing the imaginary axis at the predicted point, which is where the Hopf Bifurcation happens.}
   \label{fig:eigen_values_of_the_jacobian}
@@ -476,7 +479,7 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{two_box_model_soil_carbon_equilibrium}
-  \caption{Equilibrium levels of soil carbon as a function of $\mu$ for the two box ocean model, \cref{eq:two_box_ocean},
+  \caption[Two box soil carbon equilibrium]{Equilibrium levels of soil carbon as a function of $\mu$ for the two box ocean model, \cref{eq:two_box_ocean},
     calculated numerically. The ocean parameters are $\tau = \SI{0.45}{\year},\epsilon=0.004$ and $f = 0.5$.
     The dashed line is the analytically calculated bifurcation point, $\mu_-$ given by \cref{eq:mu_two_box}.
   Solid black lines represent a steady state condition, whereas red lines show the maximum and minimum of an oscillatory state.}
@@ -494,7 +497,8 @@ has bifurcations for large enough values of the climate sensitivity. In this nex
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_one_box_two_box}
-  \caption{A comparison of the bifurcation diagrams of the IMOGEN, one box and two box models. Ocean parameters have been chosen so that the bifurcation happens at the same value of $S$.
+  \caption[Comparison of bifurcation diagrams for IMOGEN, one and two box ocean carbon cycle models]{A comparison of the bifurcation diagrams of the IMOGEN,
+    one box and two box models. Ocean parameters have been chosen so that the bifurcation happens at the same value of $S$.
     $Q_{10}$ has been set to $2$. Black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.
     The solid lines are the values for IMOGEN, the dotted lines are for the one box model and the dashed lines are for the two box model. IMOGEN and the two box model
   undergo a Hopf bifurcation at $S \approx \SI{10.5}{\kelvin}$, whereas the one box model undergoes a transcritical bifurcation here.}
@@ -536,7 +540,8 @@ least squares fit was performed to the one and two box models giving the paramet
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{gcb_ocean_atmosphere_boxes}
-  \caption{The fit of \cref{eq:ocean_response} to the ocean carbon uptake estimated by the Global Carbon Budget using one and two box models. The fitted parameters are given in
+  \caption[One and two box fits to observations]{The fit of \cref{eq:ocean_response} to the ocean carbon uptake estimated by the Global Carbon Budget using one and
+    two box models. The fitted parameters are given in
     \cref{tab:one_and_two_box_parameters}. The driving atmospheric \ce{CO2} is plotted in the top panel, and the ocean uptake in the lower panel. Both one and two boxes give decent fits
     to the data but the two box model gives a better fit.}
   \label{fig:fits_from_one_and_two}
