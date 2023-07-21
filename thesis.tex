@@ -5,8 +5,8 @@
 
 %\includeonly{titlepage}
 %\includeonly{published_work}
-\includeonly{contents}
-%\includeonly{symbols}
+%\includeonly{contents}
+%\includeonly{symbols/symbols,symbols/symbol_list,symbols/acronym_list}
 %\includeonly{preface}
 %\includeonly{declaration}
 %\includeonly{introduction1/introduction1,bibliography/bibliography}
@@ -18,6 +18,10 @@
 %\includeonly{ROSA/ROSA,bibliography/bibliography}
 %\includeonly{conclusions/conclusions,bibliography/bibliography}
 %\includeonly{bibliography/bibliography}
+
+\makeglossaries
+\include{symbols/symbol_list.tex}
+\include{symbols/acronym_list.tex}
 
 \begin{document}
 \listoftodos{}
@@ -32,7 +36,7 @@
 \include{contents}
 \include{published_work}
 \include{declaration}
-\include{symbols}
+\include{symbols/symbols}
 \include{preface}
 
 
