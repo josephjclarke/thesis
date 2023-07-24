@@ -10,6 +10,7 @@ to the original water --- a \emph{qualitative} change has occurred.
 
 It is qualitative change that this thesis shall be concerned with. Whilst the boiling of water is a phase transition \parencite{Goldenfeld1992}, I shall use the broader terminology
 of \emph{tipping points} \parencite{Lenton2008} or \emph{critical transitions} \parencite{Rahmstorf1995} or \emph{abrupt changes} \parencite{Alley2003} to describe these phenomena. 
+
 \subsection{Definitions}
 
 Although it can be a vague term, the concept of a small perturbation leading to a large change generally forms a part of most formal definitions of tipping points.
@@ -20,11 +21,11 @@ leads to a qualitative change $\hat{F}$ of a system feature $F$, after some obse
   \label{eq:lenton_tipping_definition}
   |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho_{\mathrm{crit}} | T)| \geq \hat{F} > 0.
 \end{equation}
-The IPCC \parencite{AR6} defines a tipping point differently as `A critical threshold beyond which a system reorganizes, often abruptly and/or irreversibly'. Others,
+The IPCC \parencite{AR6} defines a tipping point as `A critical threshold beyond which a system reorganizes, often abruptly and/or irreversibly'. Others,
 such as~\cite{Wang2023} and~\cite{Kopp2016}, insist that tipping points should occur on fast time scales.
 
 Each of these definitions are deficient in their own way. The IPCC definition views tipping in terms of thresholds which excludes certain types of tipping (see \cref{sec:tipping_typology}).
-The definition in~\cite{Lenton2008} is over complex and that of~\cite{Wang2023} suffers from the problem that many timescales in the Earth system are slow.
+The definition in~\cite{Lenton2008} is may be too mathematical for widespread understanding and that of~\cite{Wang2023} suffers from the problem that many timescales in the Earth system are slow.
 
 The multiple different definitions in the literature reflect the vagueness of the notion of tipping points. In a sense, this is an advantage as it encourages research across a wide variety
 of phenomena. With this in mind, I will define a tipping point in a way that is closest in style to the IPCC as 
@@ -35,10 +36,10 @@ something that a system undergoes when it experiences a qualitative change in it
 Nonlinear changes have long fascinated scientists. Physicists have investigated phase changes not just in terms of the boiling and freezing of substances but also
 in magnetic materials \parencite{Ising1925,Onsager1944}, superconductivity \parencite{Landau1965} and percolation theory \parencite{Flory1941}. Each of these are different processes, but it is a
 remarkable fact that near the phase transition different systems can be dynamically very similar, a phenomenon known as universality \parencite{Wilson1983}. This idea --- that different examples
-of tipping points across totally different systems can share features will be a theme commonly returned to.
+of tipping points across totally different systems can share features --- will be a theme commonly returned to.
 
 Tipping points are also important in biology. In medicine, tipping point theory has been used to help understand asthma attacks \parencite{Donovan2022} and sleeping dynamics \parencite{Skeldon2014}.
-Tipping points have proven very important in ecology. In an influential article, \parencite{May1976}, the ecologist Robert May noted that even very simple nonlinear models have rich dynamics and are capable
+In an influential article, \parencite{May1976}, the ecologist Robert May noted that even very simple nonlinear models have rich dynamics and are capable
 of experiencing tipping points (although he did use that term).~\cite{Holling1973} introduced the idea of resilience which is related to the ability of a system to resist tipping. Tipping points have
 been found in a range of ecosystems \parencite{Scheffer2001,Dakos2019}. The transition to turbid state in lakes \parencite{Scheffer1993} and the collapse of plant-pollinator communities
 \parencite{Lever2014} are both examples of ecological tipping points, however other studies \parencite{Hillebrand2020} have challenged how widespread tipping effects are.
@@ -70,7 +71,8 @@ or
 \end{equation}
 Assuming the Earth radiates as a black body with temperature $T$, then $F = \sigma T^4$ where $\sigma$ is the Stefan-Boltzmann constant  so that $T = \SI{255}{\kelvin}$.
 This is not far from the true temperature of about \SI{287}{\kelvin} \parencite{Jones1999}.
-This black body temperature is however the effective emission temperature the Earth has to radiate at to maintain energy balance. Due to the presence of gases in the atmosphere which absorb
+This black body temperature is however the effective emission temperature the Earth has to radiate at to maintain energy balance. Due to the presence of certain gases, known as
+greenhouse gases, in the atmosphere which absorb
 infrared radiation, principally \ce{CO2} and \ce{H2O}, the radiation that escapes to space is emitted from higher in the atmosphere. An effective emission height can be defined which
 radiates with the effective emission temperature and then because the atmospheric temperature increases towards the surface this makes the surface warmer than it would otherwise be.
 This is known as the Greenhouse Effect \parencite{Pierrehumbert2010}.
@@ -88,7 +90,7 @@ the change in the top of atmosphere energy flux can be split \parencite{Gregory2
   \Delta N = \Delta Q - \lambda \Delta T.
 \end{equation}
 
-The climate responds to the forcing by changing its temperature so that $\Delta N$ is zero. Hence the change in global mean temperatures is
+The climate responds to the forcing by changing its temperature so that $\Delta N$ is zero at equilibrium. Hence the change in global mean temperatures is
 \begin{equation}
   \label{eq:response_to_radiative_forcing}
   \Delta T = \frac{\Delta Q}{\lambda}.
@@ -122,10 +124,12 @@ This analysis of multiple lines of evidence lead the IPCC to conclude that the b
 Of all the \ce{CO2} emitted by humans by burning fossil fuels, only around half remains in the atmosphere \parencite{Friedlingstein2022}. This is because of the terrestrial and oceanic sinks of carbon.
 The response of the carbon cycle can be partitioned into a carbon-concentration feedback and a carbon-climate feedback \parencite{Friedlingstein2006}. The carbon-concentration feedback
 gives the change in the carbon cycle due to increases in \ce{CO2} before temperature changes are accounted for. The carbon-climate feedback gives the changes in carbon stores due to increases
-in temperature. In CMIP6 \parencite{Arora2020} the carbon-concentration feedback is $\SI{0.97\pm0.40}{\peta\gram\carbon\per\ppm}$ over land and $\SI{0.79\pm 0.07}{\peta\gram\carbon\per\ppm}$ over ocean.
-The carbon-climate feedback is $\SI{-45.1\pm50.6}{\peta\gram\carbon\per\kelvin}$ over land and $\SI{-17.2\pm5.0}{\peta\gram\carbon\per\kelvin}$. This means that increases in \ce{CO2} tend to
-increase carbon on the land and in the ocean, however increases in global temperature due to elevated \ce{CO2} tend to liberate carbon from the land and oceans. It should be noted
-that the uncertainties are much higher over land, which reflects the different processes contributing the land and ocean carbon cycles.
+in temperature. In CMIP6 \parencite{Arora2020} the carbon-concentration feedback is $\SI{0.97\pm0.40}{\peta\gram\carbon\per\ppm}$ for the land and $\SI{0.79\pm 0.07}{\peta\gram\carbon\per\ppm}$
+for the ocean.
+The carbon-climate feedback is $\SI{-45.1\pm50.6}{\peta\gram\carbon\per\kelvin}$ for the land and $\SI{-17.2\pm5.0}{\peta\gram\carbon\per\kelvin}$ for the ocean.
+This means that increases in \ce{CO2} tend to
+increase carbon on the land and in the ocean, however increases in global temperature, for example due to elevated \ce{CO2}, tend to liberate carbon from the land and oceans. It should be noted
+that the uncertainties are much higher over land, which reflects the different processes contributing to the land and ocean carbon cycles.
 
 \subsubsection{Terrestrial Carbon Cycle}
 The terrestrial part of the carbon cycle is controlled by the biosphere \parencite{AR6}. Carbon enters the biosphere through photosynthesis, the amount of which is known as gross
@@ -139,6 +143,9 @@ difference between NPP and heterotrophic respiration, known as Net Ecosystem Pro
 Net Biome Productivity (NBP) which is the total flux of carbon into the land \parencite{Lovett2006,Fernandez-Martinez2023}. 
 
 This carbon is stored in vegetation and in soils. There is around \SI{1500}{\peta\gram\carbon} in the soil, with about \SI{560}{\peta\gram\carbon} in vegetation \parencite{Crowther2019}.
+There are uncertainties associated with these numbers, with typical estimates for the soil carbon ranging from \SIrange{1400}{1600}{\peta\gram\carbon} \parencite{Batjes2016} and
+estimates of vegetation carbon ranging from \SIrange{450}{650}{\peta\gram\carbon} \parencite{Ciais2013}.
+
 The significant stores of vegetation carbon are the tropical rainforests \parencite{Malhi2006}, whereas much of the soil carbon can be found at high latitudes \parencite{Varney2020}.
 Permafrost, soil which is below \SI{0}{\degreeCelsius} all year round, represents a major store of this carbon \parencite{Hugelius2014}. As it is frozen, little decomposition occurs there.
 However as the Earth warms and the permafrost thaws it could represent a carbon flux of some concern \parencite{Schuur2015}.
@@ -205,7 +212,7 @@ report that at sufficiently high levels of global warming stratocumulus cloud de
 
 \subsection{Tipping Elements}
 
-However there is still the possibility of more regional tipping point behaviour.~\cite{Lenton2008}, introduced the notion of \emph{tipping elements} which
+Nevertheless there is still the possibility of more regional tipping point behaviour.~\cite{Lenton2008}, introduced the notion of \emph{tipping elements} which
 are components of the Earth system that are `at least subcontinental in scale' ($\mathcal{O}(\SI{1000}{\kilo\meter})$) which can undergo tipping behaviour as a result of
 anthropogenic influence. Lenton lead an expert elicitation of potential tipping elements in the Earth system to estimate how much warming would be needed to trigger the tipping element
 and what the key uncertainties were. More recently,~\cite{ArmstrongMcKay2022} updated this study by reviewing the literature published since.  Following this, I will discuss some key tipping elements.
@@ -216,7 +223,7 @@ important role in the climate of, for example, northern Europe where it keeps te
 warm saline water is transported northwards where it cools and becomes more dense.  It then sinks and can make the return journey to the equator completing the circulation  \parencite{Dijkstra2011}.
 
 The potential for the AMOC to exhibit bistability was postulated by Stommel in a pioneering paper \parencite{STOMMEL1961}. He showed in a simple two box model that if the North Atlantic was
-freshened then the salt-advection feedback means that meridional transport could shift to a different state. Later work \parencite{Rahmstorf1995,Hawkins2011} found multistability in
+freshened then the salt-advection feedback means that meridional transport could shift to a different state. Later work \parencite{Bryan1986,Manabe1988,Rahmstorf1995,Hawkins2011} found multistability in
 complex ocean models, when the north Atlantic was subject to a `hosing' experiment in which fresh water was added to the oceans. Other research has shown the AMOC is sensitive to the
 rate of hosing \parencite{Alkhayuon2019} in a complex way \parencite{Lohmann2021}. By this it is meant that there is no well defined critical
 hosing rate but that increasing the rate will switch the rate from a dangerous to a safe one and back again. Should the AMOC tip, this would have serious impacts on British agriculture
@@ -224,26 +231,27 @@ hosing rate but that increasing the rate will switch the rate from a dangerous t
 
 
 Increased Arctic precipitation, melting of the Greenland ice sheet and increases in surface temperatures all act to weaken the AMOC \parencite{ArmstrongMcKay2022}.
-Over the past half century, there is evidence that the AMOC has weaken by around 15\% \parencite{Caesar2018} and might be the weakest in a millennium \parencite{Caesar2021}.
+Over the past half century, there is evidence that the AMOC has weakened by around 15\% \parencite{Caesar2018} and might be the weakest in a millennium \parencite{Caesar2021}.
 There is observational evidence of decreasing AMOC stability \parencite{Boers2021a,Michel2022}. Some CMIP5 models show AMOC tipping at low
-levels of global warming \parencite{Drijfhout2015}, although most models show only a gradual decline in the AMOC, which is helps explain why the IPCC view AMOC shut-down as
+levels of global warming \parencite{Drijfhout2015}, although most models show only a gradual decline in the AMOC, which helps explain why the IPCC view AMOC shut-down as
 being unlikely, although they view the modelled AMOCs as being unrealistically stable \parencite{AR6}.~\cite{ArmstrongMcKay2022} estimate the AMOC's threshold to be at \SI{4}{\degreeCelsius},
 with a range of \SIrange{1.4}{8}{\degreeCelsius}.
 
 \subsubsection{Ice Sheets} 
 Ice sheets, found in Greenland and Antarctica are believed to be able to tip due to many feedback processes. The melt elevation feedback, which is when an ice sheet melts and
-therefore loses hight, exposing its surface to warmer air, increasing the melt rate, is an important feedback \parencite{Levermann2016}. Another relevant feedback is the
+therefore loses height, exposing its surface to warmer air, increasing the melt rate, is an important feedback \parencite{Levermann2016}. Another relevant feedback is the
 marine ice sheet instability, which occurs when the grounding line of an ice sheet meets a reverse slope \parencite{Schoof2007}.
 
 Complex ice sheet models of Antarctica \parencite{Garbe2020} show hysteresis when global temperatures are reduced. Tipping behaviour has also been observed in complex models
 of Greenland \parencite{Robinson2012,VanBreedam2020,Noel2021}. There is evidence of destabilisation in Greenland \parencite{Boers2021} and~\cite{ArmstrongMcKay2022} estimate
-the critical threshold to be at around \SI{1.5}{\degreeCelsius}. For Antarctica they estimate a similar threshold for the West Antarctic Ice Sheet but a higher threshold
+the critical threshold to be between \SI{0.8}{\kelvin} and \SI{3.0}{\kelvin} with a best estimate of \SI{1.5}{\kelvin}.
+For Antarctica they estimate a similar threshold for the West Antarctic Ice Sheet but a higher threshold
 of around \SI{8.5}{\degreeCelsius} for the East Antarctic Ice Sheet. In all these cases, the tipping dynamics are very slow, taking $\mathcal{O}(\SI{1000}{\year})$ to materialise.
 
 \subsubsection{Amazon Rainforest}
-The Amazon Rainforest is a vast store of carbon, containing around \SI{123}{\peta\gram\carbon} \parencite{Malhi2006}, and has for many years been a sink, albeit a weakening one,
-of anthropogenic carbon \parencite{Brienen2015}. The vegetation exerts an important influence on its local climate.
-By shading, evapotranspiration and albedo effects the rainforest affects its own temperature \parencite{Baker2019}.
+The Amazon Rainforest is a significant store of carbon, containing around \SI{123}{\peta\gram\carbon} \parencite{Malhi2006}, and has for many years been a sink, albeit a weakening one,
+of anthropogenic carbon \parencite{Brienen2015}. The forest affects climate by changing the albedo and aerodynamc roughness of the surface,
+and through evapotranspiration, influencing both the global climate and its own conditions \parencite{Baker2019}.
 Furthermore, the forest recycles its own rainfall, which acts to increase the precipitation it experiences \parencite{Spracklen2012}. It is
 these feedback processes that give the potential for tipping.
 
@@ -253,10 +261,10 @@ However, Amazon dieback was found to be sensitive to the parametrisation of land
 some CMIP5 models \parencite{Drijfhout2015} showed signs of Amazon dieback and CMIP6 models show examples of regional Amazon dieback \parencite{Parry2022}.
 
 Other anthropogenic factors can cause abrupt shifts in the Amazon. An example is shifting fire regimes. Fire in the Amazon is driven by humans \parencite{UNEP2002}.
-Furthermore fires occur generally below a tree cover threshold \parencite{Wuyts2017} and fires tend to decrease the tree cover so that as fires become more common in the
-Amazon due to global warming \parencite{Cochrane2009} there could be a shift to a low tree cover high fire frequency regime \parencite{Wuyts2022}, behaviour
+Furthermore, fires occur generally below a tree cover threshold \parencite{Wuyts2017} and fires tend to decrease the tree cover so that as fires become more common in the
+Amazon due to global warming \parencite{Cochrane2009} there could be a shift to a low tree cover and high fire frequency regime \parencite{Wuyts2022}, behaviour
 which has been seen in Dynamic Global Vegetation Models (DGVMs) \parencite{Lasslop2016}. This can be viewed
-as being caused by a percolation process \parencite{Schertzer2015,Cardoso2022}.
+as being caused by a percolation process \parencite{Schertzer2015,Cardoso2022}. \todo{elaborate}
 
 Percolation theory has been used to understand the increasing fragmentation of tropical forests \parencite{Taubert2018}. They argued that as deforestation reduces forest area,
 this causes an increase in the number of forest fragments. Based on results from percolation theory \parencite{Stauffer1994} they found tropical forests were near to the critical point.
@@ -266,7 +274,7 @@ There is observational evidence to believe that the Amazon is bistable, and that
 such that Amazon tree cover can either be high or low, which is evidence of bistability \parencite{Hirota2011,Staver2011}.  Furthermore, states with lower mean annual
 precipitation appear to be less stable \parencite{Ciemer2019}. There is evidence of drying in Amazonia \parencite{Ritchie2022}, which is a driver of dieback. There is now reason to
 believe the Amazon is a source of carbon to the atmosphere \parencite{Gatti2021}. There are also indications of a loss of resilience in the Amazon \parencite{Boulton2022} which is
-evidence of an approaching tipping point.
+consistent with an approaching tipping point.
 
 \cite{ArmstrongMcKay2022} estimate Amazon dieback to occur at global warming levels of \SIrange{2}{6}{\kelvin} with a best estimate of \SI{3.5}{\kelvin} but could be lower when the impact
 of deforestation is included. Furthermore, timescales involved in this tipping point ($\mathcal{O}(\SI{100}{\year})$) are the timescales of a human life, and so make this a very policy relevant
@@ -278,8 +286,8 @@ system. However there are other proposed tipping elements. For example, high lat
 a true threshold or a more continuous change \parencite{ArmstrongMcKay2022}. Climate model simulations have suggested the possibility of hydrological tipping points
 \parencite{Teufel2019} would imply an increased risk of fire.
 
-Coral reefs can have tipping behaviour, as coral death occurs at certain temperature thresholds \parencite{Frieler2013}. The tipping point occurs at around \SI{1.5}{\kelvin} of global
-warming, as a result coral reefs are at high risk of tipping.
+Coral reefs can have tipping behaviour, as coral death occurs at certain temperature thresholds \parencite{Frieler2013}. The tipping point occurs at around $\SI{1.5\pm0.5}{\kelvin}$ of global
+warming \parencite{AtmstrongMcKay2022}, as a result coral reefs are at high risk of tipping.
 
 \subsection{Tipping Cascades}
 In recent years, a number of scientists have investigated the possibility of tipping cascades
@@ -292,12 +300,13 @@ Whilst much findings about tipping points are uncertain,
 this is particularly acute in the case of research into tipping cascades where much of the research involves the use of conceptual models with highly stylised interactions between elements.
 However, although many researchers would  regard these tipping elements and tipping cascades as unlikely to be triggered, they are often considered `too risky to bet against' \parencite{Lenton2019a}.
 The concept of being too risky to bet against relates to the fact
-that catastrophic events dominate the costs in a cost benefit analysis \parencite{Weitzman2009} as long as they have a non-negligible probability of occurring.
+that high impact-low likelihood (HILL) events \parencite{Wood2023} dominate the costs in a cost benefit analysis \parencite{Weitzman2009} as long as they have a non-negligible probability of occurring.
 To demonstrate that these events can occur, I will give some examples of abrupt shifts from the Earth's past.
 
 \subsection{Evidence of Tipping Points from Paleoclimate}
 The Earth is about four and a half billion years old \parencite{Dalrymple2001}, and over that time the Earth has experienced many different climates \parencite{Alley2003}.
-These climates are reconstructed using proxy data. For example, \ce{CO2} concentrations found in Antarctic ice cores can be used to estimate atmospheric \ce{CO2} levels for the
+Evidence about these past climates can be obtained through reconstructions based on proxy data.
+For example, \ce{CO2} concentrations found in Antarctic ice cores can be used to estimate atmospheric \ce{CO2} levels for the
 last $800,000$ years \parencite{Bereiter2015}. Other methods, for example using isotopic data, can be used to reconstruct even older climates \parencite{Tierney2020}.
 
 When examining the time series these reconstructions generate, some abrupt shifts can be seen \parencite{Boers2022,Brovkin2021}. Although it is challenging to work out if these
@@ -308,7 +317,7 @@ the biosphere.
 
 \subsubsection{Snowball Earth}
 Budyko and Sellers \parencite{Budyko1969,Sellers1969} both investigated the role albedo feedbacks on the Earth's energy balance. This feedback is caused when the Earth cools leading to more
-ice formation which increases the albedo of the Earth, reflecting more energy to space leading to more cooling. An analogous process happens when the Earth warms. This means that the
+ice formation which increases the albedo of the Earth, reflecting more energy to space leading to more cooling. This means that the
 Earth could potentially exist in two states, its current warmer state, and a much colder state known as `Snowball Earth' where much of the Earth is covered in ice \parencite{Ghil1976,Held1974}. 
 
 \Cref{eq:energy_balance} is specialised to have a temperature dependent albedo and $F = \epsilon \sigma T^4$ giving
