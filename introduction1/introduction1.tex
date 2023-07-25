@@ -8,7 +8,7 @@ However, the water still remains liquid and these changes will vary continuously
 a critical temperature of \SI{100}{\degreeCelsius} something more dramatic happens and the water boils away. The properties of the resulting steam are quite different
 to the original water --- a \emph{qualitative} change has occurred.
 
-It is qualitative change that this thesis shall be concerned with. Whilst the boiling of water is a phase transition \parencite{Goldenfeld1992}, I shall use the broader terminology
+It is this type of qualitative transition that this thesis shall be concerned with. Whilst the boiling of water is a phase transition \parencite{Goldenfeld1992}, I shall use the broader terminology
 of \emph{tipping points} \parencite{Lenton2008} or \emph{critical transitions} \parencite{Rahmstorf1995} or \emph{abrupt changes} \parencite{Alley2003} to describe these phenomena. 
 
 \subsection{Definitions}
@@ -167,24 +167,37 @@ This means there will be a larger flux of carbon to the atmosphere and so this i
 Many biological reactions are assumed to depend exponentially on temperature, increasing in rate by a factor $Q_{10}$ for every \SI{10}{\kelvin} of warming.
 It is generally thought that $Q_{10} \approx 2$ \parencite{Jones2001}.
 
-\subsubsection{Ocean Carbon Cycle}\todo{Ocean acidification}
+\subsubsection{Ocean Carbon Cycle}
 
 The ocean carbon cycle operates by different mechanisms to the terrestrial carbon cycle. Some carbon enters through run-off from the land but most of the carbon flux to the ocean comes
 from diffusion from the atmosphere to the ocean \parencite{Devries2022}. This diffusion depends on the solubility of \ce{CO2} in water and
 the difference in partial pressure of \ce{CO2} between the atmosphere and the ocean \parencite{Wanninkhof1992}.
 The \ce{CO2} reacts with seawater to form two other species of dissolved inorganic carbon, or DIC:\@ \ce{HCO3-} and \ce{CO3^{2-}} \parencite{Dickson1987}.
 
+The reaction between \ce{CO2} and seawater is
+\begin{equation}
+  \label{eq:dissolving_co2}
+  \ce{CO2 + H2O <=> H2CO3 <=> H^+ + HCO3^- <=> 2H^+ + CO3^{2-}},
+\end{equation}
+hence adding \ce{CO2} to the ocean will increase the concentration of hydrogen ions, decreasing the pH. This is known as ocean acidification \parencite{Doney2009}.
+
 Strong vertical gradients exist in DIC in the ocean, with more DIC at depth due to increased solubility at depth and the biological pump \parencite{Volk1985}. Organisms convert DIC into biomass
 through photosynthesis near the surface where there is enough light. Most of this is respired near the surface but due to sinking, mixing and the migration of organisms some biomass
 will make its way to the deeper ocean where it is released as DIC into the deep ocean. This transport of DIC away from the surface increases the capacity of the ocean to absorb carbon
 \parencite{Sarmiento1984}.
 
-
 The ocean carbon cycle will be affected by climate change. Most of these changes are related to the physical and
 chemical components of the ocean carbon cycle rather than the biological components \parencite{AR6}. As a result there is much less uncertainty about future changes in the
-ocean carbon cycle relative to the terrestrial carbon cycle \parencite{Arora2020}. As more \ce{CO2} is added to the ocean, the amount of \ce{CO3^{2-}} will decrease which leads to
-more \ce{CO2} remaining in its dissolved form which reduces the uptake of carbon \parencite{Egleston2010}. Furthermore the solubility of \ce{CO2} decreases with
-temperature so warming which thus reduces the strength of the ocean sink \parencite{Weiss1974}. Additionally the ocean is expected to become more
+ocean carbon cycle relative to the terrestrial carbon cycle \parencite{Arora2020}.
+
+The reactions in \cref{eq:dissolving_co2} can be combined to give
+\begin{equation}
+  \label{eq:dissolving_co2_combined}
+  \ce{CO2 + H2O + CO3^{2-} <=> 2HCO3^-}.
+\end{equation}
+Therefore as more \ce{CO2} is added to the ocean, the amount of \ce{CO3^{2-}} will decrease which leads to
+more \ce{CO2} remaining in its dissolved form which reduces the uptake of carbon \parencite{Archer2010,Egleston2010}. Furthermore the solubility of \ce{CO2} decreases with
+temperature so warming thus reduces the strength of the ocean sink \parencite{Weiss1974}. Additionally the ocean is expected to become more
 stratified due to climate change which decreases vertical mixing which again reduces the uptake of \ce{CO2} \parencite{DeVries2017}. 
 
 
@@ -263,11 +276,12 @@ some CMIP5 models \parencite{Drijfhout2015} showed signs of Amazon dieback and C
 Other anthropogenic factors can cause abrupt shifts in the Amazon. An example is shifting fire regimes. Fire in the Amazon is driven by humans \parencite{UNEP2002}.
 Furthermore, fires occur generally below a tree cover threshold \parencite{Wuyts2017} and fires tend to decrease the tree cover so that as fires become more common in the
 Amazon due to global warming \parencite{Cochrane2009} there could be a shift to a low tree cover and high fire frequency regime \parencite{Wuyts2022}, behaviour
-which has been seen in Dynamic Global Vegetation Models (DGVMs) \parencite{Lasslop2016}. This can be viewed
-as being caused by a percolation process \parencite{Schertzer2015,Cardoso2022}. \todo{elaborate}
+which has been seen in Dynamic Global Vegetation Models (DGVMs) \parencite{Lasslop2016}.
+This result can be understood as resulting from a percolation process \parencite{Schertzer2015,Cardoso2022}, in which if the probability of a location having low tree cover is above
+a critical threshold then large (formally infinite) clusters of fire prone regions will appear. \todo{not quite happy with this}
 
-Percolation theory has been used to understand the increasing fragmentation of tropical forests \parencite{Taubert2018}. They argued that as deforestation reduces forest area,
-this causes an increase in the number of forest fragments. Based on results from percolation theory \parencite{Stauffer1994} they found tropical forests were near to the critical point.
+Percolation theory \parencite{Stauffer1994} has been used to understand the increasing fragmentation of tropical forests \parencite{Taubert2018}. They argued that as deforestation reduces forest area,
+this causes an increase in the number of forest fragments. Based on results from percolation theory they found tropical forests were near to the critical point.
 Other work \parencite{Boers2017} has also found that deforestation in the Amazon can cause tipping as reduced transpiration of water weakens the feedbacks on the South American Monsoon system. 
 
 There is observational evidence to believe that the Amazon is bistable, and that it is heading towards a tipping point. There exists a range of mean annual precipitation
