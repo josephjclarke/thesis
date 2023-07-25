@@ -2,9 +2,9 @@
 \label{sec:intro2}
 \graphicspath{{introduction2/figs}}
 
-In \cref{sec:intro1} the importance of tipping elements to the Earth system was demonstrated. In this section I will review the theory
+In \cref{sec:intro1} the relevance of tipping elements to the Earth system was explained. In this section I will review the theory
 behind tipping points. To do this I will categorise the ways in which a system can tip. I will also give an example of a system undergoing 
-each of these types of tipping. Given the difficulties in accurately representing tipping points in earth system models, it has become popular to
+each of these types of tipping. In part due to the difficulties in accurately representing tipping points in Earth System Models (ESMs), it has become popular to
 look for generic `early warning signals' of tipping points. I give a summary of these techniques and how they have been applied to earth system tipping elements
 at the end of the chapter.
 
@@ -55,8 +55,8 @@ Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$ then 
   \label{eq:solution_to_linearised_equation_eigen}
   \bm{y} = \sum_i c_i e^{t\lambda_i}\bm{v}_i
 \end{equation}
-where $\{c_i\}$ are a set of constants chosen to match the initial condition. It can be seen then that the long-time behaviour of $\bm{y}$ is
-$\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$ whereas
+where $\{c_i\}$ are a set of constants chosen to match the initial conditions. It can be seen then that the long-time behaviour of $\bm{y}$ is
+$\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$, whereas
 if it is negative $\bm{y}$ will approach $\bm{x}^*$. Suppose $\bm{x}^*$ is a hyperbolic fixed point, which means that $J$ has no eigenvalues with zero real part. Then the Hartman-Grobman theorem
 \parencite{Grobman1959,Hartman1960,Hartman1963} guarantees that the trajectories of $\bm{y}$ will be topologically conjugate --- that is to say qualitatively the same --- in some
 neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{x}$.  This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
@@ -67,7 +67,7 @@ B- or Bifurcation-tipping refers to tipping which is driven by changes to the st
 A bifurcation is a concept from the mathematical theory of dynamical systems, introduced by~\cite{Poincare1885}.
 It is used to describe a situation where the fixed points of a system qualitatively change as a control parameter is varied.
 
-Consider a modification to \cref{eq:generic_system} where a control parameter $\mu \in \mathbb{R}$, which could for example be atmospheric $\ce{CO2}$, has been introduced
+Consider a modification to \cref{eq:generic_system} where a control parameter $\mu \in \mathbb{R}$ (which could, for example, be atmospheric \ce{CO2}) has been introduced
 \begin{equation}
   \label{eq:generic_system_control_parameter}
   \dv{\bm{x}}{t} = \bm{f}_{\mu}(\bm{x}).
@@ -77,24 +77,24 @@ function of $\mu$ except at points where $J$ has a zero eigenvalue, these points
 Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases an eigenvalue of $J$ must cross the imaginary
 axis, i.e.\ have zero real part \parencite{guckenheimer2013}. As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
 
-Fortunately, there are techniques to deal with this, using the Center Manifold Theorem \parencite{Morris1977}, which can be stated loosely as
-\begin{theorem}[Center Manifold Theorem]
-  \label{thm:center_manifold_theorem}
+Fortunately, there are techniques to deal with this, using the Centre Manifold Theorem \parencite{Morris1977}, which can be stated loosely as
+\begin{theorem}[Centre Manifold Theorem]
+  \label{thm:centre_manifold_theorem}
   Let the eigenvalues, $\{\lambda_i\}$, of $J$ be divided into three sets such that $\spec J = \sigma_s \cup \sigma_u \cup \sigma_c$, where $\sigma_s = \{\lambda_i : \Re \lambda_i < 0\}$,
   $\sigma_u = \{\lambda_i : \Re \lambda > 0\}$ and $\sigma_c = \{\lambda : \Re \lambda = 0\}$.
   Let their respective eigenspaces be $E_s$, $E_u$ and $E_c$. Then there are stable and unstable invariant manifolds $W_s$  and $W_u$ tangent to $E_s$ and  $E_u$ at $\bm{x}^{*}$,
-  and a center manifold $W_c$ tangent to $E_c$ at $\bm{x}^*$.
+  and a centre manifold $W_c$ tangent to $E_c$ at $\bm{x}^*$.
 \end{theorem}
-The upshot of this theorem is that the dynamics are now controlled by the center manifold. Suppose that the unstable manifold is empty (the most relevant case for tipping point research)
-then \cref{thm:center_manifold_theorem} implies that the dynamics are topologically conjugate to
+The upshot of this theorem is that the dynamics are now controlled by the centre manifold. Suppose that the unstable manifold is empty (the most relevant case for tipping point research)
+then \cref{thm:centre_manifold_theorem} implies that the dynamics are topologically conjugate to
 \begin{subequations}
-  \label{eq:center_manifold_topological_equivalence}
+  \label{eq:centre_manifold_topological_equivalence}
   \begin{align}
   \dv{\bm{u}}{t} &= g(\bm{u}) \\
   \dv{\bm{v}}{t} &= -\bm{v}
   \end{align}
 \end{subequations}
-with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the center manifold
+with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the centre manifold
 \parencite{guckenheimer2013}. In order to calculate $g$, suppose that
 $\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
 \begin{subequations}
@@ -104,19 +104,19 @@ $\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
     \dv{\bm{z}}{t} &= B\bm{z} + q(\bm{w},\bm{z})
   \end{align}
 \end{subequations}
-where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are at least quadratic. Then the center manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
-with $\bm{z} = h(\bm{w})$, so that on the center manifold
+where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are at least quadratic. Then the centre manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
+with $\bm{z} = h(\bm{w})$, so that on the centre manifold
 \begin{equation}
-  \label{eq:dynamics_on_the_center_manifold}
+  \label{eq:dynamics_on_the_centre_manifold}
   \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
 \end{equation}
-The next step is to make \cref{eq:dynamics_on_the_center_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_center_manifold}
+The next step is to make \cref{eq:dynamics_on_the_centre_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_centre_manifold}
 cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
 
 Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
 further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$ where $J$ has a simple zero eigenvalue.
-Then using \cref{thm:center_manifold_theorem} a center manifold passing through
-$(\bm{0},0)$ can be found. If the trajectories are restricted to the center manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
+Then using \cref{thm:centre_manifold_theorem} a centre manifold passing through
+$(\bm{0},0)$ can be found. If the trajectories are restricted to the centre manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
 bifurcation point) the the trajectories will be topologically equivalent \parencite{guckenheimer2013} to
 \begin{equation}
   \label{eq:saddle_node}
@@ -141,7 +141,7 @@ which is a transcritical bifurcation. If $\partial_{\mu}f = 0$ and $\partial_{xx
 
 Another important sort of bifurcation is a Hopf bifurcation \parencite{Hopf1942}. In this bifurcation a complex conjugate eigenvalue pair become purely imaginary, $\lambda = \pm i\omega$.
 As there are no zero eigenvalues the Implicit Function Theorem implies no new equilibria will be created. However it will lead to a change in the dimensions of the
-stable and unstable manifolds, leading to a qualitative change in the behaviour of the system. It can be shown that there is a center manifold on which a limit cycle can exist
+stable and unstable manifolds, leading to a qualitative change in the behaviour of the system. It can be shown that there is a centre manifold on which a limit cycle can exist
 \parencite{guckenheimer2013}. In other words, these bifurcations lead to the creation of periodic oscillatory behaviour. These bifurcations
 can occur only in systems of dimension two or higher. The normal form of this bifurcation \parencite{Kuznetsov2004} can be expressed as a differential equation involving the complex variable $z = x + iy$
 \begin{equation}
@@ -191,15 +191,23 @@ or resulting from unresolved processes \parencite{Palmer2009}. Certain paleoclim
 Stochastic differential equations can be written \parencite{Jacobs2010} as
 \begin{equation}
   \label{eq:general_sde}
-  \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t),
+  \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t).
 \end{equation}
-where a physicist's notation has been used. The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
-$\bm{\eta}(t)$ is the source of the stochasticity. It has mean zero and is `delta correlated' in time, by which is meant
+The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
+$\bm{\eta}(t) = \dv*{\bm{W}}{t}$ is the derivative of the Weiner process and is the source of the stochasticity.
+It has mean zero and is `delta correlated' in time, by which is meant
 \begin{equation}
   \label{eq:eta_correlation}
   \E\left(\bm{\eta}_i(t)\bm{\eta}_j(t')\right) = \delta_{ij}\delta(t-t')
 \end{equation}
-where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function.
+where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function. This notation is somewhat misleading as it suggests that all the functions involves are
+differentiable, however realisations of the Weiner process are almost surely not differentiable \parencite{Mckean2014}. More rigorously, \cref{eq:general_sde} should be written as
+\begin{equation}
+  \label{eq:general_sde_maths}
+  \dd{\bm{x}_t} = \bm{F}(\bm{x}_t)\dd{t} + G(\bm{x}_t)\dd{\bm{W}_t}
+\end{equation}
+where the differentials are understood to imply integration. The notation of \cref{eq:general_sde} tends to be favoured by physicists and that of \cref{eq:general_sde_maths} by
+mathematicians.
 
 Viewing individual solutions of \cref{eq:general_sde}, or sample paths, is one approach  to analysing stochastic systems. Another useful approach is to calculate the probability density function
 (pdf), $p(\bm{x},t)$ of $\bm{x}$ and how it evolves in time. The tool to do this is the Fokker-Planck equation \parencite{Fokker1914,Planck1917}, given by
@@ -302,7 +310,7 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 
 \subsection{R-tipping}
 A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-tipping refers to
-a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not \parencite{Perryman2014a}.
+a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not \parencite{Wieczorek2011}.
 This type of tipping occurs in nonautonomous dynamical systems, which is a system with explicit time dependence \parencite{Ashwin2017a}.
 
 This sort of tipping is best explained through an example, taken from~\cite{Ashwin2012}. The system is
@@ -320,7 +328,7 @@ These equations can be interpreted as a system with state $x$ in a changing envi
   \includegraphics[width=\textwidth,keepaspectratio]{rate}
   \caption[R-tipping mechanism]{Panels showing the state space of a system, \cref{eq:rtipping_example}, undergoing R-tipping.
     From left to right, the figures show the system below the critical rate, at the critical rate and above the critical rate. In the left panel, with $r=3.2$ the lines
-    $x^{\mathrm{PB}}_{\pm}$ exist and are separated. In the center panel with $r = r_c = 4$, $x^{\mathrm{PB}}_{\pm}$ exist and have collided into one line. In the right panel,
+    $x^{\mathrm{PB}}_{\pm}$ exist and are separated. In the centre panel with $r = r_c = 4$, $x^{\mathrm{PB}}_{\pm}$ exist and have collided into one line. In the right panel,
     $r = 4.8$ and therefore $x^{\mathrm{PB}}_{\pm}$ do not exist. As a result trajectories diverge as the system has undergone R-tipping. Note that for all values of $r$, the
     quasi-static equilibria exist.}
   \label{fig:rate_tipping}
