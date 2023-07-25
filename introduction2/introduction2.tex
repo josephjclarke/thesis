@@ -5,7 +5,7 @@
 In \cref{sec:intro1} the relevance of tipping elements to the Earth system was explained. In this section I will review the theory
 behind tipping points. To do this I will categorise the ways in which a system can tip. I will also give an example of a system undergoing 
 each of these types of tipping. In part due to the difficulties in accurately representing tipping points in Earth System Models (ESMs), it has become popular to
-look for generic `early warning signals' of tipping points. I give a summary of these techniques and how they have been applied to earth system tipping elements
+look for generic `early warning signals' of tipping points. I give a summary of these techniques and how they have been applied to Earth system tipping elements
 at the end of the chapter.
 
 
@@ -13,15 +13,17 @@ at the end of the chapter.
 \label{sec:tipping_typology}
 It is helpful to classify tipping according to a typology developed by~\cite{Ashwin2012}. They identified three types of tipping:
 \begin{description}
-\item[B-tipping] which refers to a tipping caused by a bifurcation in the underlying attractor of the system due to a change in a parameter of the system.
+\item[B-tipping] which refers to a tipping caused by a system crossing a bifurcation due to a change in a parameter of the system.
 \item[N-tipping] which refers to a tipping caused by noisy fluctuations driving the system  from one attractor to another.
-\item[R-tipping] which  refers to a tipping caused the system failing to track its continuously changing attractor. The `R' is for `rate' because the attractor is changing too
+\item[R-tipping] which  refers to a tipping caused by a system failing to track its continuously changing attractor. The `R' is for `rate' because the attractor is changing too
   fast for the system to adapt to it.
 \end{description}
 
 Since then, other researchers have found it useful to consider additional types of tipping. For example,~\cite{Halekotte2020} introduced the concept of shock or S-tipping which is
 when a single large perturbation can push the system into a new state. When the system's attractor is not a steady state but is instead a limit cycle, the tipping can depend on the
-phase of the cycle, a phenomenon which has been dubbed P-tipping \parencite{Alkhayuon2021}. 
+phase of the cycle, a phenomenon which has been dubbed P-tipping \parencite{Alkhayuon2021}. More generally, if the tipping depends on the system's location on its attractor
+then it is known as partial tipping \parencite{Alkhayuon2018}. In spatial systems, fragmented tipping is possible \parencite{Bastiaansen2022} in which only part of the domain
+experiences tipping.
 
 A more detailed examination of B,N,R and S tipping will now be given.
 
@@ -56,7 +58,7 @@ Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$ then 
   \bm{y} = \sum_i c_i e^{t\lambda_i}\bm{v}_i
 \end{equation}
 where $\{c_i\}$ are a set of constants chosen to match the initial conditions. It can be seen then that the long-time behaviour of $\bm{y}$ is
-$\bm{y} \sim c_k e^{t\lambda_k} \bm{v}_k$ where $\lambda_k$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$, whereas
+$\bm{y} \sim c_1 e^{t\lambda_1} \bm{v}_1$ where $\lambda_1$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$, whereas
 if it is negative $\bm{y}$ will approach $\bm{x}^*$. Suppose $\bm{x}^*$ is a hyperbolic fixed point, which means that $J$ has no eigenvalues with zero real part. Then the Hartman-Grobman theorem
 \parencite{Grobman1959,Hartman1960,Hartman1963} guarantees that the trajectories of $\bm{y}$ will be topologically conjugate --- that is to say qualitatively the same --- in some
 neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{x}$.  This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
@@ -81,7 +83,7 @@ Fortunately, there are techniques to deal with this, using the Centre Manifold T
 \begin{theorem}[Centre Manifold Theorem]
   \label{thm:centre_manifold_theorem}
   Let the eigenvalues, $\{\lambda_i\}$, of $J$ be divided into three sets such that $\spec J = \sigma_s \cup \sigma_u \cup \sigma_c$, where $\sigma_s = \{\lambda_i : \Re \lambda_i < 0\}$,
-  $\sigma_u = \{\lambda_i : \Re \lambda > 0\}$ and $\sigma_c = \{\lambda : \Re \lambda = 0\}$.
+  $\sigma_u = \{\lambda_i : \Re \lambda_i > 0\}$ and $\sigma_c = \{\lambda_i : \Re \lambda_i = 0\}$.
   Let their respective eigenspaces be $E_s$, $E_u$ and $E_c$. Then there are stable and unstable invariant manifolds $W_s$  and $W_u$ tangent to $E_s$ and  $E_u$ at $\bm{x}^{*}$,
   and a centre manifold $W_c$ tangent to $E_c$ at $\bm{x}^*$.
 \end{theorem}
@@ -111,7 +113,7 @@ with $\bm{z} = h(\bm{w})$, so that on the centre manifold
   \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
 \end{equation}
 The next step is to make \cref{eq:dynamics_on_the_centre_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_centre_manifold}
-cannot be linearised. However the `next best' thing are normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
+cannot be linearised. However the next most simplest approach is to use normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
 
 Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
 further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$ where $J$ has a simple zero eigenvalue.
@@ -123,23 +125,24 @@ bifurcation point) the the trajectories will be topologically equivalent \parenc
   \dv{x}{t}  = \mu + x^2.
 \end{equation}
 This type of bifurcation is known as a saddle-node or a fold bifurcation.
-This remarkable fact has simplified a high dimensional dynamical system to a generic one-dimensional one near the bifurcation point \parencite{Glendinning1994}.
+This remarkable fact has simplified a high dimensional dynamical system to a generic one-dimensional system near the bifurcation point \parencite{Glendinning1994}.
 
 The saddle-node bifurcation is very important as other bifurcation problems can be perturbed into a saddle-node bifurcation problem (as it is unusual for the transversality conditions
-not to be met). In this sense, saddle-nodes are the type of bifurcations to be expected in nature. However if the transversality conditions are not met other sorts of bifurcations can arise.
+not to be met). In this sense, saddle-nodes are the type of bifurcations to be expected in nature. However if the transversality conditions are not met other types of bifurcations can arise.
 
-If $\partial_{\mu}f=0$, then the bifurcation is equivalent to
+If $\partial_{\mu}f=0$, then the system is equivalent to
 \begin{equation}
   \label{eq:transcritical}
   \dv{x}{t} = \mu x - x^2,
 \end{equation}
-which is a transcritical bifurcation. If $\partial_{\mu}f = 0$ and $\partial_{xx}f=0$ with $\partial_{xxx}f \neq 0$ the bifurcation is known as a pitchfork bifurcation with normal form
+which is the normal form for a transcritical bifurcation. If $\partial_{\mu}f = 0$ and $\partial_{xx}f=0$ with $\partial_{xxx}f \neq 0$
+the bifurcation is known as a pitchfork bifurcation with normal form
 \begin{equation}
   \label{eq:pitchfork}
   \dv{x}{t} = \mu x - x^3.
 \end{equation}
 
-Another important sort of bifurcation is a Hopf bifurcation \parencite{Hopf1942}. In this bifurcation a complex conjugate eigenvalue pair become purely imaginary, $\lambda = \pm i\omega$.
+Another important sort of bifurcation is a Hopf bifurcation \parencite{Hopf1942}. For this bifurcation, a complex conjugate eigenvalue pair become purely imaginary, $\lambda = \pm i\omega$.
 As there are no zero eigenvalues the Implicit Function Theorem implies no new equilibria will be created. However it will lead to a change in the dimensions of the
 stable and unstable manifolds, leading to a qualitative change in the behaviour of the system. It can be shown that there is a centre manifold on which a limit cycle can exist
 \parencite{guckenheimer2013}. In other words, these bifurcations lead to the creation of periodic oscillatory behaviour. These bifurcations
@@ -165,7 +168,7 @@ thermal forcing, freshwater forcing and the ratio of their timescales respective
 
 As $\eta_2$ is increased the strength of the AMOC decreases until it reaches a saddle-node bifurcation point
 at $\eta_2^*  \approx 1.2$ where the AMOC abruptly transitions to a weaker state with flow in the opposite direction,
-this is shown in \cref{fig:stommel_amoc}. Near the bifurcation point, the flux behaves like $\Psi \sim \sqrt{\eta_2^*-\eta_2}$,
+this is shown in \cref{fig:stommel_amoc}.\todo{redo this figure!} Near the bifurcation point, the flux behaves like $\Psi \sim \sqrt{\eta_2^*-\eta_2}$,
 which reflects the normal form \cref{eq:saddle_node}. If $\eta_2$ were to be decreased with the AMOC in the other state, $\eta_2$ would have to be decreased below
 $\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
 
@@ -184,9 +187,9 @@ If a system with multiple stable states is subject to stochastic forcing, then i
 phenomenon is called N- or noise-tipping. This has an important difference to B-tipping. In B-tipping an external driver changes a control parameter, causing a system to tip
 but in N-tipping the natural variability of the system causes it to tip.
 
-The role of noise in the climate system was identified by~\cite{Hasselmann1976}. He viewed the `slow' components of the earth system (the ocean, the vegetation and the ice sheets) as being
+The role of noise in the climate system was identified by~\cite{Hasselmann1976}. He viewed the `slow' components of the Earth system (the ocean, the vegetation and the ice sheets) as being
 deterministic and the `fast' components (the atmosphere) as being essentially stochastic. This stochasticity may be viewed as an effective model for chaotic systems \parencite{Lorenz1963}
-or resulting from unresolved processes \parencite{Palmer2009}. Certain paleoclimate abrupt shifts, such as the Dansgaard-Oeschger events, have been viewed a N-tipping \parencite{Ditlevsen1999}.
+or resulting from unresolved processes \parencite{Palmer2009}. Certain paleoclimate abrupt shifts, such as the Dansgaard-Oeschger events, have been viewed as N-tipping \parencite{Ditlevsen1999}.
 
 Stochastic differential equations can be written \parencite{Jacobs2010} as
 \begin{equation}
@@ -213,7 +216,7 @@ Viewing individual solutions of \cref{eq:general_sde}, or sample paths, is one a
 (pdf), $p(\bm{x},t)$ of $\bm{x}$ and how it evolves in time. The tool to do this is the Fokker-Planck equation \parencite{Fokker1914,Planck1917}, given by
 \begin{equation}
   \label{eq:fokker_planck}
-  \pdv{p}{t} = - \sum_i \partial_i \bm{F}_i p + \sum_i\sum_j \partial_i\partial_j D_{ij} p
+  \pdv{p}{t} = - \sum_i \partial_i \left(\bm{F}_i p\right) + \sum_i\sum_j \partial_i\partial_j \left(D_{ij} p\right)
 \end{equation}
 where $D = GG^T/2$.
 
@@ -231,7 +234,7 @@ change due to climate change \parencite{Huntingford2013}.
 \Cref{eq:simple_sde} has an associated Fokker-Planck equation
 \begin{equation}
   \label{eq:fokker_planck_one_d}
-  \pdv{p}{t} = \pdv{x} \dv{U}{x}p + \frac{1}{2}\sigma^2 \pdv[2]{p}{x},
+  \pdv{p}{t} = \pdv{x} \left(\dv{U}{x}p\right) + \frac{1}{2}\sigma^2 \pdv[2]{p}{x},
 \end{equation}
 which can also be written in the form of a continuity equation
 \begin{equation}
@@ -244,7 +247,7 @@ where $J$ is the probability current given by
   J(x) = -\dv{U}{x}p - \frac{1}{2}\sigma^2 \pdv{p}{x}.
 \end{equation}
 
-If \cref{eq:simple_sde} has multiple stable states, then an estimate of the transition rate between these states can be made. This estimate known
+If \cref{eq:simple_sde} has multiple stable states, then an estimate of the transition rate between these states can be made. This estimate is known
 as the Kramers Rate \parencite{Kramers1940}. This derivation follows~\cite{Risken1984}.
 
 \begin{figure}
@@ -255,8 +258,9 @@ as the Kramers Rate \parencite{Kramers1940}. This derivation follows~\cite{Riske
   \label{fig:potential_to_escape}
 \end{figure}
 
-Suppose that $U$ has the form given by \cref{fig:potential_to_escape}, which has a stable state at $x_{min}$, an unstable state at $x_{max}$ and the rate at which the system
-transitions from near $x_{min}$ in the region between $x_1$ and $x_2$ to near $x_3$ is to be determined. Assuming the system is in a near steady state, \cref{eq:fokker_planck_continuity}
+Suppose that $U$ has the form given by \cref{fig:potential_to_escape}, which has a stable state at $x_{min}$, an unstable state at $x_{max}$. The rate at which the system
+transitions from near $x_{min}$, in the region between $x_1$ and $x_2$, to the other side of the maximum, near $x_3$, is to be determined.
+Assuming the system is in a near steady state, \cref{eq:fokker_planck_continuity}
 implies that $J$ is approximately constant. Noting that $J$ can be put into the form
 \begin{equation}
   \label{eq:probability_current_other_form}
@@ -267,7 +271,8 @@ which can then be integrated from $x_{min}$ to $x_3$ give
   \label{eq:integrated_J}
   J = \frac{\sigma^2}{2} \left(p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} - p(x_3)e^{\frac{2U(x_{3})}{\sigma^2}}\right)\left(\int_{x_{min}}^{x_{3}} e^{\frac{2U(x)}{\sigma^2}} \dd{x}\right)^{-1}.
 \end{equation}
-As it will be rare to find the system at $x_3$, $p(x_3)$ is negligible. To estimate $p(x_{min})$, assume this is given by the equilibrium distribution which can be found by setting $J$ to
+As it will be rare to find the system at $x_3$, as the noise is weak enough to make the transitions rare, $p(x_3)$ is negligible.
+To estimate $p(x_{min})$, assume this is given by the equilibrium distribution which can be found by setting $J$ to
 a constant. This constant can be chosen to be the value of $J$ at $x_{min}$, giving the following expression for the equilibrium pdf, $p_{eq}$,
 \begin{equation}
   \label{eq:equilibrium_pdf}
@@ -309,7 +314,7 @@ timescale of $r^{-1} \approx 65$ time units. \Cref{fig:ntipping} shows transitio
 
 
 \subsection{R-tipping}
-A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-tipping refers to
+A relatively recently discovered type of tipping is R-tipping. First discovered by~\cite{Luke2011} in a simple model of soil temperatures, R-tipping or rate-induced tipping refers to
 a situation where the rate of change of a control parameter, rather than the magnitude of the parameter itself  controls whether a system tips or not \parencite{Wieczorek2011}.
 This type of tipping occurs in nonautonomous dynamical systems, which is a system with explicit time dependence \parencite{Ashwin2017a}.
 
@@ -367,14 +372,14 @@ compost bomb instability would be caused. Their model was
   \begin{align}
     \mu\dv{T_s}{t} &= -\lambda \left(T_s - T_a\right) + Ar_0 C_s e^{\alpha T_s} \\
     \dv{C_s}{t}    &= \Pi - r_0 C_s e^{\alpha T_s} \\
-    \dv{T_a}{t}    &= \dot{T}_a
+    \dv{T_a}{t}    &= v
   \end{align}
 \end{subequations}
 where $T_s$ is the soil temperature, $T_a$ is the air temperature and $C_s$ is the soil carbon. The parameters, taken from~\cite{Wieczorek2011}, are a heat capacity
 $\mu = \SI{2.5E6}{\joule\per\meter\squared\per\kelvin}$, a thermal coupling $\lambda = \SI{5.049E6}{\joule\per\year\per\meter\squared\per\kelvin}$, a heat of
 respiration $A = \SI{3.9E7}{\joule\per\kilo\gram\carbon}$, a specific respiration $r_0 = \SI{0.01}{\per\year}$, a temperature dependence of respiration $\alpha = \SI{0.09}{\per\kelvin}$
-and a net primary productivity $\Pi = \SI{1.055}{\kilo\gram\carbon\per\meter\squared\per\year}$. When the rate of increase in temperature was increased above a critical rate,
-$\dot{T}_a \approx \SI{0.08}{\kelvin\per\year}$ the instability is triggered.
+and a net primary productivity $\Pi = \SI{1.055}{\kilo\gram\carbon\per\meter\squared\per\year}$. When the rate of increase in temperature is increased above a critical rate,
+$v \approx \SI{0.08}{\kelvin\per\year}$ the instability is triggered.
 
 \begin{figure}
   \centering
@@ -384,7 +389,7 @@ $\dot{T}_a \approx \SI{0.08}{\kelvin\per\year}$ the instability is triggered.
   \label{fig:compost_bomb_example}
 \end{figure}
 
-\Cref{fig:compost_bomb_example} shows two time series of \cref{eq:compost_bomb} with $\dot{T}_a = \SI{0.05}{\kelvin\per\year}$ and $\dot{T}_a = \SI{0.1}{\kelvin\per\year}$. For the larger
+\Cref{fig:compost_bomb_example} shows two time series of \cref{eq:compost_bomb} with $v = \SI{0.05}{\kelvin\per\year}$ and $v = \SI{0.1}{\kelvin\per\year}$. For the larger
 rate of warming there is a clear spike in the soil temperatures.
 
 \subsection{S-tipping}
@@ -396,7 +401,7 @@ It is related to N-tipping but should be differentiated from it in the following
 smallest perturbation required to push the system into a new state is given by
 \begin{equation}
   \label{eq:smallest_perturbation}
-  \bm{\Delta} = \argmin \{ |\bm{x}'|^2 : \bm{x}^* + \bm{x}' \notin \mathcal{B}\}.
+  \bm{\Delta} = \argmin \{ |\bm{x}'| : \bm{x}^* + \bm{x}' \notin \mathcal{B}\}.
 \end{equation}
 If the system is the potential system \cref{eq:simple_sde}, then this is equal in magnitude to the distance to the nearest maximum, $|x_{max} - x_{min}|$. This should be compared to Kramer's formula,
 \cref{eq:kramers}, which is a function of the difference in potential $U(x_{max}) - U(x_{min})$. In other words, S-tipping depends on the distance to the potential barrier, but N-tipping depends on
@@ -414,7 +419,7 @@ state and $x_3$ to a populated state.
 
 If the system is initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
 this magnitude or greater then the system will transition to the extinction state. In \cref{fig:shock_tipping}, \cref{eq:allee_effect} is integrated with $k = 2.0$ and given perturbations of
-magnitude $0.99$ and $1.01$ at times $25.0$ and $50.0$. The first perturbation is not large enough to push the system across the boundary of the basin of attraction, yet the second one is
+magnitude $0.99$ and $1.01$ at times $25.0$ and $50.0$. The first perturbation is not large enough to push the system across the boundary of the basin of attraction, yet the second one is,
 which is why the population undergoes S-tipping after the second perturbation.
 
 \begin{figure}
@@ -428,8 +433,8 @@ which is why the population undergoes S-tipping after the second perturbation.
 
 \subsection{Tipping in Reality}
 This typology has given the impression that individual tipping phenomena can be easily assigned to the categories of B,N,R or S-tipping. However this is not the case as any
-real tipping point will have aspects of many of the different tipping types. For example, If a control parameter is changing such that the system is approaching a B-tipping point,
-then Kramer's formula \cref{eq:kramers} implies that the system is more likely to undergo N-tipping. Furthermore a system nearing a tipping point will be more likely to undergo S-tipping as
+real tipping point will have aspects of many of the different tipping types. For example, if a control parameter is changing such that the system is approaching a B-tipping point,
+then Kramer's formula \cref{eq:kramers} implies that the system is more likely to undergo N-tipping. Furthermore, a system nearing a tipping point will be more likely to undergo S-tipping as
 $\Delta$, defined by \cref{eq:smallest_perturbation}, is smaller as the basin of attraction shrinks. If a system is experiencing a shock, it is also likely that its parameters will
 be changing quickly as well so this tipping will have an R-tipping character too.
 
@@ -500,7 +505,7 @@ In this case the important statistics are
   \sigma^2_y &= \frac{\sigma^2}{2\lambda} \label{eq:y_var}\\
   \alpha_1   &= e^{-\lambda} \label{eq:y_ac}
 \end{align}
-where $\sigma^2_y$ is the variance of $y$ and $\alpha_1$ is the autocorrelation of $y$ at lag 1. As $\lambda \rightarrow 1$
+where $\sigma^2_y$ is the variance of $y$ and $\alpha_1$ is the autocorrelation of $y$ at lag 1. As $\lambda \rightarrow 0$
 \begin{align}
   \sigma_y^2 &\rightarrow \infty \\
   \alpha_1    &\rightarrow 1.
@@ -545,7 +550,8 @@ The value of $\lambda$ can be calculated by taking a derivative:
   \label{eq:ews_lambda}
   \lambda = \left(x^*\right)^2 - 1 
 \end{equation}
-where $x^*$ is the equilibrium. The variance and autocorrelation are calculated as is the variance and autocorrelation calculated through \cref{eq:y_var,eq:y_ac}. It can be seen there is a
+where $x^*$ is the equilibrium. The variance and autocorrelation are estimated empiracally from the detrended time series of $x$. In addition, the variance and
+autocorrelation predicted  by \cref{eq:y_var,eq:y_ac} are calculated. It can be seen there is a
 good agreement and a clear early warning signal before the bifurcation.
 \begin{figure}
   \centering
@@ -560,8 +566,8 @@ good agreement and a clear early warning signal before the bifurcation.
 
 \subsection{Other Early Warning Signals}
 These indicators have been generalised to higher dimensional and periodically forced systems \parencite{Williamson2015,Williamson2016}. Attempts have also been made to estimate
-$\lambda$, the inverse timescale directly \parencite{Boettner2022,Boers2021a} The idea to look at
-changes in timescale of fluctuations has been investigated using Detrended Fluctuation Analysis \parencite{Livina2007} where it was used to anticipate the warming at the
+$\lambda$, the inverse timescale directly \parencite{Boettner2022,Boers2021a}. The idea to look at
+changes in timescale of fluctuations has been investigated using Detrended Fluctuation Analysis \parencite{Livina2007}, where it was used to anticipate the warming at the
 end of the Younger Dryas. Changes in these timescales can also lead to spectral reddening \parencite{Kleinen2003}. Higher order moments have proved useful too, such as the
 skewness \parencite{Guttal2008} and kurtosis \parencite{Xie2019}. The phenomenon of flickering \parencite{Wang2012}, in which systems `flicker' back and forth between alternative stable
 states can also be used to detect upcoming transitions. More recently, machine learning techniques have had success in giving early warning for modelled transitions \parencite{Bury2021}.
@@ -587,11 +593,11 @@ are related to differences in the way the ice core data is processed.
 Early Warning Signals have been investigated for the Greenland ice sheet \parencite{Boers2021}. This study suggested the ice sheet was close to a tipping point.
 However given the slow response of the ice sheet and
 the fast change of the climate, inequality~\ref{eq:timescale_separation} is likely to be violated with the timescale of the drift to be much faster than the timescale of the dynamics.
-Further more the analysis is of melt rates
-rather than a state variable which describes the ice sheet itself. However the researchers could relate the observed fluctuations to a physically motivated simple nonlinear model of the ice sheet,
+Furthermore, the analysis is of melt rates
+rather than a state variable which describes the ice sheet itself. However, the researchers could relate the observed fluctuations to a physically motivated simple nonlinear model of the ice sheet,
 which would suggest the ice sheet is approaching a tipping point.
 
-Later that year, another paper~\cite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance.
+Later that year, another paper \parencite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance.
 Other work \parencite{Ditlevsen2022arxiv} went as far
 as to suggest that most likely year for the AMOC to tip is 2067. Although the dynamics of the AMOC are faster than that of the ice sheets \parencite{ArmstrongMcKay2022}, it is still not clear if
 inequality~\ref{eq:timescale_separation} is satisfied but early warning signals have been used in complex models to detect AMOC shut-down \parencite{Boulton2014}.
