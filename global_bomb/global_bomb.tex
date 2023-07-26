@@ -87,7 +87,7 @@ which for given $\Pi$ and $T_a$ determines the evolution of $C_s$.
 
 The implied equilibrium value for $C_s$ occurs when \cref{eq:soil_carbon_evolution} is zero. The value of $C_s$ for which this is true is
 \begin{equation}
-  \label{eq:equilibrium_soil_carbon}
+  \label{eq:equilibrium_soil_carbon_pic}
   C_s^{\mathrm{eq}} = \frac{\Pi}{r_0} e^{-\alpha T_a} e^{-\Pi/\Pi_c}.
 \end{equation}
 The no biogeochemical heating case can be recovered by sending $\Pi_c \rightarrow \infty$ which gives $C_s^{\mathrm{eq}} = \Pi/r_0$.
@@ -122,7 +122,7 @@ leads to
 \end{equation}
 where
 \begin{equation}
-  \label{eq:mu}
+  \label{eq:mu_definition}
   \mu = \frac{\alpha S}{\log 2}
 \end{equation}
 and $C_a$ is determined through \cref{eq:simple_ocean}. By assumption, $C_s = C_s^{\mathrm{eq}}$ when $T_a = 0$ which requires that 
@@ -163,7 +163,7 @@ which simplifies to
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}\frac{1+W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}{W\left(-\frac{r_0C_s^{\mathrm{eq}}}{\Pi_c}\right)}\dv{\Pi}{C_a}.
 \end{equation}
-This can be further reduced, by using \cref{eq:equilibrium_soil_carbon}, to
+This can be further reduced, by using \cref{eq:equilibrium_soil_carbon_pic}, to
 \begin{equation*}
   \mu = \left(1+\chi_0\right) \frac{C_{a0}}{C_{s}^{\mathrm{eq}}} -
   \frac{C_{a0}}{\Pi_c}

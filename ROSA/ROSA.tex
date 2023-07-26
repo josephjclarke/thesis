@@ -296,12 +296,12 @@ Under white noise forcing, it is found that the spectrum reddens \parencite{Kefi
 can mask this reddening.
 
 Begin by modelling a tipping element with a state variable $y$ that evolves in time $t$, and depends on a slowly evolving parameter $\mu$.  The tipping point occurs when $\mu=\mu_c$.
-This can be writen generically as:
-\begin{eqnarray}
+This can be written generically as:
+\begin{align}
 \label{eq:full_syste}
     \dv{y}{t} &= f(y,\mu),\\
     \dv{\mu}{t} &= \epsilon g(y,\mu).
-\end{eqnarray}
+\end{align}
 for some functions $f$ and $g$, and $\epsilon \ll 1$.
 As $\epsilon g(y,\mu)$ is small, the theory of fast-slow systems \parencite{Kuehn2011} can be used to reduce to a one
 dimensional dynamical system depending only on the parameter $\mu$:

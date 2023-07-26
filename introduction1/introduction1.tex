@@ -336,7 +336,7 @@ Earth could potentially exist in two states, its current warmer state, and a muc
 
 \Cref{eq:energy_balance} is specialised to have a temperature dependent albedo and $F = \epsilon \sigma T^4$ giving
 \begin{equation}
-  \label{eq:energy_balance}
+  \label{eq:energy_balance_sb}
   \frac{1}{4}S_0 \left(1 - \alpha\left(T\right)\right) = \epsilon \sigma T^4,
 \end{equation}
 where $T$ is the Earth's mean temperature and $\epsilon$ is the Earth's emissivity. Suppose that the albedo has the following
@@ -351,11 +351,11 @@ temperature dependence
   \end{cases}
 \end{equation}
 This form means that the Earth's albedo transitions between the values of $\alpha_-$ to $\alpha_+$ as the temperature increases and the parameter $T_0$ controls this location of this transition.
-\Cref{eq:energy_balance} can be solved, revealing two possible stable states as shown in \cref{fig:energy_balance_solution}.
+\Cref{eq:energy_balance_sb} can be solved, revealing two possible stable states as shown in \cref{fig:energy_balance_solution}.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{snowball}
-  \caption[Snowball Earth Energy Balance]{The solutions to \cref{eq:energy_balance,eq:snowball_earth_albedo} are given by the intersections of these curves.
+  \caption[Snowball Earth Energy Balance]{The solutions to \cref{eq:energy_balance_sb,eq:snowball_earth_albedo} are given by the intersections of these curves.
     The solution at $T\approx\SI{210}{\kelvin}$ is the snowball
     state and the solution at $T\approx \SI{290}{\kelvin}$ is the present day state. The intermediate state can be shown to be unstable and as such is not physically observable. The parameters were
     chosen somewhat arbitrarily,  but give a good approximation to the present day state. The parameters are $\alpha_+ = 0.8,\alpha_-=0.2,\epsilon=0.65,T_0 = \SI{280}{\kelvin},S_0 = \SI{1300}{\watt\per\meter\squared}$
