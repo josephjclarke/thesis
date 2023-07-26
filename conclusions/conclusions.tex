@@ -1,6 +1,9 @@
 \chapter{Conclusions}
 \graphicspath{{conclusions/figs}}
 
+In this thesis I set out to advance understanding of tipping points in the climate-carbon cycle system.
+Below I summarize the findings of each of the research strands that have been presented in this thesis. I will then discuss potential avenues for further work.
+
 \section{Research Conclusions}
 \subsubsection{\nameref*{chapter:continuous_compost_bomb}}
 
@@ -14,11 +17,11 @@ that soil carbon could be viewed as being time invariant, which placed the model
 R-tipping so the potential for B-tipping was investigated. Furthermore the effect of a large seasonal cycle in atmospheric temperatures on the soil was investigated.
 
 It was shown that for sufficiently large atmospheric temperatures the model had no steady state. This meant that the soil temperatures had diverged and that a compost bomb
-had occurred. If, as in the real world, soil carbon were allowed to evolve dynamically then the amount of soil carbon would decrease which would prevent the soil temperatures from diverging;
+had occurred. If, as in the real world, soil carbon was allowed to evolve dynamically then the amount of soil carbon would decrease which would prevent the soil temperatures from diverging;
 instead they would simply reach a large value.
 
-It was also shown that a sufficiently large seasonal cycle --- which could be realised by a summer heat wave --- would be enough to trigger a compost bomb.
-Furthermore, the size of the seasonal cycle was not dissimilar to the seasonal cycles observed in parts of Siberia (as shown in \cref{fig:seasonal_cycle_maps}).
+It was also shown that a sufficiently large seasonal cycle --- which could be realised by a summer heat wave --- could be enough to trigger a compost bomb.
+Furthermore, the size of the seasonal cycle was not dissimilar to the seasonal cycles observed in parts of Siberia in extreme years such as 2010, as shown in \cref{fig:seasonal_cycle_maps}.
 This can be seen as evidence that Siberian wildfires may be caused, in part, by biogeochemical heating. 
 
 \begin{figure}
@@ -34,14 +37,14 @@ follow that the system would experience R-tipping if this approximation was rela
 R-tipping, as long as the atmospheric temperatures were raised rapidly compared to the soil carbon timescale, due to the significant timescale separation between the soil thermal and
 carbon timescales \parencite{Luke2011}.
 
-The approximation that soil carbon is constant is accurate over the timescales of a year, given the decadal turnover time of soil carbon \parencite{Varney2020}.
+The approximation that soil carbon is constant is accurate over the timescales of a year, given the multi-decadal turnover time of soil carbon \parencite{Varney2020}.
 It follows therefore, that there can be good confidence in the conclusions drawn about the seasonal cycle. However, the applicability of the results to Siberian wildfires may be more doubtful.
 This is because it may be better to view a hot summer period as a shorter perturbation to atmospheric temperatures, rather than an amplified sinusoid. This case has
 since been studied by~\cite{OSullivan2023} for the model of~\cite{Luke2011}. They also found for realistic Siberian summer temperatures compost bombs were possible. 
 
 To summarise, in \cref{chapter:continuous_compost_bomb} I managed to show that adding in the vertical diffusion of heat does not suppress the compost bomb. This therefore increases the confidence
 that the effect is real. Furthermore I also showed that a hot summer, as modelled by a large seasonal cycle of temperature, could cause compost bombs, which suggests biogeochemical heating may
-play a role in Siberian wildfires.
+play a role in Siberian wildfires. A paper based on this chapter has been published as~\cite{Clarke2021}.
 
 \subsubsection{\nameref*{chapter:global_bomb}}
 
@@ -56,24 +59,16 @@ by assuming Net Primary Productivity was a saturating function of atmospheric ca
 carbon emissions become ocean carbon, which is equivalent to scaling down the flux from the land to the atmosphere by a fixed amount.
 
 First, the stability of this model was investigated. To do this its bifurcation diagram was computed and it was found that there was a bifurcation if the climate sensitivity was large enough
-or the biogeochemical heating was strong enough. The model was simple enough that the location of the bifurcation point could be computed analytically. The effect of linearly increasing
-atmospheric carbon was then investigated, where it was shown numerically that R-tipping could occur and the contribution to atmospheric \ce{CO2} from biogeochemical heating was quantified.
+or the biogeochemical heating was strong enough. The model was simple enough that the location of the bifurcation point could be computed analytically. 
 
 It was found that for realistic amounts of biogeochemical heating, only a small difference to the stability of the system was made. It was however striking, that when there was no
 \ce{CO2} fertilisation, the system was unstable at comparatively low levels of climate sensitivity. These levels are low enough to be in the range of CMIP models. It is therefore interesting to note
 that without \ce{CO2} fertilisation the Earth's carbon and thus climate system may not be stable.
 
-The critical rates of emissions required to trigger a compost bomb in this system was also determined. It was found that these critical rates far exceeded anything humanity was likely to be able
-to emit. Furthermore contribution to atmospheric \ce{CO2} was found to be small. It was also determined that \ce{CO2} decreased these critical rates and increased the impact of
-biogeochemical heating on carbon emissions to the atmosphere. Furthermore, it was found that there was an `optimal' climate sensitivity which maximised the impact of biogeochemical heating
-on carbon emissions. Furthermore, this optimum occurred at plausible values of the climate sensitivity.
-
 This approach to analysing the role of biogeochemical heating has its problems. To begin with, as demonstrated in \cref{chapter:continuous_compost_bomb}, biogeochemical heating
 can be important regionally, yet this global modelling approach greatly reduces its influence. For example, for some combination of climate sensitivity and biogeochemical heating
 it could be the case that a region of the Earth has an unstable carbon cycle whereas the global analysis would give a stable carbon cycle. This is problematic as an instability in one
-region of the Earth could propagate to give a global instability. A similar logic applies to the determination of the critical rates and the contribution to atmospheric \ce{CO2}.
-This would therefore imply that the analysis in \cref{chapter:global_bomb} overestimates the stability of the carbon cycle and underestimates the critical rates and contribution to atmospheric
-\ce{CO2}.
+region of the Earth could propagate to give a global instability.
 
 Other modelling assumptions are also suspect. For example, it was assumed that atmospheric temperatures adjust instantaneously to increases in atmospheric \ce{CO2}, but in
 reality this process can take years \parencite{Rugenstein2019}. It was also assumed that the ocean could be modelled as absorbing a fixed fraction of carbon, an assumption that is
@@ -82,8 +77,7 @@ further investigated in \cref{chapter:conceptual_carbon_cycle}.
 \Cref{chapter:global_bomb} set out to analyse the effect, at the global scale, of biogeochemical heating. Due to the problems caused by biogeochemical heating
 being so regionally heterogeneous, firm conclusions cannot be drawn. However, more confidence can be had in the role \ce{CO2} fertilisation and climate-carbon
 sensitivity play. \ce{CO2} fertilisation acts to destabilise the system with respect to biogeochemical heating, although it still plays a stabilising role
-overall. The terrestrial carbon system is most unstable at higher values of the climate-carbon sensitivity but a lower value of this sensitivity does not
-necessarily imply a smaller flux of carbon to the atmosphere due to biogeochemical heating.
+overall. The terrestrial carbon system is most unstable at higher values of the climate-carbon sensitivity and lower values of the \ce{CO2} fertilisation strength.
 
 \subsubsection{\nameref*{chapter:conceptual_carbon_cycle}}
 
@@ -111,7 +105,7 @@ If the ocean box timescale was longer, the bifurcation would become a Hopf bifur
 bifurcation in IMOGEN.
 
 The critical climate sensitivities found using the IMOGEN model were, for realistic values of \ce{CO2} fertilisation, around \SI{10}{\kelvin} which could be
-related to equilibrium climate sensitivities around of \SI{6}{\kelvin}. These values are not substantially larger than those found in CMIP6 \parencite{Zelinka2020}.
+related to equilibrium climate sensitivities around of \SI{6}{\kelvin}. These values are not substantially larger than those found in a number of CMIP6 \parencite{Zelinka2020}.
 This raises the possibility that when performing coupled climate-carbon simulation some of these models may not be able to simulate a stable pre-industrial
 period. Furthermore those models which have low enough climate sensitivity to be on the `correct' side of the bifurcation may still have unrealistic levels of \ce{CO2} variability
 due to the phenomenon of critical slowing down. As climate models increase the complexity of their carbon cycle representations by including, for example,
@@ -120,7 +114,7 @@ nutrient limitation, the magnitude of the \ce{CO2} fertilisation effect may decr
 The analysis in \cref{chapter:conceptual_carbon_cycle} ignored certain effects. It ignored the climate effect on net primary productivity, which is likely to weaken it
 in the tropics where temperatures exceed the optimum temperatures for photosynthesis and strengthen it in the high latitudes where temperatures are currently
 below optimum \parencite{Sage2007}.
-However, this effect is small relative to the effect of \ce{CO2} fertilisation \parencite{Arora2020}.
+However, this effect is small relative to the effect of \ce{CO2} fertilisation in most models \parencite{Arora2020}.
 It also made the same assumptions about the instantaneous temperature equilibration to atmospheric \ce{CO2} as was made in \cref{chapter:global_bomb}.
 Whilst this may effect the behaviour of the carbon cycle beyond the bifurcation point where \ce{CO2} is varying significantly;
 it is unlikely to effect the position of the bifurcation much as \ce{CO2} levels are constant before the bifurcation and thus the equilibrium assumption is more reasonable.
@@ -183,7 +177,7 @@ conventional early warning signals. Additionally, it assumes a single noise sour
 \Cref{chapter:rosa} set out to investigate the role of temporal correlations play in early warning signals. It was able to demonstrate the importance of uncorrelated noise
 for conventional early warning signals. Furthermore it was able to offer a way to avoid these problems, even in the case where the noise was non-stationary.
 Whilst in some situations it may not be possible to use the method developed in \cref{chapter:rosa}, its usefulness was demonstrated in the case of Amazon dieback
-where the method did perform well.
+where the method did perform well. A paper based on this chapter has been published as~\cite{Clarke2023}.
 
 
 \section{Outlook}
