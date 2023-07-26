@@ -166,20 +166,26 @@ where $T$ and $S$ are (dimensionless) equator to pole temperature and salinity d
 The flux $\Psi = T - S$ is the strength of the AMOC\@. The parameters $\eta_1,\eta_2,\eta_3$ represent
 thermal forcing, freshwater forcing and the ratio of their timescales respectively.
 
+\Cref{fig:stommel_amoc} shows the equilibria of \cref{eq:stommel_amoc} as well the solution to \cref{eq:stommel_amoc} for the case where $\eta_2$ slowly increases to a maximum and then slowly
+decreases again following a parabolic trajectory.
 As $\eta_2$ is increased the strength of the AMOC decreases until it reaches a saddle-node bifurcation point
-at $\eta_2^*  \approx 1.2$ where the AMOC abruptly transitions to a weaker state with flow in the opposite direction,
-this is shown in \cref{fig:stommel_amoc}.\todo{redo this figure!} Near the bifurcation point, the flux behaves like $\Psi \sim \sqrt{\eta_2^*-\eta_2}$,
-which reflects the normal form \cref{eq:saddle_node}. If $\eta_2$ were to be decreased with the AMOC in the other state, $\eta_2$ would have to be decreased below
-$\eta_2^*$ to the lower value $0.9$ to transition back into its original state.
+at $\eta_2^*  \approx 1.2$ where the AMOC abruptly transitions to a weaker state with flow in the opposite direction.
+Near the bifurcation point, the flux behaves like $\Psi \sim \sqrt{\eta_2^*-\eta_2}$,
+which reflects the normal form \cref{eq:saddle_node}. Note that when $\eta_2$ is decreased, it must be brought down to the lower value of $0.9$ to transition back into its original state.
+This is known as hysteresis.
 
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{stommel}
-  \caption[The Stommel Model of the AMOC]{The equilibrium states of the Stommel model, \cref{eq:stommel_amoc}, as a function of $\eta_2$. The stable states are given in solid lines,
-    the unstable are given as a dashed line. As $\eta_2$ is increased, the AMOC transitions from a strong poleward flow to a weaker equatorward state. Note that near the
+  \caption[The Stommel Model of the AMOC]{This shows the state of the Stommel model, \cref{eq:stommel_amoc}, as a function of the parameter $\eta_2$. 
+    The stable equilibrium states are given by solid black lines and the unstable states are given by the black dashed line.
+    The red line shows the instantaneous state of the AMOC for $\eta_2$ slowly increasing from $0.6$ to $1.4$. The blue line
+    shows the instantaneous state for $\eta_2$ decreasing from $1.4$ to $0.6$.
+    As $\eta_2$ is increased, the AMOC transitions from a strong poleward flow to a weaker equatorward state. Note that near the
     bifurcation point around $\eta_2 \approx 1.2$ the stable states seem to behave like the square root of the control parameter. This reflects the normal form of
-    the bifurcation. The parameters were set to $\eta_1 = 3,\eta_3=0.3$.}
+    the bifurcation. Note that when $\eta_2$ is decreased the transition back to the poleward flow state happens at a lower value
+    of $\eta_2$ --- this is an example of hysterisis. The other parameters were set to $\eta_1 = 3,\eta_3=0.3$.}
   \label{fig:stommel_amoc}
 \end{figure}
 \subsection{N-tipping}
@@ -598,8 +604,8 @@ rather than a state variable which describes the ice sheet itself. However, the 
 which would suggest the ice sheet is approaching a tipping point.
 
 Later that year, another paper \parencite{Boers2021a}, was published suggesting the AMOC was approaching a tipping point due to increases in autocorrelation and variance.
-Other work \parencite{Ditlevsen2022arxiv} went as far
-as to suggest that most likely year for the AMOC to tip is 2067. Although the dynamics of the AMOC are faster than that of the ice sheets \parencite{ArmstrongMcKay2022}, it is still not clear if
+Other work \parencite{Ditlevsen2023} went as far
+as to suggest that most likely year for the AMOC to tip is 2057. Although the dynamics of the AMOC are faster than that of the ice sheets \parencite{ArmstrongMcKay2022}, it is still not clear if
 inequality~\ref{eq:timescale_separation} is satisfied but early warning signals have been used in complex models to detect AMOC shut-down \parencite{Boulton2014}.
 Furthermore, the analysis was not based on the AMOC strength directly but on `fingerprints' derived from sea surface temperature and salinity data.
 
