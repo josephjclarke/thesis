@@ -5,8 +5,8 @@
 In \cref{chapter:continuous_compost_bomb}, I introduced a vertical dimension into a model of the compost bomb. It was shown that this doesn't
 suppress the compost bomb. That analysis was local ---  the modelling was done at a single point on the Earth's surface. It would be interesting to see
 what a globally-averaged model that included biogeochemical heating would predict. Work by~\cite{Cox2006} suggested that the terrestrial carbon cycle is stable
-only for certain parameter ranges. I will begin by investigating what effect biogeochemical heating has on this.
-
+only for certain parameter ranges. 
+In this chapter, I will explore the impact that biochemical heating has on the stability of the global climate-carbon cycle system
 \section{Compost Bomb Bifurcation Analysis}
 
 \subsection{Dynamical Equations}
@@ -319,107 +319,9 @@ where $\Delta z$ is a soil thickness and $\lambda$ is the conductivity. Taking $
 values of NPP and so this biogeochemical heating effect must be small at the global scale. However, it should be noted that $\kappa$ can be smaller in, for example, well insulated mossy soils
 and as such the biogeochemical heating may still be significant regionally.
 
-
-\section{Rate Dependence and Transient Behaviour}
-Given that the compost bomb equations can demonstrate rate dependent tipping, it would be interesting to see how this manifests itself when subjected to increasing \ce{CO2} levels
-when a global carbon cycle feedback is included. In order to do this, \cref{eq:compost_bomb_soil_temperature} can no longer be set to zero. Additionally, \cref{eq:simple_ocean}
-must now include a time dependent term representing cumulative anthropogenic emissions. This would also enable investigations of the effect of biogeochemical heating on anthropogenic emissions.
-
-Important parameters have been introduced to analyse \cref{eq:compost_bomb_equations}, namely $\mu$ and $\Pi_c$. This motivates rewriting \cref{eq:compost_bomb_equations,eq:simple_ocean}
-in terms of these new parameters, giving
-\begin{subequations}
-  \label{eq:compost_bomb_equations_scaled}
-  \begin{align}
-    \tau\dv{\theta}{t} &= -\left(\theta - \mu \log \frac{C_a}{C_{a0}}\right) + \frac{C_s}{C_s^{\mathrm{eq}}} \frac{\Pi_0}{\Pi_c} e^{-\frac{\Pi_0}{\Pi_c}} e^{\theta} \\
-    \dv{C_s}{t}      &= \Pi(C_a) - \frac{C_s}{C_s^{\mathrm{eq}}} \Pi_0 e^{-\frac{\Pi_0}{\Pi_c}} e^{\theta} \\
-    C_a           &= C_{a0} - \frac{C_s - C_s^{\mathrm{eq}}}{1+\chi_0} + \frac{rt}{1+\chi_0}
-  \end{align}
-\end{subequations}
-where $\theta = \alpha T_s$ and $\tau = c/\kappa$. Cumulative anthropogenic emissions have been included here and are set to be linear in time with a rate $r$.
-The value of $\tau$ is set to \SI{0.4}{\days}, following~\cite{Luke2011}.
-
-\subsection{R-Tipping}
-
-To investigate the ability to undergo R-tipping, \cref{eq:compost_bomb_equations_scaled} were solved, with initial conditions representing an equilibrium state
-for a range of values of $\mu,\Pi_c,C_{1/2}$ and $r$. The range of $\mu$ was \SIrange{0.1}{1.2}{}, the range of $C_{1/2}$ was \SIrange{0.0}{1000.0}{\ppm} and
-the range of $\Pi_c$ was \SIrange{100}{10000}{\peta\gram\carbon\per\year}. The equations were solved over a time interval of \SI{250}{\year} and R-tipping was deemed to occur when
-the non dimensional soil temperature, $\theta$ exceeded the non dimensional air temperature, $S \log\left(C_a/C_{10}\right)$ by $1.5$, which in dimensional units
-corresponds to the soil temperature exceeding the air temperature by around \SI{20}{\kelvin}. The critical rate was found by a bisection method and plotted
-in \cref{fig:global_bomb_critical_rates}.
-
-\begin{figure}
-  \centering
-  \subfloat[\centering A cross section at $C_{1/2} = \SI{280}{\ppm}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_pic}\label{fig:mu_pic}}
-  
-  \subfloat[\centering A cross section at $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_mu_ca05}\label{fig:mu_ca05}}
-  
-  \subfloat[\centering A cross section at $\mu = 0.5$]{\includegraphics[scale=0.6,keepaspectratio]{global_bomb_rates_pic_ca05}\label{fig:pic_ca05}}
-  \caption[Critical rates for a global compost bomb]{The critical rates of anthropogenic emissions, in \SI{}{\peta\gram\carbon\per\year} required to trigger a
-    compost bomb. Each panel shows a different plane in
-    $(\mu,\Pi_c,C_{1/2})$ space. \Cref{fig:mu_pic} shows the $(\mu,\Pi_c)$ plane, \cref{fig:mu_ca05} shows the $(\mu,\Pi_c)$ plane and \cref{fig:pic_ca05} shows the
-    $(\Pi_c,C_{1/2})$ plane. In each case the hatched region shows the region of parameter space where no stable state exists.}\label{fig:global_bomb_critical_rates}
-\end{figure}
-
-The first thing to note about \cref{fig:global_bomb_critical_rates} is that the critical rates are very large except when $\Pi_c$ is very small. Given anthropogenic emissions
-are $\mathcal{O}(\SI{10}{\peta\gram\carbon\per\year})$ \parencite{Friedlingstein2022} this analysis suggests therefore that humanity is unlikely to trigger a compost bomb at the global scale.
-
-Of more interest is the dependence on parameters. The strongest control is the amount of biogeochemical heating with the critical rates increasing strongly with $\Pi_c$.
-Also important is the climate-carbon system sensitivity, $\mu$, larger $\mu$ values imply lower critical rates. Finally, the level of \ce{CO2} fertilisation, $C_{1/2}$ plays a weaker role,
-with higher levels of \ce{CO2} fertilisation leading to smaller critical rates.
-
-
-\subsection{The Effect of Biogeochemical Heating on Atmospheric \ce{CO2}}
-To investigate the contribution of biogeochemical heating to global warming, it is necessary to determine how much carbon reaches the atmosphere compared to the case where there is no
-biogeochemical heating. In order to do this, \cref{eq:compost_bomb_equations_scaled} were integrated for 100 years with $r = \SI{10.0}{\peta\gram\carbon\per\year}$, which approximately
-corresponds to recent emission rates.
-
-These integrations where performed for a range of parameter values. The ranges were the same as in the R-tipping experiment.
-The results were then compared to simulations with $\Pi_c = \infty$, the no biogeochemical heating case and the difference
-in atmospheric \ce{CO2} between the two cases were calculated.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,keepaspectratio]{extra_co2_due_to_bgc}
-  \caption[The effect of biogeochemical heating on atmospheric \ce{CO2}]{The difference, in $\SI{}{\peta\gram\carbon\per\year}$, between atmospheric \ce{CO2} in a simulation
-    with biogeochemical heating and without biogeochemical heating. The hatched regions show the unstable region of parameter space as determined
-    by \cref{eq:critical_mu_simple_ocean_in_terms_of_npp}. The value of $C_{1/2}$ here is \SI{280}{\ppm}.}
-  \label{fig:biogeochem_atmos}
-\end{figure}
-
-The case when $C_{1/2} = \SI{280}{\ppm}$ is shown as a contour plot in \cref{fig:biogeochem_atmos}. It shows that as the role of biogeochemical heating is increased (corresponding to decreasing
-$\Pi_c$) more \ce{CO2} accumulates in the atmosphere. It also shows that as $\mu$ is increased, corresponding to increasing climate sensitivity or increasing $Q_{10}$, initially the amount of extra
-\ce{CO2} increases, but beyond a certain level of $\mu$ this amount decreases but remains positive.
-
-This can be explained as follows. For $\mu = 0$, ignoring \ce{CO2} fertilisation effects,
-both of the biogeochemical and non-biogeochemical cases will experience no changes in soil carbon and so should see little differences in the amount of $\ce{CO2}$ in the atmosphere. 
-When is very $\mu$ is large, both cases can lose essentially all the soil carbon leading to the same overall change in atmospheric carbon. It is therefore for intermediate $\mu$ values that biogeochemical
-heating makes the biggest difference to climate change.
-
-\begin{figure}
-  \centering
-  \subfloat[\centering $C_{1/2} = \SI{0}{\ppm}$]{{\includegraphics[width=0.5\textwidth,keepaspectratio]{extra_co2_due_to_bgc_no_fert}}\label{fig:no_co2_fert}}
-  \subfloat[\centering $C_{1/2} = \SI{1000}{\ppm}$]{{\includegraphics[width=0.5\textwidth,keepaspectratio]{extra_co2_due_to_bgc_with_fert}}\label{fig:with_co2_fert}}
-  \caption[The role of \ce{CO2} fertilisation in the effect of biogeochemical heating on atmospheric \ce{CO2}]{\Cref{fig:no_co2_fert} shows a similar parameter
-    plane to \cref{fig:biogeochem_atmos}, except the \ce{CO2} fertilisation effect has been turned off. \Cref{fig:with_co2_fert} shows
-    the case with a strong \ce{CO2} fertilisation effect. The hatched region again shows regions of the parameter plane where there is no stable state.}
-  \label{fig:biogeochem_co2_fert}
-\end{figure}
-
-\Cref{fig:biogeochem_co2_fert} helps illustrate the role the \ce{CO2} fertilisation effect plays in this extra amount of \ce{CO2} that reaches the atmosphere due to biogeochemical heating.
-Both panels show a similar qualitative behaviour to \cref{fig:biogeochem_atmos}. However the magnitude is different. In particular the stronger the \ce{CO2} fertilisation effect, the bigger a
-difference biogeochemical heating makes to climate change. This is because a stronger \ce{CO2} fertilisation effect leads to a larger input of carbon to the soil and thus a larger amount
-of soil respiration which through biogeochemical heating leads to even more respiration and thus a larger amount of atmospheric \ce{CO2}.
-
-For a $\mu$ vale of around $0.5$, and $\Pi_c = \SI{8000}{\peta\gram\carbon\per\year}$, then biogeochemical heating contributes somewhere between $\SIrange{3}{4}{\peta\gram\carbon}$
-to climate change over this 100 year period, assuming $C_{1/2} = \SI{280}{\ppm}$. 
 \section{Conclusions}
 In this chapter, I have investigated the role of biogeochemical heating at the global scale. I have shown how the terrestrial carbon cycle is only stable
 for a certain parameter range, and that biochemical heating reduces the maximum carbon-climate system sensitivity compatible with a stable carbon cycle.
-I also calculated critical \ce{CO2} emission rates that would lead to a global scale compost bomb.
-For realistic amounts of biogeochemical heating, the effects at the global scale are small and the critical emission rates very large.
-
-I determined the extra carbon emissions caused by biogeochemical heating and again found them small. However, an interesting result is that the extra emissions
-are largest for intermediate, and more plausible, values of $\mu$. Furthermore, the \ce{CO2} fertilisation effect was found to make emissions stemming from biogeochemical heating
-larger. This contrasts with the `usual' role of \ce{CO2} fertilisation, which is to act as a negative feedback on climate change.
 
 There are a number of deficiencies with this modelling approach. Firstly, the representation of the ocean is very simple and does not capture any dynamic features of the ocean carbon
 cycle. This is an issue taken up in \cref{chapter:conceptual_carbon_cycle}. Furthermore, this chapter only looks at the compost bomb at the global scale, whereas it is
