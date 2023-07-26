@@ -12,6 +12,7 @@
 \usepackage{microtype}
 \usepackage{enumerate}
 \usepackage{setspace}
+\usepackage[twoside]{fancyhdr}
 
 % bibliography
 \usepackage[backend=biber,style=authoryear-comp,maxbibnames=99,uniquename=false,url=false,giveninits=true,uniquelist=false,sorting=ynt]{biblatex}
@@ -38,7 +39,6 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{subfig}
-
 
 % tables
 \usepackage{booktabs}
@@ -99,3 +99,13 @@
 %\usetikzlibrary{external}
 %\tikzexternalize[prefix=externalisedfigs/]
 
+% Headers and Footers
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+% even = left
+% odd  = right
+\fancyhead[LE]{\textsc{\nouppercase{\rightmark}}} % Section title
+\fancyhead[RO]{\textsc{\nouppercase{\leftmark}}} % Chapter title
+\fancyhead[C,LO,RE]{}
+\fancyfoot[L,R]{}
+\fancyfoot[C]{\thepage}
