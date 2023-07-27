@@ -111,4 +111,7 @@
 \fancyfoot[C]{\thepage}
 
 % Contents Page
-\renewcommand\@pnumwidth{1.8em} % So 3 digit numbers don't give overfull hbox 
+\renewcommand\@pnumwidth{1.8em} % So 3 digit numbers don't give overfull hbox
+
+% add symbol to glossary
+\newcommand{\addsymbol}[3]{\newglossaryentry{#1}{name={\ensuremath{#2}},description={#3}}}%,sort={#4}}}
