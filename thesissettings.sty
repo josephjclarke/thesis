@@ -13,6 +13,7 @@
 \usepackage{enumerate}
 \usepackage{setspace}
 \usepackage[twoside]{fancyhdr}
+\usepackage{tocbibind}
 
 % bibliography
 \usepackage[backend=biber,style=authoryear-comp,maxbibnames=99,uniquename=false,url=false,giveninits=true,uniquelist=false,sorting=ynt]{biblatex}
@@ -77,7 +78,7 @@
 \usepackage{setspace}
 \onehalfspacing
 % Need to number pages from 1 from title page
-
+\def\pagenumbering#1{}
 
 % Mathematical Operators
 \DeclareMathOperator*{\E}{\mathbb{E}}
@@ -122,3 +123,4 @@
 
 % add symbol to glossary
 \newcommand{\addsymbol}[3]{\newglossaryentry{#1}{name={\ensuremath{#2}},description={#3}}}%,sort={#4}}}
+

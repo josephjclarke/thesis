@@ -75,7 +75,7 @@ where $f_0=0.014819,f_1 = 0.70367,f_2=0.24966,f_3=0.066485,f_4 = 0.038344,f_5=0.
 years. The carbon flux is given by
 \begin{equation}
   \label{eq:imogen_ocean_atmosphere_flux}
-  F(t) = k \left(\Delta C_a - \Delta C_o\right)
+  F_a(t) = k \left(\Delta C_a - \Delta C_o\right)
 \end{equation}
 where $\Delta C_a$ and $\Delta C_o$ are the perturbations in atmospheric and ocean carbon. To take into account ocean temperature feedbacks on the ocean carbon cycle $\Delta C_o$ and
 $\delta \Sigma \ce{CO2}$ are related by
@@ -181,7 +181,7 @@ Putting this all together leads to the following set of coupled differential equ
 The function $I$ represents the IMOGEN model, $\Delta T_o$ is the change in ocean temperature which is related to the change in land temperature by the
 factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation, so both parameters will affect the bifurcation point.
 
-Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_{s0} = \Pi(C_{a0})/r_0$, $C_o = 0$, $\Delta T_o = 0$, corresponding to the pre-industrial equilibrium, which has been
+Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_s^{\mathrm{eq}} = \Pi(C_{a0})/r_0$, $C_o = 0$, $\Delta T_o = 0$, corresponding to the pre-industrial equilibrium, which has been
 experienced only small variations over the (pre-industrial) Holocene.
 
 \subsection{Bifurcations in IMOGEN}
@@ -268,7 +268,7 @@ The one box model can be written symbolically through the following set of ODEs
 \end{align}
 \end{subequations}
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
-$C_a = C_{a0}$, $C_o = 0$ and $C_s = C_{s0}$.
+$C_a = C_{a0}$, $C_o = 0$ and $C_s = C_s^{\mathrm{eq}}$.
 
 \subsection{Stability of One Box}
 As shown in \cref{sec:btipping}, a fixed point of a system is unstable when the Jacobian, $J$, of that system evaluated at the fixed point has an eigenvalue, $\gamma$, with a positive real part.
@@ -277,8 +277,8 @@ The Jacobian of \cref{eq:one_box_ocean} is given by
   \label{eq:jacobian_of_one_box}
     J = 
     \begin{pmatrix}
-    r_0 \left( \mu \frac{C_{s0}}{C_{a0}} - 1\right) - \Pi'(C_{a0}) & 
-    \mu \frac{C_{s0}}{C_{a0}} - \Pi'(C_{a0}) \\
+    r_0 \left( \mu \frac{C_s^{\mathrm{eq}}}{C_{a0}} - 1\right) - \Pi'(C_{a0}) & 
+    \mu \frac{C_s^{\mathrm{eq}}}{C_{a0}} - \Pi'(C_{a0}) \\
     -k & -k - \frac{1}{\tau}
     \end{pmatrix}
   \end{equation}
@@ -306,17 +306,17 @@ and
   \label{eq:discriminant_from_one_box}
   D = \left(k \tau  C_{a0} +\Pi'\tau  C_{a0}+r_0 \tau  C_{a0}+C_{a0}-\mu  \Pi_0 \tau \right)^2-4 \left(k r_0 \tau ^2 C_{a0}^2+\Pi' \tau  C_{a0}^2-\mu  \Pi_0 \tau  C_{a0} +r_0 \tau  C_{a0}^2\right)
 \end{equation}
-is the discriminant and the substitution $\Pi_0 = r_0 C_{s0}$ has been made.
+is the discriminant and the substitution $\Pi_0 = r_0 C_s^{\mathrm{eq}}$ has been made.
 
 The stability of this system is governed by $\Re \gamma$. This number is controlled by the sign of $D$. If $D > 0$, then $\gamma$ is purely real, but if $D < 0$, then
 $\Re \gamma = B / 2\tau C_{a0}$. 
 
 \subsection{Real Eigenvalues}
-If $\tau < 1/r_0$ then $D > 0$ for all values of $\mu$. As $1/r_0 = C_{s0}/\Pi_0 \approx \SI{30}{\year}$ this situation represents a relatively fast ocean response.
+If $\tau < 1/r_0$ then $D > 0$ for all values of $\mu$. As $1/r_0 = C_s^{\mathrm{eq}}/\Pi_0 \approx \SI{30}{\year}$ this situation represents a relatively fast ocean response.
 Under this assumption, it turns out that $\gamma_+ > 0$ when
 \begin{equation}
   \label{eq:instability_condition_one_box_fast}
-  \mu^* = \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau.
+  \mu^* = \frac{C_{a0}}{C_s^{\mathrm{eq}}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_s^{\mathrm{eq}}} k\tau.
 \end{equation}
 It is interesting to compare this to the condition given in \cref{eq:mu_infinity}. If the parameter $\chi_0$ is introduced, as by~\cite{Cox2006}, and set to $\chi_0 = k \tau$.
 then \cref{eq:instability_condition_one_box_fast} is identical to \cref{eq:mu_infinity}. This gives an interpretation to $\chi_0$ as the ratio of the timescale of the ocean carbon flux
@@ -341,7 +341,7 @@ the stability of the system is given by the sign of $B$.
 The value of $B$ will become positive when $\mu$ exceeds the following threshold:
 \begin{equation}
   \label{eq:instability_condition_one_box_slow}
-  \mu^* =\frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} k\tau\left(
+  \mu^* =\frac{C_{a0}}{C_s^{\mathrm{eq}}} + \frac{C_{a0}}{\Pi_0} \dv{\Pi}{C_a} + \frac{C_{a0}}{C_s^{\mathrm{eq}}} k\tau\left(
      1 + \frac{1}{k\tau}
   \right) \frac{1}{r_0\tau}
 \end{equation}
@@ -383,7 +383,7 @@ This leads to the following system of equations:
     C_a &= \mathcal{C} - C_s - C_1 - C_2.
   \end{align}
 \end{subequations}
-Again note the equilibrium at $C_a = C_{a0}$,$C_s = C_{s0}$ and $C_1 = C_2 = 0$. To determine the stability of this state the eigenvalues of the Jacobian
+Again note the equilibrium at $C_a = C_{a0}$,$C_s = C_s^{\mathrm{eq}}$ and $C_1 = C_2 = 0$. To determine the stability of this state the eigenvalues of the Jacobian
 of \cref{eq:two_box_ocean} must be computed, which involves finding the roots of a cubic characteristic polynomial.
 Whilst this is possible in principle it is analytically very challenging.
 
@@ -400,7 +400,7 @@ separation, over short timescales the slow box can be ignored and so it will beh
 is a value of $\mu$ which leads to an instability. This instability leads to a high atmospheric carbon state, but the ultimate fate of this carbon will depend on the long-time response of the oceans, in other
 words on the slow box. Over these longer timescales the system can be treated as a one box model with the ocean box corresponding to the slow box.
 Over these long timescales the slow ocean box will absorb the excess carbon from the atmosphere which will tend to cool the globe. As a result
-the soil can once again become a sink of carbon. However eventually the soil will contain an amount $C_{s0}$ of soil carbon, but it has already been argued that this state is unstable
+the soil can once again become a sink of carbon. However eventually the soil will contain an amount $C_s^{\mathrm{eq}}$ of soil carbon, but it has already been argued that this state is unstable
 and so the cycle will start again.
 
 \subsection{Computation of Bifurcation Point}
@@ -458,8 +458,8 @@ Performing this analysis gives
 or
 \begin{align}
   \label{eq:mu_zero_one_cases}
-  \mu_+^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}} \left(\frac{k}{r_0} + \frac{\tau^{-1}}{r_0}\right) \\
-  \mu_-^* &= \frac{C_{a0}}{C_{s0}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_{s0}}k\tau 
+  \mu_+^* &= \frac{C_{a0}}{C_s^{\mathrm{eq}}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_s^{\mathrm{eq}}} \left(\frac{k}{r_0} + \frac{\tau^{-1}}{r_0}\right) \\
+  \mu_-^* &= \frac{C_{a0}}{C_s^{\mathrm{eq}}} + \frac{C_{a0}}{\Pi_0}\dv{\Pi}{C_a} + \frac{C_{a0}}{C_s^{\mathrm{eq}}}k\tau 
 \end{align}
 which does indeed correspond to the conditions (\cref{eq:instability_condition_one_box_fast,eq:instability_condition_one_box_slow}) derived for the one box case.
 

@@ -52,14 +52,14 @@ The solution to \cref{eq:linearised_equation} is
   \bm{y} = e^{tJ}\bm{y}(0).
 \end{equation}
 Suppose $J$ has $n$ linearly independent eigenvectors (although similar conclusions will hold if it does not \parencite{guckenheimer2013}).
-Let the eigenvectors be $\{\bm{v}_i\}$ and the eigenvalues $\{\lambda_i\}$ then \cref{eq:solution_to_linearised_equation} can be written as
+Let the set of eigenvectors be $\{\bm{v}_i\}$ and the set of eigenvalues $\{\lambda_i\}$ then \cref{eq:solution_to_linearised_equation} can be written as
 \begin{equation}
   \label{eq:solution_to_linearised_equation_eigen}
   \bm{y} = \sum_i c_i e^{t\lambda_i}\bm{v}_i
 \end{equation}
 where $\{c_i\}$ are a set of constants chosen to match the initial conditions. It can be seen then that the long-time behaviour of $\bm{y}$ is
 $\bm{y} \sim c_1 e^{t\lambda_1} \bm{v}_1$ where $\lambda_1$ is the eigenvalue with largest real part. If this is positive, then $\bm{y}$ will leave the vicinity of $\bm{x}^*$, whereas
-if it is negative $\bm{y}$ will approach $\bm{x}^*$. Suppose $\bm{x}^*$ is a hyperbolic fixed point, which means that $J$ has no eigenvalues with zero real part. Then the Hartman-Grobman theorem
+if it is negative $\bm{y}$ will approach $\bm{x}^*$. Suppose $\bm{x}^*$ is a hyperbolic fixed point, which means that $J$ has no eigenvalues with zero real part. Then the Hartman-Grobman Theorem
 \parencite{Grobman1959,Hartman1960,Hartman1963} guarantees that the trajectories of $\bm{y}$ will be topologically conjugate --- that is to say qualitatively the same --- in some
 neighbourhood of $\bm{x}^*$ to the trajectories of $\bm{x}$.  This means that $\bm{x}^*$ is linearly stable only when $J$ has eigenvalues with only negative real parts.
 The directions $\bm{v}_k$ with $\Re \lambda_k < 0$ are known as stable directions (as the flow is attracted to the fixed point along these directions),
@@ -77,7 +77,7 @@ Consider a modification to \cref{eq:generic_system} where a control parameter $\
 The fixed points are described by $\bm{f}_{\mu}(\bm{x}^*) = 0$. By the Implicit Function Theorem \parencite{Spivak1965}, $\bm{x}^*$ is a smooth
 function of $\mu$ except at points where $J$ has a zero eigenvalue, these points in $(\bm{x},\mu)$ space are known as bifurcation points.
 Other bifurcation points can occur when a stable fixed point becomes unstable (or vice versa). In both cases an eigenvalue of $J$ must cross the imaginary
-axis, i.e.\ have zero real part \parencite{guckenheimer2013}. As a result of this, the Hartman-Grobman theorem is not applicable and so a non-linear analysis must be undertaken.
+axis, i.e.\ have zero real part \parencite{guckenheimer2013}. As a result of this, the Hartman-Grobman Theorem is not applicable and so a non-linear analysis must be undertaken.
 
 Fortunately, there are techniques to deal with this, using the Centre Manifold Theorem \parencite{Morris1977}, which can be stated loosely as
 \begin{theorem}[Centre Manifold Theorem]
@@ -112,14 +112,14 @@ with $\bm{z} = h(\bm{w})$, so that on the centre manifold
   \label{eq:dynamics_on_the_centre_manifold}
   \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
 \end{equation}
-The next step is to make \cref{eq:dynamics_on_the_centre_manifold} as simple as possible. By the Hartman-Grobman theorem, \cref{eq:dynamics_on_the_centre_manifold}
+The next step is to make \cref{eq:dynamics_on_the_centre_manifold} as simple as possible. By the Hartman-Grobman Theorem, \cref{eq:dynamics_on_the_centre_manifold}
 cannot be linearised. However the next most simplest approach is to use normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
 
 Consider again \cref{eq:generic_system_control_parameter}, but now enlarge the state space to $\mathbb{R}^{n+1}$ by viewing $\mu$ as a dynamic variable with $\dot{\mu} = 0$. Suppose
 further, without loss of generality, that there is a bifurcation point at $(\bm{x},\mu)  = (\bm{0},0)$ where $J$ has a simple zero eigenvalue.
 Then using \cref{thm:centre_manifold_theorem} a centre manifold passing through
 $(\bm{0},0)$ can be found. If the trajectories are restricted to the centre manifold and certain transversality conditions are met ($\partial_{\mu}f \neq 0,\partial_{xx} f\neq 0$ at the
-bifurcation point) the the trajectories will be topologically equivalent \parencite{guckenheimer2013} to
+bifurcation point) the trajectories will be topologically equivalent \parencite{guckenheimer2013} to
 \begin{equation}
   \label{eq:saddle_node}
   \dv{x}{t}  = \mu + x^2.
@@ -152,7 +152,7 @@ can occur only in systems of dimension two or higher. The normal form of this bi
   \dv{z}{t} = (\mu + i) z - z|z|^2.
 \end{equation}
 
-\subsubsection{Example}
+\subsubsection{Stommel's AMOC Model}
 As an example of B-tipping, consider Stommel's AMOC model \parencite{STOMMEL1961}, which after a rescaling \parencite{Dijkstra2011} can be written as:
 \begin{subequations}
   \label{eq:stommel_amoc}
@@ -203,14 +203,14 @@ Stochastic differential equations can be written \parencite{Jacobs2010} as
   \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t).
 \end{equation}
 The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
-$\bm{\eta}(t) = \dv*{\bm{W}}{t}$ is the derivative of the Weiner process and is the source of the stochasticity.
+$\bm{\eta}(t) = \dv*{\bm{W}}{t}$ is known as white noise and is the derivative of the Wiener process. It is the source of the stochasticity.
 It has mean zero and is `delta correlated' in time, by which is meant
 \begin{equation}
   \label{eq:eta_correlation}
   \E\left(\bm{\eta}_i(t)\bm{\eta}_j(t')\right) = \delta_{ij}\delta(t-t')
 \end{equation}
 where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function. This notation is somewhat misleading as it suggests that all the functions involves are
-differentiable, however realisations of the Weiner process are almost surely not differentiable \parencite{Mckean2014}. More rigorously, \cref{eq:general_sde} should be written as
+differentiable, however realisations of the Wiener process are almost surely not differentiable \parencite{Mckean2014}. More rigorously, \cref{eq:general_sde} should be written as
 \begin{equation}
   \label{eq:general_sde_maths}
   \dd{\bm{x}_t} = \bm{F}(\bm{x}_t)\dd{t} + G(\bm{x}_t)\dd{\bm{W}_t}
@@ -226,7 +226,7 @@ Viewing individual solutions of \cref{eq:general_sde}, or sample paths, is one a
 \end{equation}
 where $D = GG^T/2$.
 
-\subsection{Kramer's Escape Rate}
+\subsubsection{Kramer's Escape Rate}
 Often a very simple one-dimensional model is used in studies of N-tipping
 \begin{equation}
   \label{eq:simple_sde}
@@ -287,9 +287,9 @@ a constant. This constant can be chosen to be the value of $J$ at $x_{min}$, giv
 The probability of finding the system near $x_{min}$ is therefore
 \begin{equation}
   \label{eq:p_near_xmin}
-  \mathbb{P} = \int_{x_1}^{x_2} p_{eq}(x) \dd{x} = p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} \int_{x_1}^{x_2} e^{-\frac{2U(x)}{\sigma^2}} \dd{x}.
+  P = \int_{x_1}^{x_2} p_{eq}(x) \dd{x} = p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} \int_{x_1}^{x_2} e^{-\frac{2U(x)}{\sigma^2}} \dd{x}.
 \end{equation}
-The escape rate is $r = J/\mathbb{P}$ which becomes
+The escape rate is $r = J/P$ which becomes
 \begin{equation}
   \label{eq:escape_rate_integrals}
   r^{-1} = \frac{2}{\sigma^2} \int_{x_1}^{x_2} e^{-\frac{2U(x)}{\sigma^2}} \dd{x} \int_{x_{min}}^{x_3} e^{-\frac{2U(x)}{\sigma^2}} \dd{x}.
@@ -367,7 +367,7 @@ in \cref{fig:rate_tipping}.
 If $r < 4$, then $x_-^{\mathrm{PB}}$ exists and so solutions evolve towards it. However if $r > 4$ then $x_-^{\mathrm{PB}}$ does not exist and so solutions diverge to infinity. As a result there
 is a critical rate, $r_c = 4$, above which R-tipping occurs.
 
-\subsubsection{Example}
+\subsubsection{The Compost Bomb}
 The paradigmatic example of R-tipping is the Compost Bomb instability \parencite{Luke2011,Wieczorek2011,Clarke2021,OSullivan2023}, which is a thermal
 instability in the soil. This phenomenon is caused by microbial respiration warming the soil, which in turn increases the soil temperature. However, this respiration decreases the supply
 of soil carbon and thus decreases the amount of respiration and thus heating in the soil. Due to the differences between the (rapid) timescale of heating and the (slow) timescale of soil
@@ -413,7 +413,7 @@ If the system is the potential system \cref{eq:simple_sde}, then this is equal i
 \cref{eq:kramers}, which is a function of the difference in potential $U(x_{max}) - U(x_{min})$. In other words, S-tipping depends on the distance to the potential barrier, but N-tipping depends on
 the height of that barrier.
 
-\subsubsection{Example}
+\subsubsection{Allee Effect}
 Consider a population growing via logistic growth with carrying capacity $k$ that is subject to the Allee Effect \parencite{Allee1932,Stephens1999}, which is an effect that reduces
 growth rates at low population densities. A simple model of this is
 \begin{equation}
