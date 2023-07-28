@@ -427,18 +427,21 @@ oscillatory solutions and thus is not consistent with the assumption that there 
 The condition $a_1a_2=a_3$  can now be solved for $\mu$. Doing this gives two solutions.
 \begin{equation}
   \label{eq:mu_two_box}
-  \begin{split}
-  \mu^* = &\frac{C_{a0}}{2 \Pi_0 \tau  (1+\epsilon)}
-  \Biggl(
-  -f k \tau  (1-\epsilon)+r_0 \tau  (2 + k \tau +2 \epsilon)+k \tau  (2+\epsilon)+(1+\epsilon) (1+2 \Pi' \tau +\epsilon)\\
-  &\pm\sqrt{\begin{split}
-    f^2 k^2 \tau ^2 (1-\epsilon)^2-&2 f k \tau  (1-\epsilon) \left(r_0 \tau  (k \tau +2 \epsilon +2)-k \tau  \epsilon -(1+\epsilon)^2\right)\\+
-    \left(1+k r_0 \tau ^2-k \tau  \epsilon -\epsilon ^2\right)^2
-  \end{split}}
-  \Biggr)
-  \end{split}.
+  \mu^* = \frac{C_{a0}}{2 \Pi_0 \tau  (1+\epsilon)} \left(M_1\pm\sqrt{M_2}\right),
 \end{equation}
-This equation is very unwieldy but in the case of a timescale separation where $\epsilon \ll 1$, a zeroth order approximation for \cref{eq:mu_two_box} can be derived. It is given by
+where
+\begin{equation}
+  \begin{split}
+    M_1 = -f k \tau  (1-\epsilon)+r_0 \tau  (2 + k \tau +2 \epsilon) + \\ k \tau  (2+\epsilon)+(1+\epsilon) (1+2 \Pi' \tau +\epsilon)
+\end{split}
+\end{equation}
+and
+\begin{dmath}
+  M_2 = f^2 k^2 \tau ^2 (1-\epsilon)^2-2 f k \tau  (1-\epsilon) \left(r_0 \tau  (k \tau +2 \epsilon +2)-k \tau  \epsilon -(1+\epsilon)^2\right) 
+  +\left(1+k r_0 \tau ^2-k \tau  \epsilon -\epsilon ^2\right)^2.
+\end{dmath}
+
+\Cref{eq:mu_two_box} is very unwieldy but in the case of a timescale separation where $\epsilon \ll 1$, a zeroth order approximation for \cref{eq:mu_two_box} can be derived. It is given by
 \begin{equation}
   \label{eq:mu_two_box_zero_eps}
   \begin{split}
