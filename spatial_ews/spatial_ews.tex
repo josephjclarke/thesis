@@ -255,7 +255,12 @@ or
   \label{eq:two_point_correlation_actual}
   G(x) = \frac{1}{2} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
 \end{equation}
-where $\xi = \sqrt{D/\lambda}$ is the correlation length. The variance is thus $G(0) = 1/\sqrt{4\lambda D}$, which diverges as the bifurcation is approached.
+where
+\begin{equation}
+  \label{eq:corr_len}
+  \xi = \sqrt{\frac{D}{\lambda}}
+\end{equation}
+is the correlation length. The variance is thus $G(0) = 1/\sqrt{4\lambda D}$, which diverges as the bifurcation is approached.
 \section{Statistics}
 The autocorrelation and variance of \cref{eq:spatial_system} will be compared when calculated over space and over time. These two different ways of calculating the statistics  will now
 be defined. A summary is given in \cref{tab:ews_space_time_definition}.
@@ -444,26 +449,36 @@ good temporal early warning signals can only be expected therefore when $\epsilo
 \subsection{Spatial Early Warning Signals}
 It was shown in \cref{sec:spatial_csd} that by recognising the connection between \cref{eq:spatial_system_y_variational} and Landau theory for phase transitions, the two point
 correlation function could be computed and the correlation length $\xi = \sqrt{D/\lambda}$ determined. In order to detect any spatial variability the system must be sampled over
-scales large compared to the correlation length, which means $L \gg \xi$.
+scales large compared to the correlation length, which means $\xi \ll L/2$. Half the domain length has been used because when $xi = L/2$ all points in the domain are one correlation
+length or less away from each other.
 
-The shortest correlation length occurs when $\lambda$ is largest, which occurs at $t = 0$ when $\lambda = 1$. Therefore in order to get good early
-warning signals in space it is therefore necessary that $D \ll L^2$ where $L$ is the size of the domain.
+Applying \cref{eq:corr_len} and assuming that $\lambda = \mathcal{O}(1)$, which is true at the start of the simulation, the condition for good spatial early warning signals becomes 
+\begin{equation}
+  \label{eq:scaling_corr}
+  D \ll \frac{L^2}{4}.
+\end{equation}
 
-If $\epsilon \neq 0$, then the correlation length will change dynamically. To estimate this change, note that $\dot{\xi} = -\frac{1}{2}\sqrt{D}\lambda^{-3/2} \dot{\lambda}$, so that at time $t$
-the value of $\xi \approx \sqrt{D} + \frac{1}{2}\sqrt{D}\lambda^{-3/2} \left|\dot{\lambda}\right|t$. Assuming that $\dot{\lambda} = \mathcal{O}(\epsilon)$ when $t=\mathcal{O}(1)$ then it might be expected
-that $\xi \approx \sqrt{D} + F \epsilon \sqrt{D}$, where $F$ is a constant, after a short interval of time. In order to get good early warning signals it should be required that $\xi$ does not reach the
-size of the domain too quickly so early warning signals should only be expected when $D \ll L^2 \left(1 + F \epsilon\right)^{-1}$.
 
-In order to view the dynamics as oscillations about equilibrium, it must be the case that the forcing timescale, $1/\epsilon$, is small compared to the timescale
-of the dynamics $\tau_k$. As $\tau_k$ is an increasing function of $k$, It is necessary that $\epsilon \tau_0 \ll 1$. If this is to hold at the start of the simulation where
-$\tau_0 = 1$, spatial early warning signals cannot be expected when $\epsilon = \mathcal{O}(1)$.
+\Cref{eq:linearised_spatial_D_modes} shows that the system responds to a fluctuation in mode $k$ of $z_k(0)$ by relaxing to equilibrium like $z_k(t) = \exp \left(-t/\tau_k\right)z_k(0)$.
+So for times long compared to $\tau_k$ the fluctuation dies away. As it is these fluctuations that will show critical slowing down, they cannot die away too fast or else no early warning signal will be
+seen. Therefore over a timescale $\mathcal{O}(\epsilon)$, $\exp\left(-t/\tau_k\right) \approx 1$ which requires $\epsilon \ll \tau_k$. Requiring that this holds for wavenumbers corresponding to the scale of the domain
+(which is when $\tau_k$ is largest) gives the requirement that
+\begin{equation}
+  \label{eq:scaling_eps}
+  \epsilon \ll \frac{1}{1 + \frac{16\pi^2D}{L}}
+\end{equation}
+where again it is assumed that $\lambda = \mathcal{O}(1)$ and $k$ corresponds to modes with wavelength equal to half the domain. \todo{check this}
 
 \subsection{Comparison With Numerical Experiments}
 \Cref{fig:parameter_plane} implies the critical $\epsilon$ above which temporal early warning signals fail is $\epsilon_c \approx 0.04$.
 Performing the computation $\epsilon_c^{1/3} = 0.34$ shows that this is indeed compatible with the theory which requires that $\epsilon^{1/3} \ll 1$.
-Also plotted in \cref{fig:parameter_plane} is the  line $D = L^2 \left(1 + F \epsilon\right)^{-1}$ with $F = 40$.
-This  line bounds the region where spatial early warning signals are reliable as long as $\epsilon$ is not too large.
-For large enough $\epsilon$ no early warnings are possible, as expected, as the timescale of forcing relative to the dynamics becomes too fast.
+Also plotted in \cref{fig:parameter_plane} are the  lines $D = L^2/4$ and $\epsilon = \tau_{4\pi/L}$. It can be seen that they bound
+the region where good early warning signals can be obtained and also approximate the shape of this region.
+
+The lines do not give the tightest bound possible to the region, but this is to be expected. The reason for this is that the scaling arguments assume
+a constant value for $\lambda$, whereas in reality $\lambda$ is decreasing towards zero. Furthermore, early warning signals will not suddenly become worse
+when \cref{eq:scaling_corr,eq:scaling_eps} are violated. Instead they will become progessively less reliable, and so these scaling arguments should overestimate
+the reliable region, which indeed they do.
 
 \section{Discussion}
 It has been shown that calculating early warning signals over space allows the user to get reliable
