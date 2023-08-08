@@ -41,7 +41,7 @@ Alternatively this can be rewritten autonomously as
 \end{subequations}
 
 An important limit  is the small $\epsilon$ limit. This corresponds to small $r$, which means the system is forced very slowly, or equivalently to
-large $T$ --- which means the system responds very slowly to forcing. In this limit \cref{eq:system_with_a_timescale_rescaled_autonomous} is a
+large $T$ --- which means the system responds very slowly to forcing. In this limit, \cref{eq:system_with_a_timescale_rescaled_autonomous} is a
 fast-slow system \parencite{Kuehn2011} and the usual tools of bifurcation theory can be applied without too much difficulty. In this case,
 rises in the autocorrelation and variance of fluctuations about the system's quasi-static equilibrium state are to be expected as the tipping point is approached  \parencite{Scheffer2009}.
 
@@ -54,7 +54,7 @@ sheet \parencite{Ritchie2021}, are common in the Earth system.
 
 This is because the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century \parencite{Osborn2021}, which is a rate unprecedented in at least
 the last 2000 years \parencite{AR6}. Many important tipping elements have timescales of centuries or longer \parencite{Lenton2008,ArmstrongMcKay2022}.
-This implies that for tipping elements subject to anthropogenic climate change $\epsilon$ is unlikely to be small, as shown in \cref{tab:epsilon_estimate}.
+This implies that, for tipping elements subject to anthropogenic climate change, $\epsilon$ is unlikely to be small, as shown in \cref{tab:epsilon_estimate}.
 This motivates the development of Early Warning Signals that are reliable for systems with larger values of $\epsilon$.
 
 \begin{table}
@@ -89,14 +89,14 @@ Spatial early warning signals have been studied before.~\cite{Donangelo2010} com
 can give an earlier early warning than the temporal variance. Another study \parencite{Kefi2014} found rising memory, variability and changes to patchiness were all
 spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems \parencite{Carpenter2010,Dakos2011,Guttal2009}.
 Spatial early warning signals have even been applied to observational data \parencite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
-the earth system \parencite{Boulton2022,Boers2021,Boers2021a} have all involved temporal rather than spatial indicators, even though spatially resolved data was used.
+the Earth system \parencite{Boulton2022,Boers2021,Boers2021a} have all involved temporal rather than spatial indicators, even though spatially resolved data was used.
 
 \section{The System}
 In order to investigate spatial early warning signals a specific system will be examined. This system will be chosen
 to be generic enough that broader conclusions can be drawn. The system will be made as simple as possible to aid in the analysis.
 
 As outlined in \cref{sec:btipping} near a B-tipping point many systems are governed by similar one-dimensional dynamics, which motivates the introduction of one dependent
-variable $y$. In one dimension there is only one generic type of bifurcation, the saddle node \parencite{Thompson1994}. The saddle node normal form is
+variable $y$. In one dimension there is only one generic type of bifurcation giving rise to catastrophic transitions, the saddle node \parencite{Thompson1994}. The saddle node normal form is
 $\dot{y} = \mu - y^2$, however $y$ diverges for $\mu < 0$. Therefore to keep $y$ finite and the dynamics simple, the system to be investigated will contain only the lowest order terms
 which give a saddle node and bounded dynamics, namely $\dot{y} = y - y^3/3 - \mu$, where $\mu$ is a control parameter.
 
@@ -126,7 +126,7 @@ and covariance
 The parameter $\sigma^2$ is the variance of the noise, and $D$ gives the strength of the spatial coupling.
 The variable $\mu$ linearly increases between $\mu = 0$ and $\mu = 1$ and so the system will undergo a saddle node bifurcation at $\mu = 2/3$.
 
-This system can be viewed variationally\footnote{A brief review of the concepts of the variational derivative are presented in \cref{appendix:variational_calculus}.}.
+This system, \cref{eq:spatial_system}, can be viewed variationally\footnote{A brief review of the concepts of the variational derivative are presented in \cref{appendix:variational_calculus}.}.
 To do this define the `energy' of the system as
 \begin{equation}
   \label{eq:spatial_system_energy}
@@ -159,7 +159,7 @@ The uncoupled case corresponds to  $D = 0$. Furthermore, assume $\epsilon$ is sm
 This is equivalent to calculating the conventional early warning signals over an ensemble of realisations and so should reproduce the well known results about rising variance
 and autocorrelation \parencite{Dakos2008}.
 
-Linearising the system about an equilibrium, $y^*$, gives
+Linearising \cref{eq:spatial_system} about an equilibrium, $y^*$, gives
 \begin{equation}
   \label{eq:linearised_spatial}
   \dv{z}{t} = -\lambda z + \sigma \zeta
@@ -187,7 +187,7 @@ Note that the variance of $z$ is
   \sigma_z^2 = -\sigma^2 \pdv{\log Z}{\lambda} = \frac{\sigma^2}{2\lambda}
 \end{equation}
 so that as the system moves towards the bifurcation and thus $\lambda \rightarrow 0$,  it will be the case that $\sigma_z^2$ diverges.
-It follows from the Fluctuation-Dissipation Theorem \parencite{Marconi2008} that the autocorrelation at lag-$t$ is $\alpha(t) = e^{-\lambda t}$ and so $\alpha \rightarrow 1$ at the bifurcation.
+It follows from the Fluctuation-Dissipation Theorem \parencite{Marconi2008,Kubo1966} that the autocorrelation at lag-$t$ is $\alpha(t) = e^{-\lambda t}$ and so $\alpha \rightarrow 1$ at the bifurcation.
 This is the same behaviour as in the non-spatial case, as expected.
 
 If $D \neq 0$, then \cref{eq:linearised_spatial} becomes
@@ -361,16 +361,16 @@ The left column shows the small $\epsilon$ case. This is the case
 where temporal early warning signals are expected to work well. For this value of $\epsilon$ the system
 transitions to its new state near the time of the bifurcation and its variance calculated over
 space and calculated over time both clearly increase near the bifurcation point. Furthermore
-calculating the statistics for each the individual grid points shows that most grid points 
+calculating the statistics for each of the individual grid points shows that most grid points 
 experience a rise in variance over time as well.
 
 For the larger $\epsilon$ case the results are different. The system has not yet transitioned to
-its new state even by the end of the simulation. A clear rise in $\sigma_t^2$ cannot be seen near the bifurcation point. Furthermore looking at the individual grid points,
-no coherent warning of the upcoming transition is given. However there is a very clear rise in $\sigma_s^2$ before the bifurcation, demonstrating that spatial early warning
-signals are superior in this case.
+its new state even by the end of the simulation. A clear rise in $\sigma_t^2$, given by the red curve, cannot be seen near the bifurcation point. Furthermore looking at the individual grid points
+in the lower right panel, no coherent warning of the upcoming transition is given.
+However there is a very clear rise in $\sigma_s^2$, the black curve, before the bifurcation, demonstrating that spatial early warning signals are superior in this case.
 
 \subsubsection{Slowly Forced Limit}
-\Cref{fig:coupled_timeseries} is similar to \cref{fig:uncoupled_timeseries} expect it now examines the limit of slow forcing ($\epsilon = 0.01$) but
+\Cref{fig:coupled_timeseries} is similar to \cref{fig:uncoupled_timeseries} except it now examines the limit of slow forcing ($\epsilon = 0.01$) but
 but with a non-zero coupling in space. $D$ values of $D = 1$ and $D = 10^5$ were chosen. For low $D$ and slow forcing early warning signals are expected to work both when calculated spatially or
 temporally. At higher $D$ the correlations between the grid points will be so great that there will no longer be any variability between different grid points, and so no detection
 of spatial early warning signals should be possible. This is precisely what is seen in \cref{fig:coupled_timeseries} where for $D=10^5$ the system acts like a single grid point.
