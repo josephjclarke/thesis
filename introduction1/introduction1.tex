@@ -2,7 +2,7 @@
 \graphicspath{{introduction1/figs}}
 \label{sec:intro1}
 
-\section{Tipping Points}\todo{rework}
+\section{Tipping Points}
 Take a pan of water and heat it up. As its temperature rises, some of the water's properties may change. For example, its thermal conductivity increases.
 However, the water still remains liquid and these changes will vary continuously with the water temperature. However, if the water is heated beyond
 a critical temperature of \SI{100}{\degreeCelsius} something more dramatic happens and the water boils away. The properties of the resulting steam are quite different
@@ -57,7 +57,7 @@ In order to reach a steady state, the energy absorbed from the Sun must equal th
 latitudinally dependent absorption and emission of radiation, that ultimately drives all weather and climate \parencite{Lorenz1967}.
 
 The solar constant, $S_0 \approx \SI{1360}{\watt\per\meter\squared}$ \parencite{Johnson1954} is the amount of radiation received by the Earth per unit area.  A fraction of this,
-called the albedo, $\alpha \approx 30\%$, is reflected back to space \parencite{Goode2021}. The rest is absorbed, mostly by the Earth's surface \parencite{Trenberth2009}.
+called the albedo, $\alpha \approx 0.3$, is reflected back to space \parencite{Goode2021}. The rest is absorbed, mostly by the Earth's surface \parencite{Trenberth2009}.
 
 Let the amount of radiation the Earth emits per unit area be $F$. The Earth, with radius $R$, absorbs energy over a disk, and re-radiates
 over its entire surface. By energy balance this leads to
@@ -71,10 +71,10 @@ or
 \end{equation}
 Assuming the Earth radiates as a black body with temperature $T$, then $F = \sigma T^4$ where $\sigma$ is the Stefan-Boltzmann constant  so that $T = \SI{255}{\kelvin}$.
 This is not far from the true temperature of about \SI{287}{\kelvin} \parencite{Jones1999}.
-This black body temperature is however the effective emission temperature the Earth has to radiate at to maintain energy balance. Due to the presence of certain gases, known as
-greenhouse gases, in the atmosphere which absorb
-infrared radiation, principally \ce{CO2} and \ce{H2O}, the radiation that escapes to space is emitted from higher in the atmosphere. An effective emission height can be defined which
-radiates with the effective emission temperature and then because the atmospheric temperature increases towards the surface this makes the surface warmer than it would otherwise be.
+This black body temperature is however the effective emission temperature the Earth has to radiate at to maintain energy balance. Due to the presence of atmospheric greenhouse gases,
+which absorb infrared radiation, principally \ce{CO2} and \ce{H2O}, the radiation that escapes to space is emitted from higher in the atmosphere that it would be in their absence.
+An effective emission height can be defined which
+radiates with the effective emission temperature and then because the atmospheric temperature increases towards in the troposphere the surface this makes the surface warmer than it would otherwise be.
 This is known as the Greenhouse Effect \parencite{Pierrehumbert2010}.
 
 \subsection{Climate Response to Radiative Forcing}
@@ -101,7 +101,7 @@ The quantity
   \lambda = -\pdv{N}{T}
 \end{equation}
 known as the \emph{climate feedback} determines the amount of warming experienced for a given radiative forcing. This quantity is measured
-in units \si{\watt\per\square\meter\per\kelvin} but it has become common to discuss $\lambda$ in terms of a given radiative forcing, $Q_{2\times}$,
+in units of \si{\watt\per\square\meter\per\kelvin} but it has become common to discuss $\lambda$ in terms of a given radiative forcing, $Q_{2\times}$,
 the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atmosphere, giving rise to
 \begin{equation}
   \label{eq:definition_of_ECS}
@@ -134,7 +134,7 @@ that the uncertainties are much higher over land, which reflects the different p
 \subsubsection{Terrestrial Carbon Cycle}
 The terrestrial part of the carbon cycle is controlled by the biosphere \parencite{AR6}. Carbon enters the biosphere through photosynthesis, the amount of which is known as gross
 primary productivity or GPP, and leaves via respiration \parencite{Jenkinson1991}. Respiration can be subdivided into \emph{autotrophic} and \emph{heterotrophic}.
-These relate to respiration performed by plants (which produce their own food hence the name \emph{auto}troph) and non-plant organisms respectively. Heterotrophic respiration
+These relate to respiration performed by plants (which produce their own food, hence the name \emph{auto}troph) and non-plant organisms respectively. Heterotrophic respiration
 is primarily performed by soil microbial communities which decompose the organic matter deposited into the soil from plants \parencite{Singh1977}.
 
 This means that the net carbon flux into the biosphere due to plants called \emph{Net Primary Productivity} (NPP) is given by the difference between photosynthesis and
@@ -159,7 +159,7 @@ These effects mean that at higher \ce{CO2} levels NPP is expected to increase.
 
 This \emph{\ce{CO2} fertilisation effect} has been detected in models \parencite{Friedlingstein2006,Arora2020,Wenzel2016} and observationally \parencite{Ainsworth2007,KolbySmith2016}.
 It acts as a negative feedback on global warming as it tends to decrease the amount of \ce{CO2} in the atmosphere by increasing photosynthesis. This feedback is
-expected to weaken with increased $\ce{CO2}$ as fewer plants become limited by \ce{CO2}, there is some observational evidence of this occurring \parencite{Wang2020}.
+expected to weaken with increased $\ce{CO2}$ as fewer plants become limited by \ce{CO2}. There is some observational evidence of this occurring \parencite{Wang2020}.
 
 The decomposition of organic matter through heterotrophic respiration is a biochemical process that depends on temperature. In particular, increasing the temperature of the decomposition reaction
 will increase the rate of this reaction. Hence as $\ce{CO2}$ has a warming effect the amount of respiration will increase \parencite{Jenkinson1991}. 
@@ -280,9 +280,10 @@ Furthermore, fires occur generally below a tree cover threshold \parencite{Wuyts
 Amazon due to global warming \parencite{Cochrane2009} there could be a shift to a low tree cover and high fire frequency regime \parencite{Wuyts2022}, behaviour
 which has been seen in Dynamic Global Vegetation Models (DGVMs) \parencite{Lasslop2016}.
 This result can be understood as resulting from a percolation process \parencite{Schertzer2015,Cardoso2022}, in which if the probability of a location having low tree cover is above
-a critical threshold then large (formally infinite) clusters of fire prone regions will appear. \todo{not quite happy with this}
+a critical threshold then large (formally infinite) clusters of fire prone regions will appear.
 
-Percolation theory \parencite{Stauffer1994} has been used to understand the increasing fragmentation of tropical forests \parencite{Taubert2018}. They argued that as deforestation reduces forest area,
+Percolation theory \parencite{Stauffer1994} has also been used to understand the increasing fragmentation of tropical forests \parencite{Taubert2018}.
+It has been argued that as deforestation reduces forest area,
 this causes an increase in the number of forest fragments. Based on results from percolation theory they found tropical forests were near to the critical point.
 Other work \parencite{Boers2017} has also found that deforestation in the Amazon can cause tipping as reduced transpiration of water weakens the feedbacks on the South American Monsoon system. 
 
@@ -294,7 +295,7 @@ consistent with an approaching tipping point.
 
 \cite{ArmstrongMcKay2022} estimate Amazon dieback to occur at global warming levels of \SIrange{2}{6}{\kelvin} with a best estimate of \SI{3.5}{\kelvin} but could be lower when the impact
 of deforestation is included. Furthermore, timescales involved in this tipping point ($\mathcal{O}(\SI{100}{\year})$) are the timescales of a human life, and so make understanding this tipping
-point important for policy.
+point important for environmental policy.
 
 \subsubsection{Other Tipping Elements}
 The Atlantic Meridional Overturning Circulation, ice sheets in Greenland and Antarctica and the Amazon Rainforest are three of the most important tipping elements in the Earth
@@ -381,7 +382,7 @@ had a global impact as ice core records show synchronous changes in Antarctica \
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{ngrip}
-  \caption[NGRIP record of Dansgaard Oeschger events]{A record of $\delta \ce{^{18}O}$ from the NGRIP ice core from Greenland \parencite{NGRIP2004} over the last $100,000$ years.
+  \caption[NGRIP record of Dansgaard Oeschger events]{A record of $\ce{\delta^{18}O}$ from the NGRIP ice core from Greenland \parencite{NGRIP2004} over the last $100,000$ years.
     Higher values correspond to warmer temperatures. The clear spikes in this record are Dansgaard-Oeschger events. Note the rapid warming and slower cooling.}
   \label{fig:ngrip}
 \end{figure}
