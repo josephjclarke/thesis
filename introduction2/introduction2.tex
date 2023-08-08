@@ -106,7 +106,7 @@ $\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
     \dv{\bm{z}}{t} &= B\bm{z} + q(\bm{w},\bm{z})
   \end{align}
 \end{subequations}
-where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are at least quadratic. Then the centre manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
+where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are nonlinear functions without any linear terms. Then the centre manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
 with $\bm{z} = h(\bm{w})$, so that on the centre manifold
 \begin{equation}
   \label{eq:dynamics_on_the_centre_manifold}
@@ -203,13 +203,13 @@ Stochastic differential equations can be written \parencite{Jacobs2010} as
   \dv{\bm{x}}{t} = \bm{F}(\bm{x}) + G(\bm{x})\bm{\eta}(t).
 \end{equation}
 The vector function $\bm{F}$ represents the deterministic evolution and the matrix function $G$ represents the stochastic evolution. The function
-$\bm{\eta}(t) = \dv*{\bm{W}}{t}$ is known as white noise and is the derivative of the Wiener process. It is the source of the stochasticity.
+$\bm{\eta}(t) = \dv*{\bm{W}}{t}$ is known as white noise and is the derivative of a Wiener process. It is the source of the stochasticity.
 It has mean zero and is `delta correlated' in time, by which is meant
 \begin{equation}
   \label{eq:eta_correlation}
   \E\left(\bm{\eta}_i(t)\bm{\eta}_j(t')\right) = \delta_{ij}\delta(t-t')
 \end{equation}
-where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function. This notation is somewhat misleading as it suggests that all the functions involves are
+where $\delta_{ij}$ is the Kronecker delta and $\delta(t-t')$ is the Dirac delta function. This notation is somewhat misleading as it suggests that all the functions involved are
 differentiable, however realisations of the Wiener process are almost surely not differentiable \parencite{Mckean2014}. More rigorously, \cref{eq:general_sde} should be written as
 \begin{equation}
   \label{eq:general_sde_maths}
@@ -232,8 +232,9 @@ Often a very simple one-dimensional model is used in studies of N-tipping
   \label{eq:simple_sde}
   \dv{x}{t} = -\dv{U}{x} + \sigma \eta(t).
 \end{equation}
-This is an example of a potential system because it gives the deterministic dynamics as the gradient of a potential, $U(x)$. This can be done for any one dimensional system but is not
-always the case for a higher dimensional system. Furthermore, the noise is assumed to be `white', with constant variance $\sigma^2$. It is known as white noise because in the frequency domain, all
+This is an example of a potential system because the deterministic dynamics are given by the gradient of a potential function, $U(x)$. Any one dimensional system can be put in this form
+but that is not always the case for higher dimensional systems.
+Furthermore, the noise is assumed to be `white', with constant variance $\sigma^2$. It is known as white noise because in the frequency domain, all
 frequencies are excited with equal amplitude. This is a questionable assumption for the Earth System, where the spectrum is not white \parencite{Mitchell1976,VonderHeydt2021} and may
 change due to climate change \parencite{Huntingford2013}.
 
@@ -420,7 +421,7 @@ growth rates at low population densities. A simple model of this is
   \label{eq:allee_effect}
   \dv{x}{t} = x\left(x-1\right)\left(1-\frac{x}{k}\right),
 \end{equation}
-where $k > 1$ and $x$ is a population density. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria $x_1,x_3$ are stable. $x_1$ corresponds to an extinct
+where $k > 1$ and $x$ is a population density. This has equilibria at $x_1 = 0$, $x_2 = 1$ and $x_3 = k$. The equilibria at $x_1$ and $x_3$ are stable. $x_1$ corresponds to an extinct
 state and $x_3$ to a populated state.
 
 If the system is initially in equilibrium at $x_3$, the distance to the basin boundary is $\Delta = |x_3 - x_2| = k - 1$. Hence if the system receives a kick of
@@ -556,7 +557,7 @@ The value of $\lambda$ can be calculated by taking a derivative:
   \label{eq:ews_lambda}
   \lambda = \left(x^*\right)^2 - 1 
 \end{equation}
-where $x^*$ is the equilibrium. The variance and autocorrelation are estimated empiracally from the detrended time series of $x$. In addition, the variance and
+where $x^*$ is the equilibrium. The variance and autocorrelation are estimated empirically from the detrended time series of $x$. In addition, the variance and
 autocorrelation predicted  by \cref{eq:y_var,eq:y_ac} are calculated. It can be seen there is a
 good agreement and a clear early warning signal before the bifurcation.
 \begin{figure}
