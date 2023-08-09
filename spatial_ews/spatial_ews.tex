@@ -31,7 +31,7 @@ so that \cref{eq:system_with_a_timescale} becomes
   \dv{y}{s} = f(y,\epsilon s).
 \end{equation}
 
-Alternatively this can be rewritten autonomously as
+Alternatively, this can be rewritten autonomously as
 \begin{subequations}
   \label{eq:system_with_a_timescale_rescaled_autonomous}
   \begin{align}
@@ -52,7 +52,8 @@ There also exist \emph{slow tipping elements} in which $\epsilon$ is not small. 
 using the variance and autocorrelation techniques \parencite{VanderBolt2021}. Unfortunately these systems which respond slowly to forcing, such as the Greenland ice
 sheet \parencite{Ritchie2021}, are common in the Earth system.
 
-This is because the rate of global warming is fast, on the order of \SI{1}{\kelvin} per century \parencite{Osborn2021}, which is a rate unprecedented in at least
+The reason slow tipping elements are common in the Earth system is because the rate of global warming is fast,
+on the order of \SI{1}{\kelvin} per century \parencite{Osborn2021}, which is a rate unprecedented in at least
 the last 2000 years \parencite{AR6}. Many important tipping elements have timescales of centuries or longer \parencite{Lenton2008,ArmstrongMcKay2022}.
 This implies that, for tipping elements subject to anthropogenic climate change, $\epsilon$ is unlikely to be small, as shown in \cref{tab:epsilon_estimate}.
 This motivates the development of Early Warning Signals that are reliable for systems with larger values of $\epsilon$.
@@ -61,14 +62,14 @@ This motivates the development of Early Warning Signals that are reliable for sy
   \centering
   \begin{tabular}{lll}
     \toprule
-    Tipping Element                & System Timescale (years) & Estimated $\epsilon$  \\
+    Tipping Element                & System Timescale (years)                  & Estimated $\epsilon$                   \\
     \midrule
-    Greenland Ice Sheet            & \SIrange{1000}{15000}{}  & \SIrange{20}{300}{}   \\
-    West Antarctic Ice Sheet       & \SIrange{500}{13000}{}   & \SIrange{10}{260}{}   \\
-    Boreal Permafrost              & \SIrange{100}{300}{}     & \SIrange{2}{6}{}      \\
-    AMOC                           & \SIrange{15}{300}{}      & \SIrange{0.3}{6}{}    \\
-    Amazon Rainforest              & \SIrange{50}{200}{}      & \SIrange{1}{4}{}      \\
-    Southern Polar Gyre Convection & \SIrange{5}{50}{}        & \SIrange{0.1}{1}{}    \\
+    Greenland Ice Sheet            & \SIrange[range-phrase=--]{1000}{15000}{}  & \SIrange[range-phrase=--]{20}{300}{}   \\
+    West Antarctic Ice Sheet       & \SIrange[range-phrase=--]{500}{13000}{}   & \SIrange[range-phrase=--]{10}{260}{}   \\
+    Boreal Permafrost              & \SIrange[range-phrase=--]{100}{300}{}     & \SIrange[range-phrase=--]{2}{6}{}      \\
+    AMOC                           & \SIrange[range-phrase=--]{15}{300}{}      & \SIrange[range-phrase=--]{0.3}{6}{}    \\
+    Amazon Rainforest              & \SIrange[range-phrase=--]{50}{200}{}      & \SIrange[range-phrase=--]{1}{4}{}      \\
+    Southern Polar Gyre Convection & \SIrange[range-phrase=--]{5}{50}{}        & \SIrange[range-phrase=--]{0.1}{1}{}    \\
     \bottomrule
   \end{tabular}
   \caption[Estimates of $\epsilon$ for tipping elements]{Estimates of $\epsilon$ values for a subset of tipping elements using the estimated timescales in~\cite{ArmstrongMcKay2022}.
@@ -81,15 +82,15 @@ This motivates the development of Early Warning Signals that are reliable for sy
 
 One way to understand the problems with Early Warning Signals for slow tipping elements is to recognise that the equilibrium implied by the changing forcing is changing
 significantly over the sliding windows used to calculate the Early Warning Indicators. Although it may be possible to make the sliding window shorter, this will
-increase the uncertainties on any statistical estimate. Furthermore, the sliding window must be large enough to resolve the critical dynamics of the system which are slowing down
-and so tending to occur on timescales larger than the sliding window. A potential way to avoid this problem is to try to make `instantaneous' measurements of
+increase the uncertainties on any statistical estimate. Furthermore, the sliding window must be large enough to resolve the critical dynamics of the system, which are themselves slowing down,
+and so will eventually occur on timescales larger than the sliding window. A potential way to avoid this problem is to try to make `instantaneous' measurements of
 the variance and autocorrelation of the fluctuations about equilibrium. This could be done by calculating these statistics over space instead of over time.
 
 Spatial early warning signals have been studied before.~\cite{Donangelo2010} compared spatial and temporal early warning signals, finding that the spatial variance
 can give an earlier early warning than the temporal variance. Another study \parencite{Kefi2014} found rising memory, variability and changes to patchiness were all
 spatial indicators of an upcoming transition. A range of studies have applied spatial early warnings to ecological problems \parencite{Carpenter2010,Dakos2011,Guttal2009}.
 Spatial early warning signals have even been applied to observational data \parencite{Tirabassi2023,Kefi2007,Eby2017}. It should be noted that recent high profile applications to
-the Earth system \parencite{Boulton2022,Boers2021,Boers2021a} have all involved temporal rather than spatial indicators, even though spatially resolved data was used.
+the Earth system \parencite{Boulton2022,Boers2021,Boers2021a,Ditlevsen2023} have all involved temporal rather than spatial indicators, even though spatially resolved data was used.
 
 \section{The System}
 In order to investigate spatial early warning signals a specific system will be examined. This system will be chosen
@@ -371,9 +372,10 @@ However there is a very clear rise in $\sigma_s^2$, the black curve, before the 
 
 \subsubsection{Slowly Forced Limit}
 \Cref{fig:coupled_timeseries} is similar to \cref{fig:uncoupled_timeseries} except it now examines the limit of slow forcing ($\epsilon = 0.01$) but
-but with a non-zero coupling in space. $D$ values of $D = 1$ and $D = 10^5$ were chosen. For low $D$ and slow forcing early warning signals are expected to work both when calculated spatially or
+but with a non-zero coupling in space. $D$ values of $(N/L)^2D = 1$ and $(N/L)^2 D = 10^5$ were chosen, where $N/L$ is a factor related to the discretisation.
+For low $D$ and slow forcing early warning signals are expected to work both when calculated spatially or
 temporally. At higher $D$ the correlations between the grid points will be so great that there will no longer be any variability between different grid points, and so no detection
-of spatial early warning signals should be possible. This is precisely what is seen in \cref{fig:coupled_timeseries} where for $D=10^5$ the system acts like a single grid point.
+of spatial early warning signals should be possible. This is precisely what is seen in \cref{fig:coupled_timeseries} where for $D=10^5 (L/N)^2$ the system acts like a single grid point.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{coupled_variance}
@@ -492,12 +494,11 @@ There is a interesting complementarity however between early warnings in space a
 and weak coupling in space, early warnings in space are reliable but those in time are not. For slow forcing
 but strong spatial coupling then early warnings in time are reliable but those in space are not. If the
 coupling is weak but the forcing is slow both methods are reliable. There is still an inaccessible parameter
-region, for fast forcing and strong spatial coupling. This is illustrated schematically in figure
-\cref{fig:idealised_plot}.
+region, for fast forcing and strong spatial coupling. This is illustrated schematically in \cref{fig:idealised_plot}.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{idealised_plot}
-  \caption[A schematic showing the complementarity of spatial and temporal early warning signals]{Figure 4: A schematic illustrating the complementarity of early warning signals in space and time.
+  \caption[A schematic showing the complementarity of spatial and temporal early warning signals]{A schematic illustrating the complementarity of early warning signals in space and time.
     The lines are drawn according to the scalings given in \cref{sec:scaling_arguments}}
   \label{fig:idealised_plot}
 \end{figure}
