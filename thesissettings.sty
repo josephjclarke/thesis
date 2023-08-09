@@ -61,7 +61,10 @@ dashed=false]{biblatex}
 
 % load at the end
 \usepackage{hyperref}
-\ifdraft{\usepackage[left]{showlabels}}{}
+\ifdraft{
+  \usepackage[left]{showlabels}
+  \usepackage{lineno}
+  \linenumbers}{}
 \usepackage[noabbrev]{cleveref}
 
 % Custom Units
