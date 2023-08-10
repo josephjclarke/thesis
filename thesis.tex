@@ -32,7 +32,15 @@
 \ifdraft{\input{todolist.tex}DOUBLESPACING}{}
 
 \include{titlepage}
+
+\makeatletter
+\if@twoside%
+% Do nothing...
+\else%
 \addtocounter{page}{1}
+\fi
+\makeatother
+
 \include{abstract}
 \include{contents}
 \include{published_work}
