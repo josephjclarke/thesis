@@ -30,10 +30,14 @@ deepclean:
 
 clean:
 	rm -f */*.aux
+	rm -f *.auxlock
 	rm -f thesis.tex.*
 	rm -f thesis.run.xml
 	rm -f thesis.bbl
 	rm -f thesis.tdo
+	rm -f thesis.xdy
+	rm -f thesis.ist
+	rm -f *.fls
 	latexmk -c
 
 check:
