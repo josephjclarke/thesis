@@ -17,6 +17,8 @@
 \usepackage{setspace}
 \usepackage[twoside]{fancyhdr}
 \usepackage{tocbibind}
+\usepackage{setspace}
+
 
 % bibliography
 \usepackage[backend=biber,
@@ -85,16 +87,20 @@ dashed=false]{biblatex}
 \newtheorem{corollary}{Corollary}[theorem]
 
 
-% University of Exeter Official Style
-\usepackage[a4paper,left=30mm,right=30mm,top=20mm,bottom=20mm]{geometry}
-%\usepackage{tgheros}
-\usepackage{helvet}
-%\usepackage{eulervm}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{setspace}
-\onehalfspacing
-% Need to number pages from 1 from title page
-\def\pagenumbering#1{}
+\DeclareOption{exeter}{
+ % % University of Exeter Official Style
+ \AtEndOfPackage{\usepackage[a4paper,left=30mm,right=30mm,top=20mm,bottom=20mm]{geometry}}
+ \AtEndOfPackage{\usepackage{helvet}}
+ \renewcommand{\familydefault}{\sfdefault}
+ \onehalfspacing
+ % Need to number pages from 1 from title page
+ \def\pagenumbering#1{}
+}
+\DeclareOption{pretty}{
+
+  }
+\DeclareOption*{}
+\ProcessOptions\relax
 
 
 
