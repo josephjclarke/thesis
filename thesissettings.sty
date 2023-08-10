@@ -18,7 +18,10 @@
 \usepackage[twoside]{fancyhdr}
 \usepackage{tocbibind}
 \usepackage{setspace}
+\usepackage{geometry}
 
+% fonts
+\usepackage{helvet}
 
 % bibliography
 \usepackage[backend=biber,
@@ -89,16 +92,17 @@ dashed=false]{biblatex}
 
 \DeclareOption{exeter}{
  % % University of Exeter Official Style
- \AtEndOfPackage{\usepackage[a4paper,left=30mm,right=30mm,top=20mm,bottom=20mm]{geometry}}
- \AtEndOfPackage{\usepackage{helvet}}
+ %\AtEndOfPackage{\usepackage{helvet}}
  \renewcommand{\familydefault}{\sfdefault}
+ \geometry{a4paper,left=30mm,right=30mm,top=20mm,bottom=20mm}
  \onehalfspacing
  % Need to number pages from 1 from title page
  \def\pagenumbering#1{}
 }
 \DeclareOption{pretty}{
-
-  }
+  %\AtEndOfPackage{\usepackage{helvet}}
+  %\renewcommand{\familydefault}{\sfdefault}
+}
 \DeclareOption*{}
 \ProcessOptions\relax
 
