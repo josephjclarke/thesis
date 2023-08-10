@@ -14,6 +14,12 @@
 \usepackage[T1]{fontenc}
 
 
+% fonts
+%\usepackage[cmintegrals,cmbraces]{newtxmath}
+\usepackage{ebgaramond-maths}
+%\usepackage{ebgaramond}
+\usepackage{helvet}
+
 % typography
 \usepackage{microtype}
 \usepackage{enumerate}
@@ -67,12 +73,6 @@ dashed=false]{biblatex}
 \usepackage{nameref}
 
 
-% fonts
-%\usepackage{ebgaramond}
-%\usepackage{ebgaramond-maths}
-\usepackage{ebgaramond}
-\usepackage{helvet}
-
 % load at the end
 \usepackage{hyperref}
 \ifdraft{
@@ -105,7 +105,6 @@ dashed=false]{biblatex}
 
 \DeclareOption{exeter}{
  % % University of Exeter Official Style
- %\AtEndOfPackage{\usepackage{helvet}}
  \renewcommand{\familydefault}{\sfdefault}
  \geometry{a4paper,left=30mm,right=30mm,top=20mm,bottom=20mm}
  \onehalfspacing
@@ -151,8 +150,8 @@ dashed=false]{biblatex}
   \fancyfoot[L,R]{}
   \fancyfoot[C]{\thepage}
   \setlength{\headheight}{14.49998pt}
-  %\renewcommand{\epsilon}{\varepsilon} %HACK!
-  %\PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
+  \renewcommand{\epsilon}{\varepsilon} %HACK!
+  \PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
 }
 \DeclareOption*{
 }
