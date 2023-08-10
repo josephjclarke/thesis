@@ -26,8 +26,8 @@
 
 % fonts
 %\usepackage[cmintegrals,cmbraces]{newtxmath}
-\usepackage{ebgaramond}
-%\usepackage{ebgaramond-math}
+%\usepackage{ebgaramond}
+\usepackage{ebgaramond-maths}
 \usepackage{helvet}
 
 
@@ -150,7 +150,8 @@ dashed=false]{biblatex}
   \fancyfoot[L,R]{}
   \fancyfoot[C]{\thepage}
   \setlength{\headheight}{14.49998pt}
-
+  \renewcommand{\epsilon}{\varepsilon} %HACK!
+  \PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
 }
 \DeclareOption*{
 }
