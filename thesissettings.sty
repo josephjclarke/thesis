@@ -24,12 +24,6 @@
 \usepackage{geometry}
 \usepackage{lettrine}
 
-% fonts
-%\usepackage[cmintegrals,cmbraces]{newtxmath}
-%\usepackage{ebgaramond}
-\usepackage{ebgaramond-maths}
-\usepackage{helvet}
-
 
 % bibliography
 \usepackage[backend=biber,
@@ -71,6 +65,12 @@ dashed=false]{biblatex}
 
 % referencing
 \usepackage{nameref}
+
+
+% fonts
+\usepackage{ebgaramond}
+%\usepackage{ebgaramond-maths}
+\usepackage{helvet}
 
 % load at the end
 \usepackage{hyperref}
@@ -150,8 +150,8 @@ dashed=false]{biblatex}
   \fancyfoot[L,R]{}
   \fancyfoot[C]{\thepage}
   \setlength{\headheight}{14.49998pt}
-  \renewcommand{\epsilon}{\varepsilon} %HACK!
-  \PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
+  %\renewcommand{\epsilon}{\varepsilon} %HACK!
+  %\PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
 }
 \DeclareOption*{
 }
