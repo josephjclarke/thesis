@@ -15,17 +15,14 @@
 
 
 % fonts
-%\usepackage[cmintegrals,cmbraces]{newtxmath}
+% \usepackage[cmintegrals,cmbraces]{newtxmath}
 %\usepackage{ebgaramond-maths}
 %\usepackage{ebgaramond}
- \usepackage[urw-garamond]{mathdesign}
-\usepackage{garamondx}
+%\usepackage[urw-garamond]{mathdesign}
+%\usepackage{garamondx}
 \usepackage{helvet}
+%\let\openbox\relax
 
-% hacks to avoid conflict with amssymb
-%\let\circledS\undefined % here - PS
-\newcommand\hmmax{0}
-\newcommand\bmmax{0}
 
 % typography
 \usepackage{microtype}
@@ -56,9 +53,9 @@ dashed=false]{biblatex}
 % Maths
 \usepackage{amsmath}
 \usepackage{amsfonts}
-%\usepackage{amssymb}
+\usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{mathrsfs}
+%\usepackage{mathrsfs}
 \usepackage{bm}
 \usepackage{breqn}
 
@@ -78,6 +75,13 @@ dashed=false]{biblatex}
 
 % referencing
 \usepackage{nameref}
+
+
+
+%% hacks to enable compilation by not defining too many math alphabets
+%\newcommand\hmmax{0}
+%\newcommand\bmmax{0}
+
 
 
 % load at the end
@@ -157,13 +161,12 @@ dashed=false]{biblatex}
   \fancyfoot[L,R]{}
   \fancyfoot[C]{\thepage}
   \setlength{\headheight}{14.49998pt}
-  %\renewcommand{\epsilon}{\varepsilon} %HACK!
+  \renewcommand{\epsilon}{\varepsilon} %HACK!
   %\PackageWarning{thesissettings}{Replacing epsilon with varepsilon for garamond reasons. There must be a better way!}
 }
 \DeclareOption*{
 }
 \ProcessOptions\relax
-
 
 
 % Mathematical Operators
