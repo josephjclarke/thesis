@@ -17,10 +17,15 @@
 % fonts
 %\usepackage[cmintegrals,cmbraces]{newtxmath}
 %\usepackage{ebgaramond-maths}
-\usepackage{ebgaramond}
-%\usepackage[urw-garamond]{mathdesign}
-%\usepackage{garamondx}
+%\usepackage{ebgaramond}
+ \usepackage[urw-garamond]{mathdesign}
+\usepackage{garamondx}
 \usepackage{helvet}
+
+% hacks to avoid conflict with amssymb
+%\let\circledS\undefined % here - PS
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
 
 % typography
 \usepackage{microtype}
@@ -51,7 +56,7 @@ dashed=false]{biblatex}
 % Maths
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+%\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{bm}
