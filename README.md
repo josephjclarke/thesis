@@ -45,7 +45,7 @@ will check with lacheck.
 
 
 ## Post Viva Corrections
-The thesis as was submitted for a *viva* can be found in the ```viva``` branch. To generate a ```pdf``` file comparing the changes from
+The draft thesis that was submitted for a *viva* can be found in the ```viva``` branch. To generate a ```pdf``` file comparing the changes from
 that viva to the current state of the thesis, use
 ```
 make diff
