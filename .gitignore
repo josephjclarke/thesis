@@ -281,3 +281,5 @@ thesis.tex.pre
 # the main document
 thesis.pdf
 
+#the latexdiff document
+diff.pdf

@@ -1,4 +1,4 @@
-.PHONY: draftthesis.pdf thesis.pdf all clean deepclean check final debug draftprint print
+.PHONY: draftthesis.pdf thesis.pdf all clean deepclean check final debug draftprint print diff
 
 all: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
 	cpp -DPAPERSIZE=a4paper -DSIDES=oneside -DMODE=draft -DDOUBLESPACING= -P thesis.tex thesis.tex.pre
@@ -42,3 +42,22 @@ clean:
 
 check:
 	lacheck thesis.tex
+
+
+diff: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bib
+	mkdir -p viva
+	git archive --format=tar viva > viva/viva.tar
+
+	cd viva ; tar xf viva.tar && \
+	cpp -DPAPERSIZE=a4paper -DSIDES=oneside -DMODE=final -DDOUBLESPACING= -P thesis.tex prepped.tex && \
+	latexpand --keep-comments --biber bibliography/bibliography.bib --output expanded_old.tex prepped.tex
+
+	cpp -DPAPERSIZE=a4paper -DSIDES=oneside -DMODE=final -DDOUBLESPACING= -P thesis.tex thesis.tex.pre
+	latexpand --keep-comments --biber bibliography/bibliography.bib --output expanded_new.tex thesis.tex.pre
+
+	latexdiff --packages=hyperref,biblatex,siunitx,cleveref,glossaries,mhchem --type=CULINECHBAR expanded_new.tex viva/expanded_old.tex > diff.tex
+
+	latexmk -pdf -jobname=diff -pdflatex="pdflatex -interaction=nonstopmode" -use-make diff.tex
+	rm diff.tex
+	rm expanded_new.tex
+	rm -rf viva
