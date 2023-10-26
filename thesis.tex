@@ -1,7 +1,7 @@
 \RequirePackage[l2tabu, orthodox]{nag}
 
 \documentclass[PAPERSIZE,SIDES,MODE,12pt]{book}
-\usepackage{thesissettings}
+\usepackage[pretty]{thesissettings}
 
 %\includeonly{titlepage}
 %\includeonly{published_work}
@@ -9,7 +9,6 @@
 %\includeonly{symbols/symbols}
 %\includeonly{acknowledgements}
 %\includeonly{preface}
-%\includeonly{declaration}
 %\includeonly{introduction1/introduction1,bibliography/bibliography}
 %\includeonly{introduction2/introduction2,bibliography/bibliography}
 %\includeonly{continuous_compost_bomb/continuous_compost_bomb,bibliography/bibliography}
@@ -32,7 +31,15 @@
 \ifdraft{\input{todolist.tex}DOUBLESPACING}{}
 
 \include{titlepage}
+
+\makeatletter
+\if@twoside%
+% Do nothing...
+\else%
 \addtocounter{page}{1}
+\fi
+\makeatother
+
 \include{abstract}
 \include{contents}
 \include{published_work}
