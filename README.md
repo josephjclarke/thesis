@@ -50,4 +50,4 @@ that viva to the current state of the thesis, use
 ```
 make diff
 ```
-The formatting of this document will be off, and you must have first checked out the ```viva``` branch
+and you must have a local copy of the ```viva``` branch.

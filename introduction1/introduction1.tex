@@ -20,8 +20,10 @@ point as when there is a control parameter, $\rho$, with a critical value $\rho_
 leads to a qualitative change $\hat{F}$ of a system feature $F$, after some observation time $T > 0$. They write this mathematically as
 \begin{equation}
   \label{eq:lenton_tipping_definition}
-  |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho_{\mathrm{crit}} | T)| \geq \hat{F} > 0.
+  |F(\rho \geq \rho_{\mathrm{crit}} + \delta \rho | T) - F(\rho_{\mathrm{crit}} | T)| \geq \hat{F} > 0,
 \end{equation}
+where $F(\rho | T)$ gives the state of $F$ with control parameter $\rho$ at time $T$. The inclusion of an observation time allows for the fact that changes
+in the system may not be apparent until after the critical value has been exceeded.
 The IPCC \parencite{AR6} defines a tipping point as `A critical threshold beyond which a system reorganizes, often abruptly and/or irreversibly'. Others,
 such as~\cite{Wang2023} and~\cite{Kopp2016}, insist that tipping points should occur on fast time scales.
 
@@ -222,7 +224,8 @@ state into a new `hothouse' state. This state would be defined by high temperatu
 through biogeochemical feedbacks leading to a cascade of tipping points. They advocate humanity operating within certain `planetary boundaries' \parencite{Rockstrom2009} to avoid this possibility.
 
 Part of the reason~\cite{Steffen2018} proved so controversial is that there is little evidence of this nonlinear response at the global scale. Global temperature rise is approximately linear
-in emitted carbon dioxide \parencite{Allen2009,Rogelj2019} and not expected to continue after emissions cease \parencite{MacDougall2020}. However certain cloud resolving models
+in emitted carbon dioxide \parencite{Allen2009,Rogelj2019} and not expected to continue after emissions cease \parencite{MacDougall2020}, which is related to
+decreasing atmospheric \ce{CO2} levels offsetting the thermal inertia of the climate system. However certain cloud resolving models
 report that at sufficiently high levels of global warming stratocumulus cloud decks can break up causing \SI{8}{\kelvin} of warming globally \parencite{Schneider2019}.
 
 \subsection{Tipping Elements}

@@ -56,7 +56,7 @@ diff: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.bi
 	cpp -DPAPERSIZE=a4paper -DSIDES=oneside -DMODE=final -DDOUBLESPACING= -P thesis.tex thesis.tex.pre
 	latexpand --keep-comments --biber bibliography/bibliography.bib --output expanded_new.tex thesis.tex.pre
 
-	latexdiff --packages=hyperref,biblatex,siunitx,cleveref,glossaries,mhchem --type=CULINECHBAR expanded_new.tex viva/expanded_old.tex > diff.tex
+	latexdiff --packages=hyperref,biblatex,siunitx,cleveref,glossaries,mhchem --type=CULINECHBAR viva/expanded_old.tex expanded_new.tex > diff.tex
 
 	latexmk -pdf -jobname=diff -pdflatex="pdflatex -interaction=nonstopmode" -use-make diff.tex
 	rm diff.tex
