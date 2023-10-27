@@ -98,19 +98,20 @@ then \cref{thm:centre_manifold_theorem} implies that the dynamics are topologica
 \end{subequations}
 with $(\bm{u},\bm{v}) \in W_c \times W_s$. At long times $\bm{v} \rightarrow \bm{0}$ so at long times the dynamics are given by $\bm{u}$ on the centre manifold
 \parencite{guckenheimer2013}. In order to calculate $g$, suppose that
-$\bm{x} = (\bm{w},\bm{z}) \in \mathbb{R}^n$ so that
+$\bm{x} = (\bm{u},\bm{z}) \in \mathbb{R}^n$ so that
 \begin{subequations}
   \label{eq:block_diagonal}
   \begin{align}
-    \dv{\bm{w}}{t} &= A\bm{w} + p(\bm{w},\bm{z}) \\
-    \dv{\bm{z}}{t} &= B\bm{z} + q(\bm{w},\bm{z})
+    \dv{\bm{u}}{t} &= A\bm{u} + p(\bm{u},\bm{z}) \\
+    \dv{\bm{z}}{t} &= B\bm{z} + q(\bm{u},\bm{z})
   \end{align}
 \end{subequations}
-where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are nonlinear functions without any linear terms. Then the centre manifold can be written as a graph $W_c = (\bm{w},h(\bm{w}))$
-with $\bm{z} = h(\bm{w})$, so that on the centre manifold
+where $A,B$ have eigenvalues with zero and negative real parts respectively and $p,q$ are nonlinear functions without any linear terms.
+Then the centre manifold can be written as a graph $W_c = (\bm{u},h(\bm{u}))$
+with $\bm{z} = h(\bm{u})$, so that on the centre manifold
 \begin{equation}
   \label{eq:dynamics_on_the_centre_manifold}
-  \dv{\bm{w}}{t} = A\bm{w} + p\left(\bm{w},h\left(\bm{w}\right)\right).
+  \dv{\bm{u}}{t} = A\bm{u} + p\left(\bm{u},h\left(\bm{u}\right)\right).
 \end{equation}
 The next step is to make \cref{eq:dynamics_on_the_centre_manifold} as simple as possible. By the Hartman-Grobman Theorem, \cref{eq:dynamics_on_the_centre_manifold}
 cannot be linearised. However the next most simplest approach is to use normal forms, which describe the different sorts of possible bifurcations \parencite{Dijkstra2011}.
@@ -268,12 +269,12 @@ as the Kramers' Rate \parencite{Kramers1940}. This derivation follows~\cite{Risk
 Suppose that $U$ has the form given by \cref{fig:potential_to_escape}, which has a stable state at $x_{min}$, an unstable state at $x_{max}$. The rate at which the system
 transitions from near $x_{min}$, in the region between $x_1$ and $x_2$, to the other side of the maximum, near $x_3$, is to be determined.
 Assuming the system is in a near steady state, \cref{eq:fokker_planck_continuity}
-implies that $J$ is approximately constant. Noting that $J$ can be put into the form
+implies that $J$ is approximately constant. By multiplying \cref{eq:probability_current} by the integrating factor $\exp \frac{2U(x)}{\sigma^2}$, $J$ can be put into the form
 \begin{equation}
   \label{eq:probability_current_other_form}
-  J = -\frac{1}{2}\sigma^2 e^{-\frac{2U(x)}{\sigma^2}} \pdv{x} \left( p(x) e^{\frac{2U(x)}{\sigma^2}}\right),
+  J = -\frac{1}{2}\sigma^2 e^{-\frac{2U(x)}{\sigma^2}} \pdv{x} \left( p(x) e^{\frac{2U(x)}{\sigma^2}}\right).
 \end{equation}
-which can then be integrated from $x_{min}$ to $x_3$ give
+This can then be integrated from $x_{min}$ to $x_3$ give
 \begin{equation}
   \label{eq:integrated_J}
   J = \frac{\sigma^2}{2} \left(p(x_{min})e^{\frac{2U(x_{min})}{\sigma^2}} - p(x_3)e^{\frac{2U(x_{3})}{\sigma^2}}\right)\left(\int_{x_{min}}^{x_{3}} e^{\frac{2U(x)}{\sigma^2}} \dd{x}\right)^{-1}.
