@@ -26,6 +26,7 @@ debug: thesis.tex *.tex ./*/*.tex thesissettings.sty bibliography/bibliography.b
 
 deepclean:
 	make clean
+	rm -rf diff.pdf
 	latexmk -CA
 
 clean:
