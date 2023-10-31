@@ -103,8 +103,9 @@ where $\Pi_c = \lambda /\alpha A$. This equilibrium value is obtained by setting
 \section{Continuum Model With Vertical Depth}
 \label{sec:continuum_model}
 To investigate the effects of the representation of spatial variability in the vertical $z$ (\si{\meter}) direction the soil column is
-modelled as existing on a semi-infinite line, which extends from the surface at $z = 0$ down to $z = -\infty$. It is assumed that soil carbon
-falls exponentially with depth, over a characteristic distance of $H$. The soil temperature is modelled by a reaction-diffusion system, in which heat is generated
+modelled as existing on a semi-infinite line, which extends from the surface at $z = 0$ down to $z = -\infty$. It is assumed that the vertical structure of
+soil carbon is set, as is sometimes assumed \parencite{Burke2017}, by a balance soil carbon diffusion and respiration. It is assumed that this vertical structure has reached equilibrium,
+which has the form of an exponential decrease with depth over a characteristic distance of $H$. The soil temperature is modelled by a reaction-diffusion system, in which heat is generated
 by heterotrophic respiration and diffused vertically. The conductivity of the soil is given by $\kappa$ (\si{\watt\per\meter\per\kelvin}) \parencite{Best2005},
 it has heat capacity $\mu_V$ (\si{\joule\per\cubic\meter\per\kelvin}) and contains a total amount $C_s$ of soil carbon. Therefore the heat equation
 for the soil temperature $T_s(z,t)$ becomes:
@@ -247,7 +248,9 @@ then \cref{eq:one_d_model,eq:dimensional_bcs_nonuniform} become
   \end{align}
 \end{subequations}
 The nondimensionalisation process reveals two parameter clusters $D = H\lambda/\kappa$ and $\mathcal{W} = \widetilde{\Pi}e^{-\widetilde{\Pi}}/D$, which
-correspond to a nondimensional soil thermal depth and a nondimensional respiration strength. Note that $\theta$ and $\delta\theta_a$ should be interpreted as (nondimensional) temperatures
+correspond to a nondimensional soil thermal depth and a nondimensional respiration strength. In terms of the parameters in \cref{tab:standard_values},
+these values are $D = 25$ and $\mathcal{W} = 0.006$.
+Note that $\theta$ and $\delta\theta_a$ should be interpreted as (nondimensional) temperatures
 relative to the background air temperature, so in particular $\delta\theta_a$ is a temperature anomaly.
 
 It will now be shown that the model defined by \cref{eq:nondimensional_model_nonuniform} only has an equilibrium state for low levels of atmospheric warming, $\delta\theta_a$.
