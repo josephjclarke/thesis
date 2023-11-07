@@ -302,7 +302,7 @@ In terms of $\theta$, the solution is
 Applying the boundary condition at $x = -\infty$ implies that $c_1 = \frac{1}{D^2}$.  The solution becomes:
 \begin{equation}
   \label{eq:nondimensional_model_nonuniform_solution_one_bc}
-  \theta = \log \frac{1}{2\mathcal{W}D^2} + 2 \log \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}
+  \theta = \log \frac{1}{2\mathcal{W}D^2} + 2 \log \sech \left( \frac{1}{2} \left(c_2 \pm \frac{x}{D}\right)\right) - \frac{x}{D}.
 \end{equation}
 Now applying the boundary condition at $x = 0$ gives
 \begin{equation}
@@ -326,6 +326,17 @@ so that $F'(c_2) = 0$ can be solved for $\tanh c_2$ and so \cref{eq:nondimension
   \delta\theta_a^{\mathrm{crit}} = \log \left(2D\sqrt{D^2 +1} - 2D^2\right) -1 + \frac{1}{D} \sqrt{D^2 + 1} - \frac{1}{D} - \log 2\mathcal{W}D^2
 \end{equation}
 Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of this equation is negative, which can be interpreted as the soil being inherently unstable without any warming.
+
+Using the parameters in \cref{tab:standard_values} and setting $\delta \theta_a = 0$,
+\cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} was numerically solved for $c_2$ and thus the equilibrium distribution of $\theta$ was found.
+This was then converted back to dimensional units and plotted in \cref{fig:equilibrium_soil_temperature_profile}.
+
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{equilibrium_profile}
+  \caption[Equilibrium Soil Temperature Profile]{The equilibrium soil temperature profile, using the parameters in \cref{tab:standard_values}. This is given as an anomaly relative to $T_{a0}$.}
+  \label{fig:equilibrium_soil_temperature_profile}
+\end{figure}
 
 As $\mathcal{W}$ is a function of $\widetilde{\Pi}$ and $D$, specifying $\widetilde{\Pi}$ and $D$ is enough to determine $\delta\theta_a^{\mathrm{crit}}$, through
 \cref{eq:nondimensional_model_nonuniform_critical_warming}. The critical maximum warming is plotted in \cref{fig:critical_theta_a} for a range of $\widetilde{\Pi}$ and $D$ values.
