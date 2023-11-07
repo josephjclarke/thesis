@@ -141,7 +141,7 @@ and different choices will lead to different figures, whereas the nondimensional
   Temperature response of respiration &$Q_{10}$   &\ref{eq:one_d_model} & 2.5  \\
   Characteristic Soil Depth &$H$       &\ref{eq:one_d_model} &\SI{0.4}{\meter}                               \\ 
   Soil Thermal Conductivity &$\kappa$  &\ref{eq:one_d_model} &\SI{0.16}{\watt\per\meter\per\kelvin}          \\
-  Specific Heat of Respiration &$A$       &\ref{eq:one_d_model} &\SI{3.9e9}{\joule\kilo\gram\per\carbon}        \\
+  Specific Heat of Respiration &$A$       &\ref{eq:one_d_model} &\SI{3.9e7}{\joule\kilo\gram\per\carbon}        \\
   Volumetric Heat Capacity&$\mu_V$   &\ref{eq:one_d_model} &\SI{1.0}{\mega\joule\per\cubic\meter\per\kelvin} \\
   Heat Transfer Coefficient &$\lambda$ &\ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{10}{\watt\per\square\meter\per\kelvin} \\
   Average Air temperature   &$T_{a0}$  &\ref{subeq:dimensional_bcs_nonuniform_upper} &\SI{0.0}{\degreeCelsius}
@@ -249,7 +249,7 @@ then \cref{eq:one_d_model,eq:dimensional_bcs_nonuniform} become
 \end{subequations}
 The nondimensionalisation process reveals two parameter clusters $D = H\lambda/\kappa$ and $\mathcal{W} = \widetilde{\Pi}e^{-\widetilde{\Pi}}/D$, which
 correspond to a nondimensional soil thermal depth and a nondimensional respiration strength. In terms of the parameters in \cref{tab:standard_values},
-these values are $D = 25$ and $\mathcal{W} = 0.006$.
+these values are $D = 25$ and $\mathcal{W} = 0.0001$.
 Note that $\theta$ and $\delta\theta_a$ should be interpreted as (nondimensional) temperatures
 relative to the background air temperature, so in particular $\delta\theta_a$ is a temperature anomaly.
 
