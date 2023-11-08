@@ -329,12 +329,16 @@ Note that for sufficiently large values of $\mathcal{W}$, the right-hand side of
 
 Using the parameters in \cref{tab:standard_values} and setting $\delta \theta_a = 0$,
 \cref{eq:nondimensional_model_nonuniform_upper_boundary_condition} was numerically solved for $c_2$ and thus the equilibrium distribution of $\theta$ was found.
-This was then converted back to dimensional units and plotted in \cref{fig:equilibrium_soil_temperature_profile}.
+This was then converted back to dimensional units and plotted in \cref{fig:equilibrium_soil_temperature_profile}. Much like observations \parencite{Ping1987},
+the temperature was found to be nearly constant for depths below about \SI{1}{\meter}. Near surface soil is in good thermal contact with the atmosphere, the temperature of
+which varies over short timescales, and therefore it is unlikely that observed near surafce soil temperatures will have reached their equilibrium value.
+Nevertheless, the profile here is compatible with soil temperature observations.
 
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{equilibrium_profile}
-  \caption[Equilibrium Soil Temperature Profile]{The equilibrium soil temperature profile, using the parameters in \cref{tab:standard_values}. This is given as an anomaly relative to $T_{a0}$.}
+  \caption[Equilibrium Soil Temperature Profile]{The equilibrium soil temperature profile, using the parameters in \cref{tab:standard_values}.
+    This is given as an anomaly relative to $T_{a0}$. The soil was assumed to be \SI{4}{\meter} deep and that $\delta T_a$ was zero.}
   \label{fig:equilibrium_soil_temperature_profile}
 \end{figure}
 
