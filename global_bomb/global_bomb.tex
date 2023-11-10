@@ -136,6 +136,7 @@ where $\Pi_0 = \Pi\left(C_{a0}\right)$ is the NPP during the pre-industrial peri
 
 
 \subsection{Computation of Bifurcation Point}
+\label{sec:computation_of_bifurcation_point}
 The stability of the equilibrium at $C_s = C_s^{\mathrm{eq}}$ is determined by the Jacobian of \cref{eq:global_soil_carbon}, which in this case amounts to
 taking the derivative of the right-hand side of \cref{eq:global_soil_carbon} when $C_s = C_s^{\mathrm{eq}}$. The system will transition from being stable to unstable when
 \begin{equation*}
@@ -231,6 +232,10 @@ the formula
 
 It is now straightforward to compute the bifurcation diagram, which is plotted in \cref{fig:compost_bomb_bif}. The figure shows the equilibrium soil carbon as a function
 of $\mu$ for different values of $\Pi_c$. It can be seen that there is a transcritical bifurcation at a certain value of $\mu$. This value of $\mu$ decreases with decreasing $\Pi_c$.
+The numerical calculations also reveal a stable state with large amounts of soil carbon in addition to the pre-industrial state for large enough values of $\mu$. The calculations in
+\cref{sec:computation_of_bifurcation_point} are performed by linearising about the pre-industrial state and as such apply only to that state, which is most scientificially relevent.
+
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{compost_bomb_global_bifurcation}
