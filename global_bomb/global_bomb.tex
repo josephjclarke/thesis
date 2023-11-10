@@ -270,7 +270,9 @@ horizontal transport of soil carbon.
   \label{eq:spatially_averaged_soil_carbon}
   \dv{\left\langle C_s\right\rangle}{t} = \left\langle \Pi \right \rangle - \left\langle r_0 C_s e^{\alpha T_a} \right \rangle.
 \end{equation}
-Assuming the warming is small, the exponential can be expanded to first order using $e^x \approx 1 + x$ leading to
+Assuming the warming is small, the exponential can be expanded to first order using $e^x \approx 1 + x$. This will not affect the behaviour of the model
+as long as $\alpha T_a \ll 1$. Assuming $Q_{10} = 2$, this requires that $T_a \ll \SI{33}{\kelvin}$, which is the case for realistic amounts of climate change.
+This approximation leads to
 \begin{align*}
   \dv{\left\langle C_s\right\rangle}{t} &\approx \left\langle \Pi \right \rangle  + \left\langle r_0 C_s + r_0 C_s \alpha T_a \right \rangle \\
                                         &\approx \left\langle \Pi \right \rangle - \left\langle r_0 C_s\right \rangle - \alpha \left \langle r_0C_s T_a\right\rangle.
