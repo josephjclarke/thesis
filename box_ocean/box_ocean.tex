@@ -97,7 +97,7 @@ respiration is assumed to have the following form:
 \end{equation}
 where $\Delta T_a$ is the change in atmospheric temperature, $r_0$ is a reference respiration level and $\alpha = 0.1\log Q_{10}$ is the strength of the temperature feedback.
 
-It is assumed that $\Delta T_a$ depends logarithmically on temperature
+It is assumed that $\Delta T_a$ depends logarithmically on atmospheric carbon
 \begin{equation}
   \label{eq:air_temperature}
   \Delta T_a = \frac{S}{\log 2} \log \frac{C_a}{C_{a0}}
@@ -207,7 +207,7 @@ the parameter that controls the \ce{CO2} fertilisation effect. This is plotted i
   \includegraphics[keepaspectratio,width=\textwidth]{imogen_critical_S_Q10_ca05}
   \caption[The dependence of the critical values of $S$ on $Q_{10}$ and $C_{1/2}$]{A contour plot showing the value of $S$ as a function of $Q_{10}$ (the temperature dependence of respiration)
     and $C_{1/2}$ (the strength of the \ce{CO2} fertilisation
-    feedback) at which the bifurcation occurs in \cref{eq:imogen_deterministic}.
+    feedback) at which the Hopf bifurcation occurs in \cref{eq:imogen_deterministic}.
     Values of $S$ larger than  this are incompatible with the observed behaviour of the carbon cycle.}
   \label{fig:imogen_bifurcation_plane}
 \end{figure}
@@ -253,7 +253,8 @@ where
   \label{eq:ocean_greens_function}
   G(t) = \sum_{i=1}^{N} f_ik e^{-t/\tau_i}
 \end{equation}
-is the impulse response function for the uptake of ocean carbon. This is similar to \cref{eq:imogen_impulse_response}, except the short term behaviour differs qualitatively
+is the impulse response function for the uptake of ocean carbon. It is assumed that $\Delta C_a(t) = 0$  for $t < 0$, and thus the lower bound
+of integration can be set to zero. \Cref{eq:oceans_greens_function} is similar to \cref{eq:imogen_impulse_response}, except the short term behaviour differs qualitatively
 and there is no nonlinear dependence on ocean carbon.
 
 \section{One Box Ocean}
@@ -271,7 +272,7 @@ The one box model can be written symbolically through the following set of ODEs
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
 $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_s^{\mathrm{eq}}$.
 
-\subsection{Stability of One Box}
+\subsection{Stability of Pre-industrial State in One Box Model}
 As shown in \cref{sec:btipping}, a fixed point of a system is unstable when the Jacobian, $J$, of that system evaluated at the fixed point has an eigenvalue, $\gamma$, with a positive real part.
 The Jacobian of \cref{eq:one_box_ocean} is given by
 \begin{equation}
