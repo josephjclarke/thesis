@@ -538,9 +538,12 @@ for the two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The q
   \caption{Parameter Estimates for one and two box ocean models.}
   \label{tab:one_and_two_box_parameters}
 \end{table}
-Taking ocean carbon sink data and atmospheric \ce{CO2} data from the Global Carbon Budget \parencite{Friedlingstein2022} from the year 1781 onwards (which is
-when the ocean sink data is available) and assuming that ocean carbon and atmospheric carbon is in equilibrium in this year, a
-least squares fit was performed to the one and two box models giving the parameter estimates shown in \cref{tab:one_and_two_box_parameters}.
+
+Using \cref{eq:ocean_response}, the ocean carbon uptake for an atmospheric \ce{CO2} time series can be computed for given values of $\tau_i$ and $f_i$.
+The Global Carbon Budget \parencite{Friedlingstein2022} provide estimates of the ocean carbon uptake as well as the increase atmospheric carbon
+dioxide, which is ultimately caused by anthropogenic activities, from the year 1781 onwards. Assuming $\Delta C_o = \Delta C_a = 0$ before 1781, a least squares fit of the
+Global Carbon Budget data can be performed to \cref{eq:ocean_response} to estimate the parameters $\tau_1$ for the one box model, and $\tau_1,\tau_2$ and $f_1$ for the two box model.
+These parameter estimates are shown in \cref{tab:one_and_two_box_parameters}.
 
 \begin{figure}
   \centering
