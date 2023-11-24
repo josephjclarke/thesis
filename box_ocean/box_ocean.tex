@@ -73,7 +73,16 @@ where $F_a$ is the atmosphere to ocean flux of carbon and $G_I$ is IMOGEN's impu
   \end{cases}
 \end{equation}
 where $f_0=0.014819,f_1 = 0.70367,f_2=0.24966,f_3=0.066485,f_4 = 0.038344,f_5=0.019439$ and $\tau_1= 0.70177,\tau_2 = 2.3488,\tau_3=15.281,\tau_4 = 65.359,\tau_5 = 347.55$, the $\tau_i$ have units of
-years. The carbon flux is given by
+years. This function is dimensionless and plotted in \cref{fig:imogen_impulse_response}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,keepaspectratio]{GI}
+  \caption[IMOGEN's impulse-response function]{The impulse-response function for the ocean carbon uptake in IMGOEN, described by \cref{eq:imogen_impulse_response}. The function is discontinuous at $t = \SI{1}{\year}$. The dotted line indicates this discontinuity. Note the differences in scales on both the $x$ and $y$ axes either side of this discontinuity.}
+  \label{fig:imogen_impulse_response}
+\end{figure}
+
+The carbon flux is given by
 \begin{equation}
   \label{eq:imogen_ocean_atmosphere_flux}
   F_a(t) = k \left(\Delta C_a - \Delta C_o\right)
