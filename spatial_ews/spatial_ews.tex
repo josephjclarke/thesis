@@ -165,7 +165,10 @@ Linearising \cref{eq:spatial_system} about an equilibrium, $y^*$, gives
   \label{eq:linearised_spatial}
   \dv{z}{t} = -\lambda z + \sigma \zeta
 \end{equation}
-where $z = y - y^*$ and $\lambda = (y^*)^2 - 1$. 
+where $z = y - y^*$ and $\lambda = (y^*)^2 - 1$. To be precise, $z$ and $\zeta$ are both functions of $t$ and $x$. However, given the periodic boundary conditions and the
+fact that $D = 0$, the stationary distribution of $z$ will not be a function of $x$. Hence this distribution can be calculated by looking at a particular $x$ value, say $x = 0$.
+Therefore, \cref{eq:linearised_spatial} should be viewed as being evaluated at $x = 0$.
+
 In this case, the Fokker-Planck equation, \cref{eq:fokker_planck}, can be used to calculate the statistics \parencite{Risken1984}.
 The Fokker-Planck equation associated with \cref{eq:linearised_spatial} is
 \begin{equation}
@@ -182,7 +185,7 @@ The normalisation factor $Z$ is given by
   \label{eq:partition_function}
   Z = \int_{-\infty}^{\infty} e^{-\frac{1}{\sigma^2}\lambda z^2} \dd{z} = \sigma \sqrt{\frac{\pi}{\lambda}}.
 \end{equation}
-Note that the variance of $z$ is
+Note that the variance of the stationary distribution of $z$ is
 \begin{equation}
   \label{eq:var_z}
   \sigma_z^2 = -\sigma^2 \pdv{\log Z}{\lambda} = \frac{\sigma^2}{2\lambda}
@@ -207,13 +210,45 @@ into oscillatory modes in space with amplitude $q_k(t)$ for wavenumber $k$ defin
   \label{eq:fourier}
   q(x,t) = \frac{1}{L} \sum_k q_k(t) e^{ikx}
 \end{equation}
+or
+\begin{equation}
+  \label{eq:fourier_inverse}
+  q_k(t) = \int_0^L q(x,t) e^{-ikx} \dd{x}
+\end{equation}
 where $q_k = q_{-k}^*$ to ensure that $q(x,t) \in \mathbb{R}$.
 Performing this decomposition gives an equation for each mode
 \begin{equation}
   \label{eq:linearised_spatial_D_modes}
-  \dv{z_k}{t} = -\lambda z_k - Dk^2 z_k + \sigma \zeta_k
+  \dv{z_k}{t} = -\lambda z_k - Dk^2 z_k + \sigma \zeta_k.
 \end{equation}
-Each mode with wavenumber $k$ therefore relaxes to equilibrium on a timescale
+To find the variance of $\zeta_k$, consider the product
+\begin{equation}
+  \label{eq:zeta_m_zeta_n}
+  \zeta_m(t)\zeta_n^*(t') = \int_0^L \zeta(x,t) e^{-imx} \dd{x} \int_0^L \zeta(x',t') e^{inx'} \dd{x'}, 
+\end{equation}
+which can be written
+\begin{equation}
+  \label{eq:zeta_m_zeta_n_combined}
+  \zeta_m(t)\zeta_n^*(t') = \iint \zeta(x,t)\zeta(x',t') e^{-i(mx-nx')} \dd{x}\dd{x'}.
+\end{equation}
+Taking the expectation of both sides gives the covariance of $\zeta_m(t)$ with $\zeta_n(t')$ 
+\begin{equation}
+  \label{eq:covariance_of_zeta_mode}
+  \E \left(\zeta_m\left(t\right)\zeta_n^*\left(t'\right)\right) = \iint \delta(x-x')\delta(t-t')e^{-i(mx-nx')} \dd{x}\dd{x'} 
+\end{equation}
+or
+\begin{equation}
+  \label{eq:covariance_of_zeta_mode_delta}
+  \E \left(\zeta_m\left(t\right)\zeta_n^*\left(t'\right)\right) = \delta(t-t') \int_0^L e^{-i(m-n)x} \dd{x}
+\end{equation}
+so the covariance structure of the modes of $\zeta$ can be written as
+\begin{equation}
+  \label{eq:covariance_structure_of_zeta_modes}
+  \E \left(\zeta_m\left(t\right)\zeta_n^*\left(t'\right)\right) = \delta(t-t') \delta_{mn} L,
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta.
+
+From \cref{eq:linearised_spatial_D_modes} it can be seen that each mode with wavenumber $k$ relaxes to equilibrium on a timescale
 \begin{equation}
   \label{eq:equilirium_timescale}
   \tau_k = \frac{1}{\lambda + Dk^2}.
@@ -232,7 +267,7 @@ form of the Fokker-Planck equation \parencite{Goldenfeld1992} which describes th
 Again, this has an equilibrium solution
 \begin{equation}
   \label{eq:fokker_planck_functional_equilibrium}
-  p[z,t] = \frac{1}{Z} e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}
+  p[z] = \frac{1}{Z} e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}
 \end{equation}
 where
 \begin{equation}
@@ -245,18 +280,43 @@ In order to find the variance, consider the two-point correlation function
   \label{eq:two_point_corr}
   G(x_1 - x_2) = \E \left(z\left(x_1\right)z\left(x_2\right)\right).
 \end{equation}
-This function can be obtained by differentiation. After introducing the extra term $-B(x)z(x)$ inside the integral in \cref{eq:linearised_energy}, the two point correlation function
-can be shown \parencite{Goldenfeld1992} to be equal to
+To calculate this function, consider a modified $\mathcal{H}$,
+\begin{equation}
+  \label{eq:modified_H}
+  \mathcal{H}'[z] = \mathcal{H}[z] - \int_0^L B(x) z(x) \dd{x}
+\end{equation}
+with a modified $Z$
+\begin{equation}
+  \label{eq:modified_Z}
+  Z' = \int e^{-\frac{2}{\sigma^2} \mathcal{H}'[z]}\,\mathcal{D}z.
+\end{equation}
+The two point correlation function is equal \parencite{Goldenfeld1992} to
 \begin{equation}
   \label{eq:two_point_from_partition}
-  G(x_1-x_2) = \frac{\sigma^2}{4}\fdv{B(x_1)}\fdv{\log Z}{B(x_2)} \eval_{B=0}
+  G(x_1-x_2) = \frac{\sigma^4}{4}\fdv{B(x_1)}\fdv{\log Z'}{B(x_2)} \eval_{B=0}.
 \end{equation}
-or
+To see this, note
+\begin{equation}
+  \label{eq:log_deriv}
+  \fdv{B(x_1)}\fdv{\log Z'}{B(x_2)} =  -\frac{1}{{Z'}^2}\fdv{Z'}{B(x_1)} + \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}
+\end{equation}
+and
+\begin{equation}
+  \label{eq:log_deriv_first}
+  \frac{1}{Z'}\fdv{Z'}{B(x_1)}\eval_{B=0} = \int z(x_1) \frac{e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}}{Z}\,\mathcal{D}z = \int z(x_1) p[z] \,\mathcal{D}z = \E(z(x_1)) = 0
+\end{equation}
+and similarly
+\begin{equation}
+  \label{eq:log_deriv_second}
+  \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}\eval_{B=0} = \int z(x_1)z(x_2) p[z]\,\mathcal{D}z .
+\end{equation}
+
+The integral in \cref{eq:modified_Z} can be evaluated (see \cref{sec:evaluation_of_integral}) to give the following form for $G$
 \begin{equation}
   \label{eq:two_point_correlation_actual}
   G(x) = \frac{1}{2} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
 \end{equation}
-where
+where $x = x_1 - x_2$ and
 \begin{equation}
   \label{eq:corr_len}
   \xi = \sqrt{\frac{D}{\lambda}}
