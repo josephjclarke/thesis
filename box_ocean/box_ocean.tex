@@ -346,6 +346,7 @@ with $\tau = \SI{3.7}{\year}$. The dashed line represents the position of the an
 It can been seen that the agreement is good, and that this is a transcritical bifurcation.
 
 \subsection{Complex Eigenvalues}
+\label{sec:hopf_in_one}
 In the case where the ocean timescale is larger than $1/r_0$, then $D < 0$. This means if the ocean response is considered to have a long timescale,
 the stability of the system is given by the sign of $B$.
 
@@ -383,16 +384,16 @@ This is a different sort of bifurcation to the one found in IMOGEN and so motiva
 \label{sec:two_box}
 To improve the realism of the model, the two box ocean case is now considered. In order to do this \cref{eq:one_box_ocean} must be modified to include
 two ocean stores of carbon $C_1$ and $C_2$. Each box will have their own timescale $\tau$ and $\tau/\epsilon$ respectively. This notation is suggestive of
-$C_1$ being a fast box and $C_2$ being a slow box, although this restriction is not necessary.
+$C_1$ responding quickly and $C_2$ responding slowly to increased atmospheric carbon, although this restriction is not necessary.
 
 This leads to the following system of equations:
 \begin{subequations}
   \label{eq:two_box_ocean}
   \begin{align}
-    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \\
-    \dv{C_1}{t} &= fk(C_a - C_{a0}) - \frac{C_1}{\tau} \\
-    \dv{C_2}{t} &= (1-f)k(C_a-C_{a0}) - \epsilon\frac{C_2}{\tau} \\
-    C_a &= \mathcal{C} - C_s - C_1 - C_2.
+    \dv{C_s}{t} &= \Pi(C_a) - r_0 C_s \left(\frac{C_a}{C_{a0}}\right)^{\mu} \label{eq:two_box_ocean_cs}\\
+    \dv{C_1}{t} &= fk(C_a - C_{a0}) - \frac{C_1}{\tau} \label{eq:two_box_ocean_c1}\\
+    \dv{C_2}{t} &= (1-f)k(C_a-C_{a0}) - \epsilon\frac{C_2}{\tau} \label{eq:two_box_ocean_c2}\\
+    C_a &= \mathcal{C} - C_s - C_1 - C_2. \label{eq:two_box_ocean_ca}
   \end{align}
 \end{subequations}
 Again note the equilibrium at $C_a = C_{a0}$,$C_s = C_s^{\mathrm{eq}}$ and $C_1 = C_2 = 0$. To determine the stability of this state the eigenvalues of the Jacobian
@@ -404,16 +405,15 @@ characteristic polynomial of the Jacobian is solved, which corresponds to assumi
 critical values of $\mu$ are found at which a Hopf bifurcation could occur, which is then verified with a numerical investigation.
 
 \subsection{A Heuristic Argument}
-For this section, the assumption of a timescale separation in ocean responses will be made, namely that $\epsilon \ll 1$. It has already been shown that a long timescale
-single ocean box will lead to a Hopf so it is reasonable to expect that adding a faster box will not change this. A more mechanistic argument can be formulated as follows.
+For this section, it will be assumed that $C_2$ has a slow response to a given atmospheric \ce{CO2} forcing, when compared to $C_1$. This implies that $\epsilon \ll 1$.
+Ignoring \cref{eq:two_box_ocean_c1}, it has already been shown in \cref{sec:hopf_in_one} that a system with a slow ocean response will undergo a Hopf bifurcation at a critical value of $\mu$.
 
-Due to the timescale
-separation, over short timescales the slow box can be ignored and so it will behave like a one box system. As a result, it can be expected that there
-is a value of $\mu$ which leads to an instability. This instability leads to a high atmospheric carbon state, but the ultimate fate of this carbon will depend on the long-time response of the oceans, in other
-words on the slow box. Over these longer timescales the system can be treated as a one box model with the ocean box corresponding to the slow box.
-Over these long timescales the slow ocean box will absorb the excess carbon from the atmosphere which will tend to cool the globe. As a result
-the soil can once again become a sink of carbon. However eventually the soil will contain an amount $C_s^{\mathrm{eq}}$ of soil carbon, but it has already been argued that this state is unstable
-and so the cycle will start again.
+Mechanistically, this happens because the instability leads to the soil releasing its carbon to the atmosphere. The ocean box can then draw down the excess carbon from the atmosphere, which cools
+the climate and allows carbon to accumulate on land again. Eventually, enough carbon will have accumulated in the soils that the state becomes unstable and it will be released back into the atmoshere,
+starting the cycle again.
+
+Taking into account \cref{eq:two_box_ocean_c1}, this will tend to increase the draw down of atmospheric carbon, thus potentially stabalising the system. However it seems reasonable to expect that the above
+mechanism will not be totally distrupted and therefore a Hopf bifurcation might still be expected.
 
 \subsection{Computation of Bifurcation Point}
 If the assumption that there is a Hopf bifurcation can be made, then there is another mode of attack. At the Hopf bifurcation a pair of complex conjugate eigenvalues
