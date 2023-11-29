@@ -122,4 +122,67 @@ which explains the sign in \cref{eq:spatial_system_energy}.
 
 \section{Evaluation of Gaussian Path Integral}
 \label{sec:evaluation_of_integral}
-Along with a notion of functional differentiation, there is also a notion of functional integration.
+%Along with a notion of functional differentiation, there is also a notion of functional integration. I will evalutate an integral, \cref{eq:modified_Z}.
+%The integral is
+ \begin{equation}
+   \label{eq:path_integral}
+   Z = \int \exp\left( -\frac{2}{\sigma^2} \mathcal{H} \right) \, \mathcal{D}z.
+ \end{equation}
+ where
+ \begin{equation}
+   \label{eq:hamiltonian}
+   \mathcal{H}[z] = \int_0^L \frac{1}{2}\lambda z(x)^2 + \frac{1}{2}D\left(\pdv{z}{x}\right)^2 - B(x)z(x)\dd{x}
+ \end{equation}
+
+ % The tactic will be to write $B$ and $z$ in a Fourier basis, in which the path integral reduces to a product of integrals.
+ In Fourier space, \cref{eq:hamiltonian} becomes
+ \begin{equation}
+   \label{eq:fourier_hamiltonian}
+   \mathcal{H}[\{z_k\}] = \frac{1}{L^2}\sum_{n,m}\left(\frac{1}{2}\left(\lambda  - D nm\right) z_nz_m - B_mz_n\right)\int_0^L  e^{i(n+m)x}\dd{x}.
+ \end{equation}
+ The integral over $x$ is non-zero only when $m = -n$, so \cref{eq:fourier_hamiltonian} becomes
+ \begin{equation}
+   \label{eq:fourier_hamiltonian_contracted}
+   \mathcal{H}[\{z_k\}] = \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda  + D n^2\right) z_nz_{-n} - B_{-n}z_{n}\right).
+ \end{equation}
+ As $z \in \mathbb{R}$, $z_n = z_{-n}^*$ so \cref{eq:fourier_hamiltonian_contracted} becomes
+ \begin{equation}
+   \label{eq:fourier_hamiltonian_contracted_mod}
+   \mathcal{H}[\{z_k\}] = \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda  + D n^2\right) \left|z_n\right|^2- B_{-n}z_{n}\right).
+ \end{equation}
+ Setting $\phi_k = z_k - \frac{B_k}{Dk^2 + \lambda}$, \cref{eq:fourier_hamiltonian_contracted_mod} becomes
+ \begin{equation}
+   \label{eq:fourier_phi}
+   \mathcal{H}[\{\phi_k\}] =  \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda + Dn^2\right) \left|\phi_n\right|^2 - \frac{1}{2}\frac{\left|B_n\right|^2}{\lambda + Dn^2}\right).
+ \end{equation}
+ This can be written as $\mathcal{H}[\{\phi_k\}] = \mathcal{H}_0[\{\phi_k\}] - \frac{1}{2L}\sum_{n}\frac{\left|B_n\right|^2}{\lambda + Dn^2}$, so that \cref{eq:path_integral} becomes
+ \begin{equation}
+   \label{eq:path_integral_factored}
+   Z = \int \prod_{k>0} \exp \left(-\frac{2}{\sigma^2} \mathcal{H}_0[\{\phi_k\}]\right) \dd{\phi_k}\exp\left(\frac{1}{\sigma^2} \frac{1}{L}\sum_{n}\frac{\left|B_n\right|^2}{\lambda + Dn^2}\right)
+ \end{equation}
+ or
+ \begin{equation}
+   \label{eq:path_integral_factored_Z0}
+   Z = Z_0 \exp\left(\frac{1}{\sigma^2} \frac{1}{L}\sum_{n}\frac{\left|B_n\right|^2}{\lambda + Dn^2}\right).
+ \end{equation}
+ Inverting $B_k$ back into real space gives
+ \begin{equation}
+   \label{eq:path_integral_factored_Z0_real}
+   Z = Z_0 \exp\left(\frac{1}{\sigma^2} \iint B(x_1) g(x_1 - x_2) B(x_2) \dd{x_1}\dd{x_2}\right).
+ \end{equation}
+ where
+ \begin{equation}
+   \label{eq:G_from_Z}
+   g(x_1 - x_2) =  \frac{1}{L}\sum_{n} \frac{e^{in(x_1-x_2)}}{\lambda + Dn^2}. 
+ \end{equation}
+ 
+ This sum can be evaluated by replacing it with an integral, assuming $L$ is large enough:
+ \begin{equation}
+   \label{eq:G_as_integral}
+   g(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}  \frac{e^{ikx}}{\lambda + Dk^2} \dd{k} = \frac{1}{2} \frac{\xi}{D} e^{-x/\xi},
+ \end{equation}
+ hence
+ \begin{equation}
+   \label{eq:G_from_G}
+   G(x) = \frac{\sigma^2}{2}g(x) =  \frac{1}{4} \frac{\xi}{D} e^{-x/\xi}???
+ \end{equation}
