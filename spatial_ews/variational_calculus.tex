@@ -120,37 +120,39 @@ An important special case of \cref{theorem:chain_rules} is
 \end{equation}
 which explains the sign in \cref{eq:spatial_system_energy}.
 
-\section{Evaluation of Gaussian Path Integral}
+\section{Calculation of Correlation Function}
 \label{sec:evaluation_of_integral}
-%Along with a notion of functional differentiation, there is also a notion of functional integration. I will evalutate an integral, \cref{eq:modified_Z}.
-%The integral is
+Along with the notion of functional differentiation, there is also a notion of functional integration, in which a functional is integrated over
+possible input functions. In this section,  In this section, I derive \cref{eq:two_point_correlation_actual} using some methods of functional integration.
+
+The correlation function can be derived by taking functional derivatives of the functional integral given by
  \begin{equation}
    \label{eq:path_integral}
-   Z = \int \exp\left( -\frac{2}{\sigma^2} \mathcal{H} \right) \, \mathcal{D}z.
+   Z = \int \exp\left( -\frac{2}{\sigma^2} \mathcal{H} \right) \, \mathcal{D}z,
  \end{equation}
  where
  \begin{equation}
    \label{eq:hamiltonian}
-   \mathcal{H}[z] = \int_0^L \frac{1}{2}\lambda z(x)^2 + \frac{1}{2}D\left(\pdv{z}{x}\right)^2 - B(x)z(x)\dd{x}
+   \mathcal{H}[z] = \int_0^L \frac{1}{2}\lambda z(x)^2 + \frac{1}{2}D\left(\pdv{z}{x}\right)^2 - B(x)z(x)\dd{x}.
  \end{equation}
 
- % The tactic will be to write $B$ and $z$ in a Fourier basis, in which the path integral reduces to a product of integrals.
+ To attack this integral, the tactic will be to shift to Fourier space, in which the part of the integral that survives differentiation can be factored out.
  In Fourier space, \cref{eq:hamiltonian} becomes
  \begin{equation}
    \label{eq:fourier_hamiltonian}
    \mathcal{H}[\{z_k\}] = \frac{1}{L^2}\sum_{n,m}\left(\frac{1}{2}\left(\lambda  - D nm\right) z_nz_m - B_mz_n\right)\int_0^L  e^{i(n+m)x}\dd{x}.
  \end{equation}
- The integral over $x$ is non-zero only when $m = -n$, so \cref{eq:fourier_hamiltonian} becomes
+ The integral over $x$ is non-zero only when $m = -n$, so the sum over $m$ can be eliminated yielding
  \begin{equation}
    \label{eq:fourier_hamiltonian_contracted}
    \mathcal{H}[\{z_k\}] = \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda  + D n^2\right) z_nz_{-n} - B_{-n}z_{n}\right).
  \end{equation}
- As $z \in \mathbb{R}$, $z_n = z_{-n}^*$ so \cref{eq:fourier_hamiltonian_contracted} becomes
+ Using the fact that $z \in \mathbb{R}$, which means that $z_n = z_{-n}^*$, \cref{eq:fourier_hamiltonian_contracted} can be simplified to
  \begin{equation}
    \label{eq:fourier_hamiltonian_contracted_mod}
    \mathcal{H}[\{z_k\}] = \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda  + D n^2\right) \left|z_n\right|^2- B_{-n}z_{n}\right).
  \end{equation}
- Setting $\phi_k = z_k - \frac{B_k}{Dk^2 + \lambda}$, \cref{eq:fourier_hamiltonian_contracted_mod} becomes
+ Setting $\phi_k = z_k - \frac{B_k}{Dk^2 + \lambda}$ and completeing the square means $\mathcal{H}$ is now
  \begin{equation}
    \label{eq:fourier_phi}
    \mathcal{H}[\{\phi_k\}] =  \frac{1}{L}\sum_{n} \left(\frac{1}{2}\left(\lambda + Dn^2\right) \left|\phi_n\right|^2 - \frac{1}{2}\frac{\left|B_n\right|^2}{\lambda + Dn^2}\right).
@@ -181,8 +183,8 @@ which explains the sign in \cref{eq:spatial_system_energy}.
    \label{eq:G_as_integral}
    g(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty}  \frac{e^{ikx}}{\lambda + Dk^2} \dd{k} = \frac{1}{2} \frac{\xi}{D} e^{-x/\xi},
  \end{equation}
- hence
+ hence using \cref{eq:two_point_from_partition},
  \begin{equation}
    \label{eq:G_from_G}
-   G(x) = \frac{\sigma^2}{2}g(x) =  \frac{1}{4} \frac{\xi}{D} e^{-x/\xi}???
+   G(x) = \frac{1}{2}\sigma^2g(x) =  \frac{1}{4} \sigma^2 \frac{\xi}{D} e^{-x/\xi}.
  \end{equation}
