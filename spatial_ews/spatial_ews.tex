@@ -303,25 +303,25 @@ To see this, note
 and
 \begin{equation}
   \label{eq:log_deriv_first}
-  \frac{1}{Z'}\fdv{Z'}{B(x_1)}\eval_{B=0} = \int z(x_1) \frac{e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}}{Z}\,\mathcal{D}z = \int z(x_1) p[z] \,\mathcal{D}z = \E(z(x_1)) = 0
+  \frac{1}{Z'}\fdv{Z'}{B(x_1)}\eval_{B=0} \propto \int z(x_1) \frac{e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}}{Z}\,\mathcal{D}z = \int z(x_1) p[z] \,\mathcal{D}z = \E(z(x_1)) = 0
 \end{equation}
 and similarly
 \begin{equation}
   \label{eq:log_deriv_second}
-  \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}\eval_{B=0} = \int z(x_1)z(x_2) p[z]\,\mathcal{D}z .
+  \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}\eval_{B=0} \propto \int z(x_1)z(x_2) p[z]\,\mathcal{D}z .
 \end{equation}
 
 The integral in \cref{eq:modified_Z} can be evaluated (see \cref{sec:evaluation_of_integral}) to give the following form for $G$
 \begin{equation}
   \label{eq:two_point_correlation_actual}
-  G(x) = \frac{1}{2} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
+  G(x) = \frac{1}{4} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
 \end{equation}
 where $x = x_1 - x_2$ and
 \begin{equation}
   \label{eq:corr_len}
   \xi = \sqrt{\frac{D}{\lambda}}
 \end{equation}
-is the correlation length. The variance is thus $G(0) = 1/\sqrt{4\lambda D}$, which diverges as the bifurcation is approached.
+is the correlation length. The variance is thus $G(0) = \sigma^2/\sqrt{16\lambda D}$, which diverges as the bifurcation is approached.
 \section{Statistics}
 The autocorrelation and variance of \cref{eq:spatial_system} will be compared when calculated over space and over time. These two different ways of calculating the statistics  will now
 be defined. A summary is given in \cref{tab:ews_space_time_definition}.
