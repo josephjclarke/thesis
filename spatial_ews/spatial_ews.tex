@@ -413,9 +413,11 @@ First the case  when $D = 0$ is investigated, for large and small values of $\ep
   \includegraphics[width=\textwidth,keepaspectratio]{uncoupled_variance}
   \caption[Early warning signals in the uncoupled limit]{Early warning signals when $D = 0$. The left column shows the slow forcing case and the right column shows the fast forcing.
     The top row shows the individual trajectories with the mean trajectory shown in green. The black curves are the quasi-static equilibria.
-    In the second row  $\sigma_s^2$ in black and $\sigma_t^2$ in red are plotted. In the bottom row $\sigma_t^2$ is calculated from the individual gridpoints
+    The second row  shows plots of $\sigma_s^2$ in black and $\sigma_t^2$ in red, normalised by the variance of the driving noise. Note that there is an extra factor
+    of $N$ in the normalisation of the temporal estimate that comes from averaging over trajectories. The grey dashed line shows the analytical variance
+    estimate, which is the same for both spatial and temporal estimates, given by \cref{eq:var_z}. In the bottom row $\sigma_t^2$ is calculated from the individual gridpoints
     rather than the domain average.  The Kendall $\tau$ value is calculated for each gridpoint and then a histogram of these $\tau$ values is plotted. The mean $\tau$ values
-    are 0.6 and -0.01 for the slow and fast case respectively.}
+    are 0.69 and 0.06 for the slow and fast case respectively.}
   \label{fig:uncoupled_timeseries}
 \end{figure}
 The left column shows the small $\epsilon$ case. This is the case
@@ -444,7 +446,8 @@ of spatial early warning signals should be possible. This is precisely what is s
     The top row shows the quasi-static equilibria (black) the individual
     trajectories of the grid boxes (grey) and the domain average (green).
     The variance is plotted in the second row, calculated over space 
-    (black) and over time (red). The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
+    (black) and over time (red). The analytical prediction for $\sigma_s^2$ is plotted in grey.
+    The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
   \label{fig:coupled_timeseries}
 \end{figure}
 
