@@ -333,12 +333,12 @@ The average of a quantity, $A$, calculated over space is defined to be
   \label{eq:definition_of_average}
   \langle A \rangle = \frac{1}{L}\int_0^L A(y(x,t),x) \,\mathrm{d}x.
 \end{equation}
-The spatial variance of $y$ at time $t$ is then
+The spatial variance estimator of $y$ at time $t$ is then
 \begin{equation}
   \label{eq:spatial_variance}
   \sigma_s(t)^2 = \langle y^2 \rangle - \langle y \rangle^2,
 \end{equation}
-and the autocorrelation over space is defined as
+and the temporal autocorrelation estimator over space is defined as
 \begin{equation}
   \label{eq:spatial_autocorrelation}
   \alpha_s(t) = \frac{\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle }{\sigma_s(t)^2}.
@@ -356,7 +356,7 @@ Averaging in time is defined as follows. Consider the quantity $B(t)$. The tempo
 where the average is taken over some suitable window of length $T_w$.
 
 When computing early warning indicators over time, the time series must first be `detrended'. The detrended time series of $\langle y \rangle$ is denoted by $z$.
-The variance and autocorrelation, defined over a window of length $\tau_w$ are
+The estimators of variance and autocorrelation, defined over a window of length $\tau_w$ are
 \begin{equation}
   \label{eq:temporal_variance}
   \sigma_t^2 = \overline{z^2} - \overline{z}^2 
