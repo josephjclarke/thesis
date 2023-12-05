@@ -223,8 +223,12 @@ variance shows both increases and decreases. A positive trend occurs near
 the tipping point however this would give, if any, very little warning. \Cref{fig:prob_of_suc}
 repeats this test for 1000 different noise realisations, showing the
 challenge of getting early warning signals when the noise is very 
-autocorrelated. In \cref{fig:subsampling} an investigation into the effect on the early warning when the time series
-is subsampled is carried out.
+autocorrelated.
+
+The results of an investigation into subsampling the timeseries plotted in \cref{fig:failure_of_ews} are plotted in \cref{fig:subsampling}.
+Subsampling the timeseries will act to reduce the autocorrelation of the timeseries, which may make early warning signals stronger.
+However, \cref{fig:failure_of_ews} shows that subsampling does not give better early warning signals in this case, which underscores the need
+to develop better early warning methods.
 
 \begin{figure}
   \centering
@@ -415,8 +419,14 @@ In \cref{fig:changing_forcing} the case where the
 system is not approaching a tipping point is examined, but due to a reddening of 
 the noise process the classic Early Warning Indicators give a 
 false positive. In Panel C there is a plot of $\lambda$ obtained from ROSA, which stays constant and close to the true
-value (plotted in the dashed line). ROSA therefore avoids a false positive in this case. This is looked at more
-systematically in \cref{fig:false_positives_white}.
+value (plotted in the dashed line). ROSA therefore avoids a false positive in this case.
+
+\Cref{fig:changing_forcing} shows ROSA avoiding a false positive in one particular case with one particular noise realisation.
+\Cref{fig:false_positives_white} shows the results of repeating this experiment with 1000 different noise realisations. Given a particular
+Kendall $\tau$ threshold, the fraction of realisations that had a $\tau$ equal to or greater than that threshold was calculated for each early
+warning signal. As there was no tipping in this experiment, this fraction represents the probability of a false positive. \Cref{fig:false_positives_white}
+shows that ROSA gives fewer false positives than the variance or autocorrelation do.
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{false_positives_whitenoise}
@@ -464,7 +474,7 @@ negative $\tau$ suggests one is not. To give the best early warning $\tau$ shoul
 large as long before the tipping point as possible.
 
 
-This is computed this for $10$ noise realisations and plot the output 
+This is computed for $10$ different noise realisations and the $\tau$ values are calculated as a function of time and plotted  
 in \cref{fig:boers_method}. Both indicators show a positive 
 $\tau$ near the tipping point. However, ROSA becomes positive substantially earlier than the BB method and there is
 less variance in the $\tau$ values for the ROSA method, as required for a more reliable early warning indicator.

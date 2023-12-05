@@ -225,7 +225,7 @@ in soils when $\kappa$ is finite, and so the LC10 model will need a higher amoun
 \label{sec:existence_of_compost_bomb}
 Now that there is numerical evidence for a compost bomb in the continuum case, this will be investigated analytically. In the approximation where soil carbon is constant,
 the rate dependent tipping feature of the model is lost, and instead it reverts to a classical bifurcation-induced tipping problem.
-Consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which is refereed to as an atmospheric warming.
+Consider the case where $\delta T_a$ is a constant, given by the temperature increase relative to the long term background state, $T_{a0}$, which is referred to as an atmospheric warming.
 In this case $\delta T_a$ is the bifurcation control parameter.
 To begin the following nondimensionalisations are made:
 \begin{subequations}
@@ -277,16 +277,16 @@ Rearranging and recognising that this is a separable differential equation gives
 \begin{equation}
   \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \pm\sqrt{c_1} \int \mathrm{d}x = c_2 \pm \sqrt{c_1} x 
 \end{equation}
-where $c_2$ is another integration constant. The right hand side is then reduced to a standard integral \parencite{riley2006}
+where $c_2$ is another integration constant. The left hand side is then reduced to a standard integral \parencite{riley2006}
 with the substitution $u = \left(1 - \frac{2\mathcal{W}}{c_1} e^{\psi}\right)^{1/2}$, giving
 \begin{equation}
-  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \int \frac{2}{u^2 - 1} \,\mathrm{d}u = \artanh u. 
+  \int \frac{\mathrm{d}\psi}{\sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}}} = \int \frac{2}{u^2 - 1} \,\mathrm{d}u = -2\artanh u. 
 \end{equation}
 Inverting this then leads to
 \begin{equation}
-  \sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}} = \tanh\left(c_2 \pm \sqrt{c_1} x\right)
+  \sqrt{1 - 2\mathcal{W}c_1^{-1} e^{\psi}} = \tanh\left(c_2 \pm \sqrt{c_1} x\right),
 \end{equation}
-and thus
+where $c_1$ and $c_2$ have been redefined to absorb the factor of -2. As a result, $\psi$ can be expressed as
 \begin{equation}
   \psi = \log \frac{c_1}{2\mathcal{W}} + \log \left(1 - \tanh^2 \left(c_2 \pm \sqrt{c_1} x\right)\right).
 \end{equation}
