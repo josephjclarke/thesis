@@ -194,11 +194,18 @@ factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separatel
 Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_s^{\mathrm{eq}} = \Pi(C_{a0})/r_0$, $C_o = 0$, $\Delta T_o = 0$, corresponding to the pre-industrial equilibrium, which has been
 experienced only small variations over the (pre-industrial) Holocene.
 
+The realism of this model could be challenged. Firstly, atmospheric and ocean temperatures do not adjust instantaneously to
+changes in atmospheric \ce{CO2}. Secondly, I have neglected any temperature dependence on NPP as well as the spatial structure of the land response.
+Furthermore, IMOGEN's representation of ocean carbon is not `processed based', but it instead based on fitting an impulse-response function to a GCM.
+As such, it is hard to give a physical explanation for the precise functional form chosen. However, it has been found that this functional form gives a good
+representation for ocean carbon uptake \parencite{Joos1996}.
+
 \subsection{Bifurcations in IMOGEN}
 \Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initialised close to equilibrium and then allowed to equilibrate over 5000 years.
 The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories} and other carbon cycle quantities in \cref{fig:imogen_trajectories_c_cycle}.
 For values of $S$ between \SIrange{10}{11}{\kelvin} there is a
-transition to oscillatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation.
+transition to oscillatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation. This represents very pronounced climate change, possibly putting
+the system in a state far from states the model was designed to handle. As such, the validity of the model for these larger values of $S$ should be questioned.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{imogen_traj}
@@ -510,7 +517,9 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
   with those predicted by the imaginary part of the eigenvalues of the Jacobian, plotted in \cref{fig:eigen_values_of_the_jacobian}.}
   \label{fig:two_box_bf_diagram}
 \end{figure}
-Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. It can be seen that the bifurcation corresponds to the theoretical prediction.
+Furthermore, the equilibrium soil carbon state is plotted in \cref{fig:two_box_bf_diagram}. For $\mu \lessapprox 2.1$, the system is in a
+quiescent state, in which the state variables do not change with time. For larger values of $\mu$, carbon moves between the soil, the atmosphere and the ocean boxes in
+an oscillatory fashion, with temperature oscillating in phase with atmospheric carbon. It can be seen that the bifurcation corresponds to the theoretical prediction.
 No bifurcation was found at $\mu_+$. This could be because $\mu_+$ represents a spurious solution. Alternatively there could be other
 parameters for which $\mu_+$ represents a real bifurcation. In any case as $\mu_+ > \mu_-$, the bifurcation at $\mu_-$ will have more relevance to the climate system.
 
