@@ -196,7 +196,8 @@ experienced only small variations over the (pre-industrial) Holocene.
 
 \subsection{Bifurcations in IMOGEN}
 \Cref{eq:imogen_deterministic} is solved for a range of values of $S$ with $Q_{10} = 2$. The system was initialised close to equilibrium and then allowed to equilibrate over 5000 years.
-The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories}. For values of $S$ between \SIrange{10}{11}{\kelvin} there is a
+The results for atmospheric carbon are plotted in \cref{fig:imogen_trajectories} and other carbon cycle quantities in \cref{fig:imogen_trajectories_c_cycle}.
+For values of $S$ between \SIrange{10}{11}{\kelvin} there is a
 transition to oscillatory behaviour. In \cref{sec:two_box} this will be shown to be caused by a Hopf bifurcation.
 \begin{figure}
   \centering
@@ -219,6 +220,13 @@ the parameter that controls the \ce{CO2} fertilisation effect. This is plotted i
     feedback) at which the Hopf bifurcation occurs in \cref{eq:imogen_deterministic}.
     Values of $S$ larger than  this are incompatible with the observed behaviour of the carbon cycle.}
   \label{fig:imogen_bifurcation_plane}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{imogen_summary}
+  \caption[IMOGEN carbon cycle variables for various $S$ values]{Soil carbon, ocean carbon change, global temperature change, NPP and heterotrophic respiration calculated with the IMOGEN model for a range of $S$ values, with $Q_{10} = 2$. Large $S$ values give behaviours incompatible with the observed behaviour of the carbon cycle over the Holocene.}
+  \label{fig:imogen_trajectories_c_cycle}
 \end{figure}
 
 As some CMIP6 models have an $S \approx\SI{9}{K}$ this imposes limits on the strength of their carbon cycle feedbacks. Furthermore, because these models are
