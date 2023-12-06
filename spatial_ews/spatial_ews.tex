@@ -574,6 +574,21 @@ region, for fast forcing and strong spatial coupling. This is illustrated schema
   \label{fig:idealised_plot}
 \end{figure}
 
+\section{Applying Spatial Early Warning Signals in Practice}
+So far I have applied this method to a simple idealised system. In this section, I will suggest how this method could be applied in practice.
+
+Suppose a candidate tipping element has been identified --- which for concreteness I will take to be the Amazon Rainforest. A spatiotemporal
+dataset which represents the state variable, such as Vegetation Optical Depth (VOD). A value of $\epsilon$ should also be estimated. It is to be
+hoped that it is small enough. \Cref{tab:epsilon_estimate} suggests that the Amazon Rainforest is a marginal case. By calculating a
+spatial correlation, a correlation length can be determined. If this quantity is small relative to the size of the rainforest, then it
+is plausible that the spatial early warning signals investigated in this chapter may give skillful early warnings.
+
+However, other factors should be considered. The Amazon is strongly influenced by ENSO, which may cause the Amazon's
+variability to change. Other systematic effects, such as a latitudinal climate gradient or human land use, may complicate matters for
+example by making the parameters $D$ and $\mu$ functions of space. This could be avoided by masking out data near human settlement
+or by working over latitudinal bands.
+
+
 \section{Conclusion}
 
 Obtaining temporal early warning signals for tipping points are challenging, not least because they are often used in rapidly forced systems.
