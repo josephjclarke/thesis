@@ -497,6 +497,7 @@ method.}\label{fig:boers_method}
 \end{figure}
 
 \section{Complex Models}
+\label{sec:complex_models}
 The verification of the proposed early warning system with relatively simple conceptual models is important.
 However, the majority of components of the Earth system are complex, requiring highly detailed numerical models to emulate them. Hence, it is 
 desirable to see if the technique is still successful in the case of
@@ -530,7 +531,21 @@ Moreover, high sensitivities of the temperature seasonal cycle to global warming
 Furthermore there is a link between temperature anomalies and Amazon productivity \parencite{Boulton2013}.
 Therefore, the air temperature plays an important role in controlling the resilience of the forest.
 
-For each of these indicators, the Kendall $\tau$ statistic was calculated for the
+\Cref{fig:norcpm1} shows an example of a grid point undergoing an abrupt shift. It also shows $\lambda$, calculated by the ROSA method, and the conventional early warning
+indicators, variance and autocorrelation. The ROSA method shows an increase in $\lambda$ and thus gives a good early warning of the abrupt shift.
+There is, however, little change in the autocorrelation and variance, thereby giving no early warning.
+
+\begin{figure}
+  \centering
+  \includegraphics[keepaspectratio,width=\textwidth]{nor_esm_point}
+  \caption[An abrupt shift from NorCPM1]{An example of an abrupt shift in vegetation carbon happening in a grid cell at 5$^\circ$N 56$^\circ$W in the NorCPM1 model.
+    The time of the abrupt shift, calculated by the algorithm detailed in \cref{sec:complex_models} is indicated by a dashed line.
+    Early warning indicators are calculated from 50 years before the early warning signal. Whilst $\lambda$, calculated by the ROSA method, shows a clear rise before the abrupt shift,
+    the conventional indicators give little warning.}
+  \label{fig:norcpm1}
+\end{figure}
+
+Proceeding more systematically, for each of these indicators, the Kendall $\tau$ statistic was calculated for the
 20 year period prior to the abrupt shift. If that $\tau$ is above some threshold, that is counted 
 as a detection. As it is expected that the variance in vegetation carbon to be higher 
 in a high \ce{CO2} world, only increases in variance are taken as a detection if
