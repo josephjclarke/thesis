@@ -278,7 +278,7 @@ where
   G(t) = \sum_{i=1}^{N} f_ik e^{-t/\tau_i}
 \end{equation}
 is the impulse response function for the uptake of ocean carbon. It is assumed that $\Delta C_a(t) = 0$  for $t < 0$, and thus the lower bound
-of integration can be set to zero. \Cref{eq:oceans_greens_function} is similar to \cref{eq:imogen_impulse_response}, except the short term behaviour differs qualitatively
+of integration can be set to zero. \Cref{eq:ocean_greens_function} is similar to \cref{eq:imogen_impulse_response}, except the short term behaviour differs qualitatively
 and there is no nonlinear dependence on ocean carbon.
 
 \section{One Box Ocean}
@@ -296,7 +296,7 @@ The one box model can be written symbolically through the following set of ODEs
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
 $C_a = C_{a0}$, $C_o = 0$ and $C_s = C_s^{\mathrm{eq}}$.
 
-\subsection{Stability of Pre-industrial State in One Box Model}
+\subsection{Stability of Pre-industrial State in the One Box Model}
 As shown in \cref{sec:btipping}, a fixed point of a system is unstable when the Jacobian, $J$, of that system evaluated at the fixed point has an eigenvalue, $\gamma$, with a positive real part.
 The Jacobian of \cref{eq:one_box_ocean} is given by
 \begin{equation}
@@ -572,7 +572,7 @@ for the two box model where $\tau_1$,$\tau_2$ and $f_1$ must be estimated. The q
 Using \cref{eq:ocean_response}, the ocean carbon uptake for an atmospheric \ce{CO2} time series can be computed for given values of $\tau_i$ and $f_i$.
 The Global Carbon Budget \parencite{Friedlingstein2022} provide estimates of the ocean carbon uptake as well as the increase atmospheric carbon
 dioxide, which is ultimately caused by anthropogenic activities, from the year 1781 onwards. Assuming $\Delta C_o = \Delta C_a = 0$ before 1781, a least squares fit of the
-Global Carbon Budget data can be performed to \cref{eq:ocean_response} to estimate the parameters $\tau_1$ for the one box model, and $\tau_1,\tau_2$ and $f_1$ for the two box model.
+Global Carbon Budget data can be performed to \cref{eq:ocean_response} to estimate the parameters $\tau_1$ for the one box model, as well as $\tau_1,\tau_2$ and $f_1$ for the two box model.
 These parameter estimates are shown in \cref{tab:one_and_two_box_parameters}.
 
 \begin{figure}

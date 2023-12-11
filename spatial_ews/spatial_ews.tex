@@ -304,9 +304,9 @@ The two point correlation function is equal \parencite{Goldenfeld1992} to
 To see this, note
 \begin{equation}
   \label{eq:log_deriv}
-  \fdv{B(x_1)}\fdv{\log Z'}{B(x_2)} =  -\frac{1}{{Z'}^2}\fdv{Z'}{B(x_1)} + \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}
+  \fdv{B(x_1)}\fdv{\log Z'}{B(x_2)} =  -\frac{1}{{Z'}^2}\left(\fdv{Z'}{B(x_1)}\right)^2 + \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}
 \end{equation}
-and
+and, from \cref{eq:modified_Z},
 \begin{equation}
   \label{eq:log_deriv_first}
   \frac{1}{Z'}\fdv{Z'}{B(x_1)}\eval_{B=0} \propto \int z(x_1) \frac{e^{-\frac{2}{\sigma^2} \mathcal{H}[z]}}{Z}\,\mathcal{D}z = \int z(x_1) p[z] \,\mathcal{D}z = \E(z(x_1)) = 0
@@ -317,7 +317,7 @@ and similarly
   \frac{1}{Z'}\fdv{B(x_1)}\fdv{Z'}{B(x_2)}\eval_{B=0} \propto \int z(x_1)z(x_2) p[z]\,\mathcal{D}z .
 \end{equation}
 
-The integral in \cref{eq:modified_Z} can be evaluated (see \cref{sec:evaluation_of_integral}) to give the following form for $G$
+The integral in \cref{eq:modified_Z} can be evaluated (see \cref{appendix:correlation_function}) to give the following form for $G$
 \begin{equation}
   \label{eq:two_point_correlation_actual}
   G(x) = \frac{1}{4} \sigma^2 \frac{\xi}{D} e^{-x/\xi}
@@ -452,7 +452,7 @@ of spatial early warning signals should be possible. This is precisely what is s
     The top row shows the quasi-static equilibria (black) the individual
     trajectories of the grid boxes (grey) and the domain average (green).
     The variance is plotted in the second row, calculated over space 
-    (black) and over time (red). The analytical prediction for $\sigma_s^2$ is plotted in grey.
+    (black) and over time (red). The analytical prediction for $\sigma_s^2$ is plotted in black.
     The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
   \label{fig:coupled_timeseries}
 \end{figure}
@@ -574,11 +574,11 @@ region, for fast forcing and strong spatial coupling. This is illustrated schema
   \label{fig:idealised_plot}
 \end{figure}
 
-\section{Applying Spatial Early Warning Signals in Practice}
+\section{Practical Considerations}
 So far I have applied this method to a simple idealised system. In this section, I will suggest how this method could be applied in practice.
 
 Suppose a candidate tipping element has been identified --- which for concreteness I will take to be the Amazon Rainforest. A spatiotemporal
-dataset which represents the state variable, such as Vegetation Optical Depth (VOD). A value of $\epsilon$ should also be estimated. It is to be
+dataset which represents the state variable, such as Vegetation Optical Depth (VOD), should be obtained. A value of $\epsilon$ should also be estimated. It is to be
 hoped that it is small enough. \Cref{tab:epsilon_estimate} suggests that the Amazon Rainforest is a marginal case. By calculating a
 spatial correlation, a correlation length can be determined. If this quantity is small relative to the size of the rainforest, then it
 is plausible that the spatial early warning signals investigated in this chapter may give skillful early warnings.
