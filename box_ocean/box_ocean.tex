@@ -78,7 +78,7 @@ years. This function is dimensionless and plotted in \cref{fig:imogen_impulse_re
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{GI}
-  \caption[IMOGEN's impulse-response function]{The impulse-response function for the ocean carbon uptake in IMGOEN, described by \cref{eq:imogen_impulse_response}. The function is discontinuous at $t = \SI{1}{\year}$. The dotted line indicates this discontinuity. Note the differences in scales on both the $x$ and $y$ axes either side of this discontinuity.}
+  \caption[IMOGEN's impulse-response function]{The impulse-response function for the ocean carbon uptake in IMOGEN, described by \cref{eq:imogen_impulse_response}. The function is discontinuous at $t = \SI{1}{\year}$. The dotted line indicates this discontinuity. Note the differences in scales on both the $x$ and $y$ axes either side of this discontinuity.}
   \label{fig:imogen_impulse_response}
 \end{figure}
 
@@ -424,11 +424,11 @@ For this section, it will be assumed that $C_2$ has a slow response to a given a
 Ignoring \cref{eq:two_box_ocean_c1}, it has already been shown in \cref{sec:hopf_in_one} that a system with a slow ocean response will undergo a Hopf bifurcation at a critical value of $\mu$.
 
 Mechanistically, this happens because the instability leads to the soil releasing its carbon to the atmosphere. The ocean box can then draw down the excess carbon from the atmosphere, which cools
-the climate and allows carbon to accumulate on land again. Eventually, enough carbon will have accumulated in the soils that the state becomes unstable and it will be released back into the atmoshere,
+the climate and allows carbon to accumulate on land again. Eventually, enough carbon will have accumulated in the soils that the state becomes unstable and it will be released back into the atmosphere,
 starting the cycle again.
 
-Taking into account \cref{eq:two_box_ocean_c1}, this will tend to increase the draw down of atmospheric carbon, thus potentially stabalising the system. However it seems reasonable to expect that the above
-mechanism will not be totally distrupted and therefore a Hopf bifurcation might still be expected.
+Taking into account \cref{eq:two_box_ocean_c1}, this will tend to increase the draw down of atmospheric carbon, thus potentially stabilising the system. However it seems reasonable to expect that the above
+mechanism will not be totally disrupted and therefore a Hopf bifurcation might still be expected.
 
 \subsection{Computation of Bifurcation Point}
 If the assumption that there is a Hopf bifurcation can be made, then there is another mode of attack. At the Hopf bifurcation a pair of complex conjugate eigenvalues
@@ -536,7 +536,7 @@ has bifurcations for large enough values of the climate sensitivity. In this nex
     $Q_{10}$ has been set to $2$. Black lines represent a steady state condition, whereas red lines show that maximum and minimum of an oscillatory state.
     The solid lines are the values for IMOGEN, the dotted lines are for the one box model and the dashed lines are for the two box model. IMOGEN and the two box model
     undergo a Hopf bifurcation at $S \approx \SI{10.5}{\kelvin}$, whereas the one box model undergoes a transcritical bifurcation here. The oscillation period for the two box model
-    increases linearly with $S$ from \SI{34}{\year} to \SI{77}{\year}. The oscillation period for the IMOGEN model shows little variation with $S$, having an oscialltion period of \SI{1250}{\year}.}
+    increases linearly with $S$ from \SI{34}{\year} to \SI{77}{\year}. The oscillation period for the IMOGEN model shows little variation with $S$, having an oscillation period of \SI{1250}{\year}.}
 \label{fig:imogen_one_box_two_box}
 \end{figure}
 The ocean parameters have been chosen so that the bifurcation occurs at the same point. For the one box model, this involved setting $\tau = \SI{2.34}{\year}$. For the two box model there
@@ -594,7 +594,7 @@ is much shorter.
 
 That the second timescale obtained from observations is much shorter than required to make the bifurcation points in the two box and IMOGEN models match may imply that the record is not
 long enough to allow all the relevant timescales to be resolved. Furthermore, given that the IMOGEN ocean carbon model is able to accurately represent the observed ocean uptake
-\parencite{Joos1996}, this might suggest that the extra factors accounted for by IMOGEN (such as the extra time scales and the nonlinearities) may be important to get
+\parencite{Joos1996}, this might suggest that the extra factors accounted for by IMOGEN (such as the extra time scales and the non-linearities) may be important to get
 a Hopf bifurcation near to \SI{10.5}{\kelvin}.
 
 \section{Conclusion}
