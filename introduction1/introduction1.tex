@@ -106,7 +106,7 @@ The quantity
 \end{equation}
 known as the \emph{climate feedback} determines the amount of warming experienced for a given radiative forcing. This quantity is measured
 in units of \si{\watt\per\square\meter\per\kelvin} but it has become common to discuss $\lambda$ in terms of a given radiative forcing, $Q_{2\times}$,
-the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atmosphere, giving rise to
+the radiative forcing due to doubling the concentration of \ce{CO2} in the atmosphere, giving rise to
 \begin{equation}
   \label{eq:definition_of_ECS}
   \mathrm{ECS} = \frac{Q_{2\times}}{\lambda}
@@ -114,12 +114,12 @@ the radiative forcing due to doubling the concentration of $\ce{CO2}$ in the atm
 known as \emph{Equilibrium Climate Sensitivity} which is measured in units of temperature \parencite{Charney1979}.
 
 Implicit in this definition is the idea that $Q_{2\times}$ is well defined. It is an empirical fact that over a range of concentrations the radiative forcing
-of $\ce{CO2}$ varies to a good approximation with the logarithm of its concentration \parencite{Pierrehumbert2010}, and so the notion of a radiative forcing due to doubling is well defined.
+of \ce{CO2} varies to a good approximation with the logarithm of its concentration \parencite{Pierrehumbert2010}, and so the notion of a radiative forcing due to doubling is well defined.
 It is also usually assumed that $\mathrm{ECS}$ is a constant independent of background climate state. Whilst this appears to be a good approximation, some scientists
 have investigated its state dependence \parencite{Ashwin2019,Caballero2013,Bloch-Johnson2021}.
 
 The value of $\mathrm{ECS}$ is uncertain. State of the art climate models (CMIP6) do not agree on its value, and give a range of
-\SIrange{1.8}{5.6}{\kelvin} \parencite{Zelinka2020}, which represents an increase in uncertainty from CMIP5, although some researchers have suggested that ECS could be even
+\SIrange{1.8}{5.6}{\kelvin} \parencite{Zelinka2020}, which represents an increase in uncertainty from CMIP$5$, although some researchers have suggested that ECS could be even
 larger \parencite{Stainforth2005}.
 However, these estimates should be combined with other observational estimates, such as~\cite{Cox2018}, as well as paleoclimate records, like~\cite{Hargreaves2012}, as done by~\cite{Sherwood2020}.
 This analysis of multiple lines of evidence lead the IPCC to conclude that the best estimate of $\mathrm{ECS}$ is \SI{3.0}{\kelvin} with a likely range of \SIrange{2.5}{4.0}{\kelvin} \parencite{AR6}.
@@ -181,7 +181,7 @@ The \ce{CO2} reacts with seawater to form two other species of dissolved inorgan
 The reaction between \ce{CO2} and seawater is
 \begin{equation}
   \label{eq:dissolving_co2}
-  \ce{CO2 + H2O <=> H2CO3 <=> H^+ + HCO3^- <=> 2H^+ + CO3^{2-}},
+  \ce{CO2 + H2O <--> H2CO3 <--> H^+ + HCO3^- <--> 2H^+ + CO3^{2-}},
 \end{equation}
 hence adding \ce{CO2} to the ocean will increase the concentration of hydrogen ions, decreasing the pH. This is known as ocean acidification \parencite{Doney2009}.
 
@@ -197,7 +197,7 @@ ocean carbon cycle relative to the terrestrial carbon cycle \parencite{Arora2020
 The reactions in \cref{eq:dissolving_co2} can be combined to give
 \begin{equation}
   \label{eq:dissolving_co2_combined}
-  \ce{CO2 + H2O + CO3^{2-} <=> 2HCO3^-}.
+  \ce{CO2 + H2O + CO3^{2-} <--> 2HCO3^-}.
 \end{equation}
 Therefore as more \ce{CO2} is added to the ocean, the amount of \ce{CO3^{2-}} will decrease which leads to
 more \ce{CO2} remaining in its dissolved form which reduces the uptake of carbon \parencite{Archer2010,Egleston2010}. Furthermore the solubility of \ce{CO2} decreases with
