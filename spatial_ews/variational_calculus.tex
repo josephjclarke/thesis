@@ -17,7 +17,7 @@ However \emph{functionals} associate functions to numbers, they are often denote
 the definite integral
 \begin{equation}
   \label{eq:example_functional_definite_integral}
-  I[f] = \int_{-\infty}^{\infty} f(x) \, \mathrm{d}x
+  I[\  f] = \int_{-\infty}^{\infty} f(x) \, \mathrm{d}x
 \end{equation}
 is a functional of $f$. It associates the function $e^{-x^2}$ to the number $\sqrt{\pi}$.
 
@@ -49,7 +49,7 @@ The functional derivative (also known as a variational derivative) can be define
   Let $J$ be a functional of $f$ which is in turn a function of $x \in \mathbb{R}$. Then the functional derivative is
   \begin{equation}
     \label{eq:definition_of_functional_derivative}
-    \fdv{J[f(x)]}{f(x')} = \lim_{\epsilon\rightarrow 0} \frac{J[f(x) + \epsilon \delta(x - x')] - J[f(x)]}{\epsilon}
+    \fdv{J[\ f(x)]}{f(x')} = \lim_{\epsilon\rightarrow 0} \frac{J[\ f(x) + \epsilon \delta(x - x')] - J[\ f(x)]}{\epsilon}
   \end{equation}
   if the limit exists. Here, $\delta(x)$ is the Dirac Delta function.
 \end{definition}
@@ -72,43 +72,44 @@ Two useful results related to the chain rule will now be proven.
   Let $f,g\colon\mathbb{R}\rightarrow\mathbb{R}$ be suitable functions. Then
   \begin{equation}
     \label{eq:chain_rule_functionals}
-    \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y = g'\left(f\left(x\right)\right)
+    \fdv{f(x)} \int_a^b g\left(\ f\left(y\right)\right)\,\mathrm{d}y = g'\left(\ f\left(x\right)\right)
   \end{equation}
   and
   \begin{equation}
     \label{eq:chain_rule_derivatives_functional}
-    \fdv{f(x)} \int_a^b g\left(f'\left(y\right)\right)\,\mathrm{d}y = -\dv{x}\left(\dv{g\left(f'\left(x\right)\right)}{f'}\right)
+    \fdv{f(x)} \int_a^b g\left(\ f'\left(y\right)\right)\,\mathrm{d}y = -\dv{x}\left(\dv{g\left(\ f'\left(x\right)\right)}{f'}\right)
   \end{equation}
   where conventional derivatives have been denoted with primes.
 \end{theorem}
 \begin{proof}
   Define
   \begin{equation*}
-    J[f] = \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y
+    J[\ f] = \int_a^b g\left(\ f\left(y\right)\right)\,\mathrm{d}y
   \end{equation*}
   Beginning with the first claim using \cref{definition:functional_derivative}:
   \begin{align*}
-    \fdv{J}{f(x)}  &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(f(y) + \epsilon \delta\left(y-x\right)\right)\,\mathrm{d}y
-                                                                     - \int_a^b g\left(f\left(y\right)\right)\mathrm{d}y \right)\\
-    &=  \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(f(y)\right) + \epsilon \delta\left(y-x\right)g'\left(f\left(y\right)\right)\,\mathrm{d}y
-                                                                     - \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y\right)
+    \fdv{J}{f(x)}  &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(\ f(y) + \epsilon \delta\left(y-x\right)\right)\,\mathrm{d}y
+                                                                     - \int_a^b g\left(\ f\left(y\right)\right)\mathrm{d}y \right)\\
+    &=  \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon} \left(\int_a^b g\left(\ f(y)\right) + \epsilon \delta\left(y-x\right)g'\left(\ f\left(y\right)\right)\,\mathrm{d}y
+                                                                     - \int_a^b g\left(\ f\left(y\right)\right)\,\mathrm{d}y\right)
   \end{align*}
   where the function $g$ has been Taylor expanded to first order. The second order terms will vanish in the limit and can therefore be ignored.
   Taking the limit gives
   \begin{align*}
-    \fdv{f(x)} \int_a^b g\left(f\left(y\right)\right)\,\mathrm{d}y &= \int_a^b \delta(y - x) g'(f(y))\,\mathrm{d}y \\
-                                                                   &= g'(f(x)).                                                              
+    \fdv{f(x)} \int_a^b g\left(\ f\left(y\right)\right)\,\mathrm{d}y &= \int_a^b \delta(y - x) g'(\ f(y))\,\mathrm{d}y \\
+                                                                   &= g'(\ f(x)).                                                              
   \end{align*}
   Defining
   \begin{equation*}
-    J[f] =  \int_a^b g\left(f'\left(y\right)\right)\,\mathrm{d}y,
+    J[\ f] =  \int_a^b g\left(\ f'\left(y\right)\right)\,\mathrm{d}y,
   \end{equation*}
   the proof of \cref{eq:chain_rule_derivatives_functional} proceed similarly for the second claim:
   \begin{align*}
-    \fdv{J}{f(x)}  &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g\left(\pdv{y}\left(f(y) + \epsilon \delta (y-x)\right)\right)\, \mathrm{d}y- \int_a^b g \left( f' \left( y \right) \right)\mathrm{d}y\right)       \\
-                                                                    &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g(f'(y)) + \epsilon \delta' (y-x)\dv{g(f'(y))}{f'}\, \mathrm{d}y- \int_a^b g(f'(y))\,\mathrm{d}y\right) \\
-                                                                    &= \int_a^b \delta' (y-x)\dv{g(f'(y))}{f'}\, \mathrm{d}y \\
-    &= - \dv{x} \dv{g(f'(x))}{f'}
+    \fdv{J}{f(x)}  &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g\left(\pdv{y}\left(f(y) + \epsilon \delta (y-x)\right)\right)\, \mathrm{d}y
+                     - \int_a^b g \left( \ f' \left( y \right) \right)\mathrm{d}y\right)       \\
+                   &= \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon}\left(\int_a^b g(\ f'(y)) + \epsilon \delta' (y-x)\dv{g(\ f'(y))}{f'}\, \mathrm{d}y- \int_a^b g(\ f'(y))\,\mathrm{d}y\right) \\
+                                                                    &= \int_a^b \delta' (y-x)\dv{g(\ f'(y))}{f'}\, \mathrm{d}y \\
+    &= - \dv{x} \dv{g(\ f'(x))}{f'}
   \end{align*}
   after integrating by parts.
 \end{proof}
