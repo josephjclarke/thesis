@@ -17,13 +17,8 @@
 
 
 % fonts
-%\usepackage[cmintegrals,cmbraces]{newtxmath}
 \usepackage{ebgaramond-maths}
-%\usepackage{ebgaramond}
-%\usepackage[urw-garamond]{mathdesign}
-%\usepackage{garamondx}
 \usepackage{helvet}
-%\let\openbox\relax
 
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 
@@ -58,7 +53,6 @@ dashed=false]{biblatex}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
-%\usepackage{mathrsfs}
 \usepackage{breqn}
 
 % science
@@ -78,20 +72,15 @@ dashed=false]{biblatex}
 % referencing
 \usepackage{nameref}
 
-
-
-%% hacks to enable compilation by not defining too many math alphabets
-%\newcommand\hmmax{0}
-%\newcommand\bmmax{0}
-
-
+% contents
+\usepackage[subfigure,titles]{tocloft}
+\renewcommand{\cftchapfont}{\scshape}
+\renewcommand{\cftdot}{}
 
 % load at the end
 \usepackage{hyperref}
 \ifdraft{
   \usepackage[left]{showlabels}
-  % \usepackage{lineno}
-  %\linenumbers
 }{}
 \usepackage[noabbrev]{cleveref}
 
@@ -201,3 +190,4 @@ dashed=false]{biblatex}
 
 % Custom hyphenation
 \hyphenation{Lew-an-dow-ska Aka-dem-ie Pro-gr-ess}
+
