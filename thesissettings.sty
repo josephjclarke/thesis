@@ -191,3 +191,10 @@ dashed=false]{biblatex}
 % Custom hyphenation
 \hyphenation{Lew-an-dow-ska Aka-dem-ie Pro-gr-ess}
 
+% Don't reset page numbering at mainmatter...
+\let\mainmatterorig\mainmatter
+\renewcommand\mainmatter
+ {\edef\temppagenumber{\arabic{page}}%
+  \mainmatterorig
+  \setcounter{page}{\temppagenumber}%
+ }
