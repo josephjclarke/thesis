@@ -78,7 +78,8 @@ years. This function is dimensionless and plotted in \cref{fig:imogen_impulse_re
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,keepaspectratio]{GI}
-  \caption[IMOGEN's impulse-response function]{The impulse-response function for the ocean carbon uptake in IMOGEN, described by \cref{eq:imogen_impulse_response}. The function is discontinuous at $t = \SI{1}{\year}$. The dotted line indicates this discontinuity. Note the differences in scales on both the $x$ and $y$ axes either side of this discontinuity.}
+  \caption[IMOGEN's impulse-response function]{The impulse-response function for the ocean carbon uptake in IMOGEN, described by \cref{eq:imogen_impulse_response}. The function is discontinuous at $t = \SI{1}{\year}$. The dotted line indicates this discontinuity. Note the differences in scales on both the $x$ and $y$ axes either side of this discontinuity. On the left of the discontinuity, the
+  scale is linear, but it is logarithmic to the right.}
   \label{fig:imogen_impulse_response}
 \end{figure}
 
@@ -188,7 +189,7 @@ Putting this all together leads to the following set of coupled differential equ
     \Delta T_o             &= \frac{1}{\nu}\frac{S}{\log 2}\log \frac{C_a}{C_{a0}}.
   \end{align}
 \end{subequations}
-The function $I$ represents the IMOGEN model, $\Delta T_o$ is the change in ocean temperature which is related to the change in land temperature by the
+As the dynamics are highly non-trivial, the function $I$ has been used to represent the IMOGEN model. $\Delta T_o$ is the change in ocean temperature which is related to the change in land temperature by the
 factor $\nu = 1.45$. Note that $S$ and $Q_{10}$ (through $\mu$) appear separately in this equation, so both parameters will affect the bifurcation point.
 
 Note that there is an equilibrium at $C_a = C_{a0}$, $C_s = C_s^{\mathrm{eq}} = \Pi(C_{a0})/r_0$, $C_o = 0$, $\Delta T_o = 0$, corresponding to the pre-industrial equilibrium, which has been
@@ -196,7 +197,7 @@ experienced only small variations over the (pre-industrial) Holocene.
 
 The realism of this model could be challenged. Firstly, atmospheric and ocean temperatures do not adjust instantaneously to
 changes in atmospheric \ce{CO2}. Secondly, I have neglected any temperature dependence on NPP as well as the spatial structure of the land response.
-Furthermore, IMOGEN's representation of ocean carbon is not `processed based', but it instead based on fitting an impulse-response function to a GCM.
+Furthermore, IMOGEN's representation of ocean carbon is not `processed based', but is instead based on fitting an impulse-response function to a GCM.
 As such, it is hard to give a physical explanation for the precise functional form chosen. However, it has been found that this functional form gives a good
 representation for ocean carbon uptake \parencite{Joos1996}.
 
@@ -294,9 +295,9 @@ The one box model can be written symbolically through the following set of ODEs
 \end{align}
 \end{subequations}
 Note that unlike the IMOGEN case the dependence on $Q_{10}$ and $S$ is combined into one parameter $\mu$. Again, there is a fixed point at
-$C_a = C_{a0}$, $C_o = 0$ and $C_s = C_s^{\mathrm{eq}}$.
+$C_a = C_{a0}$, $C_o = 0$ and $C_s = C_s^{\mathrm{eq}}$. It will be shown that under suitable conditions there is another fixed point.
 
-\subsection{Stability of Pre-industrial State in the One Box Model}
+\subsection{Stability of Pre-industrial State in the One Box Ocean Model}
 As shown in \cref{sec:btipping}, a fixed point of a system is unstable when the Jacobian, $J$, of that system evaluated at the fixed point has an eigenvalue, $\gamma$, with a positive real part.
 The Jacobian of \cref{eq:one_box_ocean} is given by
 \begin{equation}
@@ -513,7 +514,7 @@ which show the eigenvalues crossing the imaginary axis at the predicted bifurcat
     calculated numerically. The ocean parameters are $\tau = \SI{0.45}{\year},\epsilon=0.004$ and $f = 0.5$.
     The dashed line is the analytically calculated bifurcation point, $\mu_-$ given by \cref{eq:mu_two_box}.
   Solid black lines represent a steady state condition, whereas red lines show the maximum and minimum of an oscillatory state. The oscillation period increases almost
-  linearly with $\mu$ from around \SI{23}{\year} to \SI{64}{\year}. These periods are compatible, at least near the critical value of $\mu$,
+  linearly with $\mu$ from around \SI{23}{\year} to \SI{64}{\year}. These periods are comparable, at least near the critical value of $\mu$,
   with those predicted by the imaginary part of the eigenvalues of the Jacobian, plotted in \cref{fig:eigen_values_of_the_jacobian}.}
   \label{fig:two_box_bf_diagram}
 \end{figure}

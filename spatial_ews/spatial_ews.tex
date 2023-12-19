@@ -134,7 +134,7 @@ Kramers' escape time (\cref{eq:kramers}) for the uncoupled system is $10^{64}$ f
 the system is not formally bistable, it is effectively bistable on relevant timescales.
 
 This system, \cref{eq:spatial_system}, can be viewed variationally\footnote{A brief review of the concepts of the variational derivative are presented in \cref{appendix:variational_calculus}.}.
-To do this define the `energy' of the system as
+The deterministic dynamics can be related to the `energy' of the system, defined as
 \begin{equation}
   \label{eq:spatial_system_energy}
   \mathcal{E} = \int_0^L -\frac{1}{2}y^2 + \frac{1}{12}y^4 + \mu y + \frac{1}{2}D\left(\pdv{y}{x}\right)^2\,\mathrm{d}{x}.
@@ -347,7 +347,7 @@ The spatial variance estimator of $y$ at time $t$ is then
 and the temporal autocorrelation estimator over space is defined as
 \begin{equation}
   \label{eq:spatial_autocorrelation}
-  \alpha_s(t) = \frac{\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle }{\sigma_s(t)^2}.
+  \alpha_s(t,\Delta t) = \frac{\langle y(t,x)y(t+\Delta t,x) - \langle y(t,x)^2 \rangle }{\sigma_s(t)^2}.
 \end{equation}
 The quantity $\Delta t$ is the lag of the autocorrelation. However \cref{eq:spatial_system} will ultimately be solved numerically and
 in everything that follows $\Delta t$ will be set to the timestep, so that $\alpha_s$ is the lag-1 autocorrelation.
@@ -512,7 +512,8 @@ The evolution equation for $z = y - y_{\mathrm{eq}}$  can be written, to first o
   \label{eq:averaged_linear_perturbation_evolution}
   \dv{\langle z\rangle}{t} = \left(1 - y_{\mathrm{eq}}^2\right)\left\langle z \right \rangle + \sigma \eta  + \mathcal{O}\left(z^2 \right)
 \end{equation}
-where the fact that $y_{\mathrm{eq}}$ is an equilibrium solution of \cref{eq:spatial_system_y} has been used. This has no dependence on
+where the fact that $y_{\mathrm{eq}}$ is an equilibrium solution of \cref{eq:spatial_system_y} has been used and that $\mathcal{O}(z^2)$ is small with high probability.
+This has no dependence on
 $D$ and hence it can be expected that the temporal early warning signals are independent of $D$.
 
 To get good early warning signals it is required that $\langle z\rangle$ is small so that the linearisation in
