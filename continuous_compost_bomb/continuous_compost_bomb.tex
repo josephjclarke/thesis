@@ -31,7 +31,7 @@ Furthermore, because the rate of respiration increases with temperature, the bio
 further increase the rate of respiration. This positive feedback creates the possibility of a tipping point, in which
 runaway respiration also significantly increases the soil temperature.
 
-This runaway potential was first investigated in \cite{Luke2011}. The Luke and Cox model (hereafter referred to as the LC10 model)
+This runaway potential was first investigated in \cite{Luke2011}. The Luke and Cox model (hereafter referred to as the LC$10$ model)
 showed an instability if the rate of increase of air temperature was large compared to the soil turnover time. They dubbed this instability
 the `compost bomb' due to the known capability of compost heaps to self-heat \parencite{Nelson2007,Sidhu2007,Browne1929}.
 
@@ -47,17 +47,17 @@ raised sufficiently slowly the system could follow the steady state equilibrium.
 the system was unable to adapt sufficiently quickly to the new equilibrium and thus tipped.
 
 Here a focus is on the compost bomb instability in response to the seasonal cycle. In this case the timescale of the forcing (1 year) is much faster than the response timescale of the soil carbon
-(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (this is the `compost bomb limit' of LC10). 
+(decades), and the soil carbon can be treated as a prescribed time-invariant quantity (this is the `compost bomb limit' of LC$10$). 
 
-Some limitations of the LC10 model are that it neglects important thermal processes and soil structure, and in particular vertical variation.
+Some limitations of the LC$10$ model are that it neglects important thermal processes and soil structure, and in particular vertical variation.
 For example, as a `single box' model, it assumes that the soil is well represented by averaged quantities, such as an average soil temperature,
 when in fact these quantities can be quite heterogeneous \parencite{Gedney2003}.
 
 By definition, box models neglect processes such as heat diffusion which tend to suppress regions of unusually high temperature. Hence an initial assumption might be
-that diffusive damping may make the compost bomb harder to trigger. Additionally, the LC10 model assumes a single pool of carbon, rather than a spatially extended distribution, which might
+that diffusive damping may make the compost bomb harder to trigger. Additionally, the LC$10$ model assumes a single pool of carbon, rather than a spatially extended distribution, which might
 increase the possibility for a compost bomb.
 
-Despite these caveats, the LC10 model captures the essence of the system. The aim is to add realism to the LC10 model by considering the vertical structure and heat conductivity of the soil.
+Despite these caveats, the LC$10$ model captures the essence of the system. The aim is to add realism to the LC$10$ model by considering the vertical structure and heat conductivity of the soil.
 The new model will consist of a one dimensional soil column in which heat can diffuse and soil carbon
 decreases exponentially with depth. Whether or not an instability still exists in this model will be investigated.
 
@@ -67,7 +67,7 @@ rate-induced tipping by the sinusoidal variations in air temperature caused by t
 features of these oscillations that may raise the risk of a compost bomb.
 
 
-\section{LC10 Single Box Conceptual Model}
+\section{LC$10$ Single Box Conceptual Model}
 \label{sec:lc10}
 The compost bomb instability is based on the idea that heterotrophic respiration in the soil is both an exothermic reaction \parencite{Thornley1971} and
 also a reaction whose rate increases with temperature. Hence this reaction could lead to a scenario of thermal runaway, where respiration warms the soil which increases respiration further.
@@ -81,7 +81,7 @@ The $Q_{10}$ form implies an exponential dependence of the specific respiration 
 $\alpha = \log Q_{10}/10$. The soil carbon is increased by Net Primary Production (NPP)
 $\Pi$ (\si{\kilo\gram\carbon\per\square\meter\per\second}) and decreased by heterotrophic respiration. Introducing the parameters $A$ (\si{\joule\per\kilo\gram\carbon}), the specific heat
 of respiration, $\mu_A$ (\si{\joule\per\square\meter\per\kelvin}) the areal soil heat capacity and $\lambda$ (\si{\watt\per\square\meter\per\kelvin})
-the soil-to-atmosphere heat transfer coefficient leads to the LC10 model:
+the soil-to-atmosphere heat transfer coefficient leads to the LC$10$ model:
 \begin{subequations}
 
   \label{eq:lc10}
@@ -157,7 +157,7 @@ The spatial derivatives were approximated using central differences. This was th
 the backwards differentiation formula \textsc{bdf} method from the scipy library \parencite{Virtanen2020}. The \textsc{bdf} method was chosen as it is well suited to stiff problems.
 If scipy's solver could not find a solution, then it was assumed that compost bomb had occurred.
 
-This is a first piece of evidence that the results of the LC10 model remain when soil depth is taken into account. \Cref{fig:vertical_profiles}
+This is a first piece of evidence that the results of the LC$10$ model remain when soil depth is taken into account. \Cref{fig:vertical_profiles}
 is a plot of the temperature profile of soil at different times, initialised to be in equilibrium, undergoing the compost bomb thermal runaway after five months.
 $\delta T_a$ was set to a  a sinusoid of frequency one year. \Cref{fig:vertical_profiles} shows that
 the instability remains in the continuous case, and it is not prevented by diffusion.
@@ -169,30 +169,30 @@ the instability remains in the continuous case, and it is not prevented by diffu
     temperatures with amplitude \SI{32.5}{\degreeCelsius}.}
   \label{fig:vertical_profiles}
 \end{figure}
-\subsection{Consistency of the continuum model with LC10}
-\label{sec:consistency_with_LC10}
-In this subsection the LC10 model and continuum model are compared numerically. The level of soil carbon is chosen such that the soil temperature is
+\subsection{Consistency of the continuum model with LC$10$}
+\label{sec:consistency_with_LC$10$}
+In this subsection the LC$10$ model and continuum model are compared numerically. The level of soil carbon is chosen such that the soil temperature is
 initially in an equilibrium state with $\delta T_{a} = 0$. The models are then integrate forward in time with $\delta T_a$ constant and greater than zero.
 For sufficiently large values of $\delta T_a$ the system has an instability. The smallest value of $\delta T_a$ for which this is true is referred to
 as the `critical warming level', because if air temperatures were increased by this amount quickly with respect to the soil carbon turn over time,
 an instability would be triggered.
 
 This critical warming is plotted, as a function of $\kappa$ in \cref{fig:comparison_with_lc10}.
-Also overlaid is the warming required to cause a compost bomb in the LC10
+Also overlaid is the warming required to cause a compost bomb in the LC$10$
 model. Also shown is the amplitude of the seasonal cycle needed to cause a compost bomb.
-It can be observed that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC10 case. In addition, the soil is more stable
+It can be observed that as $\kappa\rightarrow\infty$ the vertical structure matters less and the continuum result asymptotes to the LC$10$ case. In addition, the soil is more stable
 to seasonal cycle oscillations than instantaneous jumps. This `overshoot' behaviour \parencite{Ritchie2019,Ritchie2021} is due to the fact that soil temperatures do not instantly respond to the seasonal cycle.
-Surprisingly for smaller values of $\kappa$ the critical warming is actually lower in the continuum case than the LC10 case,
+Surprisingly for smaller values of $\kappa$ the critical warming is actually lower in the continuum case than the LC$10$ case,
 despite the damping effects of diffusion.
 \begin{figure}
   \centering
   \includegraphics[keepaspectratio,width=\textwidth]{dimensional_continuum_vs_lc10}
-  \caption[Critical warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC10 model.
+  \caption[Critical warming level in the continuum compost bomb]{The warming required to make the continuum model unstable as a function of $\kappa$, compared to the LC$10$ model.
     Also plotted on is the seasonal cycle amplitude required for this instability.}
   \label{fig:comparison_with_lc10}
 \end{figure}
 
-To investigate this further, the LC10 model will be derived from the continuum case. This is done by vertically averaging \cref{eq:one_d_model}.
+To investigate this further, the LC$10$ model will be derived from the continuum case. This is done by vertically averaging \cref{eq:one_d_model}.
 Vertically averaged quantities are denoted by
 $\left\langle q \right\rangle = \frac{1}{H}\int_{-\infty}^0 q \mathrm{d}z$.  Begin by integrating \cref{eq:one_d_model} over the vertical domain:
 \begin{equation}
@@ -215,10 +215,10 @@ Assuming the vertical distribution of soil carbon does not affect the average va
   \mu_A \dv{\left\langle T_s \right\rangle}{t} = -\lambda \left( T_s\left(0,t\right) - T_{a0} - \delta T_a\left(t\right)\right) +
   AC_sr_0\left\langle e^{\alpha \left(T_s - T_{\mathrm{ref}}\right)}\right\rangle.
 \end{equation}
-This is equivalent to the LC10 model if $T_s(0,t) \approx \left\langle T_s \right\rangle$ and $\left\langle e^{\alpha T_s}\right\rangle \approx e^{\alpha \left\langle T_s \right\rangle}$.
+This is equivalent to the LC$10$ model if $T_s(0,t) \approx \left\langle T_s \right\rangle$ and $\left\langle e^{\alpha T_s}\right\rangle \approx e^{\alpha \left\langle T_s \right\rangle}$.
 These approximations become exact when $T_s$ is not a function of $z$, which occurs when $\kappa \rightarrow \infty$, as shown in \cref{fig:comparison_with_lc10}.
-Note however that because $\left\langle e^{\alpha T_s} \right\rangle \ge e^{\left\langle \alpha T_s \right\rangle}$ the LC10 model underpredicts the amount of respiration
-in soils when $\kappa$ is finite, and so the LC10 model will need a higher amount of warming to trigger a compost bomb.
+Note however that because $\left\langle e^{\alpha T_s} \right\rangle \ge e^{\left\langle \alpha T_s \right\rangle}$ the LC$10$ model underpredicts the amount of respiration
+in soils when $\kappa$ is finite, and so the LC$10$ model will need a higher amount of warming to trigger a compost bomb.
 
   
 \subsection{Existence of the Compost Bomb in the Continuum Case}
@@ -410,7 +410,7 @@ compost bombs. This susceptibility can be understood as the atmosphere being abl
 
 The purpose of this research is to determine features of raised near-surface temperature that could trigger thermal runaway in soils, a process called a `compost bomb'.
 The compost bomb instability was originally identified in a single box model. The overarching finding of this chapter is that when accounting for vertical heterogeneity,
-thermal runaway still occurs. For all finite values of thermal conductivity, I find these temperature thresholds are lower than those in the LC10 model, which I attribute
+thermal runaway still occurs. For all finite values of thermal conductivity, I find these temperature thresholds are lower than those in the LC$10$ model, which I attribute
 to the strongly nonlinear respiration response to temperature.
 
 The analysis undertaken suggests there are two important nondimensional parameters, $D$ and $\mathcal{W}$ which characterise the `thermal thickness' and energy output
@@ -442,7 +442,7 @@ should play a more important role than moisture variations in the dynamics of th
 \label{sec:conclusion}
 In this chapter I present an advance in the realism of compost bomb models, by accounting for the vertical structure of the soils. I have found that even accounting
 for the diffusive effects of vertical structure, compost bombs can still occur. Furthermore, for realistic levels of heat diffusion,
-warming levels required to initiate the instability are much smaller than in the LC10 case. For the set of parameters investigated a rapid warming of the order of \SI{10}{\degreeCelsius} is
+warming levels required to initiate the instability are much smaller than in the LC$10$ case. For the set of parameters investigated a rapid warming of the order of \SI{10}{\degreeCelsius} is
 enough to push soils into an unstable regime. Furthermore, I have also found that for annual temperature cycles of around \SI{30}{\degreeCelsius} risk triggering compost bombs.
 
 This research adds to the evidence base that fires may self-ignite in high-latitude soils, which would have implications for the carbon cycle in these regions.
