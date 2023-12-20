@@ -268,7 +268,7 @@ of \cref{eq:linearised_spatial_D} must be calculated. This system has its own
 form of the Fokker-Planck equation \parencite{Goldenfeld1992} which describes the evolution of $p[z,t]$,
 \begin{equation}
   \label{eq:fokker_planck_functional}
-  \pdv{p}{t} = \int \fdv{z(x')} \left( \pdv{\mathcal{H}}{z(x')} p + \frac{1}{2}\sigma^2 \fdv{p}{z(x')}\right) \dd{x'}.
+  \pdv{p}{t} = \int \fdv{z(x')} \left( \fdv{\mathcal{H}}{z(x')} p + \frac{1}{2}\sigma^2 \fdv{p}{z(x')}\right) \dd{x'}.
 \end{equation}
 Again, this has an equilibrium solution
 \begin{equation}
@@ -452,7 +452,7 @@ of spatial early warning signals should be possible. This is precisely what is s
     The top row shows the quasi-static equilibria (black) the individual
     trajectories of the grid boxes (grey) and the domain average (green).
     The variance is plotted in the second row, calculated over space 
-    (black) and over time (red). The analytical prediction for $\sigma_s^2$ is plotted in black.
+    (black) and over time (red). The analytical prediction for $\sigma_s^2$ is plotted with a dashed grey line.
     The bottom row shows a histogram of the Kendall $\tau$ values calculated over time for each $y_k$.}
   \label{fig:coupled_timeseries}
 \end{figure}

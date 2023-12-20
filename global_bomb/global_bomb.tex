@@ -288,30 +288,30 @@ Respiration must balance NPP in equilibrium when $\Delta T_a\left(\bm{r}\right) 
 As a result, \cref{eq:spatially_averaged_soil_carbon} can be written
 \begin{equation}
   \label{eq:soil_carbon_linearised}
-  \dv{\langle C_s\rangle}{t} \approx \left\langle \Delta \Pi - r_0 \Delta C_s \right\rangle-\alpha \langle \Pi_0 T_a \rangle.
+  \dv{\langle C_s\rangle}{t} \approx \left\langle \Delta \Pi - r_0 \Delta C_s \right\rangle-\alpha \langle \Pi_0 \Delta T_a \rangle.
 \end{equation}
-Introducing an effective temperature $T_{\mathrm{eff}}$, defined so that
+Introducing an effective temperature change $\Delta T_{\mathrm{eff}}$, defined so that
 \begin{equation}
   \label{eq:motivation_of_effective_temperature}
-  - \alpha \left \langle \Pi_0 T_a \right\rangle = - \alpha \left \langle \Pi_0 \right\rangle T_{\mathrm{eff}}
+  - \alpha \left \langle \Pi_0 \Delta T_a \right\rangle = - \alpha \left \langle \Pi_0 \right\rangle \Delta T_{\mathrm{eff}}
 \end{equation}
 which implies
 \begin{equation}
   \label{eq:definition_of_effective_temperature}
-  T_{\mathrm{eff}} = \frac{\left \langle \Pi_0 T_s \right\rangle}{\left \langle \Pi_0 \right\rangle}.
+  \Delta T_{\mathrm{eff}} = \frac{\left \langle \Pi_0 \Delta T_a \right\rangle}{\left \langle \Pi_0 \right\rangle}.
 \end{equation}
-After a doubling of \ce{CO2}, $T_{\mathrm{eff}} = S$ and $\langle T_a \rangle = \mathrm{ECS}$ which means that
+After a doubling of \ce{CO2}, $\Delta T_{\mathrm{eff}} = S$ and $\langle \Delta T_a \rangle = \mathrm{ECS}$ which means that
 \begin{equation}
   \label{eq:S_vs_ECS}
-  \frac{S}{\mathrm{ECS}} = \frac{\left \langle \Pi_0 T_a \right\rangle}{\left \langle \Pi_0 \right\rangle \left \langle T_a \right \rangle}.
+  \frac{S}{\mathrm{ECS}} = \frac{\left \langle \Pi_0 \Delta T_a \right\rangle}{\left \langle \Pi_0 \right\rangle \left \langle \Delta T_a \right \rangle}.
 \end{equation}
 In words, this means $S$ is given by an NPP weighted average of global temperatures. A simple estimate of this ratio can be made by noting that $\Pi_0$ is zero over ocean.
-Assuming that over land the correlation between NPP and $T_a$ is weak then
+Assuming that over land the correlation between NPP and $\Delta T_a$ is weak then
 \begin{equation}
   \label{eq:S_vs_ECS_land_ocean}
   \frac{S}{\mathrm{ECS}}
-  = \frac{\left\langle \Pi_0\right\rangle_{\mathrm{land}} \left\langle T_a \right\rangle_{\mathrm{land}}}{\left \langle \Pi_0 \right\rangle_{\mathrm{land}} \left \langle T_a \right \rangle_{\mathrm{global}}}
-  = \frac{\left\langle T\right\rangle_{\mathrm{land}}}{\left\langle T \right\rangle_{\mathrm{global}}}
+  = \frac{\left\langle \Pi_0\right\rangle_{\mathrm{land}} \left\langle \Delta T_a \right\rangle_{\mathrm{land}}}{\left \langle \Pi_0 \right\rangle_{\mathrm{land}} \left \langle \Delta T_a \right \rangle_{\mathrm{global}}}
+  = \frac{\left\langle \Delta T\right\rangle_{\mathrm{land}}}{\left\langle \Delta T \right\rangle_{\mathrm{global}}}
 \end{equation}
 which means that $S$ is the climate sensitivity over land, as predicted by the rough guess. The IPCC find that there has been about $1.5$ times more warming over land than over the globe
 as a whole \parencite{AR6}.
